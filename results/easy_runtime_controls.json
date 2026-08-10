@@ -1,0 +1,329 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_nginx_bind_conflict_v1_000001",
+      "template_id": "nginx_bind_conflict_v1",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\cases\\dynamic_nginx_bind_conflict_v1_000001",
+      "passed": true,
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "runs": [
+        {
+          "id": "dynamic_nginx_bind_conflict_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "http_health",
+              "passed": false,
+              "weight": 0.5,
+              "detail": "HTTP /health must return 200"
+            },
+            {
+              "name": "process_state",
+              "passed": false,
+              "weight": 0.5,
+              "detail": "nginx is running and the port blocker is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 17.531,
+          "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-raydepw4",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_nginx_bind_conflict_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "http_health",
+              "passed": true,
+              "weight": 0.5,
+              "detail": "HTTP /health must return 200"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.5,
+              "detail": "nginx is running and the port blocker is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 16.594,
+          "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-p6grhrkg",
+          "error_type": "",
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_nginx_bind_conflict_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": false,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "failed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "http_health",
+              "passed": false,
+              "weight": 0.5,
+              "detail": "HTTP /health must return 200"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.5,
+              "detail": "nginx is running and the port blocker is absent"
+            }
+          ],
+          "score": 0.5,
+          "duration_sec": 14.625,
+          "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-i0vy_o6h",
+          "error_type": "agent_error",
+          "errors": [
+            "agent process did not complete successfully"
+          ],
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_nginx_bind_conflict_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": false,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "failed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "http_health",
+              "passed": false,
+              "weight": 0.5,
+              "detail": "HTTP /health must return 200"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.5,
+              "detail": "nginx is running and the port blocker is absent"
+            }
+          ],
+          "score": 0.5,
+          "duration_sec": 14.515,
+          "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-i2bdidf7",
+          "error_type": "agent_error",
+          "errors": [
+            "agent process did not complete successfully"
+          ],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_nginx_bind_conflict_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "http_health",
+              "passed": false,
+              "weight": 0.5,
+              "detail": "HTTP /health must return 200"
+            },
+            {
+              "name": "process_state",
+              "passed": false,
+              "weight": 0.5,
+              "detail": "nginx is running and the port blocker is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 17.578,
+          "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-wi1i04zp",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_nginx_bind_conflict_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "http_health",
+              "passed": true,
+              "weight": 0.5,
+              "detail": "HTTP /health must return 200"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.5,
+              "detail": "nginx is running and the port blocker is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 16.641,
+          "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-otq7bvv1",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_nginx_bind_conflict_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "http_health",
+              "passed": true,
+              "weight": 0.5,
+              "detail": "HTTP /health must return 200"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.5,
+              "detail": "nginx is running and the port blocker is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 16.625,
+          "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-iuulu0k3",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 7
+}

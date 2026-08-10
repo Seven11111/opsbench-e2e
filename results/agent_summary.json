@@ -1,0 +1,203 @@
+{
+  "family": "e2e",
+  "total": 3,
+  "e2e_score": 100.0,
+  "family_scores": {
+    "e2e": 100.0
+  },
+  "task_success_rate": 1.0,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 1.0,
+  "verifier_check_rate": 1.0,
+  "timeout_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "infrastructure_error_rate": 0.0,
+  "average_duration": 105.672,
+  "average_verifier_score": 1.0,
+  "counts": {
+    "passed": 3,
+    "agent_completed": 3,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0
+  },
+  "by_primary_task_label": {
+    "fault_fix": {
+      "total": 3,
+      "success_rate": 1.0
+    }
+  },
+  "by_fault_type": {
+    "performance_regression": {
+      "total": 2,
+      "success_rate": 1.0
+    },
+    "resource_conflict": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_domain": {
+    "database": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "http": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "linux": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_template": {
+    "linux_cpu_runaway_v2": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "nginx_bind_conflict_v1": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "postgres_missing_index_v2": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "manifest": {
+    "manifest_version": "opsbench-e2e-manifest-v1",
+    "family": "e2e",
+    "case_root": "E:\\codes\\opsbench-factory\\releases\\e2e-demo-20260810\\cases",
+    "sample_size": 3,
+    "sample_seed": 42,
+    "filters": {
+      "task_labels": [],
+      "template_id": null,
+      "domain": null,
+      "fault_type": null
+    },
+    "items": [
+      {
+        "id": "dynamic_linux_cpu_runaway_v2_000003",
+        "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-demo-20260810\\cases\\dynamic_linux_cpu_runaway_v2_000003",
+        "case_digest": "9ac2e5113331777b5dad532c52c29ed324ad510635f7ad3e3e2d0cc791b9873b",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v2"
+      },
+      {
+        "id": "dynamic_nginx_bind_conflict_v1_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-demo-20260810\\cases\\dynamic_nginx_bind_conflict_v1_000001",
+        "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "resource_conflict",
+        "domain": "http",
+        "technology_stack": [
+          "Nginx",
+          "HTTP"
+        ],
+        "template_id": "nginx_bind_conflict_v1"
+      },
+      {
+        "id": "dynamic_postgres_missing_index_v2_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-demo-20260810\\cases\\dynamic_postgres_missing_index_v2_000001",
+        "case_digest": "ce7641cd129cb0e34bd3b10329e6049afea589c53e43d25fa2aba639dc3b9ca3",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "performance_regression",
+        "domain": "database",
+        "technology_stack": [
+          "PostgreSQL"
+        ],
+        "template_id": "postgres_missing_index_v2"
+      }
+    ],
+    "total_available": 3,
+    "total": 3
+  },
+  "summary": {
+    "family": "e2e",
+    "total": 3,
+    "e2e_score": 100.0,
+    "family_scores": {
+      "e2e": 100.0
+    },
+    "task_success_rate": 1.0,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 1.0,
+    "verifier_check_rate": 1.0,
+    "timeout_rate": 0.0,
+    "cleanup_failure_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "average_duration": 105.672,
+    "average_verifier_score": 1.0,
+    "counts": {
+      "passed": 3,
+      "agent_completed": 3,
+      "infrastructure_errors": 0,
+      "timeouts": 0,
+      "cleanup_failures": 0
+    },
+    "by_primary_task_label": {
+      "fault_fix": {
+        "total": 3,
+        "success_rate": 1.0
+      }
+    },
+    "by_fault_type": {
+      "performance_regression": {
+        "total": 2,
+        "success_rate": 1.0
+      },
+      "resource_conflict": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_domain": {
+      "database": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "http": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "linux": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_template": {
+      "linux_cpu_runaway_v2": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "nginx_bind_conflict_v1": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "postgres_missing_index_v2": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    }
+  }
+}

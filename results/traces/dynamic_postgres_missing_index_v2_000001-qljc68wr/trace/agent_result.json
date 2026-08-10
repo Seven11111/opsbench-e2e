@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 25,
+  "final": "Repair complete and verified.\n\n## Diagnosis\n- The target lookup is `SELECT ... FROM orders WHERE customer_id = ?`.\n- The `orders` table had **no index on `customer_id`** — only the primary key on `id`.\n- `EXPLAIN (ANALYZE)` showed a `Parallel Seq Scan` over all 500,000 rows (filter `customer_id = 42`), with ~13 ms execution and ~6000 buffer reads. That was the degraded plan.\n\n## Repair\nSmallest safe schema change: added a single btree index.\n\n```sql\nCREATE INDEX orders_customer_id_idx ON orders (customer_id);\n```\n\nNo service code, table, or process was touched.\n\n## Verification\n- **Correctness preserved:** `customer_id = 42` still returns 50 rows; result set is unchanged.\n- **Index-backed plan confirmed:**\n  ```\n  Bitmap Heap Scan on orders\n    -> Bitmap Index Scan on orders_customer_id_idx\n         Index Cond: (customer_id = 42)\n  ```\n- **Performance restored:** execution time dropped from ~13 ms (seq scan) to ~0.1–0.15 ms on repeated runs — well below the baseline threshold.\n- Health signal: `db:5432 - accepting connections` (healthy)."
+}

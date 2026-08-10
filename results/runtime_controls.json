@@ -1,0 +1,1152 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "report_version": "opsbench-e2e-runtime-controls-v1",
+      "execution_mode": "container",
+      "passed": true,
+      "cases": [
+        {
+          "id": "dynamic_nginx_bind_conflict_v1_000001",
+          "template_id": "nginx_bind_conflict_v1",
+          "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\cases\\dynamic_nginx_bind_conflict_v1_000001",
+          "passed": true,
+          "issues": [],
+          "gate": {
+            "passed": true,
+            "issues": [],
+            "required_scenarios": [
+              "no_op",
+              "oracle",
+              "partial_fix",
+              "repeat",
+              "wrong_fix"
+            ],
+            "observed_scenarios": [
+              "no_op",
+              "oracle",
+              "partial_fix",
+              "repeat",
+              "restart_only",
+              "wrong_fix"
+            ],
+            "gate_version": "e2e-runtime-gate-v1"
+          },
+          "runs": [
+            {
+              "id": "dynamic_nginx_bind_conflict_v1_000001",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "http_health",
+                  "passed": false,
+                  "weight": 0.5,
+                  "detail": "HTTP /health must return 200"
+                },
+                {
+                  "name": "process_state",
+                  "passed": false,
+                  "weight": 0.5,
+                  "detail": "nginx is running and the port blocker is absent"
+                }
+              ],
+              "score": 0.0,
+              "duration_sec": 17.531,
+              "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-raydepw4",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "no_op",
+              "control_mode": "no_op",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_nginx_bind_conflict_v1_000001",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "http_health",
+                  "passed": true,
+                  "weight": 0.5,
+                  "detail": "HTTP /health must return 200"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.5,
+                  "detail": "nginx is running and the port blocker is absent"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 16.594,
+              "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-p6grhrkg",
+              "error_type": "",
+              "errors": [],
+              "scenario": "oracle",
+              "control_mode": "oracle",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_nginx_bind_conflict_v1_000001",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": false,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "failed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "http_health",
+                  "passed": false,
+                  "weight": 0.5,
+                  "detail": "HTTP /health must return 200"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.5,
+                  "detail": "nginx is running and the port blocker is absent"
+                }
+              ],
+              "score": 0.5,
+              "duration_sec": 14.625,
+              "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-i0vy_o6h",
+              "error_type": "agent_error",
+              "errors": [
+                "agent process did not complete successfully"
+              ],
+              "scenario": "wrong_fix",
+              "control_mode": "wrong_fix",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_nginx_bind_conflict_v1_000001",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": false,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "failed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "http_health",
+                  "passed": false,
+                  "weight": 0.5,
+                  "detail": "HTTP /health must return 200"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.5,
+                  "detail": "nginx is running and the port blocker is absent"
+                }
+              ],
+              "score": 0.5,
+              "duration_sec": 14.515,
+              "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-i2bdidf7",
+              "error_type": "agent_error",
+              "errors": [
+                "agent process did not complete successfully"
+              ],
+              "scenario": "partial_fix",
+              "control_mode": "partial_fix",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_nginx_bind_conflict_v1_000001",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "http_health",
+                  "passed": false,
+                  "weight": 0.5,
+                  "detail": "HTTP /health must return 200"
+                },
+                {
+                  "name": "process_state",
+                  "passed": false,
+                  "weight": 0.5,
+                  "detail": "nginx is running and the port blocker is absent"
+                }
+              ],
+              "score": 0.0,
+              "duration_sec": 17.578,
+              "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-wi1i04zp",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "restart_only",
+              "control_mode": "restart_only",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_nginx_bind_conflict_v1_000001",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "http_health",
+                  "passed": true,
+                  "weight": 0.5,
+                  "detail": "HTTP /health must return 200"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.5,
+                  "detail": "nginx is running and the port blocker is absent"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 16.641,
+              "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-otq7bvv1",
+              "error_type": "",
+              "errors": [],
+              "scenario": "repeat",
+              "control_mode": "oracle",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_nginx_bind_conflict_v1_000001",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "http_health",
+                  "passed": true,
+                  "weight": 0.5,
+                  "detail": "HTTP /health must return 200"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.5,
+                  "detail": "nginx is running and the port blocker is absent"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 16.625,
+              "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\reports\\control_traces\\dynamic_nginx_bind_conflict_v1_000001-iuulu0k3",
+              "error_type": "",
+              "errors": [],
+              "scenario": "repeat",
+              "control_mode": "oracle",
+              "repeat_index": 1
+            }
+          ]
+        }
+      ],
+      "case_count": 1,
+      "run_count": 7
+    },
+    {
+      "report_version": "opsbench-e2e-runtime-controls-v1",
+      "execution_mode": "container",
+      "passed": true,
+      "cases": [
+        {
+          "id": "dynamic_linux_cpu_runaway_v2_000003",
+          "template_id": "linux_cpu_runaway_v2",
+          "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\cases\\dynamic_linux_cpu_runaway_v2_000003",
+          "passed": true,
+          "issues": [],
+          "gate": {
+            "passed": true,
+            "issues": [],
+            "required_scenarios": [
+              "no_op",
+              "oracle",
+              "partial_fix",
+              "repeat",
+              "wrong_fix"
+            ],
+            "observed_scenarios": [
+              "no_op",
+              "oracle",
+              "partial_fix",
+              "repeat",
+              "restart_only",
+              "wrong_fix"
+            ],
+            "gate_version": "e2e-runtime-gate-v1"
+          },
+          "runs": [
+            {
+              "id": "dynamic_linux_cpu_runaway_v2_000003",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "cpu_sample",
+                  "passed": false,
+                  "weight": 0.4,
+                  "detail": "samples=[99.67, 99.94, 99.67, 99.99]"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "runaway worker is absent"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "HTTP /health must return 200"
+                }
+              ],
+              "score": 0.6,
+              "duration_sec": 32.047,
+              "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-qaoi42br",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "no_op",
+              "control_mode": "no_op",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_linux_cpu_runaway_v2_000003",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "cpu_sample",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "samples=[0.1, 0.09, 0.19, 0.18]"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "runaway worker is absent"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "HTTP /health must return 200"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 31.265,
+              "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-e8sb_62g",
+              "error_type": "",
+              "errors": [],
+              "scenario": "oracle",
+              "control_mode": "oracle",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_linux_cpu_runaway_v2_000003",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "cpu_sample",
+                  "passed": false,
+                  "weight": 0.4,
+                  "detail": "samples=[100.15, 100.46, 100.48, 99.9]"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "runaway worker is absent"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "HTTP /health must return 200"
+                }
+              ],
+              "score": 0.6,
+              "duration_sec": 31.188,
+              "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-08ysx0dg",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "wrong_fix",
+              "control_mode": "wrong_fix",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_linux_cpu_runaway_v2_000003",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "cpu_sample",
+                  "passed": false,
+                  "weight": 0.4,
+                  "detail": "samples=[99.91, 100.01, 100.09, 100.0]"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "runaway worker is absent"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "HTTP /health must return 200"
+                }
+              ],
+              "score": 0.6,
+              "duration_sec": 31.25,
+              "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-un7t1f53",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "partial_fix",
+              "control_mode": "partial_fix",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_linux_cpu_runaway_v2_000003",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "cpu_sample",
+                  "passed": false,
+                  "weight": 0.4,
+                  "detail": "samples=[99.99, 99.93, 100.01, 100.04]"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "runaway worker is absent"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "HTTP /health must return 200"
+                }
+              ],
+              "score": 0.6,
+              "duration_sec": 31.343,
+              "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-hcycte6n",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "restart_only",
+              "control_mode": "restart_only",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_linux_cpu_runaway_v2_000003",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "cpu_sample",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "samples=[0.11, 0.1, 0.12, 0.17]"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "runaway worker is absent"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "HTTP /health must return 200"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 31.375,
+              "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-nhauolk4",
+              "error_type": "",
+              "errors": [],
+              "scenario": "repeat",
+              "control_mode": "oracle",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_linux_cpu_runaway_v2_000003",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "cpu_sample",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "samples=[0.1, 0.1, 0.13, 0.14]"
+                },
+                {
+                  "name": "process_state",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "runaway worker is absent"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.4,
+                  "detail": "HTTP /health must return 200"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 31.219,
+              "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-wflj0btf",
+              "error_type": "",
+              "errors": [],
+              "scenario": "repeat",
+              "control_mode": "oracle",
+              "repeat_index": 1
+            }
+          ]
+        }
+      ],
+      "case_count": 1,
+      "run_count": 7
+    },
+    {
+      "report_version": "opsbench-e2e-runtime-controls-v1",
+      "execution_mode": "container",
+      "passed": true,
+      "cases": [
+        {
+          "id": "dynamic_postgres_missing_index_v2_000001",
+          "template_id": "postgres_missing_index_v2",
+          "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\cases\\dynamic_postgres_missing_index_v2_000001",
+          "passed": true,
+          "issues": [],
+          "gate": {
+            "passed": true,
+            "issues": [],
+            "required_scenarios": [
+              "no_op",
+              "oracle",
+              "partial_fix",
+              "repeat",
+              "wrong_fix"
+            ],
+            "observed_scenarios": [
+              "no_op",
+              "oracle",
+              "partial_fix",
+              "repeat",
+              "restart_only",
+              "wrong_fix"
+            ],
+            "gate_version": "e2e-runtime-gate-v1"
+          },
+          "runs": [
+            {
+              "id": "dynamic_postgres_missing_index_v2_000001",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "query_result",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "rows=50"
+                },
+                {
+                  "name": "query_plan",
+                  "passed": false,
+                  "weight": 0.35,
+                  "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 10.577, \"Actual Total Time\": 12.072, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Gather Merge\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 10.575, \"Actual Total Time\": 12.068, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Workers Planned\": 2, \"Workers Launched\": 2, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 8777.63, \"Total Cost\": 8777.68, \"Plan Rows\": 21, \"Plan Width\": 69, \"Actual Startup Time\": 8.988, \"Actual Total Time\": 8.991, \"Actual Rows\": 17, \"Actual Loops\": 3, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space Type\": \"Memory\", \"Workers\": [{\"Worker Number\": 0, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space Type\": \"Memory\"}, {\"Worker Number\": 1, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space "
+                },
+                {
+                  "name": "query_latency",
+                  "passed": true,
+                  "weight": 0.25,
+                  "detail": "execution_time_ms=12.108"
+                },
+                {
+                  "name": "index_presence",
+                  "passed": false,
+                  "weight": 0.1,
+                  "detail": ""
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "/var/run/postgresql:5432 - accepting connections"
+                }
+              ],
+              "score": 0.55,
+              "duration_sec": 20.407,
+              "case_digest": "ce8906ba57a4591e8d2d4ee0be60dbb417b7568d9bf0f54480ca58005cbcd7d7",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\reports\\control_traces\\dynamic_postgres_missing_index_v2_000001-7i1zmakq",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "no_op",
+              "control_mode": "no_op",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_postgres_missing_index_v2_000001",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "query_result",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "rows=50"
+                },
+                {
+                  "name": "query_plan",
+                  "passed": true,
+                  "weight": 0.35,
+                  "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.148, \"Actual Total Time\": 0.158, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.146, \"Actual Total Time\": 0.152, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 31, \"Sort Space Type\": \"Memory\", \"Plans\": [{\"Node Type\": \"Bitmap Heap Scan\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Relation Name\": \"orders\", \"Alias\": \"orders\", \"Startup Cost\": 4.81, \"Total Cost\": 191.94, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.036, \"Actual Total Time\": 0.111, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Recheck Cond\": \"(customer_id = 4242)\", \"Rows Removed by Index Recheck\": 0, \"Exact Heap Blocks\": 50, \"Lossy Heap Blocks\": 0, \"Plans\": [{\"Node Type\": \"Bitmap Index Scan\", \"Parent Relationship\": \"Outer\", \"Pa"
+                },
+                {
+                  "name": "query_latency",
+                  "passed": true,
+                  "weight": 0.25,
+                  "detail": "execution_time_ms=0.217"
+                },
+                {
+                  "name": "index_presence",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "orders_customer_id_idx"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "/var/run/postgresql:5432 - accepting connections"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 20.578,
+              "case_digest": "ce8906ba57a4591e8d2d4ee0be60dbb417b7568d9bf0f54480ca58005cbcd7d7",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\reports\\control_traces\\dynamic_postgres_missing_index_v2_000001-pa_l9ua2",
+              "error_type": "",
+              "errors": [],
+              "scenario": "oracle",
+              "control_mode": "oracle",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_postgres_missing_index_v2_000001",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "query_result",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "rows=50"
+                },
+                {
+                  "name": "query_plan",
+                  "passed": false,
+                  "weight": 0.35,
+                  "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 13.06, \"Actual Total Time\": 14.459, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Gather Merge\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 13.058, \"Actual Total Time\": 14.454, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Workers Planned\": 2, \"Workers Launched\": 2, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 8777.63, \"Total Cost\": 8777.68, \"Plan Rows\": 21, \"Plan Width\": 69, \"Actual Startup Time\": 10.612, \"Actual Total Time\": 10.614, \"Actual Rows\": 17, \"Actual Loops\": 3, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 28, \"Sort Space Type\": \"Memory\", \"Workers\": [{\"Worker Number\": 0, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space Type\": \"Memory\"}, {\"Worker Number\": 1, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space"
+                },
+                {
+                  "name": "query_latency",
+                  "passed": true,
+                  "weight": 0.25,
+                  "detail": "execution_time_ms=14.492"
+                },
+                {
+                  "name": "index_presence",
+                  "passed": false,
+                  "weight": 0.1,
+                  "detail": ""
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "/var/run/postgresql:5432 - accepting connections"
+                }
+              ],
+              "score": 0.55,
+              "duration_sec": 20.344,
+              "case_digest": "ce8906ba57a4591e8d2d4ee0be60dbb417b7568d9bf0f54480ca58005cbcd7d7",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\reports\\control_traces\\dynamic_postgres_missing_index_v2_000001-tbqqk4qq",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "wrong_fix",
+              "control_mode": "wrong_fix",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_postgres_missing_index_v2_000001",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "query_result",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "rows=50"
+                },
+                {
+                  "name": "query_plan",
+                  "passed": false,
+                  "weight": 0.35,
+                  "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 13.88, \"Actual Total Time\": 15.931, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Gather Merge\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 13.879, \"Actual Total Time\": 15.925, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Workers Planned\": 2, \"Workers Launched\": 2, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 8777.63, \"Total Cost\": 8777.68, \"Plan Rows\": 21, \"Plan Width\": 69, \"Actual Startup Time\": 11.882, \"Actual Total Time\": 11.884, \"Actual Rows\": 17, \"Actual Loops\": 3, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space Type\": \"Memory\", \"Workers\": [{\"Worker Number\": 0, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space Type\": \"Memory\"}, {\"Worker Number\": 1, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space"
+                },
+                {
+                  "name": "query_latency",
+                  "passed": true,
+                  "weight": 0.25,
+                  "detail": "execution_time_ms=15.968"
+                },
+                {
+                  "name": "index_presence",
+                  "passed": false,
+                  "weight": 0.1,
+                  "detail": ""
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "/var/run/postgresql:5432 - accepting connections"
+                }
+              ],
+              "score": 0.55,
+              "duration_sec": 20.25,
+              "case_digest": "ce8906ba57a4591e8d2d4ee0be60dbb417b7568d9bf0f54480ca58005cbcd7d7",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\reports\\control_traces\\dynamic_postgres_missing_index_v2_000001-0f6r5ncq",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "partial_fix",
+              "control_mode": "partial_fix",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_postgres_missing_index_v2_000001",
+              "family": "e2e",
+              "passed": false,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "query_result",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "rows=50"
+                },
+                {
+                  "name": "query_plan",
+                  "passed": false,
+                  "weight": 0.35,
+                  "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 11.177, \"Actual Total Time\": 12.892, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Gather Merge\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 11.176, \"Actual Total Time\": 12.888, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Workers Planned\": 2, \"Workers Launched\": 2, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 8777.63, \"Total Cost\": 8777.68, \"Plan Rows\": 21, \"Plan Width\": 69, \"Actual Startup Time\": 9.448, \"Actual Total Time\": 9.45, \"Actual Rows\": 17, \"Actual Loops\": 3, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space Type\": \"Memory\", \"Workers\": [{\"Worker Number\": 0, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space Type\": \"Memory\"}, {\"Worker Number\": 1, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space T"
+                },
+                {
+                  "name": "query_latency",
+                  "passed": true,
+                  "weight": 0.25,
+                  "detail": "execution_time_ms=12.928"
+                },
+                {
+                  "name": "index_presence",
+                  "passed": false,
+                  "weight": 0.1,
+                  "detail": ""
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "/var/run/postgresql:5432 - accepting connections"
+                }
+              ],
+              "score": 0.55,
+              "duration_sec": 19.906,
+              "case_digest": "ce8906ba57a4591e8d2d4ee0be60dbb417b7568d9bf0f54480ca58005cbcd7d7",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\reports\\control_traces\\dynamic_postgres_missing_index_v2_000001-glx4hvgj",
+              "error_type": "verifier_failed",
+              "errors": [],
+              "scenario": "restart_only",
+              "control_mode": "restart_only",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_postgres_missing_index_v2_000001",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "query_result",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "rows=50"
+                },
+                {
+                  "name": "query_plan",
+                  "passed": true,
+                  "weight": 0.35,
+                  "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.155, \"Actual Total Time\": 0.159, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.154, \"Actual Total Time\": 0.156, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 31, \"Sort Space Type\": \"Memory\", \"Plans\": [{\"Node Type\": \"Bitmap Heap Scan\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Relation Name\": \"orders\", \"Alias\": \"orders\", \"Startup Cost\": 4.81, \"Total Cost\": 191.94, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.017, \"Actual Total Time\": 0.139, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Recheck Cond\": \"(customer_id = 4242)\", \"Rows Removed by Index Recheck\": 0, \"Exact Heap Blocks\": 50, \"Lossy Heap Blocks\": 0, \"Plans\": [{\"Node Type\": \"Bitmap Index Scan\", \"Parent Relationship\": \"Outer\", \"Pa"
+                },
+                {
+                  "name": "query_latency",
+                  "passed": true,
+                  "weight": 0.25,
+                  "detail": "execution_time_ms=0.186"
+                },
+                {
+                  "name": "index_presence",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "orders_customer_id_idx"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "/var/run/postgresql:5432 - accepting connections"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 20.312,
+              "case_digest": "ce8906ba57a4591e8d2d4ee0be60dbb417b7568d9bf0f54480ca58005cbcd7d7",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\reports\\control_traces\\dynamic_postgres_missing_index_v2_000001-3cyi3yeu",
+              "error_type": "",
+              "errors": [],
+              "scenario": "repeat",
+              "control_mode": "oracle",
+              "repeat_index": 0
+            },
+            {
+              "id": "dynamic_postgres_missing_index_v2_000001",
+              "family": "e2e",
+              "passed": true,
+              "agent_completed": true,
+              "phase_status": {
+                "validate": "passed",
+                "provision": "passed",
+                "setup": "passed",
+                "baseline_check": "passed",
+                "inject": "passed",
+                "check_injected": "passed",
+                "run_agent": "passed",
+                "verify": "passed",
+                "cleanup": "passed"
+              },
+              "checks": [
+                {
+                  "name": "query_result",
+                  "passed": true,
+                  "weight": 0.2,
+                  "detail": "rows=50"
+                },
+                {
+                  "name": "query_plan",
+                  "passed": true,
+                  "weight": 0.35,
+                  "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.117, \"Actual Total Time\": 0.121, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.116, \"Actual Total Time\": 0.118, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 31, \"Sort Space Type\": \"Memory\", \"Plans\": [{\"Node Type\": \"Bitmap Heap Scan\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Relation Name\": \"orders\", \"Alias\": \"orders\", \"Startup Cost\": 4.81, \"Total Cost\": 191.94, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.034, \"Actual Total Time\": 0.099, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Recheck Cond\": \"(customer_id = 4242)\", \"Rows Removed by Index Recheck\": 0, \"Exact Heap Blocks\": 50, \"Lossy Heap Blocks\": 0, \"Plans\": [{\"Node Type\": \"Bitmap Index Scan\", \"Parent Relationship\": \"Outer\", \"Pa"
+                },
+                {
+                  "name": "query_latency",
+                  "passed": true,
+                  "weight": 0.25,
+                  "detail": "execution_time_ms=0.156"
+                },
+                {
+                  "name": "index_presence",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "orders_customer_id_idx"
+                },
+                {
+                  "name": "service_health",
+                  "passed": true,
+                  "weight": 0.1,
+                  "detail": "/var/run/postgresql:5432 - accepting connections"
+                }
+              ],
+              "score": 1.0,
+              "duration_sec": 20.422,
+              "case_digest": "ce8906ba57a4591e8d2d4ee0be60dbb417b7568d9bf0f54480ca58005cbcd7d7",
+              "protocol_id": "opsbench-agent-v1",
+              "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\reports\\control_traces\\dynamic_postgres_missing_index_v2_000001-wp84_gzy",
+              "error_type": "",
+              "errors": [],
+              "scenario": "repeat",
+              "control_mode": "oracle",
+              "repeat_index": 1
+            }
+          ]
+        }
+      ],
+      "case_count": 1,
+      "run_count": 7
+    }
+  ]
+}

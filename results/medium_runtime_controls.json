@@ -1,0 +1,367 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_000003",
+      "template_id": "linux_cpu_runaway_v2",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\cases\\dynamic_linux_cpu_runaway_v2_000003",
+      "passed": true,
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "runs": [
+        {
+          "id": "dynamic_linux_cpu_runaway_v2_000003",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "cpu_sample",
+              "passed": false,
+              "weight": 0.4,
+              "detail": "samples=[99.67, 99.94, 99.67, 99.99]"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "runaway worker is absent"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "HTTP /health must return 200"
+            }
+          ],
+          "score": 0.6,
+          "duration_sec": 32.047,
+          "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-qaoi42br",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_cpu_runaway_v2_000003",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "cpu_sample",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "samples=[0.1, 0.09, 0.19, 0.18]"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "runaway worker is absent"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "HTTP /health must return 200"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 31.265,
+          "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-e8sb_62g",
+          "error_type": "",
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_cpu_runaway_v2_000003",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "cpu_sample",
+              "passed": false,
+              "weight": 0.4,
+              "detail": "samples=[100.15, 100.46, 100.48, 99.9]"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "runaway worker is absent"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "HTTP /health must return 200"
+            }
+          ],
+          "score": 0.6,
+          "duration_sec": 31.188,
+          "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-08ysx0dg",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_cpu_runaway_v2_000003",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "cpu_sample",
+              "passed": false,
+              "weight": 0.4,
+              "detail": "samples=[99.91, 100.01, 100.09, 100.0]"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "runaway worker is absent"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "HTTP /health must return 200"
+            }
+          ],
+          "score": 0.6,
+          "duration_sec": 31.25,
+          "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-un7t1f53",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_cpu_runaway_v2_000003",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "cpu_sample",
+              "passed": false,
+              "weight": 0.4,
+              "detail": "samples=[99.99, 99.93, 100.01, 100.04]"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "runaway worker is absent"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "HTTP /health must return 200"
+            }
+          ],
+          "score": 0.6,
+          "duration_sec": 31.343,
+          "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-hcycte6n",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_cpu_runaway_v2_000003",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "cpu_sample",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "samples=[0.11, 0.1, 0.12, 0.17]"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "runaway worker is absent"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "HTTP /health must return 200"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 31.375,
+          "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-nhauolk4",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_cpu_runaway_v2_000003",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "checks": [
+            {
+              "name": "cpu_sample",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "samples=[0.1, 0.1, 0.13, 0.14]"
+            },
+            {
+              "name": "process_state",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "runaway worker is absent"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.4,
+              "detail": "HTTP /health must return 200"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 31.219,
+          "case_digest": "1fbce5ac6114293b50ad735bbf8609f14850733c1ee9bc36cfb5ac60d0e707a5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\reports\\control_traces\\dynamic_linux_cpu_runaway_v2_000003-wflj0btf",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 7
+}

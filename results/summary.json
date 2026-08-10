@@ -1,0 +1,53 @@
+{
+  "release_id": "e2e-demo-20260810",
+  "generated_at": "2026-08-10T06:17:53.636243+00:00",
+  "case_count": 3,
+  "candidate_groups": 3,
+  "candidate_count": 9,
+  "runtime_gate_passed": true,
+  "static_validation_passed": true,
+  "model_generation_status": "fallback_after_deepseek_timeout",
+  "target_difficulty_empirical_status": "not_calibrated",
+  "runtime_control_runs": 21,
+  "task_success_rate": 1.0,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 1.0,
+  "verifier_check_rate": 1.0,
+  "timeout_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "average_duration_sec": 22.667380952380952,
+  "cases": [
+    {
+      "difficulty": "easy",
+      "case_id": "dynamic_nginx_bind_conflict_v1_000001",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "judge_rounds": 1,
+      "judge_score": 5.0
+    },
+    {
+      "difficulty": "medium",
+      "case_id": "dynamic_linux_cpu_runaway_v2_000003",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "judge_rounds": 1,
+      "judge_score": 5.0
+    },
+    {
+      "difficulty": "hard",
+      "case_id": "dynamic_postgres_missing_index_v2_000001",
+      "primitive_id": "postgres_missing_index_v2",
+      "judge_rounds": 1,
+      "judge_score": 5.0
+    }
+  ],
+  "average_duration": 105.672,
+  "average_verifier_score": 1.0,
+  "counts": {
+    "passed": 3,
+    "agent_completed": 3,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0
+  },
+  "agent_evaluation": "results/agent_summary.json",
+  "agent_protocol": "opsbench-agent-v1"
+}

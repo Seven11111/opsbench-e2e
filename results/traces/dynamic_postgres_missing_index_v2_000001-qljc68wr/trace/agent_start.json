@@ -1,0 +1,11 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "task_path": "/opsbench/public/task.md",
+  "tools_path": "/opsbench/public/tools.json",
+  "tool_names": [
+    "shell",
+    "health_check",
+    "sql_query"
+  ],
+  "model": "deepseek-v4-flash"
+}
