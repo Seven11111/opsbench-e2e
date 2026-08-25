@@ -1,0 +1,60 @@
+id: e2e_bundle_3ed9b264662f_001-s2026080932
+version: '1.0'
+family: e2e
+primary_task_label: fault_fix
+secondary_task_labels: []
+fault_type: performance_regression
+domain: linux
+technology_stack:
+- Linux
+- Docker
+- Python
+template_id: linux_cpu_runaway_v1
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: opsbench
+lifecycle:
+- validate
+- provision
+- setup
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 120
+  setup_sec: 30
+  agent_sec: 300
+  verify_sec: 30
+  cleanup_sec: 60
+source:
+  evidence_bundle_id: bundle_3ed9b264662f
+  evidence_refs:
+  - claim_type: symptom
+    ref: smoke-linux-doc#e001
+  - claim_type: impact
+    ref: smoke-linux-doc#e002
+  - claim_type: root_cause
+    ref: smoke-linux-doc#e003
+  - claim_type: repair
+    ref: smoke-linux-doc#e004
+  - claim_type: verification
+    ref: smoke-linux-doc#e005
+  candidate_group_id: bundle_3ed9b264662f_seed_2026080932_group_001
+  generation_strategy: conservative
+  experience_version: ''
+  experience_digest: ''
+  scenario_seed: 2026080932
+  template_params:
+    cpu_work_units: 50000
+  novelty_fingerprint: d2920ff7163abbd9

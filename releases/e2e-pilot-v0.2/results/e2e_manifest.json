@@ -1,0 +1,187 @@
+{
+  "manifest_version": "opsbench-e2e-manifest-v1",
+  "family": "e2e",
+  "case_root": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private",
+  "sample_size": 11,
+  "sample_seed": 42,
+  "filters": {
+    "task_labels": [],
+    "template_id": null,
+    "domain": null,
+    "fault_type": null
+  },
+  "items": [
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_000003",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-2-medium-009-9ac2e511",
+      "case_digest": "9ac2e5113331777b5dad532c52c29ed324ad510635f7ad3e3e2d0cc791b9873b",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "linux_cpu_runaway_v2"
+    },
+    {
+      "id": "dynamic_nginx_bind_conflict_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\nginx_bind_conflict-1-easy-010-8f1924ba",
+      "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_conflict",
+      "domain": "http",
+      "technology_stack": [
+        "Nginx",
+        "HTTP"
+      ],
+      "template_id": "nginx_bind_conflict_v1"
+    },
+    {
+      "id": "dynamic_postgres_missing_index_v2_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\postgres_missing_index-2-hard-011-ce7641cd",
+      "case_digest": "ce7641cd129cb0e34bd3b10329e6049afea589c53e43d25fa2aba639dc3b9ca3",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL"
+      ],
+      "template_id": "postgres_missing_index_v2"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080912",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-1-medium-005-4a299df9",
+      "case_digest": "4a299df9b3d6f87adbb67742c9af7c3ce27b1ba189eec9c0cf6d6e7c4d8a6f80",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "template_id": "linux_cpu_runaway_v1"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080922",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-1-medium-006-dde488e3",
+      "case_digest": "dde488e300c39ee2b60a406c6e3d7117e0e16ede5940811f01b12c453fd439c3",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "template_id": "linux_cpu_runaway_v1"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080932",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-1-medium-007-8fb5edd4",
+      "case_digest": "8fb5edd4885561b331fa9b178ec16e52e7950e3323cc8dbda67e92817fd3c83e",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "template_id": "linux_cpu_runaway_v1"
+    },
+    {
+      "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080921",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\http_wrong_port-1-medium-001-f4fc735a",
+      "case_digest": "f4fc735a97d02b0d4531d903c1f28bbf37e915e2f506839d7996d0367987b968",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "configuration_error",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "template_id": "http_wrong_port_v1"
+    },
+    {
+      "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080931",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\http_wrong_port-1-medium-002-83174476",
+      "case_digest": "831744763f33d05fd8de626882bf0cca132c0cbfceec127e6c9b6756e67169ef",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "configuration_error",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "template_id": "http_wrong_port_v1"
+    },
+    {
+      "id": "http-wrong-port-v1-boundary",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\http_wrong_port-1-medium-003-1531e0ee",
+      "case_digest": "1531e0eec25930d1bc770981a9bf4e6487b41c49163fc94ed72f4c88bfea6cbd",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "http_wrong_port",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "template_id": "http_wrong_port_v1"
+    },
+    {
+      "id": "http-wrong-port-v1-boundary",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\http_wrong_port-1-medium-004-2df250af",
+      "case_digest": "2df250afa9477982fe0c6a80c20cfbf7cee341529ba313a17eb584e13b91bcce",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "http_wrong_port",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "template_id": "http_wrong_port_v1"
+    },
+    {
+      "id": "linux-cpu-runaway-v1-boundary-case",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-1-medium-008-1c61d5b9",
+      "case_digest": "1c61d5b9c54779245de22b0f59c7882b981b7f7f1201eda8cfb6ad1669a6b845",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "cpu_runaway",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "template_id": "linux_cpu_runaway_v1"
+    }
+  ],
+  "total_available": 11,
+  "total": 11
+}

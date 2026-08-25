@@ -1,0 +1,10 @@
+{
+  "template_id": "http_wrong_port_v1",
+  "config_description": "HTTP listener port",
+  "expected_config": {
+    "port": 18080
+  },
+  "injected_config": {
+    "port": 18081
+  }
+}

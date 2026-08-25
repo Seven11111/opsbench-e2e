@@ -1,0 +1,15 @@
+{
+  "template_id": "linux_cpu_runaway_v1",
+  "config_description": "Linux worker CPU policy",
+  "template_params": {
+    "cpu_work_units": 50000
+  },
+  "expected_config": {
+    "runaway": false,
+    "work_units": 50000
+  },
+  "injected_config": {
+    "runaway": true,
+    "work_units": 50000
+  }
+}

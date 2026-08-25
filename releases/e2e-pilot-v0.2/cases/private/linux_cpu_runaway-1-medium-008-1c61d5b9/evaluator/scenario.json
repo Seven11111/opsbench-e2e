@@ -1,0 +1,10 @@
+{
+  "template_id": "linux_cpu_runaway_v1",
+  "config_description": "Linux worker CPU policy",
+  "expected_config": {
+    "runaway": false
+  },
+  "injected_config": {
+    "runaway": true
+  }
+}

@@ -1,0 +1,49 @@
+family: e2e
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+generation_mode: dynamic
+difficulty_assessment:
+  profile: hard
+  score: 9
+  rubric_version: e2e-difficulty-v1
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 2
+    repair_depth: 2
+    verification_complexity: 1
+  rationale:
+  - The public symptom is query degradation and does not reveal the missing index.
+  - The agent must inspect a live query plan and distinguish a useful index from an
+    unrelated one.
+  - Verification checks data correctness, plan shape, index presence, and repeated
+    latency.
+  empirical_status: not_calibrated
+fault_primitive_id: postgres_missing_index_v2
+domain: database
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+fault_type: performance_regression
+primary_task_label: fault_fix
+difficulty_profile: hard
+secondary_task_labels:
+- fault_detection
+- root_cause
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: agent-runner
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+id: dynamic_postgres_missing_index_v2_000001
+technology_stack:
+- PostgreSQL
+version: '1.0'
+template_id: postgres_missing_index_v2

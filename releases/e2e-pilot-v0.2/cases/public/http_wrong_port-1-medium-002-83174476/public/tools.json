@@ -1,0 +1,32 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tools": [
+    {
+      "name": "shell",
+      "description": "Run a diagnostic or repair command inside the target container.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "command"
+        ]
+      }
+    },
+    {
+      "name": "health_check",
+      "description": "Read the live service health signal after a repair.",
+      "input_schema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ],
+  "constraints": [
+    "Do not read case root, evaluator files, hidden labels, or host credentials."
+  ]
+}

@@ -1,0 +1,48 @@
+family: e2e
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+generation_mode: dynamic
+difficulty_assessment:
+  profile: easy
+  score: 3
+  rubric_version: e2e-difficulty-v1
+  dimensions:
+    diagnostic_uncertainty: 1
+    signal_indirection: 0
+    tool_breadth: 1
+    repair_depth: 1
+    verification_complexity: 0
+  rationale:
+  - The public symptom maps directly to a failed HTTP listener.
+  - One target container and a narrow socket/process repair path are sufficient.
+  - Verification is a direct HTTP health check plus process state.
+  empirical_status: not_calibrated
+fault_primitive_id: nginx_bind_conflict_v1
+domain: http
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+fault_type: resource_conflict
+primary_task_label: fault_fix
+difficulty_profile: easy
+secondary_task_labels:
+- fault_detection
+- root_cause
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+id: dynamic_nginx_bind_conflict_v1_000001
+technology_stack:
+- Nginx
+- HTTP
+version: '1.0'
+template_id: nginx_bind_conflict_v1

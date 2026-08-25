@@ -1,0 +1,14 @@
+{
+  "template_id": "http_wrong_port_v1",
+  "config_description": "HTTP listener port",
+  "template_params": {
+    "forward_port": 18190,
+    "listener_port": 18191
+  },
+  "expected_config": {
+    "port": 18190
+  },
+  "injected_config": {
+    "port": 18191
+  }
+}

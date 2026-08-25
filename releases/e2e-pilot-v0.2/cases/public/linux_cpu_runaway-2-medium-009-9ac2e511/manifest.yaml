@@ -1,0 +1,48 @@
+family: e2e
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+generation_mode: dynamic
+difficulty_assessment:
+  profile: medium
+  score: 5
+  rubric_version: e2e-difficulty-v1
+  dimensions:
+    diagnostic_uncertainty: 1
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 1
+    verification_complexity: 1
+  rationale:
+  - The symptom is resource pressure rather than an explicit configuration error.
+  - The agent must correlate process evidence with a persistent worker setting.
+  - Verification combines live CPU sampling, service health, and persistence.
+  empirical_status: not_calibrated
+fault_primitive_id: linux_cpu_runaway_v2
+domain: linux
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+fault_type: performance_regression
+primary_task_label: fault_fix
+difficulty_profile: medium
+secondary_task_labels:
+- fault_detection
+- root_cause
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+id: dynamic_linux_cpu_runaway_v2_000003
+technology_stack:
+- Linux
+- Python
+version: '1.0'
+template_id: linux_cpu_runaway_v2

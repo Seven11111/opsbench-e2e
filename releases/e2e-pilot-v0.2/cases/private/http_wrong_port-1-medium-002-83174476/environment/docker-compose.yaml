@@ -1,0 +1,28 @@
+services:
+  target:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: opsbench-e2e-http_wrong_port_v1
+    working_dir: /runtime
+    command: ["python", "/opt/opsbench/service.py"]
+    volumes:
+      - ./runtime/config.json:/runtime/config.json
+      - ./runtime/status.json:/runtime/status.json
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_API_KEY: ${OPSBENCH_API_KEY:-}
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_REQUEST_TIMEOUT: ${OPSBENCH_REQUEST_TIMEOUT:-300}
+      OPSBENCH_MAX_RETRIES: ${OPSBENCH_MAX_RETRIES:-2}
+      OPSBENCH_TEMPLATE_ID: http_wrong_port_v1
+      OPSBENCH_FORWARD_PORT: 18190
+    ports:
+      - "18190:18190"
+    read_only: false
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

@@ -1,0 +1,258 @@
+{
+  "dataset_version": "opsbench-e2e-benchmark-v1",
+  "family": "e2e",
+  "source_label": "runtime_capability_pool",
+  "release_status": "pilot_incomplete",
+  "target_final_count": 48,
+  "static_valid_case_count": 11,
+  "runtime_verified_case_count": 3,
+  "runtime_pending_case_count": 8,
+  "public_split": {
+    "dev": 0,
+    "test": 11
+  },
+  "capability_counts": {
+    "http_wrong_port_v1": 4,
+    "linux_cpu_runaway_v1": 4,
+    "linux_cpu_runaway_v2": 1,
+    "nginx_bind_conflict_v1": 1,
+    "postgres_missing_index_v2": 1
+  },
+  "difficulty_counts": {
+    "medium": 9,
+    "easy": 1,
+    "hard": 1
+  },
+  "items": [
+    {
+      "id": "http_wrong_port-1-medium-001-f4fc735a",
+      "original_id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080921",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\http_wrong_port-1-medium-001-f4fc735a",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\http_wrong_port-1-medium-001-f4fc735a",
+      "case_digest": "f4fc735a97d02b0d4531d903c1f28bbf37e915e2f506839d7996d0367987b968",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "http",
+      "fault_type": "configuration_error"
+    },
+    {
+      "id": "http_wrong_port-1-medium-002-83174476",
+      "original_id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080931",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\http_wrong_port-1-medium-002-83174476",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\http_wrong_port-1-medium-002-83174476",
+      "case_digest": "831744763f33d05fd8de626882bf0cca132c0cbfceec127e6c9b6756e67169ef",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "http",
+      "fault_type": "configuration_error"
+    },
+    {
+      "id": "http_wrong_port-1-medium-003-1531e0ee",
+      "original_id": "http-wrong-port-v1-boundary",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\http_wrong_port-1-medium-003-1531e0ee",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\http_wrong_port-1-medium-003-1531e0ee",
+      "case_digest": "1531e0eec25930d1bc770981a9bf4e6487b41c49163fc94ed72f4c88bfea6cbd",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "http",
+      "fault_type": "http_wrong_port"
+    },
+    {
+      "id": "http_wrong_port-1-medium-004-2df250af",
+      "original_id": "http-wrong-port-v1-boundary",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\http_wrong_port-1-medium-004-2df250af",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\http_wrong_port-1-medium-004-2df250af",
+      "case_digest": "2df250afa9477982fe0c6a80c20cfbf7cee341529ba313a17eb584e13b91bcce",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "http",
+      "fault_type": "http_wrong_port"
+    },
+    {
+      "id": "linux_cpu_runaway-1-medium-005-4a299df9",
+      "original_id": "e2e_bundle_3ed9b264662f_001-s2026080912",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-1-medium-005-4a299df9",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\linux_cpu_runaway-1-medium-005-4a299df9",
+      "case_digest": "4a299df9b3d6f87adbb67742c9af7c3ce27b1ba189eec9c0cf6d6e7c4d8a6f80",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "linux",
+      "fault_type": "performance_regression"
+    },
+    {
+      "id": "linux_cpu_runaway-1-medium-006-dde488e3",
+      "original_id": "e2e_bundle_3ed9b264662f_001-s2026080922",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-1-medium-006-dde488e3",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\linux_cpu_runaway-1-medium-006-dde488e3",
+      "case_digest": "dde488e300c39ee2b60a406c6e3d7117e0e16ede5940811f01b12c453fd439c3",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "linux",
+      "fault_type": "performance_regression"
+    },
+    {
+      "id": "linux_cpu_runaway-1-medium-007-8fb5edd4",
+      "original_id": "e2e_bundle_3ed9b264662f_001-s2026080932",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-1-medium-007-8fb5edd4",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\linux_cpu_runaway-1-medium-007-8fb5edd4",
+      "case_digest": "8fb5edd4885561b331fa9b178ec16e52e7950e3323cc8dbda67e92817fd3c83e",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "linux",
+      "fault_type": "performance_regression"
+    },
+    {
+      "id": "linux_cpu_runaway-1-medium-008-1c61d5b9",
+      "original_id": "linux-cpu-runaway-v1-boundary-case",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-1-medium-008-1c61d5b9",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\linux_cpu_runaway-1-medium-008-1c61d5b9",
+      "case_digest": "1c61d5b9c54779245de22b0f59c7882b981b7f7f1201eda8cfb6ad1669a6b845",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "linux",
+      "fault_type": "cpu_runaway"
+    },
+    {
+      "id": "linux_cpu_runaway-2-medium-009-9ac2e511",
+      "original_id": "dynamic_linux_cpu_runaway_v2_000003",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\linux_cpu_runaway-2-medium-009-9ac2e511",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\linux_cpu_runaway-2-medium-009-9ac2e511",
+      "case_digest": "9ac2e5113331777b5dad532c52c29ed324ad510635f7ad3e3e2d0cc791b9873b",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "template_id": "linux_cpu_runaway_v2",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "linux",
+      "fault_type": "performance_regression"
+    },
+    {
+      "id": "nginx_bind_conflict-1-easy-010-8f1924ba",
+      "original_id": "dynamic_nginx_bind_conflict_v1_000001",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\nginx_bind_conflict-1-easy-010-8f1924ba",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\nginx_bind_conflict-1-easy-010-8f1924ba",
+      "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "template_id": "nginx_bind_conflict_v1",
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "http",
+      "fault_type": "resource_conflict"
+    },
+    {
+      "id": "postgres_missing_index-2-hard-011-ce7641cd",
+      "original_id": "dynamic_postgres_missing_index_v2_000001",
+      "split": "test",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\private\\postgres_missing_index-2-hard-011-ce7641cd",
+      "public_path": "E:\\codes\\opsbench-factory\\releases\\e2e-benchmark-v0.1\\release\\cases\\public\\postgres_missing_index-2-hard-011-ce7641cd",
+      "case_digest": "ce7641cd129cb0e34bd3b10329e6049afea589c53e43d25fa2aba639dc3b9ca3",
+      "primitive_id": "postgres_missing_index_v2",
+      "template_id": "postgres_missing_index_v2",
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "empirical_status": "not_calibrated",
+      "primary_task_label": "fault_fix",
+      "domain": "database",
+      "fault_type": "performance_regression"
+    }
+  ],
+  "preselection_count": 13,
+  "target_final_count": 48,
+  "shortages": [
+    {
+      "primitive_id": "app_config_precedence_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "http_dependency_port_drift_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "linux_cpu_runaway_v2",
+      "available": 1,
+      "required": 4
+    },
+    {
+      "primitive_id": "linux_fd_leak_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "nginx_bind_conflict_v1",
+      "available": 1,
+      "required": 4
+    },
+    {
+      "primitive_id": "postgres_missing_index_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "postgres_missing_index_v2",
+      "available": 1,
+      "required": 4
+    },
+    {
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "available": 0,
+      "required": 4
+    }
+  ]
+}

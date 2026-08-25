@@ -1,0 +1,29 @@
+family: e2e
+timeouts:
+  provision_sec: 120
+  setup_sec: 30
+  agent_sec: 300
+  verify_sec: 30
+  cleanup_sec: 60
+domain: linux
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+fault_type: performance_regression
+primary_task_label: fault_fix
+secondary_task_labels: []
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+id: e2e_bundle_3ed9b264662f_001-s2026080912
+technology_stack:
+- Linux
+- Docker
+- Python
+version: '1.0'
+template_id: linux_cpu_runaway_v1

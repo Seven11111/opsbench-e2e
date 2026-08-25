@@ -1,0 +1,163 @@
+"""Small OpsBench-compatible LangChain ReAct agent.
+
+The agent is intended to run inside the E2E target container.  It only gets
+the public task, public tool description, and a writable trace directory.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import subprocess
+import time
+from pathlib import Path
+from typing import Any
+
+from langchain_core.tools import tool
+from langchain_openai import ChatOpenAI
+from langgraph.prebuilt import create_react_agent
+
+
+def _write_json(path: Path, value: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def _append_jsonl(path: Path, value: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(value, ensure_ascii=False) + "\n")
+
+
+def build_tools(trace_dir: Path):
+    @tool
+    def shell(command: str) -> str:
+        """Run a diagnostic or repair shell command inside the target container."""
+        started = time.monotonic()
+        try:
+            completed = subprocess.run(
+                ["/bin/sh", "-lc", command],
+                capture_output=True,
+                text=True,
+                timeout=30,
+                check=False,
+            )
+            result = {
+                "returncode": completed.returncode,
+                "stdout": (completed.stdout or "")[-12000:],
+                "stderr": (completed.stderr or "")[-12000:],
+                "duration_sec": round(time.monotonic() - started, 4),
+            }
+        except subprocess.TimeoutExpired:
+            result = {
+                "returncode": 124,
+                "stdout": "",
+                "stderr": "command timed out after 30 seconds",
+                "duration_sec": round(time.monotonic() - started, 4),
+            }
+        _append_jsonl(trace_dir / "tool_calls.jsonl", {"tool": "shell", "input": command, "result": result})
+        return json.dumps(result, ensure_ascii=False)
+
+    @tool
+    def health_check() -> str:
+        """Read the live service health signal after a repair."""
+        started = time.monotonic()
+        status_path = Path("/runtime/status.json")
+        config_path = Path("/runtime/config.json")
+        status: dict[str, Any] = {}
+        config: dict[str, Any] = {}
+        if status_path.exists():
+            try:
+                status = json.loads(status_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                status = {"healthy": False, "error": "invalid status.json"}
+        if config_path.exists():
+            try:
+                config = json.loads(config_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                config = {"error": "invalid config.json"}
+        result = {
+            "healthy": bool(status.get("healthy", False)),
+            "status": status,
+            "config": config,
+            "duration_sec": round(time.monotonic() - started, 4),
+        }
+        _append_jsonl(trace_dir / "tool_calls.jsonl", {"tool": "health_check", "input": {}, "result": result})
+        return json.dumps(result, ensure_ascii=False)
+
+    return [shell, health_check]
+
+
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--task")
+    parser.add_argument("--tools")
+    parser.add_argument("--trace")
+    parser.add_argument("--case-dir")
+    parser.add_argument("--work-dir")
+    parser.add_argument("--timeout-sec", type=int, default=300)
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = _parse_args()
+    task_path = Path(args.task or os.environ.get("OPSBENCH_TASK", "/opsbench/public/task.md"))
+    tools_path = Path(args.tools or os.environ.get("OPSBENCH_TOOLS", "/opsbench/public/tools.json"))
+    trace_dir = Path(args.trace or os.environ.get("OPSBENCH_TRACE", "/opsbench/trace"))
+    trace_dir.mkdir(parents=True, exist_ok=True)
+
+    task = task_path.read_text(encoding="utf-8")
+    public_tools = json.loads(tools_path.read_text(encoding="utf-8"))
+    _write_json(trace_dir / "agent_start.json", {
+        "protocol_id": "opsbench-agent-v1",
+        "task_path": str(task_path),
+        "tools_path": str(tools_path),
+        "tool_names": [item.get("name") for item in public_tools.get("tools", [])],
+        "model": os.environ.get("OPSBENCH_AGENT_MODEL") or os.environ.get("OPSBENCH_MODEL") or "deepseek-v4-flash",
+    })
+
+    api_key = os.environ.get("OPSBENCH_API_KEY")
+    base_url = os.environ.get("OPSBENCH_BASE_URL", "https://api.deepseek.com")
+    model_name = os.environ.get("OPSBENCH_AGENT_MODEL") or os.environ.get("OPSBENCH_MODEL") or "deepseek-v4-flash"
+    if not api_key:
+        _write_json(trace_dir / "agent_result.json", {"passed": False, "error": "OPSBENCH_API_KEY is missing"})
+        return 2
+
+    system_prompt = """You are an operations repair agent running inside the target container.
+Use the public task and tools to diagnose the live service, make the smallest safe
+repair, and verify the result. Start with health_check, then use shell only for
+commands relevant to the stated operational objective. Do not edit service code,
+start replacement sidecars, or kill or replace PID 1. Only operate under the
+runtime directory and the public files under /opsbench. Do not look for verifier,
+scenario, hidden labels, case-root files, Docker sockets, host files, or host
+credentials. Finish only after the public health signal is healthy."""
+    model = ChatOpenAI(
+        model=model_name,
+        api_key=api_key,
+        base_url=base_url,
+        temperature=0,
+        timeout=int(os.environ.get("OPSBENCH_REQUEST_TIMEOUT", "300")),
+        max_retries=int(os.environ.get("OPSBENCH_MAX_RETRIES", "2")),
+    )
+    agent = create_react_agent(model, build_tools(trace_dir), prompt=system_prompt)
+    try:
+        result = agent.invoke(
+            {"messages": [("user", task)]},
+            config={"recursion_limit": 40},
+        )
+        messages = result.get("messages", [])
+        final_text = messages[-1].content if messages else ""
+        _write_json(trace_dir / "agent_result.json", {
+            "passed": True,
+            "message_count": len(messages),
+            "final": final_text,
+        })
+        return 0
+    except Exception as exc:
+        _write_json(trace_dir / "agent_result.json", {"passed": False, "error": str(exc)})
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,67 @@
+id: linux-cpu-runaway-v1-boundary-case
+version: '1.0'
+family: e2e
+primary_task_label: fault_fix
+secondary_task_labels: []
+fault_type: cpu_runaway
+domain: linux
+technology_stack:
+- Linux
+- Docker
+- Python
+template_id: linux_cpu_runaway_v1
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+lifecycle:
+- validate
+- provision
+- setup
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 120
+  setup_sec: 30
+  agent_sec: 300
+  verify_sec: 30
+  cleanup_sec: 60
+source:
+  evidence_bundle_id: bundle_3ed9b264662f
+  evidence_refs:
+  - bundle_id: bundle_3ed9b264662f
+    document_id: smoke-linux-doc
+    claim_type: symptom
+    evidence_id: e001
+  - bundle_id: bundle_3ed9b264662f
+    document_id: smoke-linux-doc
+    claim_type: impact
+    evidence_id: e002
+  - bundle_id: bundle_3ed9b264662f
+    document_id: smoke-linux-doc
+    claim_type: root_cause
+    evidence_id: e003
+  - bundle_id: bundle_3ed9b264662f
+    document_id: smoke-linux-doc
+    claim_type: repair
+    evidence_id: e004
+  - bundle_id: bundle_3ed9b264662f
+    document_id: smoke-linux-doc
+    claim_type: verification
+    evidence_id: e005
+  candidate_group_id: bundle_3ed9b264662f_group_001
+  generation_strategy: boundary_case
+  experience_version: e2e-v1
+  experience_digest: 6072a3e7679614cea171de7287ca97bae315b534b7dab4fcc0bffd6c8e209a10
+  scenario_seed: 42
+  novelty_fingerprint: cc5f1f0af2f0b580

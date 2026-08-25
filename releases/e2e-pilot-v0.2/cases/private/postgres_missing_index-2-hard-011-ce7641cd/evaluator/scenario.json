@@ -1,0 +1,152 @@
+{
+  "template_id": "postgres_missing_index_v2",
+  "query": "SELECT id, customer_id, payload FROM orders WHERE customer_id = 4242 ORDER BY id LIMIT 50",
+  "dynamic_spec": {
+    "id": "dynamic_postgres_missing_index_v2_000001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "bundle_hard-postgres",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "postgres",
+        "component_id": "postgres",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "postgres_missing_index_v2",
+      "target": "postgres",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "Choosing the right plan to match the query structure and the properties of the data is absolutely critical for good performance, so the system includes a complex planner that tries to choose good plans. You can use the EXPLAIN command to see what query plan the p",
+      "impact": "PostgreSQL: Documentation: 16: 11.12. Examining Index Usage Home About Download Documentation Community Developers Support Donate Your account July 16, 2026: PostgreSQL 19 Beta 2 Released! Documentation → PostgreSQL 16 Supported Versions: Current ( 18 )",
+      "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "sql_query"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "postgres_missing_index_v2",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "query_result",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "query_plan",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "query_latency",
+        "weight": 0.3333333333333333
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "wrong_fix"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 9,
+      "rubric_version": "e2e-difficulty-v1",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "The public symptom is query degradation and does not reveal the missing index.",
+        "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+        "Verification checks data correctness, plan shape, index presence, and repeated latency."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e1"
+      },
+      {
+        "field_path": "public_task.impact",
+        "claim_type": "impact",
+        "ref": "doc-www-postgresql-org-docs-16-indexes-examine.html-da2331#c1"
+      },
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e2"
+      },
+      {
+        "field_path": "public_task.repair",
+        "claim_type": "repair",
+        "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e3"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e4"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "PostgreSQL"
+    ],
+    "domain": "database",
+    "fault_type": "performance_regression",
+    "candidate_group_id": "bundle_hard-postgres_group_001",
+    "generation_strategy": "conservative",
+    "experience_version": "",
+    "experience_digest": "",
+    "source": {
+      "primitive_status": "demo_validated",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 9,
+        "rubric_version": "e2e-difficulty-v1",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The public symptom is query degradation and does not reveal the missing index.",
+          "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+          "Verification checks data correctness, plan shape, index presence, and repeated latency."
+        ],
+        "empirical_status": "not_calibrated"
+      }
+    },
+    "schema_version": "opsbench-e2e-dynamic-v1"
+  },
+  "primitive_id": "postgres_missing_index_v2"
+}

@@ -1,0 +1,61 @@
+id: e2e_bundle_8b6b8c8ae1b1_001-s2026080921
+version: '1.0'
+family: e2e
+primary_task_label: fault_fix
+secondary_task_labels: []
+fault_type: configuration_error
+domain: http
+technology_stack:
+- Docker
+- Python
+- HTTP
+template_id: http_wrong_port_v1
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: opsbench
+lifecycle:
+- validate
+- provision
+- setup
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 120
+  setup_sec: 30
+  agent_sec: 300
+  verify_sec: 30
+  cleanup_sec: 60
+source:
+  evidence_bundle_id: bundle_8b6b8c8ae1b1
+  evidence_refs:
+  - claim_type: symptom
+    ref: smoke-http-doc#e001
+  - claim_type: impact
+    ref: smoke-http-doc#e002
+  - claim_type: root_cause
+    ref: smoke-http-doc#e003
+  - claim_type: repair
+    ref: smoke-http-doc#e004
+  - claim_type: verification
+    ref: smoke-http-doc#e005
+  candidate_group_id: bundle_8b6b8c8ae1b1_seed_2026080921_group_001
+  generation_strategy: conservative
+  experience_version: ''
+  experience_digest: ''
+  scenario_seed: 2026080921
+  template_params:
+    forward_port: 18090
+    listener_port: 18091
+  novelty_fingerprint: 30199ad30cda1b78

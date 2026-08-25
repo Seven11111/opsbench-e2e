@@ -1,0 +1,22 @@
+{
+  "release_status": "pilot_incomplete",
+  "static_validation": {
+    "case_count": 11,
+    "passed": 11,
+    "failed": 0
+  },
+  "runtime_gate": {
+    "verified_case_count": 3,
+    "verified_case_ids": [
+      "dynamic_linux_cpu_runaway_v2_000003",
+      "dynamic_nginx_bind_conflict_v1_000001",
+      "dynamic_postgres_missing_index_v2_000001"
+    ],
+    "passed_runs": 21,
+    "failed_runs": 0,
+    "cleanup_failure_count": 0,
+    "source_report": "releases/e2e-demo-20260810/reports/runtime_controls.json"
+  },
+  "runtime_pending_case_count": 8,
+  "runtime_gate_batch_note": "The attempted 11-case gate was stopped during a long CPU control run; pending cases are not claimed as runtime-verified."
+}

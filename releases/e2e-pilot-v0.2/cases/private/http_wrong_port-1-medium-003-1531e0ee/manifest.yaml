@@ -1,0 +1,52 @@
+id: http-wrong-port-v1-boundary
+version: '1.0'
+family: e2e
+primary_task_label: fault_fix
+secondary_task_labels: []
+fault_type: http_wrong_port
+domain: http
+technology_stack:
+- Docker
+- Python
+- HTTP
+template_id: http_wrong_port_v1
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+lifecycle:
+- validate
+- provision
+- setup
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 120
+  setup_sec: 30
+  agent_sec: 300
+  verify_sec: 30
+  cleanup_sec: 60
+source:
+  evidence_bundle_id: bundle_8b6b8c8ae1b1
+  evidence_refs:
+  - ref: bundle_8b6b8c8ae1b1/smoke-http-doc#e001
+  - ref: bundle_8b6b8c8ae1b1/smoke-http-doc#e002
+  - ref: bundle_8b6b8c8ae1b1/smoke-http-doc#e003
+  - ref: bundle_8b6b8c8ae1b1/smoke-http-doc#e004
+  - ref: bundle_8b6b8c8ae1b1/smoke-http-doc#e005
+  candidate_group_id: bundle_8b6b8c8ae1b1_group_001
+  generation_strategy: boundary_case
+  experience_version: e2e-v1
+  experience_digest: 0b1ac8dea50fbc5ac4a3eafb5c3c4d739c790a6bdbf84885181e7fbc50e39e4e
+  scenario_seed: 42
+  novelty_fingerprint: 49151e58d5073c9c

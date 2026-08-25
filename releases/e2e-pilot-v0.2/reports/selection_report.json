@@ -1,0 +1,4726 @@
+{
+  "capabilities": [
+    "app_config_precedence_v1",
+    "http_dependency_dns_poison_v1",
+    "http_dependency_port_drift_v1",
+    "http_dependency_timeout_slo_v1",
+    "http_wrong_port_v1",
+    "linux_cpu_runaway_v1",
+    "linux_cpu_runaway_v2",
+    "linux_fd_leak_v1",
+    "nginx_bind_conflict_v1",
+    "postgres_missing_index_v1",
+    "postgres_missing_index_v2",
+    "tls_hostname_mismatch_v1"
+  ],
+  "per_capability": 5,
+  "final_per_capability": 4,
+  "preselection": [
+    {
+      "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080921",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke-v2\\http\\cases\\e2e_bundle_8b6b8c8ae1b1_001-s2026080921",
+      "case_digest": "f4fc735a97d02b0d4531d903c1f28bbf37e915e2f506839d7996d0367987b968",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "configuration_error",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080921",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "configuration_error",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-http-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-http-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-http-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-http-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-http-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_seed_2026080921_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080921,
+          "template_params": {
+            "forward_port": 18090,
+            "listener_port": 18091
+          },
+          "novelty_fingerprint": "30199ad30cda1b78"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-001-f4fc735a",
+      "benchmark_case_id": "http_wrong_port-1-medium-001-f4fc735a"
+    },
+    {
+      "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080931",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke-v3\\http\\cases\\e2e_bundle_8b6b8c8ae1b1_001-s2026080931",
+      "case_digest": "831744763f33d05fd8de626882bf0cca132c0cbfceec127e6c9b6756e67169ef",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "configuration_error",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080931",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "configuration_error",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-http-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-http-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-http-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-http-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-http-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_seed_2026080931_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080931,
+          "template_params": {
+            "forward_port": 18190,
+            "listener_port": 18191
+          },
+          "novelty_fingerprint": "366930c82dd0ecbb"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-002-83174476",
+      "benchmark_case_id": "http_wrong_port-1-medium-002-83174476"
+    },
+    {
+      "id": "http-wrong-port-v1-boundary",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\calibration\\http-03\\cases\\http-wrong-port-v1-boundary",
+      "case_digest": "1531e0eec25930d1bc770981a9bf4e6487b41c49163fc94ed72f4c88bfea6cbd",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "http_wrong_port",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "http-wrong-port-v1-boundary",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "http_wrong_port",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e001"
+            },
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e002"
+            },
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e003"
+            },
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e004"
+            },
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "e2e-v1",
+          "experience_digest": "0b1ac8dea50fbc5ac4a3eafb5c3c4d739c790a6bdbf84885181e7fbc50e39e4e",
+          "scenario_seed": 42,
+          "novelty_fingerprint": "49151e58d5073c9c"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-003-1531e0ee",
+      "benchmark_case_id": "http_wrong_port-1-medium-003-1531e0ee"
+    },
+    {
+      "id": "http-wrong-port-v1-boundary",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expansion-v1\\http-01\\cases\\http-wrong-port-v1-boundary",
+      "case_digest": "2df250afa9477982fe0c6a80c20cfbf7cee341529ba313a17eb584e13b91bcce",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "http_wrong_port",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "http-wrong-port-v1-boundary",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "http_wrong_port",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "ref": "smoke-http-doc#e001",
+              "claim_type": "symptom"
+            },
+            {
+              "ref": "smoke-http-doc#e002",
+              "claim_type": "impact"
+            },
+            {
+              "ref": "smoke-http-doc#e003",
+              "claim_type": "root_cause"
+            },
+            {
+              "ref": "smoke-http-doc#e004",
+              "claim_type": "repair"
+            },
+            {
+              "ref": "smoke-http-doc#e005",
+              "claim_type": "verification"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "e2e-v1",
+          "experience_digest": "c649e7983b72192bfe95b96793ccf9e0d31d9aadb00cb2415dad3e1e0ebff032",
+          "scenario_seed": 2026080901,
+          "novelty_fingerprint": "b97ee7b8bc2cef26"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-004-2df250af",
+      "benchmark_case_id": "http_wrong_port-1-medium-004-2df250af"
+    },
+    {
+      "id": "http-wrong-port-v1-boundary-case-s2026081003",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\http-02\\cases\\http-wrong-port-v1-boundary-case-s2026081003",
+      "case_digest": "380e5ae4ad679b5236a79369ca9e8af5f74763c043f55c868b81882aa5cc25cf",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "http_wrong_port",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "http-wrong-port-v1-boundary-case-s2026081003",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "http_wrong_port",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "ref": "smoke-http-doc#e001",
+              "claim_type": "symptom"
+            },
+            {
+              "ref": "smoke-http-doc#e002",
+              "claim_type": "impact"
+            },
+            {
+              "ref": "smoke-http-doc#e003",
+              "claim_type": "root_cause"
+            },
+            {
+              "ref": "smoke-http-doc#e004",
+              "claim_type": "repair"
+            },
+            {
+              "ref": "smoke-http-doc#e005",
+              "claim_type": "verification"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_seed_2026081003_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "e2e-v1",
+          "experience_digest": "c649e7983b72192bfe95b96793ccf9e0d31d9aadb00cb2415dad3e1e0ebff032",
+          "scenario_seed": 2026081003,
+          "template_params": {
+            "forward_port": 18110,
+            "listener_port": 18111
+          },
+          "novelty_fingerprint": "694951119ad08c98"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-005-380e5ae4"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080912",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke\\cpu\\cases\\e2e_bundle_3ed9b264662f_001-s2026080912",
+      "case_digest": "4a299df9b3d6f87adbb67742c9af7c3ce27b1ba189eec9c0cf6d6e7c4d8a6f80",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_3ed9b264662f_001-s2026080912",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-linux-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-linux-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-linux-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-linux-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-linux-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_seed_2026080912_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080912,
+          "template_params": {
+            "cpu_work_units": 50000
+          },
+          "novelty_fingerprint": "d2920ff7163abbd9"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-006-4a299df9",
+      "benchmark_case_id": "linux_cpu_runaway-1-medium-005-4a299df9"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080922",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke-v2\\cpu\\cases\\e2e_bundle_3ed9b264662f_001-s2026080922",
+      "case_digest": "dde488e300c39ee2b60a406c6e3d7117e0e16ede5940811f01b12c453fd439c3",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_3ed9b264662f_001-s2026080922",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-linux-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-linux-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-linux-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-linux-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-linux-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_seed_2026080922_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080922,
+          "template_params": {
+            "cpu_work_units": 50000
+          },
+          "novelty_fingerprint": "d2920ff7163abbd9"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-007-dde488e3",
+      "benchmark_case_id": "linux_cpu_runaway-1-medium-006-dde488e3"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080932",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke-v3\\cpu\\cases\\e2e_bundle_3ed9b264662f_001-s2026080932",
+      "case_digest": "8fb5edd4885561b331fa9b178ec16e52e7950e3323cc8dbda67e92817fd3c83e",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_3ed9b264662f_001-s2026080932",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-linux-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-linux-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-linux-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-linux-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-linux-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_seed_2026080932_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080932,
+          "template_params": {
+            "cpu_work_units": 50000
+          },
+          "novelty_fingerprint": "d2920ff7163abbd9"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-008-8fb5edd4",
+      "benchmark_case_id": "linux_cpu_runaway-1-medium-007-8fb5edd4"
+    },
+    {
+      "id": "linux-cpu-runaway-v1-boundary-case",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\calibration\\cpu-01\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "case_digest": "1c61d5b9c54779245de22b0f59c7882b981b7f7f1201eda8cfb6ad1669a6b845",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "cpu_runaway",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "linux-cpu-runaway-v1-boundary-case",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "cpu_runaway",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "symptom",
+              "evidence_id": "e001"
+            },
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "impact",
+              "evidence_id": "e002"
+            },
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "root_cause",
+              "evidence_id": "e003"
+            },
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "repair",
+              "evidence_id": "e004"
+            },
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "verification",
+              "evidence_id": "e005"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "e2e-v1",
+          "experience_digest": "6072a3e7679614cea171de7287ca97bae315b534b7dab4fcc0bffd6c8e209a10",
+          "scenario_seed": 42,
+          "novelty_fingerprint": "cc5f1f0af2f0b580"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-009-1c61d5b9",
+      "benchmark_case_id": "linux_cpu_runaway-1-medium-008-1c61d5b9"
+    },
+    {
+      "id": "linux-cpu-runaway-v1-boundary-case",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\calibration\\cpu-03\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "case_digest": "2a71b3044ec6528ceae41123bda6a33772d41af3aaad23768c6a3da3d69014a1",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "cpu_runaway",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "linux-cpu-runaway-v1-boundary-case",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "cpu_runaway",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "ref": "smoke-linux-doc#e001",
+              "claim_type": "symptom"
+            },
+            {
+              "ref": "smoke-linux-doc#e002",
+              "claim_type": "impact"
+            },
+            {
+              "ref": "smoke-linux-doc#e003",
+              "claim_type": "root_cause"
+            },
+            {
+              "ref": "smoke-linux-doc#e004",
+              "claim_type": "repair"
+            },
+            {
+              "ref": "smoke-linux-doc#e005",
+              "claim_type": "verification"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "e2e-v1-cpu-review-draft",
+          "experience_digest": "9b78c839918982030df3956f083aa802a724635d89ecc0cc6d05a814e21254f7",
+          "scenario_seed": 20260808,
+          "novelty_fingerprint": "e5180616ed60f5c8"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-010-2a71b304"
+    },
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_000003",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\cases\\dynamic_linux_cpu_runaway_v2_000003",
+      "case_digest": "9ac2e5113331777b5dad532c52c29ed324ad510635f7ad3e3e2d0cc791b9873b",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "template_id": "linux_cpu_runaway_v2",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "demo_validated",
+      "source_manifest": {
+        "id": "dynamic_linux_cpu_runaway_v2_000003",
+        "version": "1.0",
+        "family": "e2e",
+        "generation_mode": "dynamic",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v2",
+        "fault_primitive_id": "linux_cpu_runaway_v2",
+        "runtime_status": "demo_validated",
+        "difficulty_profile": "medium",
+        "difficulty_assessment": {
+          "profile": "medium",
+          "score": 5,
+          "rubric_version": "e2e-difficulty-v1",
+          "dimensions": {
+            "diagnostic_uncertainty": 1,
+            "signal_indirection": 1,
+            "tool_breadth": 1,
+            "repair_depth": 1,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "The symptom is resource pressure rather than an explicit configuration error.",
+            "The agent must correlate process evidence with a persistent worker setting.",
+            "Verification combines live CPU sampling, service health, and persistence."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "baseline_check",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 180,
+          "setup_sec": 90,
+          "agent_sec": 300,
+          "verify_sec": 90,
+          "cleanup_sec": 90
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_medium-linux",
+          "evidence_refs": [
+            {
+              "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e1",
+              "claim_type": "symptom",
+              "field_path": "public_task.symptom"
+            },
+            {
+              "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e1",
+              "claim_type": "root_cause",
+              "field_path": "public_task.root_cause"
+            },
+            {
+              "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e2",
+              "claim_type": "repair",
+              "field_path": "public_task.repair"
+            },
+            {
+              "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e2",
+              "claim_type": "verification",
+              "field_path": "public_task.verification"
+            }
+          ],
+          "candidate_group_id": "bundle_medium-linux_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 3,
+          "novelty_fingerprint": "17be858859bf6555",
+          "difficulty_assessment": {
+            "profile": "medium",
+            "score": 5,
+            "rubric_version": "e2e-difficulty-v1",
+            "dimensions": {
+              "diagnostic_uncertainty": 1,
+              "signal_indirection": 1,
+              "tool_breadth": 1,
+              "repair_depth": 1,
+              "verification_complexity": 1
+            },
+            "rationale": [
+              "The symptom is resource pressure rather than an explicit configuration error.",
+              "The agent must correlate process evidence with a persistent worker setting.",
+              "Verification combines live CPU sampling, service health, and persistence."
+            ],
+            "empirical_status": "not_calibrated"
+          },
+          "scenario_spec": {
+            "id": "dynamic_linux_cpu_runaway_v2_000003",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_medium-linux",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "linux_worker",
+                "component_id": "linux-worker",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "linux_cpu_runaway_v2",
+              "target": "linux_worker",
+              "params": {
+                "cpu_work_units": 60000
+              }
+            },
+            "public_task": {
+              "symptom": "workloads experience latency spikes, throughput losses, and run the risk of OOM kills.\nWithout an accurate measure of such contention, users are forced to either play it safe and under-utilize their hardware resources, or roll the dice and frequently suffer the disruptions r",
+              "impact": "The documented operational workflow cannot complete reliably.",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check",
+              "metrics_query"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "linux_cpu_runaway_v2",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "cpu_sample",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "process_state",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "service_health",
+                "weight": 0.3333333333333333
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "medium",
+            "difficulty_assessment": {
+              "profile": "medium",
+              "score": 5,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 1,
+                "signal_indirection": 1,
+                "tool_breadth": 1,
+                "repair_depth": 1,
+                "verification_complexity": 1
+              },
+              "rationale": [
+                "The symptom is resource pressure rather than an explicit configuration error.",
+                "The agent must correlate process evidence with a persistent worker setting.",
+                "Verification combines live CPU sampling, service health, and persistence."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e1"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e2"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e2"
+              }
+            ],
+            "scenario_seed": 3,
+            "technology_stack": [
+              "Linux",
+              "Python"
+            ],
+            "domain": "linux",
+            "fault_type": "performance_regression",
+            "candidate_group_id": "bundle_medium-linux_group_001",
+            "generation_strategy": "boundary_case",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "medium",
+                "score": 5,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 1,
+                  "signal_indirection": 1,
+                  "tool_breadth": 1,
+                  "repair_depth": 1,
+                  "verification_complexity": 1
+                },
+                "rationale": [
+                  "The symptom is resource pressure rather than an explicit configuration error.",
+                  "The agent must correlate process evidence with a persistent worker setting.",
+                  "Verification combines live CPU sampling, service health, and persistence."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "dynamic_spec": {
+            "id": "dynamic_linux_cpu_runaway_v2_000003",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_medium-linux",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "linux_worker",
+                "component_id": "linux-worker",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "linux_cpu_runaway_v2",
+              "target": "linux_worker",
+              "params": {
+                "cpu_work_units": 60000
+              }
+            },
+            "public_task": {
+              "symptom": "workloads experience latency spikes, throughput losses, and run the risk of OOM kills.\nWithout an accurate measure of such contention, users are forced to either play it safe and under-utilize their hardware resources, or roll the dice and frequently suffer the disruptions r",
+              "impact": "The documented operational workflow cannot complete reliably.",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check",
+              "metrics_query"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "linux_cpu_runaway_v2",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "cpu_sample",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "process_state",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "service_health",
+                "weight": 0.3333333333333333
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "medium",
+            "difficulty_assessment": {
+              "profile": "medium",
+              "score": 5,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 1,
+                "signal_indirection": 1,
+                "tool_breadth": 1,
+                "repair_depth": 1,
+                "verification_complexity": 1
+              },
+              "rationale": [
+                "The symptom is resource pressure rather than an explicit configuration error.",
+                "The agent must correlate process evidence with a persistent worker setting.",
+                "Verification combines live CPU sampling, service health, and persistence."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e1"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e2"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e2"
+              }
+            ],
+            "scenario_seed": 3,
+            "technology_stack": [
+              "Linux",
+              "Python"
+            ],
+            "domain": "linux",
+            "fault_type": "performance_regression",
+            "candidate_group_id": "bundle_medium-linux_group_001",
+            "generation_strategy": "boundary_case",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "medium",
+                "score": 5,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 1,
+                  "signal_indirection": 1,
+                  "tool_breadth": 1,
+                  "repair_depth": 1,
+                  "verification_complexity": 1
+                },
+                "rationale": [
+                  "The symptom is resource pressure rather than an explicit configuration error.",
+                  "The agent must correlate process evidence with a persistent worker setting.",
+                  "Verification combines live CPU sampling, service health, and persistence."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "bundle_id": "bundle_medium-linux"
+        },
+        "compiler_version": "opsbench-dynamic-compiler-v1",
+        "scenario_spec_version": "opsbench-e2e-dynamic-v1"
+      },
+      "preselection_id": "linux_cpu_runaway-2-medium-011-9ac2e511",
+      "benchmark_case_id": "linux_cpu_runaway-2-medium-009-9ac2e511"
+    },
+    {
+      "id": "dynamic_nginx_bind_conflict_v1_000001",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\cases\\dynamic_nginx_bind_conflict_v1_000001",
+      "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "template_id": "nginx_bind_conflict_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_conflict",
+      "domain": "http",
+      "technology_stack": [
+        "Nginx",
+        "HTTP"
+      ],
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "demo_validated",
+      "source_manifest": {
+        "id": "dynamic_nginx_bind_conflict_v1_000001",
+        "version": "1.0",
+        "family": "e2e",
+        "generation_mode": "dynamic",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "resource_conflict",
+        "domain": "http",
+        "technology_stack": [
+          "Nginx",
+          "HTTP"
+        ],
+        "template_id": "nginx_bind_conflict_v1",
+        "fault_primitive_id": "nginx_bind_conflict_v1",
+        "runtime_status": "demo_validated",
+        "difficulty_profile": "easy",
+        "difficulty_assessment": {
+          "profile": "easy",
+          "score": 3,
+          "rubric_version": "e2e-difficulty-v1",
+          "dimensions": {
+            "diagnostic_uncertainty": 1,
+            "signal_indirection": 0,
+            "tool_breadth": 1,
+            "repair_depth": 1,
+            "verification_complexity": 0
+          },
+          "rationale": [
+            "The public symptom maps directly to a failed HTTP listener.",
+            "One target container and a narrow socket/process repair path are sufficient.",
+            "Verification is a direct HTTP health check plus process state."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "baseline_check",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 180,
+          "setup_sec": 90,
+          "agent_sec": 300,
+          "verify_sec": 90,
+          "cleanup_sec": 90
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_easy-nginx",
+          "evidence_refs": [
+            {
+              "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e1",
+              "claim_type": "symptom",
+              "field_path": "public_task.symptom"
+            },
+            {
+              "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e2",
+              "claim_type": "root_cause",
+              "field_path": "public_task.root_cause"
+            },
+            {
+              "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e1",
+              "claim_type": "repair",
+              "field_path": "public_task.repair"
+            },
+            {
+              "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e2",
+              "claim_type": "verification",
+              "field_path": "public_task.verification"
+            }
+          ],
+          "candidate_group_id": "bundle_easy-nginx_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 1,
+          "novelty_fingerprint": "b60c2de5c777b047",
+          "difficulty_assessment": {
+            "profile": "easy",
+            "score": 3,
+            "rubric_version": "e2e-difficulty-v1",
+            "dimensions": {
+              "diagnostic_uncertainty": 1,
+              "signal_indirection": 0,
+              "tool_breadth": 1,
+              "repair_depth": 1,
+              "verification_complexity": 0
+            },
+            "rationale": [
+              "The public symptom maps directly to a failed HTTP listener.",
+              "One target container and a narrow socket/process repair path are sufficient.",
+              "Verification is a direct HTTP health check plus process state."
+            ],
+            "empirical_status": "not_calibrated"
+          },
+          "scenario_spec": {
+            "id": "dynamic_nginx_bind_conflict_v1_000001",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_easy-nginx",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "nginx",
+                "component_id": "nginx",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "nginx_bind_conflict_v1",
+              "target": "nginx",
+              "params": {}
+            },
+            "public_task": {
+              "symptom": "listen directives describe all addresses and ports that should accept connections for the server, and the server_name directive lists all server names. Example configurations are provided in the “How nginx processes a request” document.\nSyntax:  |  `**server_name** `_name_`...;`\n\n---|---\nD",
+              "impact": "The documented operational workflow cannot complete reliably.",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "nginx_bind_conflict_v1",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "http_health",
+                "weight": 0.5
+              },
+              {
+                "check_id": "process_state",
+                "weight": 0.5
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "easy",
+            "difficulty_assessment": {
+              "profile": "easy",
+              "score": 3,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 1,
+                "signal_indirection": 0,
+                "tool_breadth": 1,
+                "repair_depth": 1,
+                "verification_complexity": 0
+              },
+              "rationale": [
+                "The public symptom maps directly to a failed HTTP listener.",
+                "One target container and a narrow socket/process repair path are sufficient.",
+                "Verification is a direct HTTP health check plus process state."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e2"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e1"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e2"
+              }
+            ],
+            "scenario_seed": 1,
+            "technology_stack": [
+              "Nginx",
+              "HTTP"
+            ],
+            "domain": "http",
+            "fault_type": "resource_conflict",
+            "candidate_group_id": "bundle_easy-nginx_group_001",
+            "generation_strategy": "conservative",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "easy",
+                "score": 3,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 1,
+                  "signal_indirection": 0,
+                  "tool_breadth": 1,
+                  "repair_depth": 1,
+                  "verification_complexity": 0
+                },
+                "rationale": [
+                  "The public symptom maps directly to a failed HTTP listener.",
+                  "One target container and a narrow socket/process repair path are sufficient.",
+                  "Verification is a direct HTTP health check plus process state."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "dynamic_spec": {
+            "id": "dynamic_nginx_bind_conflict_v1_000001",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_easy-nginx",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "nginx",
+                "component_id": "nginx",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "nginx_bind_conflict_v1",
+              "target": "nginx",
+              "params": {}
+            },
+            "public_task": {
+              "symptom": "listen directives describe all addresses and ports that should accept connections for the server, and the server_name directive lists all server names. Example configurations are provided in the “How nginx processes a request” document.\nSyntax:  |  `**server_name** `_name_`...;`\n\n---|---\nD",
+              "impact": "The documented operational workflow cannot complete reliably.",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "nginx_bind_conflict_v1",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "http_health",
+                "weight": 0.5
+              },
+              {
+                "check_id": "process_state",
+                "weight": 0.5
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "easy",
+            "difficulty_assessment": {
+              "profile": "easy",
+              "score": 3,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 1,
+                "signal_indirection": 0,
+                "tool_breadth": 1,
+                "repair_depth": 1,
+                "verification_complexity": 0
+              },
+              "rationale": [
+                "The public symptom maps directly to a failed HTTP listener.",
+                "One target container and a narrow socket/process repair path are sufficient.",
+                "Verification is a direct HTTP health check plus process state."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e2"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e1"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e2"
+              }
+            ],
+            "scenario_seed": 1,
+            "technology_stack": [
+              "Nginx",
+              "HTTP"
+            ],
+            "domain": "http",
+            "fault_type": "resource_conflict",
+            "candidate_group_id": "bundle_easy-nginx_group_001",
+            "generation_strategy": "conservative",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "easy",
+                "score": 3,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 1,
+                  "signal_indirection": 0,
+                  "tool_breadth": 1,
+                  "repair_depth": 1,
+                  "verification_complexity": 0
+                },
+                "rationale": [
+                  "The public symptom maps directly to a failed HTTP listener.",
+                  "One target container and a narrow socket/process repair path are sufficient.",
+                  "Verification is a direct HTTP health check plus process state."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "bundle_id": "bundle_easy-nginx"
+        },
+        "compiler_version": "opsbench-dynamic-compiler-v1",
+        "scenario_spec_version": "opsbench-e2e-dynamic-v1"
+      },
+      "preselection_id": "nginx_bind_conflict-1-easy-012-8f1924ba",
+      "benchmark_case_id": "nginx_bind_conflict-1-easy-010-8f1924ba"
+    },
+    {
+      "id": "dynamic_postgres_missing_index_v2_000001",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\cases\\dynamic_postgres_missing_index_v2_000001",
+      "case_digest": "ce7641cd129cb0e34bd3b10329e6049afea589c53e43d25fa2aba639dc3b9ca3",
+      "primitive_id": "postgres_missing_index_v2",
+      "template_id": "postgres_missing_index_v2",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL"
+      ],
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "demo_validated",
+      "source_manifest": {
+        "id": "dynamic_postgres_missing_index_v2_000001",
+        "version": "1.0",
+        "family": "e2e",
+        "generation_mode": "dynamic",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "performance_regression",
+        "domain": "database",
+        "technology_stack": [
+          "PostgreSQL"
+        ],
+        "template_id": "postgres_missing_index_v2",
+        "fault_primitive_id": "postgres_missing_index_v2",
+        "runtime_status": "demo_validated",
+        "difficulty_profile": "hard",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 9,
+          "rubric_version": "e2e-difficulty-v1",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 2,
+            "repair_depth": 2,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "The public symptom is query degradation and does not reveal the missing index.",
+            "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+            "Verification checks data correctness, plan shape, index presence, and repeated latency."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "agent-runner",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "baseline_check",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 180,
+          "setup_sec": 90,
+          "agent_sec": 300,
+          "verify_sec": 90,
+          "cleanup_sec": 90
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_hard-postgres",
+          "evidence_refs": [
+            {
+              "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e1",
+              "claim_type": "symptom",
+              "field_path": "public_task.symptom"
+            },
+            {
+              "ref": "doc-www-postgresql-org-docs-16-indexes-examine.html-da2331#c1",
+              "claim_type": "impact",
+              "field_path": "public_task.impact"
+            },
+            {
+              "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e2",
+              "claim_type": "root_cause",
+              "field_path": "public_task.root_cause"
+            },
+            {
+              "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e3",
+              "claim_type": "repair",
+              "field_path": "public_task.repair"
+            },
+            {
+              "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e4",
+              "claim_type": "verification",
+              "field_path": "public_task.verification"
+            }
+          ],
+          "candidate_group_id": "bundle_hard-postgres_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 1,
+          "novelty_fingerprint": "d0b5b3c2b9ed6683",
+          "difficulty_assessment": {
+            "profile": "hard",
+            "score": 9,
+            "rubric_version": "e2e-difficulty-v1",
+            "dimensions": {
+              "diagnostic_uncertainty": 2,
+              "signal_indirection": 2,
+              "tool_breadth": 2,
+              "repair_depth": 2,
+              "verification_complexity": 1
+            },
+            "rationale": [
+              "The public symptom is query degradation and does not reveal the missing index.",
+              "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+              "Verification checks data correctness, plan shape, index presence, and repeated latency."
+            ],
+            "empirical_status": "not_calibrated"
+          },
+          "scenario_spec": {
+            "id": "dynamic_postgres_missing_index_v2_000001",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_hard-postgres",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "postgres",
+                "component_id": "postgres",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "postgres_missing_index_v2",
+              "target": "postgres",
+              "params": {}
+            },
+            "public_task": {
+              "symptom": "Choosing the right plan to match the query structure and the properties of the data is absolutely critical for good performance, so the system includes a complex planner that tries to choose good plans. You can use the EXPLAIN command to see what query plan the p",
+              "impact": "PostgreSQL: Documentation: 16: 11.12. Examining Index Usage Home About Download Documentation Community Developers Support Donate Your account July 16, 2026: PostgreSQL 19 Beta 2 Released! Documentation → PostgreSQL 16 Supported Versions: Current ( 18 )",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check",
+              "sql_query"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "postgres_missing_index_v2",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "query_result",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "query_plan",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "query_latency",
+                "weight": 0.3333333333333333
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "hard",
+            "difficulty_assessment": {
+              "profile": "hard",
+              "score": 9,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 2,
+                "signal_indirection": 2,
+                "tool_breadth": 2,
+                "repair_depth": 2,
+                "verification_complexity": 1
+              },
+              "rationale": [
+                "The public symptom is query degradation and does not reveal the missing index.",
+                "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+                "Verification checks data correctness, plan shape, index presence, and repeated latency."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e1"
+              },
+              {
+                "field_path": "public_task.impact",
+                "claim_type": "impact",
+                "ref": "doc-www-postgresql-org-docs-16-indexes-examine.html-da2331#c1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e2"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e3"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e4"
+              }
+            ],
+            "scenario_seed": 1,
+            "technology_stack": [
+              "PostgreSQL"
+            ],
+            "domain": "database",
+            "fault_type": "performance_regression",
+            "candidate_group_id": "bundle_hard-postgres_group_001",
+            "generation_strategy": "conservative",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "hard",
+                "score": 9,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 2,
+                  "signal_indirection": 2,
+                  "tool_breadth": 2,
+                  "repair_depth": 2,
+                  "verification_complexity": 1
+                },
+                "rationale": [
+                  "The public symptom is query degradation and does not reveal the missing index.",
+                  "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+                  "Verification checks data correctness, plan shape, index presence, and repeated latency."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "dynamic_spec": {
+            "id": "dynamic_postgres_missing_index_v2_000001",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_hard-postgres",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "postgres",
+                "component_id": "postgres",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "postgres_missing_index_v2",
+              "target": "postgres",
+              "params": {}
+            },
+            "public_task": {
+              "symptom": "Choosing the right plan to match the query structure and the properties of the data is absolutely critical for good performance, so the system includes a complex planner that tries to choose good plans. You can use the EXPLAIN command to see what query plan the p",
+              "impact": "PostgreSQL: Documentation: 16: 11.12. Examining Index Usage Home About Download Documentation Community Developers Support Donate Your account July 16, 2026: PostgreSQL 19 Beta 2 Released! Documentation → PostgreSQL 16 Supported Versions: Current ( 18 )",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check",
+              "sql_query"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "postgres_missing_index_v2",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "query_result",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "query_plan",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "query_latency",
+                "weight": 0.3333333333333333
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "hard",
+            "difficulty_assessment": {
+              "profile": "hard",
+              "score": 9,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 2,
+                "signal_indirection": 2,
+                "tool_breadth": 2,
+                "repair_depth": 2,
+                "verification_complexity": 1
+              },
+              "rationale": [
+                "The public symptom is query degradation and does not reveal the missing index.",
+                "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+                "Verification checks data correctness, plan shape, index presence, and repeated latency."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e1"
+              },
+              {
+                "field_path": "public_task.impact",
+                "claim_type": "impact",
+                "ref": "doc-www-postgresql-org-docs-16-indexes-examine.html-da2331#c1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e2"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e3"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e4"
+              }
+            ],
+            "scenario_seed": 1,
+            "technology_stack": [
+              "PostgreSQL"
+            ],
+            "domain": "database",
+            "fault_type": "performance_regression",
+            "candidate_group_id": "bundle_hard-postgres_group_001",
+            "generation_strategy": "conservative",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "hard",
+                "score": 9,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 2,
+                  "signal_indirection": 2,
+                  "tool_breadth": 2,
+                  "repair_depth": 2,
+                  "verification_complexity": 1
+                },
+                "rationale": [
+                  "The public symptom is query degradation and does not reveal the missing index.",
+                  "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+                  "Verification checks data correctness, plan shape, index presence, and repeated latency."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "bundle_id": "bundle_hard-postgres"
+        },
+        "compiler_version": "opsbench-dynamic-compiler-v1",
+        "scenario_spec_version": "opsbench-e2e-dynamic-v1"
+      },
+      "preselection_id": "postgres_missing_index-2-hard-013-ce7641cd",
+      "benchmark_case_id": "postgres_missing_index-2-hard-011-ce7641cd"
+    }
+  ],
+  "final": [
+    {
+      "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080921",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke-v2\\http\\cases\\e2e_bundle_8b6b8c8ae1b1_001-s2026080921",
+      "case_digest": "f4fc735a97d02b0d4531d903c1f28bbf37e915e2f506839d7996d0367987b968",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "configuration_error",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080921",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "configuration_error",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-http-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-http-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-http-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-http-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-http-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_seed_2026080921_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080921,
+          "template_params": {
+            "forward_port": 18090,
+            "listener_port": 18091
+          },
+          "novelty_fingerprint": "30199ad30cda1b78"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-001-f4fc735a",
+      "benchmark_case_id": "http_wrong_port-1-medium-001-f4fc735a"
+    },
+    {
+      "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080931",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke-v3\\http\\cases\\e2e_bundle_8b6b8c8ae1b1_001-s2026080931",
+      "case_digest": "831744763f33d05fd8de626882bf0cca132c0cbfceec127e6c9b6756e67169ef",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "configuration_error",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_8b6b8c8ae1b1_001-s2026080931",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "configuration_error",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-http-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-http-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-http-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-http-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-http-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_seed_2026080931_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080931,
+          "template_params": {
+            "forward_port": 18190,
+            "listener_port": 18191
+          },
+          "novelty_fingerprint": "366930c82dd0ecbb"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-002-83174476",
+      "benchmark_case_id": "http_wrong_port-1-medium-002-83174476"
+    },
+    {
+      "id": "http-wrong-port-v1-boundary",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\calibration\\http-03\\cases\\http-wrong-port-v1-boundary",
+      "case_digest": "1531e0eec25930d1bc770981a9bf4e6487b41c49163fc94ed72f4c88bfea6cbd",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "http_wrong_port",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "http-wrong-port-v1-boundary",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "http_wrong_port",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e001"
+            },
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e002"
+            },
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e003"
+            },
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e004"
+            },
+            {
+              "ref": "bundle_8b6b8c8ae1b1/smoke-http-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "e2e-v1",
+          "experience_digest": "0b1ac8dea50fbc5ac4a3eafb5c3c4d739c790a6bdbf84885181e7fbc50e39e4e",
+          "scenario_seed": 42,
+          "novelty_fingerprint": "49151e58d5073c9c"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-003-1531e0ee",
+      "benchmark_case_id": "http_wrong_port-1-medium-003-1531e0ee"
+    },
+    {
+      "id": "http-wrong-port-v1-boundary",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expansion-v1\\http-01\\cases\\http-wrong-port-v1-boundary",
+      "case_digest": "2df250afa9477982fe0c6a80c20cfbf7cee341529ba313a17eb584e13b91bcce",
+      "primitive_id": "http_wrong_port_v1",
+      "template_id": "http_wrong_port_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "http_wrong_port",
+      "domain": "http",
+      "technology_stack": [
+        "Docker",
+        "Python",
+        "HTTP"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "http-wrong-port-v1-boundary",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "http_wrong_port",
+        "domain": "http",
+        "technology_stack": [
+          "Docker",
+          "Python",
+          "HTTP"
+        ],
+        "template_id": "http_wrong_port_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_8b6b8c8ae1b1",
+          "evidence_refs": [
+            {
+              "ref": "smoke-http-doc#e001",
+              "claim_type": "symptom"
+            },
+            {
+              "ref": "smoke-http-doc#e002",
+              "claim_type": "impact"
+            },
+            {
+              "ref": "smoke-http-doc#e003",
+              "claim_type": "root_cause"
+            },
+            {
+              "ref": "smoke-http-doc#e004",
+              "claim_type": "repair"
+            },
+            {
+              "ref": "smoke-http-doc#e005",
+              "claim_type": "verification"
+            }
+          ],
+          "candidate_group_id": "bundle_8b6b8c8ae1b1_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "e2e-v1",
+          "experience_digest": "c649e7983b72192bfe95b96793ccf9e0d31d9aadb00cb2415dad3e1e0ebff032",
+          "scenario_seed": 2026080901,
+          "novelty_fingerprint": "b97ee7b8bc2cef26"
+        }
+      },
+      "preselection_id": "http_wrong_port-1-medium-004-2df250af",
+      "benchmark_case_id": "http_wrong_port-1-medium-004-2df250af"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080912",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke\\cpu\\cases\\e2e_bundle_3ed9b264662f_001-s2026080912",
+      "case_digest": "4a299df9b3d6f87adbb67742c9af7c3ce27b1ba189eec9c0cf6d6e7c4d8a6f80",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_3ed9b264662f_001-s2026080912",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-linux-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-linux-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-linux-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-linux-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-linux-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_seed_2026080912_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080912,
+          "template_params": {
+            "cpu_work_units": 50000
+          },
+          "novelty_fingerprint": "d2920ff7163abbd9"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-006-4a299df9",
+      "benchmark_case_id": "linux_cpu_runaway-1-medium-005-4a299df9"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080922",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke-v2\\cpu\\cases\\e2e_bundle_3ed9b264662f_001-s2026080922",
+      "case_digest": "dde488e300c39ee2b60a406c6e3d7117e0e16ede5940811f01b12c453fd439c3",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_3ed9b264662f_001-s2026080922",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-linux-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-linux-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-linux-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-linux-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-linux-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_seed_2026080922_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080922,
+          "template_params": {
+            "cpu_work_units": 50000
+          },
+          "novelty_fingerprint": "d2920ff7163abbd9"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-007-dde488e3",
+      "benchmark_case_id": "linux_cpu_runaway-1-medium-006-dde488e3"
+    },
+    {
+      "id": "e2e_bundle_3ed9b264662f_001-s2026080932",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\param-smoke-v3\\cpu\\cases\\e2e_bundle_3ed9b264662f_001-s2026080932",
+      "case_digest": "8fb5edd4885561b331fa9b178ec16e52e7950e3323cc8dbda67e92817fd3c83e",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "e2e_bundle_3ed9b264662f_001-s2026080932",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "claim_type": "symptom",
+              "ref": "smoke-linux-doc#e001"
+            },
+            {
+              "claim_type": "impact",
+              "ref": "smoke-linux-doc#e002"
+            },
+            {
+              "claim_type": "root_cause",
+              "ref": "smoke-linux-doc#e003"
+            },
+            {
+              "claim_type": "repair",
+              "ref": "smoke-linux-doc#e004"
+            },
+            {
+              "claim_type": "verification",
+              "ref": "smoke-linux-doc#e005"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_seed_2026080932_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 2026080932,
+          "template_params": {
+            "cpu_work_units": 50000
+          },
+          "novelty_fingerprint": "d2920ff7163abbd9"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-008-8fb5edd4",
+      "benchmark_case_id": "linux_cpu_runaway-1-medium-007-8fb5edd4"
+    },
+    {
+      "id": "linux-cpu-runaway-v1-boundary-case",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\calibration\\cpu-01\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "case_digest": "1c61d5b9c54779245de22b0f59c7882b981b7f7f1201eda8cfb6ad1669a6b845",
+      "primitive_id": "linux_cpu_runaway_v1",
+      "template_id": "linux_cpu_runaway_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [],
+      "fault_type": "cpu_runaway",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Docker",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 0,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "calibrated",
+      "source_manifest": {
+        "id": "linux-cpu-runaway-v1-boundary-case",
+        "version": "1.0",
+        "family": "e2e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [],
+        "fault_type": "cpu_runaway",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Docker",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v1",
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 120,
+          "setup_sec": 30,
+          "agent_sec": 300,
+          "verify_sec": 30,
+          "cleanup_sec": 60
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_3ed9b264662f",
+          "evidence_refs": [
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "symptom",
+              "evidence_id": "e001"
+            },
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "impact",
+              "evidence_id": "e002"
+            },
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "root_cause",
+              "evidence_id": "e003"
+            },
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "repair",
+              "evidence_id": "e004"
+            },
+            {
+              "bundle_id": "bundle_3ed9b264662f",
+              "document_id": "smoke-linux-doc",
+              "claim_type": "verification",
+              "evidence_id": "e005"
+            }
+          ],
+          "candidate_group_id": "bundle_3ed9b264662f_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "e2e-v1",
+          "experience_digest": "6072a3e7679614cea171de7287ca97bae315b534b7dab4fcc0bffd6c8e209a10",
+          "scenario_seed": 42,
+          "novelty_fingerprint": "cc5f1f0af2f0b580"
+        }
+      },
+      "preselection_id": "linux_cpu_runaway-1-medium-009-1c61d5b9",
+      "benchmark_case_id": "linux_cpu_runaway-1-medium-008-1c61d5b9"
+    },
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_000003",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\medium-linux\\cases\\dynamic_linux_cpu_runaway_v2_000003",
+      "case_digest": "9ac2e5113331777b5dad532c52c29ed324ad510635f7ad3e3e2d0cc791b9873b",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "template_id": "linux_cpu_runaway_v2",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "demo_validated",
+      "source_manifest": {
+        "id": "dynamic_linux_cpu_runaway_v2_000003",
+        "version": "1.0",
+        "family": "e2e",
+        "generation_mode": "dynamic",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "performance_regression",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Python"
+        ],
+        "template_id": "linux_cpu_runaway_v2",
+        "fault_primitive_id": "linux_cpu_runaway_v2",
+        "runtime_status": "demo_validated",
+        "difficulty_profile": "medium",
+        "difficulty_assessment": {
+          "profile": "medium",
+          "score": 5,
+          "rubric_version": "e2e-difficulty-v1",
+          "dimensions": {
+            "diagnostic_uncertainty": 1,
+            "signal_indirection": 1,
+            "tool_breadth": 1,
+            "repair_depth": 1,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "The symptom is resource pressure rather than an explicit configuration error.",
+            "The agent must correlate process evidence with a persistent worker setting.",
+            "Verification combines live CPU sampling, service health, and persistence."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "baseline_check",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 180,
+          "setup_sec": 90,
+          "agent_sec": 300,
+          "verify_sec": 90,
+          "cleanup_sec": 90
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_medium-linux",
+          "evidence_refs": [
+            {
+              "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e1",
+              "claim_type": "symptom",
+              "field_path": "public_task.symptom"
+            },
+            {
+              "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e1",
+              "claim_type": "root_cause",
+              "field_path": "public_task.root_cause"
+            },
+            {
+              "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e2",
+              "claim_type": "repair",
+              "field_path": "public_task.repair"
+            },
+            {
+              "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e2",
+              "claim_type": "verification",
+              "field_path": "public_task.verification"
+            }
+          ],
+          "candidate_group_id": "bundle_medium-linux_group_001",
+          "generation_strategy": "boundary_case",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 3,
+          "novelty_fingerprint": "17be858859bf6555",
+          "difficulty_assessment": {
+            "profile": "medium",
+            "score": 5,
+            "rubric_version": "e2e-difficulty-v1",
+            "dimensions": {
+              "diagnostic_uncertainty": 1,
+              "signal_indirection": 1,
+              "tool_breadth": 1,
+              "repair_depth": 1,
+              "verification_complexity": 1
+            },
+            "rationale": [
+              "The symptom is resource pressure rather than an explicit configuration error.",
+              "The agent must correlate process evidence with a persistent worker setting.",
+              "Verification combines live CPU sampling, service health, and persistence."
+            ],
+            "empirical_status": "not_calibrated"
+          },
+          "scenario_spec": {
+            "id": "dynamic_linux_cpu_runaway_v2_000003",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_medium-linux",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "linux_worker",
+                "component_id": "linux-worker",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "linux_cpu_runaway_v2",
+              "target": "linux_worker",
+              "params": {
+                "cpu_work_units": 60000
+              }
+            },
+            "public_task": {
+              "symptom": "workloads experience latency spikes, throughput losses, and run the risk of OOM kills.\nWithout an accurate measure of such contention, users are forced to either play it safe and under-utilize their hardware resources, or roll the dice and frequently suffer the disruptions r",
+              "impact": "The documented operational workflow cannot complete reliably.",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check",
+              "metrics_query"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "linux_cpu_runaway_v2",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "cpu_sample",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "process_state",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "service_health",
+                "weight": 0.3333333333333333
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "medium",
+            "difficulty_assessment": {
+              "profile": "medium",
+              "score": 5,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 1,
+                "signal_indirection": 1,
+                "tool_breadth": 1,
+                "repair_depth": 1,
+                "verification_complexity": 1
+              },
+              "rationale": [
+                "The symptom is resource pressure rather than an explicit configuration error.",
+                "The agent must correlate process evidence with a persistent worker setting.",
+                "Verification combines live CPU sampling, service health, and persistence."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e1"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e2"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e2"
+              }
+            ],
+            "scenario_seed": 3,
+            "technology_stack": [
+              "Linux",
+              "Python"
+            ],
+            "domain": "linux",
+            "fault_type": "performance_regression",
+            "candidate_group_id": "bundle_medium-linux_group_001",
+            "generation_strategy": "boundary_case",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "medium",
+                "score": 5,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 1,
+                  "signal_indirection": 1,
+                  "tool_breadth": 1,
+                  "repair_depth": 1,
+                  "verification_complexity": 1
+                },
+                "rationale": [
+                  "The symptom is resource pressure rather than an explicit configuration error.",
+                  "The agent must correlate process evidence with a persistent worker setting.",
+                  "Verification combines live CPU sampling, service health, and persistence."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "dynamic_spec": {
+            "id": "dynamic_linux_cpu_runaway_v2_000003",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_medium-linux",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "linux_worker",
+                "component_id": "linux-worker",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "linux_cpu_runaway_v2",
+              "target": "linux_worker",
+              "params": {
+                "cpu_work_units": 60000
+              }
+            },
+            "public_task": {
+              "symptom": "workloads experience latency spikes, throughput losses, and run the risk of OOM kills.\nWithout an accurate measure of such contention, users are forced to either play it safe and under-utilize their hardware resources, or roll the dice and frequently suffer the disruptions r",
+              "impact": "The documented operational workflow cannot complete reliably.",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check",
+              "metrics_query"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "linux_cpu_runaway_v2",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "cpu_sample",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "process_state",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "service_health",
+                "weight": 0.3333333333333333
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "medium",
+            "difficulty_assessment": {
+              "profile": "medium",
+              "score": 5,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 1,
+                "signal_indirection": 1,
+                "tool_breadth": 1,
+                "repair_depth": 1,
+                "verification_complexity": 1
+              },
+              "rationale": [
+                "The symptom is resource pressure rather than an explicit configuration error.",
+                "The agent must correlate process evidence with a persistent worker setting.",
+                "Verification combines live CPU sampling, service health, and persistence."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e1"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#e2"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#e2"
+              }
+            ],
+            "scenario_seed": 3,
+            "technology_stack": [
+              "Linux",
+              "Python"
+            ],
+            "domain": "linux",
+            "fault_type": "performance_regression",
+            "candidate_group_id": "bundle_medium-linux_group_001",
+            "generation_strategy": "boundary_case",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "medium",
+                "score": 5,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 1,
+                  "signal_indirection": 1,
+                  "tool_breadth": 1,
+                  "repair_depth": 1,
+                  "verification_complexity": 1
+                },
+                "rationale": [
+                  "The symptom is resource pressure rather than an explicit configuration error.",
+                  "The agent must correlate process evidence with a persistent worker setting.",
+                  "Verification combines live CPU sampling, service health, and persistence."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "bundle_id": "bundle_medium-linux"
+        },
+        "compiler_version": "opsbench-dynamic-compiler-v1",
+        "scenario_spec_version": "opsbench-e2e-dynamic-v1"
+      },
+      "preselection_id": "linux_cpu_runaway-2-medium-011-9ac2e511",
+      "benchmark_case_id": "linux_cpu_runaway-2-medium-009-9ac2e511"
+    },
+    {
+      "id": "dynamic_nginx_bind_conflict_v1_000001",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\easy-nginx\\cases\\dynamic_nginx_bind_conflict_v1_000001",
+      "case_digest": "8f1924baae1a72bebcd5b169faf2ae1e075ca8f06c4a2e1876fb976bb16320c4",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "template_id": "nginx_bind_conflict_v1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_conflict",
+      "domain": "http",
+      "technology_stack": [
+        "Nginx",
+        "HTTP"
+      ],
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "demo_validated",
+      "source_manifest": {
+        "id": "dynamic_nginx_bind_conflict_v1_000001",
+        "version": "1.0",
+        "family": "e2e",
+        "generation_mode": "dynamic",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "resource_conflict",
+        "domain": "http",
+        "technology_stack": [
+          "Nginx",
+          "HTTP"
+        ],
+        "template_id": "nginx_bind_conflict_v1",
+        "fault_primitive_id": "nginx_bind_conflict_v1",
+        "runtime_status": "demo_validated",
+        "difficulty_profile": "easy",
+        "difficulty_assessment": {
+          "profile": "easy",
+          "score": 3,
+          "rubric_version": "e2e-difficulty-v1",
+          "dimensions": {
+            "diagnostic_uncertainty": 1,
+            "signal_indirection": 0,
+            "tool_breadth": 1,
+            "repair_depth": 1,
+            "verification_complexity": 0
+          },
+          "rationale": [
+            "The public symptom maps directly to a failed HTTP listener.",
+            "One target container and a narrow socket/process repair path are sufficient.",
+            "Verification is a direct HTTP health check plus process state."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "target",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "baseline_check",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 180,
+          "setup_sec": 90,
+          "agent_sec": 300,
+          "verify_sec": 90,
+          "cleanup_sec": 90
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_easy-nginx",
+          "evidence_refs": [
+            {
+              "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e1",
+              "claim_type": "symptom",
+              "field_path": "public_task.symptom"
+            },
+            {
+              "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e2",
+              "claim_type": "root_cause",
+              "field_path": "public_task.root_cause"
+            },
+            {
+              "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e1",
+              "claim_type": "repair",
+              "field_path": "public_task.repair"
+            },
+            {
+              "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e2",
+              "claim_type": "verification",
+              "field_path": "public_task.verification"
+            }
+          ],
+          "candidate_group_id": "bundle_easy-nginx_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 1,
+          "novelty_fingerprint": "b60c2de5c777b047",
+          "difficulty_assessment": {
+            "profile": "easy",
+            "score": 3,
+            "rubric_version": "e2e-difficulty-v1",
+            "dimensions": {
+              "diagnostic_uncertainty": 1,
+              "signal_indirection": 0,
+              "tool_breadth": 1,
+              "repair_depth": 1,
+              "verification_complexity": 0
+            },
+            "rationale": [
+              "The public symptom maps directly to a failed HTTP listener.",
+              "One target container and a narrow socket/process repair path are sufficient.",
+              "Verification is a direct HTTP health check plus process state."
+            ],
+            "empirical_status": "not_calibrated"
+          },
+          "scenario_spec": {
+            "id": "dynamic_nginx_bind_conflict_v1_000001",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_easy-nginx",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "nginx",
+                "component_id": "nginx",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "nginx_bind_conflict_v1",
+              "target": "nginx",
+              "params": {}
+            },
+            "public_task": {
+              "symptom": "listen directives describe all addresses and ports that should accept connections for the server, and the server_name directive lists all server names. Example configurations are provided in the “How nginx processes a request” document.\nSyntax:  |  `**server_name** `_name_`...;`\n\n---|---\nD",
+              "impact": "The documented operational workflow cannot complete reliably.",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "nginx_bind_conflict_v1",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "http_health",
+                "weight": 0.5
+              },
+              {
+                "check_id": "process_state",
+                "weight": 0.5
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "easy",
+            "difficulty_assessment": {
+              "profile": "easy",
+              "score": 3,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 1,
+                "signal_indirection": 0,
+                "tool_breadth": 1,
+                "repair_depth": 1,
+                "verification_complexity": 0
+              },
+              "rationale": [
+                "The public symptom maps directly to a failed HTTP listener.",
+                "One target container and a narrow socket/process repair path are sufficient.",
+                "Verification is a direct HTTP health check plus process state."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e2"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e1"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e2"
+              }
+            ],
+            "scenario_seed": 1,
+            "technology_stack": [
+              "Nginx",
+              "HTTP"
+            ],
+            "domain": "http",
+            "fault_type": "resource_conflict",
+            "candidate_group_id": "bundle_easy-nginx_group_001",
+            "generation_strategy": "conservative",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "easy",
+                "score": 3,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 1,
+                  "signal_indirection": 0,
+                  "tool_breadth": 1,
+                  "repair_depth": 1,
+                  "verification_complexity": 0
+                },
+                "rationale": [
+                  "The public symptom maps directly to a failed HTTP listener.",
+                  "One target container and a narrow socket/process repair path are sufficient.",
+                  "Verification is a direct HTTP health check plus process state."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "dynamic_spec": {
+            "id": "dynamic_nginx_bind_conflict_v1_000001",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_easy-nginx",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "nginx",
+                "component_id": "nginx",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "nginx_bind_conflict_v1",
+              "target": "nginx",
+              "params": {}
+            },
+            "public_task": {
+              "symptom": "listen directives describe all addresses and ports that should accept connections for the server, and the server_name directive lists all server names. Example configurations are provided in the “How nginx processes a request” document.\nSyntax:  |  `**server_name** `_name_`...;`\n\n---|---\nD",
+              "impact": "The documented operational workflow cannot complete reliably.",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "nginx_bind_conflict_v1",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "http_health",
+                "weight": 0.5
+              },
+              {
+                "check_id": "process_state",
+                "weight": 0.5
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "easy",
+            "difficulty_assessment": {
+              "profile": "easy",
+              "score": 3,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 1,
+                "signal_indirection": 0,
+                "tool_breadth": 1,
+                "repair_depth": 1,
+                "verification_complexity": 0
+              },
+              "rationale": [
+                "The public symptom maps directly to a failed HTTP listener.",
+                "One target container and a narrow socket/process repair path are sufficient.",
+                "Verification is a direct HTTP health check plus process state."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-nginx-org-en-docs-http-ngx_http_core_module.html-d2109a#e2"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e1"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-nginx-org-en-docs-switches.html-a56aef#e2"
+              }
+            ],
+            "scenario_seed": 1,
+            "technology_stack": [
+              "Nginx",
+              "HTTP"
+            ],
+            "domain": "http",
+            "fault_type": "resource_conflict",
+            "candidate_group_id": "bundle_easy-nginx_group_001",
+            "generation_strategy": "conservative",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "easy",
+                "score": 3,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 1,
+                  "signal_indirection": 0,
+                  "tool_breadth": 1,
+                  "repair_depth": 1,
+                  "verification_complexity": 0
+                },
+                "rationale": [
+                  "The public symptom maps directly to a failed HTTP listener.",
+                  "One target container and a narrow socket/process repair path are sufficient.",
+                  "Verification is a direct HTTP health check plus process state."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "bundle_id": "bundle_easy-nginx"
+        },
+        "compiler_version": "opsbench-dynamic-compiler-v1",
+        "scenario_spec_version": "opsbench-e2e-dynamic-v1"
+      },
+      "preselection_id": "nginx_bind_conflict-1-easy-012-8f1924ba",
+      "benchmark_case_id": "nginx_bind_conflict-1-easy-010-8f1924ba"
+    },
+    {
+      "id": "dynamic_postgres_missing_index_v2_000001",
+      "source_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\demo-20260810\\hard-postgres\\cases\\dynamic_postgres_missing_index_v2_000001",
+      "case_digest": "ce7641cd129cb0e34bd3b10329e6049afea589c53e43d25fa2aba639dc3b9ca3",
+      "primitive_id": "postgres_missing_index_v2",
+      "template_id": "postgres_missing_index_v2",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL"
+      ],
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "empirical_status": "not_calibrated",
+      "runtime_status": "demo_validated",
+      "source_manifest": {
+        "id": "dynamic_postgres_missing_index_v2_000001",
+        "version": "1.0",
+        "family": "e2e",
+        "generation_mode": "dynamic",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "performance_regression",
+        "domain": "database",
+        "technology_stack": [
+          "PostgreSQL"
+        ],
+        "template_id": "postgres_missing_index_v2",
+        "fault_primitive_id": "postgres_missing_index_v2",
+        "runtime_status": "demo_validated",
+        "difficulty_profile": "hard",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 9,
+          "rubric_version": "e2e-difficulty-v1",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 2,
+            "repair_depth": 2,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "The public symptom is query degradation and does not reveal the missing index.",
+            "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+            "Verification checks data correctness, plan shape, index presence, and repeated latency."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "environment": {
+          "compose_file": "environment/docker-compose.yaml",
+          "target_service": "agent-runner",
+          "public_mounts": [
+            "public/task.md",
+            "public/tools.json"
+          ]
+        },
+        "agent": {
+          "protocol": "opsbench-agent-v1",
+          "task": "public/task.md",
+          "tools": "public/tools.json",
+          "trace": "trace",
+          "runtime_user": "opsbench"
+        },
+        "lifecycle": [
+          "validate",
+          "provision",
+          "setup",
+          "baseline_check",
+          "inject",
+          "check_injected",
+          "run_agent",
+          "verify",
+          "cleanup"
+        ],
+        "timeouts": {
+          "provision_sec": 180,
+          "setup_sec": 90,
+          "agent_sec": 300,
+          "verify_sec": 90,
+          "cleanup_sec": 90
+        },
+        "source": {
+          "evidence_bundle_id": "bundle_hard-postgres",
+          "evidence_refs": [
+            {
+              "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e1",
+              "claim_type": "symptom",
+              "field_path": "public_task.symptom"
+            },
+            {
+              "ref": "doc-www-postgresql-org-docs-16-indexes-examine.html-da2331#c1",
+              "claim_type": "impact",
+              "field_path": "public_task.impact"
+            },
+            {
+              "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e2",
+              "claim_type": "root_cause",
+              "field_path": "public_task.root_cause"
+            },
+            {
+              "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e3",
+              "claim_type": "repair",
+              "field_path": "public_task.repair"
+            },
+            {
+              "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e4",
+              "claim_type": "verification",
+              "field_path": "public_task.verification"
+            }
+          ],
+          "candidate_group_id": "bundle_hard-postgres_group_001",
+          "generation_strategy": "conservative",
+          "experience_version": "",
+          "experience_digest": "",
+          "scenario_seed": 1,
+          "novelty_fingerprint": "d0b5b3c2b9ed6683",
+          "difficulty_assessment": {
+            "profile": "hard",
+            "score": 9,
+            "rubric_version": "e2e-difficulty-v1",
+            "dimensions": {
+              "diagnostic_uncertainty": 2,
+              "signal_indirection": 2,
+              "tool_breadth": 2,
+              "repair_depth": 2,
+              "verification_complexity": 1
+            },
+            "rationale": [
+              "The public symptom is query degradation and does not reveal the missing index.",
+              "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+              "Verification checks data correctness, plan shape, index presence, and repeated latency."
+            ],
+            "empirical_status": "not_calibrated"
+          },
+          "scenario_spec": {
+            "id": "dynamic_postgres_missing_index_v2_000001",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_hard-postgres",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "postgres",
+                "component_id": "postgres",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "postgres_missing_index_v2",
+              "target": "postgres",
+              "params": {}
+            },
+            "public_task": {
+              "symptom": "Choosing the right plan to match the query structure and the properties of the data is absolutely critical for good performance, so the system includes a complex planner that tries to choose good plans. You can use the EXPLAIN command to see what query plan the p",
+              "impact": "PostgreSQL: Documentation: 16: 11.12. Examining Index Usage Home About Download Documentation Community Developers Support Donate Your account July 16, 2026: PostgreSQL 19 Beta 2 Released! Documentation → PostgreSQL 16 Supported Versions: Current ( 18 )",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check",
+              "sql_query"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "postgres_missing_index_v2",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "query_result",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "query_plan",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "query_latency",
+                "weight": 0.3333333333333333
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "hard",
+            "difficulty_assessment": {
+              "profile": "hard",
+              "score": 9,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 2,
+                "signal_indirection": 2,
+                "tool_breadth": 2,
+                "repair_depth": 2,
+                "verification_complexity": 1
+              },
+              "rationale": [
+                "The public symptom is query degradation and does not reveal the missing index.",
+                "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+                "Verification checks data correctness, plan shape, index presence, and repeated latency."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e1"
+              },
+              {
+                "field_path": "public_task.impact",
+                "claim_type": "impact",
+                "ref": "doc-www-postgresql-org-docs-16-indexes-examine.html-da2331#c1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e2"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e3"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e4"
+              }
+            ],
+            "scenario_seed": 1,
+            "technology_stack": [
+              "PostgreSQL"
+            ],
+            "domain": "database",
+            "fault_type": "performance_regression",
+            "candidate_group_id": "bundle_hard-postgres_group_001",
+            "generation_strategy": "conservative",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "hard",
+                "score": 9,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 2,
+                  "signal_indirection": 2,
+                  "tool_breadth": 2,
+                  "repair_depth": 2,
+                  "verification_complexity": 1
+                },
+                "rationale": [
+                  "The public symptom is query degradation and does not reveal the missing index.",
+                  "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+                  "Verification checks data correctness, plan shape, index presence, and repeated latency."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "dynamic_spec": {
+            "id": "dynamic_postgres_missing_index_v2_000001",
+            "generation_mode": "dynamic",
+            "language": "en",
+            "evidence_bundle_id": "bundle_hard-postgres",
+            "primary_task_label": "fault_fix",
+            "secondary_task_labels": [
+              "fault_detection",
+              "root_cause"
+            ],
+            "components": [
+              {
+                "instance_id": "postgres",
+                "component_id": "postgres",
+                "version": "",
+                "params": {}
+              }
+            ],
+            "fault": {
+              "primitive_id": "postgres_missing_index_v2",
+              "target": "postgres",
+              "params": {}
+            },
+            "public_task": {
+              "symptom": "Choosing the right plan to match the query structure and the properties of the data is absolutely critical for good performance, so the system includes a complex planner that tries to choose good plans. You can use the EXPLAIN command to see what query plan the p",
+              "impact": "PostgreSQL: Documentation: 16: 11.12. Examining Index Usage Home About Download Documentation Community Developers Support Donate Your account July 16, 2026: PostgreSQL 19 Beta 2 Released! Documentation → PostgreSQL 16 Supported Versions: Current ( 18 )",
+              "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+              "constraints": [
+                "Use only the provided runtime tools.",
+                "Do not replace the service with a new implementation."
+              ]
+            },
+            "allowed_tools": [
+              "shell",
+              "health_check",
+              "sql_query"
+            ],
+            "expected_actions": [
+              {
+                "primitive_id": "postgres_missing_index_v2",
+                "action": "repair"
+              }
+            ],
+            "success_checks": [
+              {
+                "check_id": "query_result",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "query_plan",
+                "weight": 0.3333333333333333
+              },
+              {
+                "check_id": "query_latency",
+                "weight": 0.3333333333333333
+              }
+            ],
+            "negative_controls": [
+              {
+                "scenario": "no_op"
+              },
+              {
+                "scenario": "wrong_fix"
+              },
+              {
+                "scenario": "partial_fix"
+              }
+            ],
+            "difficulty_profile": "hard",
+            "difficulty_assessment": {
+              "profile": "hard",
+              "score": 9,
+              "rubric_version": "e2e-difficulty-v1",
+              "dimensions": {
+                "diagnostic_uncertainty": 2,
+                "signal_indirection": 2,
+                "tool_breadth": 2,
+                "repair_depth": 2,
+                "verification_complexity": 1
+              },
+              "rationale": [
+                "The public symptom is query degradation and does not reveal the missing index.",
+                "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+                "Verification checks data correctness, plan shape, index presence, and repeated latency."
+              ],
+              "empirical_status": "not_calibrated"
+            },
+            "evidence_links": [
+              {
+                "field_path": "public_task.symptom",
+                "claim_type": "symptom",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e1"
+              },
+              {
+                "field_path": "public_task.impact",
+                "claim_type": "impact",
+                "ref": "doc-www-postgresql-org-docs-16-indexes-examine.html-da2331#c1"
+              },
+              {
+                "field_path": "public_task.root_cause",
+                "claim_type": "root_cause",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e2"
+              },
+              {
+                "field_path": "public_task.repair",
+                "claim_type": "repair",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e3"
+              },
+              {
+                "field_path": "public_task.verification",
+                "claim_type": "verification",
+                "ref": "doc-www-postgresql-org-docs-current-using-explain.html-b79a15#e4"
+              }
+            ],
+            "scenario_seed": 1,
+            "technology_stack": [
+              "PostgreSQL"
+            ],
+            "domain": "database",
+            "fault_type": "performance_regression",
+            "candidate_group_id": "bundle_hard-postgres_group_001",
+            "generation_strategy": "conservative",
+            "experience_version": "",
+            "experience_digest": "",
+            "source": {
+              "primitive_status": "demo_validated",
+              "difficulty_assessment": {
+                "profile": "hard",
+                "score": 9,
+                "rubric_version": "e2e-difficulty-v1",
+                "dimensions": {
+                  "diagnostic_uncertainty": 2,
+                  "signal_indirection": 2,
+                  "tool_breadth": 2,
+                  "repair_depth": 2,
+                  "verification_complexity": 1
+                },
+                "rationale": [
+                  "The public symptom is query degradation and does not reveal the missing index.",
+                  "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+                  "Verification checks data correctness, plan shape, index presence, and repeated latency."
+                ],
+                "empirical_status": "not_calibrated"
+              }
+            },
+            "schema_version": "opsbench-e2e-dynamic-v1"
+          },
+          "bundle_id": "bundle_hard-postgres"
+        },
+        "compiler_version": "opsbench-dynamic-compiler-v1",
+        "scenario_spec_version": "opsbench-e2e-dynamic-v1"
+      },
+      "preselection_id": "postgres_missing_index-2-hard-013-ce7641cd",
+      "benchmark_case_id": "postgres_missing_index-2-hard-011-ce7641cd"
+    }
+  ],
+  "shortages": [
+    {
+      "primitive_id": "app_config_precedence_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "http_dependency_port_drift_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "linux_cpu_runaway_v2",
+      "available": 1,
+      "required": 4
+    },
+    {
+      "primitive_id": "linux_fd_leak_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "nginx_bind_conflict_v1",
+      "available": 1,
+      "required": 4
+    },
+    {
+      "primitive_id": "postgres_missing_index_v1",
+      "available": 0,
+      "required": 4
+    },
+    {
+      "primitive_id": "postgres_missing_index_v2",
+      "available": 1,
+      "required": 4
+    },
+    {
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "available": 0,
+      "required": 4
+    }
+  ],
+  "preselection_count": 13,
+  "final_count": 11,
+  "target_final_count": 48,
+  "sample_seed": 42,
+  "generation_rejections": [
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\cpu-01\\cases\\linux-cpu-runaway-v1-conservative-s2026081011",
+      "reason": "duplicate_case_digest",
+      "case_digest": "a5eb53bb8a0aea93d79a8b7998f355bc23d4079b980f21a0676445e6dc10c34f"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\final-run\\cases\\linux-cpu-runaway-v1-boundary-case-s2026081011",
+      "reason": "duplicate_case_digest",
+      "case_digest": "16b105e2bb95e6be6ca114d708b3a5abed8bffe6bb05ee9922f8ad5d378e2f1d"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\final-run\\cases\\linux-cpu-runaway-v1-boundary-case-s2026081012",
+      "reason": "duplicate_case_digest",
+      "case_digest": "eedc1442821735381c0972b7d358047265c9af566d03be0807d7f2a8cdb70319"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\http-01\\cases\\http-wrong-port-v1-diagnostic-s2026081002",
+      "reason": "duplicate_case_digest",
+      "case_digest": "5ae7d7b819baa7c184adf68146d9ed5dcd4c08b2d7173ddc47a46f815c560856"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\http-02\\cases\\http-wrong-port-v1-diagnostic-s2026081003",
+      "reason": "duplicate_case_digest",
+      "case_digest": "3820937c0bc409b56721b05e3bfd9e69860a73346cc78402f1760517d266cc67"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\deepseek-smoke\\cpu\\cases\\task_linux_cpu_runaway_01",
+      "reason": "invalid_case",
+      "message": "missing case files: ['environment/Dockerfile', 'environment/agent/run.py', 'environment/agent/run.sh', 'environment/agent/requirements.txt']"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\deepseek-smoke\\http\\cases\\task_http_wrong_port_fault_fix_001",
+      "reason": "invalid_case",
+      "message": "missing case files: ['environment/Dockerfile', 'environment/agent/run.py', 'environment/agent/run.sh', 'environment/agent/requirements.txt']"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hardening-v2\\cases\\http-wrong-port-v1-diagnostic",
+      "reason": "duplicate_case_digest",
+      "case_digest": "0427583b17942251d5130ae3362c25107bf44d20dd21401f885272d882ed9ffe"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hardening-v2\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "reason": "duplicate_case_digest",
+      "case_digest": "b3a9880d36089dae25a4a131e47f27b4eaf85821288ffc76c35b3834af6160d0"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hardening-v3\\cases\\http-wrong-port-v1-diagnostic",
+      "reason": "duplicate_case_digest",
+      "case_digest": "0427583b17942251d5130ae3362c25107bf44d20dd21401f885272d882ed9ffe"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hardening-v3\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "reason": "duplicate_case_digest",
+      "case_digest": "b3a9880d36089dae25a4a131e47f27b4eaf85821288ffc76c35b3834af6160d0"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\releases\\batch-v2\\cases\\http-wrong-port-v1-diagnostic-s2026081002",
+      "reason": "duplicate_case_digest",
+      "case_digest": "5ae7d7b819baa7c184adf68146d9ed5dcd4c08b2d7173ddc47a46f815c560856"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\releases\\batch-v2\\cases\\http-wrong-port-v1-diagnostic-s2026081003",
+      "reason": "duplicate_case_digest",
+      "case_digest": "3820937c0bc409b56721b05e3bfd9e69860a73346cc78402f1760517d266cc67"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\releases\\batch-v2\\cases\\linux-cpu-runaway-v1-boundary-case-s2026081011",
+      "reason": "duplicate_case_digest",
+      "case_digest": "16b105e2bb95e6be6ca114d708b3a5abed8bffe6bb05ee9922f8ad5d378e2f1d"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\releases\\batch-v2\\cases\\linux-cpu-runaway-v1-boundary-case-s2026081012",
+      "reason": "duplicate_case_digest",
+      "case_digest": "eedc1442821735381c0972b7d358047265c9af566d03be0807d7f2a8cdb70319"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\runtime-smoke\\cpu-03-v2\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "reason": "duplicate_case_digest",
+      "case_digest": "2a71b3044ec6528ceae41123bda6a33772d41af3aaad23768c6a3da3d69014a1"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\runtime-smoke\\cpu-03-v3\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "reason": "duplicate_case_digest",
+      "case_digest": "2a71b3044ec6528ceae41123bda6a33772d41af3aaad23768c6a3da3d69014a1"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\runtime-smoke\\http-03\\cases\\http-wrong-port-v1-diagnostic",
+      "reason": "duplicate_case_digest",
+      "case_digest": "de9ccd50508ad699ae6b120672ef6afcadd3106520121355e1d86908e273eb8e"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\runtime-smoke\\http-03-v2\\cases\\http-wrong-port-v1-diagnostic",
+      "reason": "duplicate_case_digest",
+      "case_digest": "de9ccd50508ad699ae6b120672ef6afcadd3106520121355e1d86908e273eb8e"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\cpu-01\\cases\\linux-cpu-runaway-v1-conservative-s2026081011",
+      "reason": "duplicate_case_digest",
+      "case_digest": "a5eb53bb8a0aea93d79a8b7998f355bc23d4079b980f21a0676445e6dc10c34f"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\final-run\\cases\\linux-cpu-runaway-v1-boundary-case-s2026081011",
+      "reason": "duplicate_case_digest",
+      "case_digest": "16b105e2bb95e6be6ca114d708b3a5abed8bffe6bb05ee9922f8ad5d378e2f1d"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\final-run\\cases\\linux-cpu-runaway-v1-boundary-case-s2026081012",
+      "reason": "duplicate_case_digest",
+      "case_digest": "eedc1442821735381c0972b7d358047265c9af566d03be0807d7f2a8cdb70319"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\http-01\\cases\\http-wrong-port-v1-diagnostic-s2026081002",
+      "reason": "duplicate_case_digest",
+      "case_digest": "5ae7d7b819baa7c184adf68146d9ed5dcd4c08b2d7173ddc47a46f815c560856"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\batch-v2\\http-02\\cases\\http-wrong-port-v1-diagnostic-s2026081003",
+      "reason": "duplicate_case_digest",
+      "case_digest": "3820937c0bc409b56721b05e3bfd9e69860a73346cc78402f1760517d266cc67"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\deepseek-smoke\\cpu\\cases\\task_linux_cpu_runaway_01",
+      "reason": "invalid_case",
+      "message": "missing case files: ['environment/Dockerfile', 'environment/agent/run.py', 'environment/agent/run.sh', 'environment/agent/requirements.txt']"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\deepseek-smoke\\http\\cases\\task_http_wrong_port_fault_fix_001",
+      "reason": "invalid_case",
+      "message": "missing case files: ['environment/Dockerfile', 'environment/agent/run.py', 'environment/agent/run.sh', 'environment/agent/requirements.txt']"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hardening-v2\\cases\\http-wrong-port-v1-diagnostic",
+      "reason": "duplicate_case_digest",
+      "case_digest": "0427583b17942251d5130ae3362c25107bf44d20dd21401f885272d882ed9ffe"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hardening-v2\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "reason": "duplicate_case_digest",
+      "case_digest": "b3a9880d36089dae25a4a131e47f27b4eaf85821288ffc76c35b3834af6160d0"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hardening-v3\\cases\\http-wrong-port-v1-diagnostic",
+      "reason": "duplicate_case_digest",
+      "case_digest": "0427583b17942251d5130ae3362c25107bf44d20dd21401f885272d882ed9ffe"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hardening-v3\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "reason": "duplicate_case_digest",
+      "case_digest": "b3a9880d36089dae25a4a131e47f27b4eaf85821288ffc76c35b3834af6160d0"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\releases\\batch-v2\\cases\\http-wrong-port-v1-diagnostic-s2026081002",
+      "reason": "duplicate_case_digest",
+      "case_digest": "5ae7d7b819baa7c184adf68146d9ed5dcd4c08b2d7173ddc47a46f815c560856"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\releases\\batch-v2\\cases\\http-wrong-port-v1-diagnostic-s2026081003",
+      "reason": "duplicate_case_digest",
+      "case_digest": "3820937c0bc409b56721b05e3bfd9e69860a73346cc78402f1760517d266cc67"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\releases\\batch-v2\\cases\\linux-cpu-runaway-v1-boundary-case-s2026081011",
+      "reason": "duplicate_case_digest",
+      "case_digest": "16b105e2bb95e6be6ca114d708b3a5abed8bffe6bb05ee9922f8ad5d378e2f1d"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\releases\\batch-v2\\cases\\linux-cpu-runaway-v1-boundary-case-s2026081012",
+      "reason": "duplicate_case_digest",
+      "case_digest": "eedc1442821735381c0972b7d358047265c9af566d03be0807d7f2a8cdb70319"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\runtime-smoke\\cpu-03-v2\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "reason": "duplicate_case_digest",
+      "case_digest": "2a71b3044ec6528ceae41123bda6a33772d41af3aaad23768c6a3da3d69014a1"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\runtime-smoke\\cpu-03-v3\\cases\\linux-cpu-runaway-v1-boundary-case",
+      "reason": "duplicate_case_digest",
+      "case_digest": "2a71b3044ec6528ceae41123bda6a33772d41af3aaad23768c6a3da3d69014a1"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\runtime-smoke\\http-03\\cases\\http-wrong-port-v1-diagnostic",
+      "reason": "duplicate_case_digest",
+      "case_digest": "de9ccd50508ad699ae6b120672ef6afcadd3106520121355e1d86908e273eb8e"
+    },
+    {
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\runtime-smoke\\http-03-v2\\cases\\http-wrong-port-v1-diagnostic",
+      "reason": "duplicate_case_digest",
+      "case_digest": "de9ccd50508ad699ae6b120672ef6afcadd3106520121355e1d86908e273eb8e"
+    }
+  ],
+  "target_preselection_count": 60
+}

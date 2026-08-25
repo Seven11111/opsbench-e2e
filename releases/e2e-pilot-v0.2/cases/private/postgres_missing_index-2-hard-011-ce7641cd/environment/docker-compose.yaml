@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: opsbench
+      POSTGRES_PASSWORD: opsbench-local-only
+      POSTGRES_DB: app
+    volumes:
+      - ./runtime/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opsbench -d app"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    cpus: "1.0"
+    mem_limit: 768m
+  agent-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: opsbench-e2e-postgres_missing_index_v2
+    working_dir: /runtime
+    command: ["tail", "-f", "/dev/null"]
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_API_KEY: ${OPSBENCH_API_KEY:-}
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_REQUEST_TIMEOUT: ${OPSBENCH_REQUEST_TIMEOUT:-300}
+      OPSBENCH_MAX_RETRIES: ${OPSBENCH_MAX_RETRIES:-2}
+      OPSBENCH_TEMPLATE_ID: postgres_missing_index_v2
+      OPSBENCH_HEALTH_MODE: postgres
+      PGHOST: db
+      PGPORT: "5432"
+      PGUSER: opsbench
+      PGPASSWORD: opsbench-local-only
+      PGDATABASE: app
+    cpus: "1.0"
+    mem_limit: 512m
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
