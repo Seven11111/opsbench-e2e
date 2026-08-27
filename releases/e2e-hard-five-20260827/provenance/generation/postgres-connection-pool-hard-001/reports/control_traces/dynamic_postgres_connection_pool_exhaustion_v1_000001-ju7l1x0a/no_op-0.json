@@ -1,0 +1,30 @@
+{
+  "passed": false,
+  "score": 0.4,
+  "checks": [
+    {
+      "name": "service_health",
+      "passed": true,
+      "weight": 0.2,
+      "detail": "live health endpoint"
+    },
+    {
+      "name": "business_operation",
+      "passed": true,
+      "weight": 0.2,
+      "detail": "live business endpoint"
+    },
+    {
+      "name": "pool_holders_absent",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "14"
+    },
+    {
+      "name": "persistence",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "{'mode': 'exhausted'}"
+    }
+  ]
+}

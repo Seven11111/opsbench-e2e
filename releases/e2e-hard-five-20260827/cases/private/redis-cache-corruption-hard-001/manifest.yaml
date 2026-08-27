@@ -1,0 +1,786 @@
+id: dynamic_redis_cache_corruption_v1_000001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: cache_corruption
+domain: cache
+technology_stack:
+- Redis
+- Python
+template_id: redis_cache_corruption_v1
+fault_primitive_id: redis_cache_corruption_v1
+runtime_status: experimental
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 8
+  rubric_version: e2e-difficulty-v2
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+  rationale:
+  - Redis availability does not imply that the application cache payload satisfies
+    its data contract.
+  - The agent must repair the effective payload while preserving the key and application
+    schema.
+  - Verification checks live business reads and payload correctness after a service
+    lifecycle boundary.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:18087/catalog
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 60
+  agent_sec: 180
+  verify_sec: 60
+  cleanup_sec: 15
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#claim_001
+    claim_type: symptom
+    field_path: public_task.symptom
+  - ref: doc-redis-io-docs-latest-develop-data-types-ca95f3#claim_001
+    claim_type: symptom
+    field_path: public_task.symptom
+  - ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#heuristic_operational_003
+    claim_type: root_cause
+    field_path: public_task.root_cause
+  - ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#heuristic_operational_004
+    claim_type: root_cause
+    field_path: public_task.root_cause
+  - ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#heuristic_operational_007
+    claim_type: repair
+    field_path: public_task.repair
+  - ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#heuristic_operational_008
+    claim_type: repair
+    field_path: public_task.repair
+  candidate_group_id: dynamic_bundle_0001_group_001
+  generation_strategy: layered_state
+  scenario_seed: 1
+  dynamic_spec:
+    id: dynamic_redis_cache_corruption_v1_000001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: redis_cache_target
+      component_id: redis-cache-target
+      version: ''
+      params: {}
+    fault:
+      primitive_id: redis_cache_corruption_v1
+      target: redis_cache_target
+      params: {}
+    public_task:
+      symptom: '#
+
+        EXPIRE
+
+        Syntax text  Syntax diagram  API methods
+
+        ```
+
+        EXPIRE key seconds [NX | XX | GT | LT]
+
+        ```
+
+
+        !Railroad diagram for EXPIRE
+
+        Client: Python (redis-py) Node.js (node-redis) Java-Sync (Jedis) Lettuce-Sync
+        Java-Async (Lettuce) Java-Reactive (Lettuce) Go (go-redis) C#-Sync (NRedisStack)
+        C#-Async (NRedisStack) PHP (Predis) Rust-Sync (redis-rs) Rust-Async (redis-rs)
+
+        ```
+
+        expire(
+
+        name: KeyT,
+
+        time: ExpiryT,
+
+        nx: bool,
+
+        xx: bool,
+
+        gt: bool,
+
+        lt: bool
+
+        ) → int
+
+        ```
+
+
+        ```
+
+        EXPIRE(
+
+        key: RedisArgument,
+
+        seconds: number,
+
+        mode?: ''NX'' | ''XX'' | ''GT'' | ''LT''
+
+        ) → Any
+
+        ```
+
+
+        ```
+
+        expire(
+
+        key: byte[],
+
+        seconds: long  // time to expire
+
+        ) → long  // 1 if the timeout was set, 0 otherwise
+
+
+        expire(
+
+        key: byte[],
+
+        seconds: long,  // time to expire
+
+        expiryOption: ExpiryOption  // can be NX, XX, GT or LT
+
+        ) → long  // 1 if the timeout was set, 0 otherwise
+
+
+        expire(
+
+        key: String,
+
+        seconds: long  // time to expire
+
+        ) → long  // 1 if the timeout was set, 0 otherwise
+
+
+        expire(
+
+        key: String,
+
+        seconds: long,  // time to expire
+
+        expiryOption: ExpiryOption  // can be NX, XX, GT or LT
+
+        ) → long  // 1 if the timeout was set, 0 otherwise
+
+        ```
+
+
+        ```
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: long  // the seconds.
+
+        ) → Boolean  // Boolean integer-reply specifically: true if the timeout was
+        set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: long,  // the seconds.
+
+        expireArgs: ExpireArgs  // the expiry arguments.
+
+        ) → Boolean  // Boolean integer-reply specifically: true if the timeout was
+        set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: Duration  // the seconds.
+
+        ) → Boolean  // Boolean integer-reply specifically: true if the timeout was
+        set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: Duration,  // the seconds.
+
+        expireArgs: ExpireArgs  // the expiry arguments.
+
+        ) → Boolean  // Boolean integer-reply specifically: true if the timeout was
+        set. false if key does not exist or the timeout could not be set.
+
+        ```
+
+
+        ```
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: long  // the seconds.
+
+        ) → RedisFuture<Boolean>  // Boolean integer-reply specifically: true if the
+        timeout was set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: long,  // the seconds.
+
+        expireArgs: ExpireArgs  // the expiry arguments.
+
+        ) → RedisFuture<Boolean>  // Boolean integer-reply specifically: true if the
+        timeout was set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: Duration  // the seconds.
+
+        ) → RedisFuture<Boolean>  // Boolean integer-reply specifically: true if the
+        timeout was set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: Duration,  // the seconds.
+
+        expireArgs: ExpireArgs  // the expiry arguments.
+
+        ) → RedisFuture<Boolean>  // Boolean integer-reply specifically: true if the
+        timeout was set. false if key does not exist or the timeout could not be set.
+
+        ```
+
+
+        ```
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: long  // the seconds.
+
+        ) → Mono<Boolean>  // Boolean integer-reply specifically: true if the timeout
+        was set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: long,  // the seconds.
+
+        expireArgs: ExpireArgs  // the expiry arguments.
+
+        ) → Mono<Boolean>  // Boolean integer-reply specifically: true if the timeout
+        was set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: Duration  // the seconds.
+
+        ) → Mono<Boolean>  // Boolean integer-reply specifically: true if the timeout
+        was set. false if key does not exist or the timeout could not be set.
+
+
+        expire(
+
+        key: K,  // the key.
+
+        seconds: Duration,  // the seconds.
+
+        expireArgs: ExpireArgs  // the expiry arguments.
+
+        ) → Mono<Boolean>  // Boolean integer-reply specifically: true if the timeout
+        was set. false if key does not exist or the timeout could not be set.
+
+        ```
+
+
+        ```
+
+        Expire(
+
+        ctx: context.Context,
+
+        key: string,
+
+        expiration: time.Duration
+
+        ) → *BoolCmd
+
+
+        ExpireNX(
+
+        ctx: context.Context,
+
+        key: string,
+
+        expiration: time.Duration
+
+        ) → *BoolCmd
+
+
+        ExpireXX(
+
+        ctx: context.Context,
+
+        key: string,
+
+        expiration: time.Duration
+
+        ) → *BoolCmd
+
+
+        ExpireGT(
+
+        ctx: context.Context,
+
+        key: string,
+
+        expiration: time.Duration
+
+        ) → *BoolCmd
+
+
+        ExpireLT(
+
+        ctx: context.Context,
+
+        key: string,
+
+        expiration: time.Duration
+
+        ) → *BoolCmd
+
+        ```
+
+
+        ```
+
+        KeyExpire(
+
+        key: RedisKey,  // The key to set the expiration for.
+
+        expiry: TimeSpan?,  // The timeout to set.
+
+        flags: CommandFlags  // The flags to use for this operation.
+
+        ) → bool  // true if the timeout was set. false if key does not exist or the
+        timeout could not be set.
+
+
+        KeyExpire(
+
+        key: RedisKey,  // The key to set the expiration for.
+
+        expiry: TimeSpan?,  // The timeout to set.
+
+        when: ExpireWhen,  // In Redis 7+, we choose under which condition the expiration
+        will be set using ExpireWhen.
+
+        flags: CommandFlags  // The flags to use for this operation.
+
+        ) → bool  // true if the timeout was set. false if key does not exist or the
+        timeout could not be set.
+
+        ```
+
+
+        ```
+
+        KeyExpireAsync(
+
+        key: RedisKey,  // The key to set the expiration for.
+
+        expiry: TimeSpan?,  // The timeout to set.
+
+        flags: CommandFlags  // The flags to use for this operation.
+
+        ) → Task<bool>  // true if the timeout was set. false if key does not exist
+        or the timeout could not be set.
+
+
+        KeyExpireAsync(
+
+        key: RedisKey,  // The key to set the expiration for.
+
+        expiry: TimeSpan?,  // The timeout to set.
+
+        when: ExpireWhen,  // In Redis 7+, we choose under which condition the expiration
+        will be set using ExpireWhen.
+
+        flags: CommandFlags  // The flags to use for this operation.
+
+        ) → Task<bool>  // true if the timeout was set. false if key does not exist
+        or the timeout could not be set.
+
+        ```
+
+
+        ```
+
+        expire(
+
+        $key: string,
+
+        $seconds: int,
+
+        $expireOption: string
+
+        ) → int
+
+        ```
+
+
+        No method signature available for this client.
+
+        No method signature available for this client.
+
+
+        ACL categories:
+
+        `@keyspace`, `@write`, `@fast`,
+
+
+        Redis CLI guide
+
+        Also, check out our other client tools **Redis Insight** and **Redis for VS
+        Code**.
+
+        ```
+
+        res = r.set("mykey", "Hello")
+
+        print(res)
+
+
+        See Compare data types for advice on which of the general-purpose data types
+        is best for common tasks.
+
+
+        # Coding patterns
+
+        Novel patterns for working with Redis data structures
+
+        The following documents describe some novel development patterns you can use
+        with Redis.
+
+        Bulk loading
+
+        Writing data in bulk using the Redis protocol
+
+        Distributed Locks with Redis
+
+        A distributed lock pattern with Redis
+
+        Secondary indexing
+
+        Building secondary indexes in Redis
+
+        Redis patterns example
+
+        Learn several Redis patterns by building a Twitter clone
+
+        Salvatore Sanfilippo''s Redis design patterns
+
+        Salvatore Sanfilippo (also known as _antirez_ , the creator of Redis) has
+        provided the Redis community with a resource containing very useful Redis-oriented
+        design patterns. See this page for more information.
+
+        RATE THIS PAGE
+
+        ★ ★ ★ ★ ★
+
+        Back to top ↑
+
+        Submit
+
+        https://github.com/redis/docs/edit/main/content/develop/clients/patterns/_index.md
+        https://github.com/redis/docs/issues/new?title=Feedback:%20Coding%20patterns&body=Page%20https://redis.io/docs/latest/develop/clients/patterns/
+        https://redis.io/chat?q=Explain+this+Redis+documentation+page%3A+%22Coding+patterns%22+%28https%3A%2F%2Fredis.io%2Fdocs%2Flatest%2Fdevelop%2Fclients%2Fpatterns%2F%29'
+      impact: The documented operational workflow cannot complete reliably.
+      objective: Diagnose the live service, apply the smallest safe repair, and verify
+        recovery.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - health_check
+    - business_check
+    - service_repair
+    expected_actions:
+    - primitive_id: redis_cache_corruption_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.3333333333333333
+    - check_id: cache_payload
+      weight: 0.3333333333333333
+    - check_id: persistence
+      weight: 0.3333333333333333
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_fix
+    - scenario: partial_fix
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 8
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 1
+        repair_depth: 2
+        verification_complexity: 1
+      rationale:
+      - Redis availability does not imply that the application cache payload satisfies
+        its data contract.
+      - The agent must repair the effective payload while preserving the key and application
+        schema.
+      - Verification checks live business reads and payload correctness after a service
+        lifecycle boundary.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 1
+        repair_depth: 2
+        verification_complexity: 1
+      causal_depth: 3
+      state_layers:
+      - base_config
+      - dependency_runtime
+      - filesystem_state
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - effective_config
+      - process_tree
+      - resource_metric
+      persistence_id: restart
+      distractor_ids:
+      - healthy_process
+      - stale_base_config
+      - unrelated_latency
+      repair_invariant_ids:
+      - business_operation
+      - data_correctness
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - restart_only
+      - disable_validation
+      - direct_edit_generated_config
+      - ignore_schema_validation
+      verification_check_ids:
+      - business_operation
+      - data_correctness
+      - persistence
+      rationale:
+      - Redis availability does not imply that the application cache payload satisfies
+        its data contract.
+      - The agent must repair the effective payload while preserving the key and application
+        schema.
+      - Verification checks live business reads and payload correctness after a service
+        lifecycle boundary.
+      schema_version: e2e-difficulty-contract-v1
+      score: 8
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - Redis availability does not imply that the application cache payload satisfies
+          its data contract.
+        - The agent must repair the effective payload while preserving the key and
+          application schema.
+        - Verification checks live business reads and payload correctness after a
+          service lifecycle boundary.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#claim_001
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: doc-redis-io-docs-latest-develop-data-types-ca95f3#claim_001
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#heuristic_operational_003
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#heuristic_operational_004
+    - field_path: public_task.repair
+      claim_type: repair
+      ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#heuristic_operational_007
+    - field_path: public_task.repair
+      claim_type: repair
+      ref: doc-redis-io-docs-latest-commands-expire-5b7ec2#heuristic_operational_008
+    scenario_seed: 1
+    technology_stack:
+    - Redis
+    - Python
+    domain: cache
+    fault_type: cache_corruption
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: ''
+    experience_digest: ''
+    source:
+      primitive_status: experimental
+      difficulty_assessment:
+        profile: hard
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - Redis availability does not imply that the application cache payload satisfies
+          its data contract.
+        - The agent must repair the effective payload while preserving the key and
+          application schema.
+        - Verification checks live business reads and payload correctness after a
+          service lifecycle boundary.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        causal_depth: 3
+        state_layers:
+        - base_config
+        - dependency_runtime
+        - filesystem_state
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - effective_config
+        - process_tree
+        - resource_metric
+        persistence_id: restart
+        distractor_ids:
+        - healthy_process
+        - stale_base_config
+        - unrelated_latency
+        repair_invariant_ids:
+        - business_operation
+        - data_correctness
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - restart_only
+        - disable_validation
+        - direct_edit_generated_config
+        - ignore_schema_validation
+        verification_check_ids:
+        - business_operation
+        - data_correctness
+        - persistence
+        rationale:
+        - Redis availability does not imply that the application cache payload satisfies
+          its data contract.
+        - The agent must repair the effective payload while preserving the key and
+          application schema.
+        - Verification checks live business reads and payload correctness after a
+          service lifecycle boundary.
+        schema_version: e2e-difficulty-contract-v1
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 8
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 1
+            repair_depth: 2
+            verification_complexity: 1
+          rationale:
+          - Redis availability does not imply that the application cache payload satisfies
+            its data contract.
+          - The agent must repair the effective payload while preserving the key and
+            application schema.
+          - Verification checks live business reads and payload correctness after
+            a service lifecycle boundary.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  bundle_id: dynamic_bundle_0001
+compiler_version: opsbench-dynamic-compiler-v1
+scenario_spec_version: opsbench-e2e-scenario-v2

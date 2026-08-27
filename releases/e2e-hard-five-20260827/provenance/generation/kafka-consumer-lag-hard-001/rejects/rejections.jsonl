@@ -1,0 +1,2 @@
+{"candidate_id": "dynamic_kafka_consumer_lag_v1_000001", "stage": "compile", "error_type": "FileExistsError", "reason": "case already exists: runs\\e2e\\hard-five-glm-20260827\\04-kafka-lag-hard-confluent-v6\\cases\\dynamic_kafka_consumer_lag_v1_000001", "cause_type": "", "cause_reason": ""}
+{"candidate_group_id": "dynamic_bundle_0002_group_001", "stage": "compile", "reason": "no_candidate_compiled"}

@@ -1,0 +1,9 @@
+{
+  "count": 2,
+  "metadata_path": "runs\\e2e\\hard-five-glm-20260827\\04-kafka-lag-hard-confluent-v6\\evidence\\document_contexts.jsonl",
+  "source_dir": "runs\\e2e\\hard-five-glm-20260827\\04-kafka-lag-hard-confluent-v6\\evidence\\source",
+  "document_ids": [
+    "doc-docs-confluent-io-platform-current-monitor-monitor-consume-46f3ab",
+    "doc-kafka-apache-org-41-generated-consumer_config.html-2e7884"
+  ]
+}

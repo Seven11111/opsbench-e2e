@@ -1,0 +1,17 @@
+{
+  "mode": "off",
+  "passed": true,
+  "bundles": [
+    {
+      "passed": true,
+      "issue_count": 0,
+      "issues": [],
+      "advisories": [],
+      "claim_counts": {},
+      "document_context_count": 3,
+      "bundle_id": "dynamic_bundle_0001",
+      "initial_passed": true,
+      "judge_rounds": 0
+    }
+  ]
+}

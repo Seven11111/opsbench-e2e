@@ -1,0 +1,30 @@
+{
+  "passed": false,
+  "score": 0.2,
+  "checks": [
+    {
+      "name": "service_health",
+      "passed": true,
+      "weight": 0.2,
+      "detail": "live health endpoint"
+    },
+    {
+      "name": "business_operation",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "live business endpoint"
+    },
+    {
+      "name": "lock_holder_absent",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "1"
+    },
+    {
+      "name": "persistence",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "{'mode': 'blocked'}"
+    }
+  ]
+}

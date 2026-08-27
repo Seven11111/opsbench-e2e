@@ -1,0 +1,10 @@
+{
+  "count": 3,
+  "metadata_path": "runs\\e2e\\hard-five-glm-20260827\\01-postgres-lock-hard-offline-v4\\evidence\\document_contexts.jsonl",
+  "source_dir": "runs\\e2e\\hard-five-glm-20260827\\01-postgres-lock-hard-offline-v4\\evidence\\source",
+  "document_ids": [
+    "doc-www-postgresql-org-docs-current-explicit-locking.html-3c1473",
+    "doc-www-postgresql-org-docs-current-functions-admin.html-85c200",
+    "doc-www-postgresql-org-docs-current-monitoring-stats.html-9255a7"
+  ]
+}

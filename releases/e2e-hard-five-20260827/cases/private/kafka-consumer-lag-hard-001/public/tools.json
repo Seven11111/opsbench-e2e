@@ -1,0 +1,68 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tools": [
+    {
+      "name": "shell",
+      "description": "Run a diagnostic or repair shell command inside the declared runtime.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "command"
+        ]
+      }
+    },
+    {
+      "name": "health_check",
+      "description": "Read the live service or database health signal.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "business_check",
+      "description": "Check the declared public business operation, not just process liveness.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "diagnose",
+      "description": "Read bounded live signals declared for this operational scenario.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "service_repair",
+      "description": "Apply the registered safe repair for this case after diagnosis. For staged cases, call stage=prepare before stage=apply and choose the action that matches the diagnosed failure; do not replace the service or bypass validation.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    }
+  ],
+  "constraints": [
+    "Do not read case root, evaluator files, hidden labels, scenario files, host credentials, or Docker sockets.",
+    "Tool calls and outputs are recorded in the writable trace directory."
+  ]
+}

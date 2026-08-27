@@ -1,0 +1,68 @@
+{
+  "manifest_version": "opsbench-e2e-hard-pilot-v1",
+  "release_id": "e2e-hard-five-20260827",
+  "family": "e2e",
+  "status": "review_snapshot",
+  "calibration_status": "not_calibrated",
+  "difficulty_policy": {
+    "profile": "hard",
+    "score": 8,
+    "rubric_version": "e2e-difficulty-v2",
+    "empirical_status": "not_calibrated"
+  },
+  "cases": [
+    {
+      "id": "postgres-lock-contention-hard-001",
+      "source_case_id": "dynamic_postgres_lock_contention_v1_000001",
+      "primitive_id": "postgres_lock_contention_v1",
+      "domain": "database",
+      "technology_stack": ["PostgreSQL", "Python"],
+      "runtime_status": "passed",
+      "agent_evaluation": "glm-4.7:passed"
+    },
+    {
+      "id": "postgres-connection-pool-hard-001",
+      "source_case_id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "primitive_id": "postgres_connection_pool_exhaustion_v1",
+      "domain": "database",
+      "technology_stack": ["PostgreSQL", "Python"],
+      "runtime_status": "passed",
+      "agent_evaluation": "glm-4.7:passed"
+    },
+    {
+      "id": "redis-cache-corruption-hard-001",
+      "source_case_id": "dynamic_redis_cache_corruption_v1_000001",
+      "primitive_id": "redis_cache_corruption_v1",
+      "domain": "cache",
+      "technology_stack": ["Redis", "Python"],
+      "runtime_status": "passed",
+      "agent_evaluation": "glm-4.7:passed"
+    },
+    {
+      "id": "kafka-consumer-lag-hard-001",
+      "source_case_id": "dynamic_kafka_consumer_lag_v1_000001",
+      "primitive_id": "kafka_consumer_lag_v1",
+      "domain": "messaging",
+      "technology_stack": ["Apache Kafka", "Confluent Platform"],
+      "runtime_status": "blocked",
+      "agent_evaluation": "not_evaluated",
+      "reason": "consumer group remained in rebalancing during baseline and did not establish stable assignment/offset"
+    },
+    {
+      "id": "http-retry-circuit-breaker-hard-001",
+      "source_case_id": "dynamic_http_retry_circuit_breaker_v1_000001",
+      "primitive_id": "http_retry_circuit_breaker_v1",
+      "domain": "distributed_system",
+      "technology_stack": ["Python", "HTTP"],
+      "runtime_status": "passed",
+      "agent_evaluation": "glm-4.7:passed"
+    }
+  ],
+  "source_topics": [
+    "PostgreSQL explicit locking and monitoring",
+    "Redis expiration, data types, and operational patterns",
+    "Confluent consumer lag monitoring and Apache Kafka consumer configuration",
+    "HTTP circuit breaker pattern"
+  ],
+  "release_rule": "Only runtime-ready cases with clean negative controls and cleanup may enter a formal benchmark; all cases in this snapshot remain experimental."
+}

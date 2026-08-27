@@ -1,0 +1,297 @@
+{
+  "template_id": "postgres_connection_pool_exhaustion_v1",
+  "dynamic_spec": {
+    "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "postgres_pool_target",
+        "component_id": "postgres-pool-target",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "postgres_connection_pool_exhaustion_v1",
+      "target": "postgres_pool_target",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "The service is not reporting a healthy operational state.",
+      "impact": "The documented operational workflow cannot complete reliably.",
+      "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "business_check",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "postgres_connection_pool_exhaustion_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "pool_state",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.3333333333333333
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "restart_only"
+      },
+      {
+        "scenario": "wrong_fix"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 8,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 1,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "PostgreSQL health remains positive while application capacity is consumed by live sessions.",
+        "The agent must correlate request failures with active connection state rather than changing the caller timeout.",
+        "Verification requires restored business traffic and absence of the exhausted runtime state after restart."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "hard",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 1,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "causal_depth": 3,
+      "state_layers": [
+        "base_config",
+        "environment_override",
+        "dependency_runtime",
+        "runtime_process"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "resource_metric",
+        "process_tree",
+        "effective_config"
+      ],
+      "persistence_id": "process_lifecycle",
+      "distractor_ids": [
+        "healthy_process",
+        "caller_config_looks_correct",
+        "unrelated_latency"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "service_contract",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "restart_only",
+        "change_caller_contract",
+        "increase_timeout_only",
+        "direct_edit_generated_config"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "service_contract",
+        "persistence"
+      ],
+      "rationale": [
+        "PostgreSQL health remains positive while application capacity is consumed by live sessions.",
+        "The agent must correlate request failures with active connection state rather than changing the caller timeout.",
+        "Verification requires restored business traffic and absence of the exhausted runtime state after restart."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 8,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "PostgreSQL health remains positive while application capacity is consumed by live sessions.",
+          "The agent must correlate request failures with active connection state rather than changing the caller timeout.",
+          "Verification requires restored business traffic and absence of the exhausted runtime state after restart."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-www-postgresql-org-docs-current-explicit-locking.html-3c1473#heuristic_operational_005"
+      },
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-www-postgresql-org-docs-current-functions-admin.html-85c200#heuristic_operational_012"
+      },
+      {
+        "field_path": "public_task.repair",
+        "claim_type": "repair",
+        "ref": "doc-www-postgresql-org-docs-current-functions-admin.html-85c200#heuristic_operational_009"
+      },
+      {
+        "field_path": "public_task.repair",
+        "claim_type": "repair",
+        "ref": "doc-www-postgresql-org-docs-current-monitoring-stats.html-9255a7#heuristic_operational_012"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "PostgreSQL",
+      "Python"
+    ],
+    "domain": "database",
+    "fault_type": "connection_pool_exhaustion",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "",
+    "experience_digest": "",
+    "source": {
+      "primitive_status": "experimental",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "PostgreSQL health remains positive while application capacity is consumed by live sessions.",
+          "The agent must correlate request failures with active connection state rather than changing the caller timeout.",
+          "Verification requires restored business traffic and absence of the exhausted runtime state after restart."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "hard",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "causal_depth": 3,
+        "state_layers": [
+          "base_config",
+          "environment_override",
+          "dependency_runtime",
+          "runtime_process"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "resource_metric",
+          "process_tree",
+          "effective_config"
+        ],
+        "persistence_id": "process_lifecycle",
+        "distractor_ids": [
+          "healthy_process",
+          "caller_config_looks_correct",
+          "unrelated_latency"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "service_contract",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "restart_only",
+          "change_caller_contract",
+          "increase_timeout_only",
+          "direct_edit_generated_config"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "service_contract",
+          "persistence"
+        ],
+        "rationale": [
+          "PostgreSQL health remains positive while application capacity is consumed by live sessions.",
+          "The agent must correlate request failures with active connection state rather than changing the caller timeout.",
+          "Verification requires restored business traffic and absence of the exhausted runtime state after restart."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 8,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 1,
+            "repair_depth": 2,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "PostgreSQL health remains positive while application capacity is consumed by live sessions.",
+            "The agent must correlate request failures with active connection state rather than changing the caller timeout.",
+            "Verification requires restored business traffic and absence of the exhausted runtime state after restart."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "postgres_connection_pool_exhaustion_v1"
+}

@@ -1,0 +1,60 @@
+{
+  "report_version": "opsbench-e2e-hard-five-glm-v1",
+  "release": "e2e-hard-five-20260827",
+  "agent_model": "glm-4.7",
+  "agent_config": "configs/e2e-glm-60.yaml",
+  "agent_max_steps": 60,
+  "agent_timeout_sec": 300,
+  "runtime_ready_cases": 4,
+  "evaluated_cases": 4,
+  "passed_cases": 4,
+  "task_success_rate": 1.0,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 1.0,
+  "timeout_rate": 0.0,
+  "infrastructure_error_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "average_duration_sec": 75.117,
+  "cases": [
+    {
+      "id": "dynamic_postgres_lock_contention_v1_000001",
+      "release_case": "postgres-lock-contention-hard-001",
+      "passed": true,
+      "verifier_score": 0.8,
+      "duration_sec": 68.094,
+      "checks": ["service_health", "business_operation", "lock_holder_absent", "persistence"]
+    },
+    {
+      "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "release_case": "postgres-connection-pool-hard-001",
+      "passed": true,
+      "verifier_score": 0.8,
+      "duration_sec": 63.813,
+      "checks": ["service_health", "business_operation", "pool_holders_absent", "persistence"]
+    },
+    {
+      "id": "dynamic_redis_cache_corruption_v1_000001",
+      "release_case": "redis-cache-corruption-hard-001",
+      "passed": true,
+      "verifier_score": 0.8,
+      "duration_sec": 94.093,
+      "checks": ["service_health", "business_operation", "cache_payload_valid", "persistence"]
+    },
+    {
+      "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+      "release_case": "http-retry-circuit-breaker-hard-001",
+      "passed": true,
+      "verifier_score": 1.0,
+      "duration_sec": 74.468,
+      "checks": ["service_health", "business_operation", "downstream_recovered", "circuit_closed", "effective_dependency", "repair_persisted", "persistence"]
+    }
+  ],
+  "excluded_cases": [
+    {
+      "id": "dynamic_kafka_consumer_lag_v1_000001",
+      "release_case": "kafka-consumer-lag-hard-001",
+      "reason": "runtime baseline blocked: consumer group remained in rebalancing and did not establish stable assignment/offset"
+    }
+  ],
+  "interpretation": "The execution chain is usable for four cases, but a 4/4 GLM result does not establish empirical hard difficulty. All cases remain experimental and not_calibrated."
+}

@@ -1,0 +1,30 @@
+{
+  "passed": false,
+  "score": 0.6,
+  "checks": [
+    {
+      "name": "service_health",
+      "passed": true,
+      "weight": 0.2,
+      "detail": "live health endpoint"
+    },
+    {
+      "name": "business_operation",
+      "passed": true,
+      "weight": 0.2,
+      "detail": "live business endpoint"
+    },
+    {
+      "name": "cache_payload_valid",
+      "passed": true,
+      "weight": 0.2,
+      "detail": "{\"version\":1,\"items\":[]}"
+    },
+    {
+      "name": "persistence",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "{'mode': 'corrupt'}"
+    }
+  ]
+}

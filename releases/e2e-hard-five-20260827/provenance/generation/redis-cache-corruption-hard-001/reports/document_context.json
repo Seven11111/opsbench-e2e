@@ -1,0 +1,10 @@
+{
+  "count": 3,
+  "metadata_path": "runs\\e2e\\hard-five-glm-20260827\\03-redis-cache-hard-offline\\evidence\\document_contexts.jsonl",
+  "source_dir": "runs\\e2e\\hard-five-glm-20260827\\03-redis-cache-hard-offline\\evidence\\source",
+  "document_ids": [
+    "doc-redis-io-docs-latest-commands-expire-5b7ec2",
+    "doc-redis-io-docs-latest-develop-data-types-ca95f3",
+    "doc-redis-io-docs-latest-develop-use-patterns-f1ef4d"
+  ]
+}

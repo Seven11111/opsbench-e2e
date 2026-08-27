@@ -1,0 +1,30 @@
+{
+  "passed": false,
+  "score": 0.2,
+  "checks": [
+    {
+      "name": "service_health",
+      "passed": true,
+      "weight": 0.2,
+      "detail": "live health endpoint"
+    },
+    {
+      "name": "business_operation",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "live business endpoint"
+    },
+    {
+      "name": "consumer_lag",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "\nGROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                  HOST            CLIENT-ID\nopsbench-group  opsbench-events 0          7               30              23              rdkafka-5109c455-6290-428e-bc0b-2fee6a0d8f54 /172.19.0.3     rdkafka"
+    },
+    {
+      "name": "persistence",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "{'mode': 'paused'}"
+    }
+  ]
+}

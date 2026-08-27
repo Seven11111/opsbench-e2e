@@ -1,0 +1,48 @@
+{
+  "passed": false,
+  "score": 0.3,
+  "checks": [
+    {
+      "name": "service_health",
+      "passed": true,
+      "weight": 0.2,
+      "detail": "live health endpoint"
+    },
+    {
+      "name": "business_operation",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "live business endpoint"
+    },
+    {
+      "name": "downstream_recovered",
+      "passed": false,
+      "weight": 0.1,
+      "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+    },
+    {
+      "name": "circuit_closed",
+      "passed": true,
+      "weight": 0.1,
+      "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+    },
+    {
+      "name": "effective_dependency",
+      "passed": false,
+      "weight": 0.1,
+      "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+    },
+    {
+      "name": "repair_persisted",
+      "passed": false,
+      "weight": 0.1,
+      "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+    },
+    {
+      "name": "persistence",
+      "passed": false,
+      "weight": 0.2,
+      "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+    }
+  ]
+}

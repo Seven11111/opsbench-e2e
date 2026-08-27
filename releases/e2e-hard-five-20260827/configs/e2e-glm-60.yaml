@@ -1,0 +1,6 @@
+id: glm_60
+model: glm-4.7
+max_steps: 60
+agent_timeout_sec: 300
+env:
+  OPSBENCH_AGENT_TEMPERATURE: "0"

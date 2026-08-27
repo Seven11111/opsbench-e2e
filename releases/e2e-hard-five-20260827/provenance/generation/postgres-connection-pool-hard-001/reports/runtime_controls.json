@@ -1,0 +1,403 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "template_id": "postgres_connection_pool_exhaustion_v1",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hard-five-glm-20260827\\02-postgres-pool-hard-offline\\cases\\dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "passed": true,
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "runs": [
+        {
+          "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "pool_holders_absent",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "14"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'exhausted'}"
+            }
+          ],
+          "score": 0.4,
+          "duration_sec": 12.781,
+          "case_digest": "3ceafb1b8a395ab9e3ee96e5f8eeb53b4e2bfe76d8600bc525e15617272c5493",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hard-five-glm-20260827\\02-postgres-pool-hard-offline\\reports\\control_traces\\dynamic_postgres_connection_pool_exhaustion_v1_000001-ju7l1x0a",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "pool_holders_absent",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "0"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 19.64,
+          "case_digest": "3ceafb1b8a395ab9e3ee96e5f8eeb53b4e2bfe76d8600bc525e15617272c5493",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hard-five-glm-20260827\\02-postgres-pool-hard-offline\\reports\\control_traces\\dynamic_postgres_connection_pool_exhaustion_v1_000001-ju7l1x0a",
+          "error_type": "",
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "pool_holders_absent",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "14"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'exhausted'}"
+            }
+          ],
+          "score": 0.4,
+          "duration_sec": 27.859,
+          "case_digest": "3ceafb1b8a395ab9e3ee96e5f8eeb53b4e2bfe76d8600bc525e15617272c5493",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hard-five-glm-20260827\\02-postgres-pool-hard-offline\\reports\\control_traces\\dynamic_postgres_connection_pool_exhaustion_v1_000001-ju7l1x0a",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "pool_holders_absent",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "14"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'exhausted'}"
+            }
+          ],
+          "score": 0.4,
+          "duration_sec": 34.719,
+          "case_digest": "3ceafb1b8a395ab9e3ee96e5f8eeb53b4e2bfe76d8600bc525e15617272c5493",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hard-five-glm-20260827\\02-postgres-pool-hard-offline\\reports\\control_traces\\dynamic_postgres_connection_pool_exhaustion_v1_000001-ju7l1x0a",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "pool_holders_absent",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "11"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'exhausted'}"
+            }
+          ],
+          "score": 0.4,
+          "duration_sec": 42.234,
+          "case_digest": "3ceafb1b8a395ab9e3ee96e5f8eeb53b4e2bfe76d8600bc525e15617272c5493",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hard-five-glm-20260827\\02-postgres-pool-hard-offline\\reports\\control_traces\\dynamic_postgres_connection_pool_exhaustion_v1_000001-ju7l1x0a",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "pool_holders_absent",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "0"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 50.234,
+          "case_digest": "3ceafb1b8a395ab9e3ee96e5f8eeb53b4e2bfe76d8600bc525e15617272c5493",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hard-five-glm-20260827\\02-postgres-pool-hard-offline\\reports\\control_traces\\dynamic_postgres_connection_pool_exhaustion_v1_000001-ju7l1x0a",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "pool_holders_absent",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "0"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 58.015,
+          "case_digest": "3ceafb1b8a395ab9e3ee96e5f8eeb53b4e2bfe76d8600bc525e15617272c5493",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\hard-five-glm-20260827\\02-postgres-pool-hard-offline\\reports\\control_traces\\dynamic_postgres_connection_pool_exhaustion_v1_000001-ju7l1x0a",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 7
+}
