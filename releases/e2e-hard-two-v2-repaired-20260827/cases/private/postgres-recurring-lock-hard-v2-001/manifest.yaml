@@ -1,0 +1,87 @@
+id: dynamic_postgres_recurring_lock_chain_v2_000001
+version: '2.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels: [fault_detection, root_cause]
+fault_type: recurring_lock_chain
+domain: database
+technology_stack: [PostgreSQL, Python]
+template_id: postgres_recurring_lock_chain_v2
+fault_primitive_id: postgres_recurring_lock_chain_v2
+runtime_status: experimental
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 10
+  rubric_version: e2e-difficulty-v2
+  dimensions: {diagnostic_uncertainty: 2, signal_indirection: 2, tool_breadth: 2, repair_depth: 2, verification_complexity: 2}
+  rationale:
+    - The current blocking session is an effect; a supervised worker recreates it while the effective override remains.
+    - The Agent must distinguish the causal session from legitimate reporting work and compare configuration layers.
+    - Verification restarts the worker and replays business traffic.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts: [public/task.md, public/tools.json]
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check: {url: 'http://127.0.0.1:18085/orders'}
+lifecycle: [validate, provision, setup, baseline_check, inject, check_injected, run_agent, verify, cleanup]
+timeouts: {provision_sec: 180, setup_sec: 60, agent_sec: 300, verify_sec: 90, cleanup_sec: 30}
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs: []
+  candidate_group_id: postgres_recurring_lock_v2_group_001
+  generation_strategy: layered_state
+  scenario_seed: 1
+  dynamic_spec:
+    id: dynamic_postgres_recurring_lock_chain_v2_000001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels: [fault_detection, root_cause]
+    components:
+      - {instance_id: postgres, component_id: postgres, version: '16', params: {}}
+      - {instance_id: inventory_sync, component_id: supervised-worker, version: '', params: {}}
+    fault: {primitive_id: postgres_recurring_lock_chain_v2, target: inventory_sync, params: {lock_key: 424242}}
+    public_task:
+      symptom: Orders intermittently return HTTP 503 while health endpoints remain green.
+      impact: Customer order reads are delayed and fail.
+      objective: Diagnose the live service, repair the durable cause, and verify recovery.
+      constraints: [Preserve reporting work, Do not restart PostgreSQL, Do not increase timeouts]
+    allowed_tools: [business_probe, service_status, query_logs, query_postgres, read_service_config, update_service_config, terminate_postgres_backend, restart_service]
+    expected_actions:
+      - {primitive_id: postgres_recurring_lock_chain_v2, action: durable_targeted_repair}
+    success_checks:
+      - {check_id: orders_stable, weight: 0.2}
+      - {check_id: causal_lock_absent, weight: 0.2}
+      - {check_id: reporting_preserved, weight: 0.2}
+      - {check_id: effective_config, weight: 0.2}
+      - {check_id: lifecycle_persistence, weight: 0.2}
+    negative_controls: [{scenario: no_op}, {scenario: restart_only}, {scenario: terminate_blocker_only}, {scenario: edit_base_only}, {scenario: broad_termination}]
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      dimensions: {diagnostic_uncertainty: 2, signal_indirection: 2, tool_breadth: 2, repair_depth: 2, verification_complexity: 2}
+      rationale: [The visible blocker recurs until the winning configuration layer is repaired.]
+      empirical_status: not_calibrated
+    evidence_links: []
+    scenario_seed: 1
+    technology_stack: [PostgreSQL, Python]
+    domain: database
+    fault_type: recurring_lock_chain
+    candidate_group_id: postgres_recurring_lock_v2_group_001
+    generation_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+compiler_version: manual-hardening-v2
+scenario_spec_version: opsbench-e2e-scenario-v2

@@ -1,0 +1,7 @@
+{
+  "lock_mode": "transaction",
+  "lock_key": "424242",
+  "transaction_scope": "per_batch",
+  "schedule_enabled": "true"
+}
+

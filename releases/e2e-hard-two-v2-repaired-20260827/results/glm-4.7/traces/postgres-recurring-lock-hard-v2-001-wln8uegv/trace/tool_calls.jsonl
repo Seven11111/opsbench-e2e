@@ -1,0 +1,74 @@
+{"tool": "business_probe", "input": {"endpoint": "orders-api", "repeat": 5}, "result": {"error": "endpoint is not declared"}}
+{"tool": "service_status", "input": {"service": "inventory-sync"}, "result": {"worker_pid": "138", "supervised": true, "last_completed_cycle": "{\"completed_at\": 1787825577.1159139, \"mode\": \"transaction\"}"}}
+{"tool": "service_status", "input": {"service": "orders-api"}, "result": {"http_status": 200, "body": "{\"status\": \"ok\", \"worker_running\": true}", "duration_sec": 0.0087}}
+{"tool": "query_logs", "input": {"service": "inventory-sync", "contains": "", "limit": 50}, "result": {"lines": []}}
+{"tool": "query_logs", "input": {"service": "orders-api", "contains": "", "limit": 50}, "result": {"lines": ["1787825572.832 orders request completed", "1787825573.269 orders request completed", "1787825573.703 orders request completed", "1787825574.146 orders request completed", "1787825574.588 orders request completed", "1787825583.080 orders request failed: statement timeout while acquiring operational lock"]}}
+{"tool": "query_postgres", "input": {"view": "pg_locks"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "query_postgres", "input": {"view": "pg_stat_activity"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "query_postgres", "input": {"view": "pg_stat_database"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "query_postgres", "input": {"view": "pg_stat_statements"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "query_postgres", "input": {"view": "pg_stat_activity"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "query_postgres", "input": {"view": "pg_stat_activity"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "query_postgres", "input": {"view": "pg_stat_activity"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "query_postgres", "input": {"view": "pg_stat_activity"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "query_postgres", "input": {"view": "pg_stat_activity"}, "result": {"error": "view is not allowlisted"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "environment", "key": "statement_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "environment", "key": "lock_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "environment", "key": "statement_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "effective", "key": "statement_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "effective", "key": "lock_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "effective", "key": "statement_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "lock_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "statement_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "base", "key": "statement_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "connection_timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "db_pool_size"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "base", "key": "db_pool_size"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DATABASE_URL"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "PORT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "base", "key": "SYNC_INTERVAL"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "pool_size"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "max_connections"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "timeout"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "WORKER_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "LOCK_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "base", "key": "LOCK_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "app_name"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "log_level"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "base", "key": "log_level"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "ENVIRONMENT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "HOST"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DEBUG"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DB_HOST"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DB_PORT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DB_NAME"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "sync_mode"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "base", "key": "sync_mode"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "isolation_level"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "MAX_CONNECTIONS"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "POOL_SIZE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "LOCK_MODE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "LOCK_WAIT_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "base", "key": "LOCK_MODE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DB_LOCK_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DB_STATEMENT_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "inventory-sync", "layer": "base", "key": "DB_STATEMENT_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "LOCK_ACQUISITION_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "OPERATIONAL_LOCK_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "CONNECTION_POOL_SIZE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DB_POOL_MAX_SIZE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DB_POOL_MIN_SIZE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "DB_CONNECT_TIMEOUT"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "pool"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "database"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "sync"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "WORKER_POOL_SIZE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "MAX_WORKERS"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "CONCURRENCY"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "INVENTORY_SYNC_MODE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "ALLOW_CONCURRENT_SYNC"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "SYNC_LOCK_MODE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "LOCKING"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "TRANSACTION_MODE"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "orders-api", "layer": "base", "key": "ISOLATION"}, "result": {"error": "configuration key is not declared"}}

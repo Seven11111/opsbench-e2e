@@ -1,0 +1,14 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "tool_names": [
+    "business_probe",
+    "redis_inspect",
+    "query_logs",
+    "service_status",
+    "read_service_config",
+    "update_service_config",
+    "run_cache_refresh",
+    "restart_service"
+  ],
+  "model": "glm-4.7"
+}

@@ -1,0 +1,84 @@
+{
+  "release_id": "e2e-hard-two-v2-repaired-20260827",
+  "status": "expert_review_package",
+  "case_count": 2,
+  "static_validation": {
+    "passed": true,
+    "validated_cases": 2
+  },
+  "runtime_gate": {
+    "passed": true,
+    "cases": 2,
+    "runs": 14,
+    "controls_per_case": [
+      "no_op",
+      "oracle",
+      "restart_only",
+      "wrong_fix",
+      "partial_fix",
+      "repeat",
+      "repeat"
+    ],
+    "cleanup_failure_count": 0
+  },
+  "agent_evaluation": {
+    "model": "glm-4.7",
+    "config_id": "glm_60",
+    "max_steps": 60,
+    "final_selected_results": {
+      "passed": 2,
+      "total": 2,
+      "task_success_rate": 1.0,
+      "execution_completion_rate": 1.0,
+      "conditional_success_rate": 1.0,
+      "timeout_rate": 0.0,
+      "cases": [
+        {
+          "case_id": "postgres-recurring-lock-hard-v2-001",
+          "result_source": "glm-4.7-r2",
+          "passed": true,
+          "score": 1.0,
+          "duration_sec": 260.468
+        },
+        {
+          "case_id": "redis-refresh-drift-hard-v2-001",
+          "result_source": "glm-4.7-r3-redis",
+          "passed": true,
+          "score": 1.0,
+          "duration_sec": 111.313
+        }
+      ]
+    },
+    "diagnostic_runs": [
+      {
+        "result_source": "glm-4.7-initial",
+        "task_success_rate": 0.0,
+        "execution_completion_rate": 1.0,
+        "conditional_success_rate": 0.0,
+        "timeout_rate": 0.0,
+        "finding": "The public tool contract was not explicit enough for the agent; it guessed invalid services, views, and keys."
+      },
+      {
+        "result_source": "glm-4.7-r2",
+        "task_success_rate": 0.5,
+        "execution_completion_rate": 0.5,
+        "conditional_success_rate": 1.0,
+        "timeout_rate": 0.5,
+        "finding": "The exact tools contract fixed PostgreSQL, while Redis still timed out during observation."
+      },
+      {
+        "result_source": "glm-4.7-r3-redis",
+        "task_success_rate": 1.0,
+        "execution_completion_rate": 1.0,
+        "conditional_success_rate": 1.0,
+        "timeout_rate": 0.0,
+        "finding": "A public Redis workflow hint reduced unproductive observation and the case passed."
+      }
+    ]
+  },
+  "limitations": [
+    "The cases are runtime-validated but not provenance-complete: evidence_refs is empty and the source documents are not bundled.",
+    "Difficulty is a deterministic target score (hard, score 10), not an empirical difficulty calibration.",
+    "The package is intended for expert diagnosis and method review, not yet a formal benchmark release."
+  ]
+}

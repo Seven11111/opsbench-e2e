@@ -1,0 +1,79 @@
+{"tool": "business_probe", "input": {"endpoint": "/catalog", "repeat": 3}, "result": {"error": "endpoint is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-refresh-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-api"}, "result": {"http_status": 200, "body": "{\"status\": \"ok\", \"refresh_worker_running\": true}", "duration_sec": 0.0099}}
+{"tool": "service_status", "input": {"service": "catalog"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "api"}, "result": {"error": "service is not declared"}}
+{"tool": "query_logs", "input": {"service": "api", "contains": "", "limit": 20}, "result": {"error": "log is not declared"}}
+{"tool": "query_logs", "input": {"service": "catalog", "contains": "", "limit": 20}, "result": {"error": "log is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog", "layer": "base", "key": "cache_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog", "layer": "base", "key": "endpoint"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "redis_inspect", "input": {"key": "catalog:cache", "field": "value"}, "result": {"error": "key or field is not declared"}}
+{"tool": "redis_inspect", "input": {"key": "catalog", "field": "value"}, "result": {"error": "key or field is not declared"}}
+{"tool": "redis_inspect", "input": {"key": "catalog_data", "field": "value"}, "result": {"error": "key or field is not declared"}}
+{"tool": "business_probe", "input": {"endpoint": "/api/catalog", "repeat": 1}, "result": {"error": "endpoint is not declared"}}
+{"tool": "business_probe", "input": {"endpoint": "/catalogs", "repeat": 1}, "result": {"error": "endpoint is not declared"}}
+{"tool": "business_probe", "input": {"endpoint": "/health", "repeat": 1}, "result": {"error": "endpoint is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "cache_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "environment", "key": "cache_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "effective", "key": "cache_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "redis_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "catalog_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "endpoint"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "*"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": ""}, "result": {"error": "configuration key is not declared"}}
+{"tool": "service_status", "input": {"service": "web"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "app"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "redis"}, "result": {"returncode": 0, "stdout": "PONG\n", "stderr": "", "duration_sec": 0.0072}}
+{"tool": "service_status", "input": {"service": "catalog-service"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog_worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "refresh-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "query_logs", "input": {"service": "redis", "contains": "", "limit": 50}, "result": {"error": "log is not declared"}}
+{"tool": "query_logs", "input": {"service": "catalog-api", "contains": "", "limit": 50}, "result": {"lines": ["1787825710.348 catalog payload accepted", "1787825710.762 catalog payload accepted", "1787825711.198 catalog payload accepted", "1787825711.615 catalog payload accepted", "1787825712.030 catalog payload accepted", "1787825721.014 catalog payload rejected: application contract mismatch"]}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "contract_version"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "environment", "key": "contract_version"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "query_logs", "input": {"service": "catalog-api", "contains": "", "limit": 50}, "result": {"lines": ["1787825710.348 catalog payload accepted", "1787825710.762 catalog payload accepted", "1787825711.198 catalog payload accepted", "1787825711.615 catalog payload accepted", "1787825712.030 catalog payload accepted", "1787825721.014 catalog payload rejected: application contract mismatch"]}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "validation"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "schema"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "validate"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "catalog"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "cache"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "refresh"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "service_name"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "port"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "host"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "catalog_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "effective", "key": "catalog_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "environment", "key": "catalog_key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "redis"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "key"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "ttl"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "catalog_ttl"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "cache_ttl"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "expiration"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-refresh"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "refresh"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-refresh-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog_worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-refresh-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog_worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-refresh-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog_worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog_worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-refresh-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-refresh-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog_worker"}, "result": {"error": "service is not declared"}}
+{"tool": "service_status", "input": {"service": "catalog-worker"}, "result": {"error": "service is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "payload_validation"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "contract"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "schema_version"}, "result": {"service": "catalog-api", "layer": "base", "key": "schema_version", "present": true, "value": 2}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "environment", "key": "schema_version"}, "result": {"service": "catalog-api", "layer": "environment", "key": "schema_version", "present": false, "value": null}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "effective", "key": "schema_version"}, "result": {"service": "catalog-api", "layer": "effective", "key": "schema_version", "present": true, "value": 2}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "catalog_schema_version"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "refresh_schema_version"}, "result": {"error": "configuration key is not declared"}}
+{"tool": "read_service_config", "input": {"service": "catalog-api", "layer": "base", "key": "worker_schema_version"}, "result": {"error": "configuration key is not declared"}}

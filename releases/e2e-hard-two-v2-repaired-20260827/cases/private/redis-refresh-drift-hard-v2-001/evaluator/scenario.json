@@ -1,0 +1,9 @@
+{
+  "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+  "fault_primitive_id": "redis_refresh_contract_drift_v2",
+  "root_cause": "A stale environment override makes the supervised cache-refresh worker repeatedly write schema-v1 payloads to a schema-v2 consumer.",
+  "oracle": ["remove the schema_version environment override", "restart cache-refresh", "trigger a normal refresh"],
+  "negative_controls": ["rewrite payload once", "edit base only", "restart catalog-api", "delete key", "disable validation", "disable refresh"],
+  "critical_checks": ["catalog_stable", "schema_and_checksum", "ttl_preserved", "effective_config_repaired", "refresh_worker_persistent", "preview_preserved"]
+}
+

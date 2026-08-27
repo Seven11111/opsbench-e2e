@@ -1,0 +1,14 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "tool_names": [
+    "business_probe",
+    "service_status",
+    "query_logs",
+    "query_postgres",
+    "read_service_config",
+    "update_service_config",
+    "terminate_postgres_backend",
+    "restart_service"
+  ],
+  "model": "glm-4.7"
+}

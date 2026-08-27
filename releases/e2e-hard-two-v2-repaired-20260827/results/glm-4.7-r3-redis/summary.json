@@ -1,0 +1,135 @@
+{
+  "family": "e2e",
+  "total": 1,
+  "e2e_score": 100.0,
+  "family_scores": {
+    "e2e": 100.0
+  },
+  "task_success_rate": 1.0,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 1.0,
+  "verifier_check_rate": 1.0,
+  "timeout_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "infrastructure_error_rate": 0.0,
+  "average_duration": 111.313,
+  "average_verifier_score": 1.0,
+  "counts": {
+    "passed": 1,
+    "agent_completed": 1,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0
+  },
+  "by_primary_task_label": {
+    "fault_fix": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_fault_type": {
+    "refresh_contract_drift": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_domain": {
+    "cache": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_template": {
+    "redis_refresh_contract_drift_v2": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "manifest": {
+    "manifest_version": "opsbench-e2e-manifest-v1",
+    "family": "e2e",
+    "case_root": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\cases\\private\\redis-refresh-drift-hard-v2-001",
+    "sample_size": 1,
+    "sample_seed": 42,
+    "filters": {
+      "task_labels": [],
+      "template_id": null,
+      "domain": null,
+      "fault_type": null
+    },
+    "items": [
+      {
+        "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\cases\\private\\redis-refresh-drift-hard-v2-001",
+        "case_digest": "7801240c7df211a3c061d69faa67a8cfff84f4a0fb88b2019218765548c1d8e6",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "refresh_contract_drift",
+        "domain": "cache",
+        "technology_stack": [
+          "Redis",
+          "Python"
+        ],
+        "template_id": "redis_refresh_contract_drift_v2",
+        "primitive_id": "redis_refresh_contract_drift_v2",
+        "difficulty_profile": "hard",
+        "difficulty_score": 10,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated"
+      }
+    ],
+    "total_available": 1,
+    "total": 1
+  },
+  "summary": {
+    "family": "e2e",
+    "total": 1,
+    "e2e_score": 100.0,
+    "family_scores": {
+      "e2e": 100.0
+    },
+    "task_success_rate": 1.0,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 1.0,
+    "verifier_check_rate": 1.0,
+    "timeout_rate": 0.0,
+    "cleanup_failure_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "average_duration": 111.313,
+    "average_verifier_score": 1.0,
+    "counts": {
+      "passed": 1,
+      "agent_completed": 1,
+      "infrastructure_errors": 0,
+      "timeouts": 0,
+      "cleanup_failures": 0
+    },
+    "by_primary_task_label": {
+      "fault_fix": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_fault_type": {
+      "refresh_contract_drift": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_domain": {
+      "cache": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_template": {
+      "redis_refresh_contract_drift_v2": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    }
+  }
+}

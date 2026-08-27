@@ -1,0 +1,88 @@
+id: dynamic_redis_refresh_contract_drift_v2_000001
+version: '2.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels: [fault_detection, root_cause]
+fault_type: refresh_contract_drift
+domain: cache
+technology_stack: [Redis, Python]
+template_id: redis_refresh_contract_drift_v2
+fault_primitive_id: redis_refresh_contract_drift_v2
+runtime_status: experimental
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 10
+  rubric_version: e2e-difficulty-v2
+  dimensions: {diagnostic_uncertainty: 2, signal_indirection: 2, tool_breadth: 2, repair_depth: 2, verification_complexity: 2}
+  rationale:
+    - Redis health, key existence, TTL, and JSON syntax remain normal while the application contract fails.
+    - A one-time payload correction is overwritten by a supervised refresh worker.
+    - Verification spans multiple refresh cycles and preserves unrelated preview data.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts: [public/task.md, public/tools.json]
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check: {url: 'http://127.0.0.1:18087/catalog'}
+lifecycle: [validate, provision, setup, baseline_check, inject, check_injected, run_agent, verify, cleanup]
+timeouts: {provision_sec: 180, setup_sec: 60, agent_sec: 300, verify_sec: 90, cleanup_sec: 30}
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs: []
+  candidate_group_id: redis_refresh_drift_v2_group_001
+  generation_strategy: layered_state
+  scenario_seed: 1
+  dynamic_spec:
+    id: dynamic_redis_refresh_contract_drift_v2_000001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels: [fault_detection, root_cause]
+    components:
+      - {instance_id: redis, component_id: redis, version: '7.2', params: {}}
+      - {instance_id: cache_refresh, component_id: supervised-worker, version: '', params: {}}
+      - {instance_id: catalog_api, component_id: catalog-consumer, version: '', params: {}}
+    fault: {primitive_id: redis_refresh_contract_drift_v2, target: cache_refresh, params: {bad_schema_version: 1}}
+    public_task:
+      symptom: Catalog returns HTTP 503 although Redis and service health remain green.
+      impact: Catalog reads are unreliable.
+      objective: Repair the durable source and verify across refresh cycles.
+      constraints: [Do not delete the key, Preserve TTL, Preserve validation, Preserve refresh worker]
+    allowed_tools: [business_probe, redis_inspect, query_logs, service_status, read_service_config, update_service_config, run_cache_refresh, restart_service]
+    expected_actions:
+      - {primitive_id: redis_refresh_contract_drift_v2, action: durable_refresh_repair}
+    success_checks:
+      - {check_id: catalog_stable, weight: 0.2}
+      - {check_id: schema_and_checksum, weight: 0.2}
+      - {check_id: ttl_preserved, weight: 0.2}
+      - {check_id: refresh_persistence, weight: 0.2}
+      - {check_id: preview_preserved, weight: 0.2}
+    negative_controls: [{scenario: no_op}, {scenario: direct_payload_only}, {scenario: edit_base_only}, {scenario: disable_validation}, {scenario: disable_refresh}]
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      dimensions: {diagnostic_uncertainty: 2, signal_indirection: 2, tool_breadth: 2, repair_depth: 2, verification_complexity: 2}
+      rationale: [The visible cache value is recreated until the refresh worker effective configuration is repaired.]
+      empirical_status: not_calibrated
+    evidence_links: []
+    scenario_seed: 1
+    technology_stack: [Redis, Python]
+    domain: cache
+    fault_type: refresh_contract_drift
+    candidate_group_id: redis_refresh_drift_v2_group_001
+    generation_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+compiler_version: manual-hardening-v2
+scenario_spec_version: opsbench-e2e-scenario-v2

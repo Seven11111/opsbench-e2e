@@ -1,0 +1,181 @@
+{
+  "family": "e2e",
+  "total": 2,
+  "e2e_score": 0.0,
+  "family_scores": {
+    "e2e": 0.0
+  },
+  "task_success_rate": 0.0,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 0.0,
+  "verifier_check_rate": 0.5333333333333333,
+  "timeout_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "infrastructure_error_rate": 0.0,
+  "average_duration": 147.5,
+  "average_verifier_score": 0.375,
+  "counts": {
+    "passed": 0,
+    "agent_completed": 2,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0
+  },
+  "by_primary_task_label": {
+    "fault_fix": {
+      "total": 2,
+      "success_rate": 0.0
+    }
+  },
+  "by_fault_type": {
+    "recurring_lock_chain": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "refresh_contract_drift": {
+      "total": 1,
+      "success_rate": 0.0
+    }
+  },
+  "by_domain": {
+    "cache": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "database": {
+      "total": 1,
+      "success_rate": 0.0
+    }
+  },
+  "by_template": {
+    "postgres_recurring_lock_chain_v2": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "redis_refresh_contract_drift_v2": {
+      "total": 1,
+      "success_rate": 0.0
+    }
+  },
+  "manifest": {
+    "manifest_version": "opsbench-e2e-manifest-v1",
+    "family": "e2e",
+    "case_root": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\cases\\private",
+    "sample_size": 2,
+    "sample_seed": 42,
+    "filters": {
+      "task_labels": [],
+      "template_id": null,
+      "domain": null,
+      "fault_type": null
+    },
+    "items": [
+      {
+        "id": "dynamic_postgres_recurring_lock_chain_v2_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\cases\\private\\postgres-recurring-lock-hard-v2-001",
+        "case_digest": "c96eb080ef887d79dbe1266965441b36e77819ec1edb54430e19e40c6182d086",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "recurring_lock_chain",
+        "domain": "database",
+        "technology_stack": [
+          "PostgreSQL",
+          "Python"
+        ],
+        "template_id": "postgres_recurring_lock_chain_v2",
+        "primitive_id": "postgres_recurring_lock_chain_v2",
+        "difficulty_profile": "hard",
+        "difficulty_score": 10,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated"
+      },
+      {
+        "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\cases\\private\\redis-refresh-drift-hard-v2-001",
+        "case_digest": "8e70809ab07cf7f283c02a91ed5d0f5e7b444a01c4cdc0af4e07428046104d70",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "refresh_contract_drift",
+        "domain": "cache",
+        "technology_stack": [
+          "Redis",
+          "Python"
+        ],
+        "template_id": "redis_refresh_contract_drift_v2",
+        "primitive_id": "redis_refresh_contract_drift_v2",
+        "difficulty_profile": "hard",
+        "difficulty_score": 10,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated"
+      }
+    ],
+    "total_available": 2,
+    "total": 2
+  },
+  "summary": {
+    "family": "e2e",
+    "total": 2,
+    "e2e_score": 0.0,
+    "family_scores": {
+      "e2e": 0.0
+    },
+    "task_success_rate": 0.0,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 0.0,
+    "verifier_check_rate": 0.5333333333333333,
+    "timeout_rate": 0.0,
+    "cleanup_failure_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "average_duration": 147.5,
+    "average_verifier_score": 0.375,
+    "counts": {
+      "passed": 0,
+      "agent_completed": 2,
+      "infrastructure_errors": 0,
+      "timeouts": 0,
+      "cleanup_failures": 0
+    },
+    "by_primary_task_label": {
+      "fault_fix": {
+        "total": 2,
+        "success_rate": 0.0
+      }
+    },
+    "by_fault_type": {
+      "recurring_lock_chain": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "refresh_contract_drift": {
+        "total": 1,
+        "success_rate": 0.0
+      }
+    },
+    "by_domain": {
+      "cache": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "database": {
+        "total": 1,
+        "success_rate": 0.0
+      }
+    },
+    "by_template": {
+      "postgres_recurring_lock_chain_v2": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "redis_refresh_contract_drift_v2": {
+        "total": 1,
+        "success_rate": 0.0
+      }
+    }
+  }
+}

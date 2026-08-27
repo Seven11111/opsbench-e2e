@@ -1,0 +1,37 @@
+{
+  "release_id": "e2e-hard-two-v2-repaired-20260827",
+  "release_status": "expert_review",
+  "family": "e2e",
+  "runtime_validated": true,
+  "document_provenance_complete": false,
+  "empirical_status": "not_calibrated",
+  "cases": [
+    {
+      "id": "dynamic_postgres_recurring_lock_chain_v2_000001",
+      "path": "cases/private/postgres-recurring-lock-hard-v2-001",
+      "template_id": "postgres_recurring_lock_chain_v2",
+      "domain": "database",
+      "technology_stack": ["PostgreSQL", "Python"],
+      "target_difficulty": "hard",
+      "difficulty_score": 10,
+      "runtime_controls": "7/7 passed",
+      "latest_glm_result": "passed"
+    },
+    {
+      "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+      "path": "cases/private/redis-refresh-drift-hard-v2-001",
+      "template_id": "redis_refresh_contract_drift_v2",
+      "domain": "cache",
+      "technology_stack": ["Redis", "Python"],
+      "target_difficulty": "hard",
+      "difficulty_score": 10,
+      "runtime_controls": "7/7 passed",
+      "latest_glm_result": "passed"
+    }
+  ],
+  "evaluation_snapshots": [
+    "results/glm-4.7-initial",
+    "results/glm-4.7-r2",
+    "results/glm-4.7-r3-redis"
+  ]
+}

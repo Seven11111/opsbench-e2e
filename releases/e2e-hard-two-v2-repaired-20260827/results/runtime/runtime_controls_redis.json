@@ -1,0 +1,949 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+      "template_id": "redis_refresh_contract_drift_v2",
+      "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\cases\\private\\redis-refresh-drift-hard-v2-001",
+      "passed": true,
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "runs": [
+        {
+          "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.687,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 781B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 588B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/8] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 370B done\n#6 DONE 0.0s\n\n#7 [3/8] COPY agent/requirements.txt /agent/requirements.txt\n#7 CACHED\n\n#8 [5/8] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#8 CACHED\n\n#9 [6/8] COPY agent /agent\n#9 CACHED\n\n#10 [4/8] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [7/8] COPY runtime/*.py /opt/opsbench/runtime/\n#11 CACHED\n\n#12 [2/8] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 redis-tools && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [8/8] RUN chmod +x /agent/run.py /agent/run.sh && mkdir -p /runtime /opsbench/public /opsbench/trace /opt/opsbench/runtime\n#13 CACHED\n\n#14 exporting to image\n#14 exporting layers done\n#14 exporting manifest sha256:3672e87cbbeea468c33fa8af3bd1fce89c1f30bbd19d0f1e83395be3db6bc2c8 0.0s done\n#14 exporting config sha256:d03536e3dcdc098bf0c0650ac9a8c3890ea5319f65ca261101c49632827767e2 0.0s done\n#14 exporting attestation manifest sha256:683a7783355a64b9bc525883e3a5b8d247ba901da9b99d8ce8cbef537f60c978 0.0s done\n#14 exporting manifest list sha256:f1e626905e3f735255a814a12813291996d7620a316d4bfd1634702aa76a269b\n#14 exporting manifest list sha256:f1e626905e3f735255a814a12813291996d7620a316d4bfd1634702aa76a269b 0.0s done\n#14 naming to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-103093-target:latest done\n#14 unpacking to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-103093-target:latest 0.0s done\n#14 DONE 0.2s\n\n#15 resolving provenance for metadata file\n#15 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-redis-refresh-drift-hard-v2-00-9176-103093-target Building \n Image opsbench-redis-refresh-drift-hard-v2-00-9176-103093-target Built \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-103093_default Creating \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-103093_default Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-103093-redis-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-103093-redis-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-103093-target-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-103093-target-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-103093-redis-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-103093-redis-1 Started \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-103093-target-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-103093-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.719,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 12.484,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"29\", \"28\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.75,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.954,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.578,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 13.297,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.4, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": false, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":1,\\\"items\\\":[{\\\"sku\\\":\\\"sku-1\\\",\\\"price\\\":\\\"12.99\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"28\", \"28\"]}, {\"name\": \"effective_config_repaired\", \"passed\": false, \"weight\": 0.15, \"detail\": \"schema_version=1\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.188,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "catalog_stable",
+              "passed": false,
+              "weight": 0.2,
+              "detail": ""
+            },
+            {
+              "name": "preview_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "schema_and_checksum",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"version\":1,\"items\":[{\"sku\":\"sku-1\",\"price\":\"12.99\"}]}"
+            },
+            {
+              "name": "ttl_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "['28', '28']"
+            },
+            {
+              "name": "effective_config_repaired",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "schema_version=1"
+            },
+            {
+              "name": "refresh_worker_persistent",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "validation_preserved",
+              "passed": true,
+              "weight": 0.05,
+              "detail": ""
+            }
+          ],
+          "score": 0.4,
+          "duration_sec": 42.938,
+          "case_digest": "7801240c7df211a3c061d69faa67a8cfff84f4a0fb88b2019218765548c1d8e6",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\reports\\control_traces\\redis-refresh-drift-hard-v2-001-u2erzxkg",
+          "error_type": "verifier_failed",
+          "infrastructure_blocked": false,
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.078,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 781B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 588B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/8] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 370B done\n#5 DONE 0.0s\n\n#7 [4/8] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#7 CACHED\n\n#8 [5/8] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#8 CACHED\n\n#9 [3/8] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [6/8] COPY agent /agent\n#10 CACHED\n\n#11 [7/8] COPY runtime/*.py /opt/opsbench/runtime/\n#11 CACHED\n\n#12 [2/8] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 redis-tools && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [8/8] RUN chmod +x /agent/run.py /agent/run.sh && mkdir -p /runtime /opsbench/public /opsbench/trace /opt/opsbench/runtime\n#13 CACHED\n\n#14 exporting to image\n#14 exporting layers done\n#14 exporting manifest sha256:121c7640c89801e109c1bedbc309d4bcf3af5a715b2c5965ac2d8617751a3687 0.0s done\n#14 exporting config sha256:914a15dd5bef90f3d51cdcc8c641651e0b00e8b6a03c6daada5439b2b22b1041 0.0s done\n#14 exporting attestation manifest sha256:475f591ea5b9f80098e846bb868e6c27b9dd47add0126de1a62bfa9840aa875a\n#14 exporting attestation manifest sha256:475f591ea5b9f80098e846bb868e6c27b9dd47add0126de1a62bfa9840aa875a 0.1s done\n#14 exporting manifest list sha256:5c04592f913cef14568abc77134d6474be317d0d354a5ffd3157e79d8bf324fc 0.0s done\n#14 naming to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target:latest\n#14 naming to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target:latest done\n#14 unpacking to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target:latest 0.0s done\n#14 DONE 0.3s\n\n#15 resolving provenance for metadata file\n#15 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target Building \n Image opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target Built \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-146031_default Creating \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-146031_default Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-146031-redis-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-146031-redis-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-146031-redis-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-146031-redis-1 Started \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-146031-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.579,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 11.688,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"29\", \"28\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.297,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.406,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.187,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 13.141,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"28\", \"27\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.703,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "catalog_stable",
+              "passed": true,
+              "weight": 0.2,
+              "detail": ""
+            },
+            {
+              "name": "preview_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "schema_and_checksum",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"version\":2,\"items\":[{\"id\":\"sku-1\",\"price_cents\":1299,\"currency\":\"USD\"}]}"
+            },
+            {
+              "name": "ttl_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "['28', '27']"
+            },
+            {
+              "name": "effective_config_repaired",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "refresh_worker_persistent",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "validation_preserved",
+              "passed": true,
+              "weight": 0.05,
+              "detail": ""
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 39.515,
+          "case_digest": "7801240c7df211a3c061d69faa67a8cfff84f4a0fb88b2019218765548c1d8e6",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\reports\\control_traces\\redis-refresh-drift-hard-v2-001-f6deiy5y",
+          "error_type": "",
+          "infrastructure_blocked": false,
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.969,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 781B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 588B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/8] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 370B done\n#5 DONE 0.0s\n\n#7 [7/8] COPY runtime/*.py /opt/opsbench/runtime/\n#7 CACHED\n\n#8 [3/8] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [5/8] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#9 CACHED\n\n#10 [6/8] COPY agent /agent\n#10 CACHED\n\n#11 [4/8] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#11 CACHED\n\n#12 [2/8] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 redis-tools && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [8/8] RUN chmod +x /agent/run.py /agent/run.sh && mkdir -p /runtime /opsbench/public /opsbench/trace /opt/opsbench/runtime\n#13 CACHED\n\n#14 exporting to image\n#14 exporting layers done\n#14 exporting manifest sha256:96f656f72d7a87ab7c3ba7486b69d0fbaff498fa6fe6c942492140e2f5145caf 0.0s done\n#14 exporting config sha256:bfba51ff2fc12a00ac7ac784086d85d3d8c3401a3d38d3356bb404801cb9c634 0.0s done\n#14 exporting attestation manifest sha256:12e08ac38db41ca49a9556bd71032b03291a193a108916402d706477252ecdb2\n#14 exporting attestation manifest sha256:12e08ac38db41ca49a9556bd71032b03291a193a108916402d706477252ecdb2 0.0s done\n#14 exporting manifest list sha256:01cccfa64f6b5db1a429e821e4981023dcd47fd04066e403b5f308f9dd8d73da 0.0s done\n#14 naming to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-185546-target:latest done\n#14 unpacking to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-185546-target:latest 0.0s done\n#14 DONE 0.2s\n\n#15 resolving provenance for metadata file\n#15 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-redis-refresh-drift-hard-v2-00-9176-185546-target Building \n Image opsbench-redis-refresh-drift-hard-v2-00-9176-185546-target Built \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-185546_default Creating \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-185546_default Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-185546-redis-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-185546-redis-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-185546-target-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-185546-target-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-185546-redis-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-185546-redis-1 Started \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-185546-target-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-185546-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.328,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 11.875,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"28\", \"28\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.344,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.89,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.547,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 11.25,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.4, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": false, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":1,\\\"items\\\":[{\\\"sku\\\":\\\"sku-1\\\",\\\"price\\\":\\\"12.99\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"30\", \"29\"]}, {\"name\": \"effective_config_repaired\", \"passed\": false, \"weight\": 0.15, \"detail\": \"schema_version=1\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.703,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "catalog_stable",
+              "passed": false,
+              "weight": 0.2,
+              "detail": ""
+            },
+            {
+              "name": "preview_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "schema_and_checksum",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"version\":1,\"items\":[{\"sku\":\"sku-1\",\"price\":\"12.99\"}]}"
+            },
+            {
+              "name": "ttl_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "['30', '29']"
+            },
+            {
+              "name": "effective_config_repaired",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "schema_version=1"
+            },
+            {
+              "name": "refresh_worker_persistent",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "validation_preserved",
+              "passed": true,
+              "weight": 0.05,
+              "detail": ""
+            }
+          ],
+          "score": 0.4,
+          "duration_sec": 39.797,
+          "case_digest": "7801240c7df211a3c061d69faa67a8cfff84f4a0fb88b2019218765548c1d8e6",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\reports\\control_traces\\redis-refresh-drift-hard-v2-001-dh09p_98",
+          "error_type": "verifier_failed",
+          "infrastructure_blocked": false,
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.922,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 781B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 588B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context:\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/8] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 370B done\n#6 DONE 0.0s\n\n#7 [4/8] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#7 CACHED\n\n#8 [6/8] COPY agent /agent\n#8 CACHED\n\n#9 [2/8] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 redis-tools && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [7/8] COPY runtime/*.py /opt/opsbench/runtime/\n#10 CACHED\n\n#11 [5/8] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#11 CACHED\n\n#12 [3/8] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [8/8] RUN chmod +x /agent/run.py /agent/run.sh && mkdir -p /runtime /opsbench/public /opsbench/trace /opt/opsbench/runtime\n#13 CACHED\n\n#14 exporting to image\n#14 exporting layers done\n#14 exporting manifest sha256:50d6e50024c08a5a8192d2ef45a9c0019d710e2342b8b81904d0139d0a2ea289 0.0s done\n#14 exporting config sha256:3385ba6a91a7f40bbd470f6967cea7ce890087f03407273c76c20b65ec46376b\n#14 exporting config sha256:3385ba6a91a7f40bbd470f6967cea7ce890087f03407273c76c20b65ec46376b 0.0s done\n#14 exporting attestation manifest sha256:4c280a07d6cf2cc1958b352228956a15f6b827a956973336a5fb8b1c94e63350 0.0s done\n#14 exporting manifest list sha256:4c4d68281494305ce16aeb175b872762e26f3ae65b0ec8087bf300057b08076e 0.0s done\n#14 naming to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-225343-target:latest done\n#14 unpacking to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-225343-target:latest 0.0s done\n#14 DONE 0.2s\n\n#15 resolving provenance for metadata file\n#15 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-redis-refresh-drift-hard-v2-00-9176-225343-target Building \n Image opsbench-redis-refresh-drift-hard-v2-00-9176-225343-target Built \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-225343_default Creating \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-225343_default Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-225343-redis-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-225343-redis-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-225343-target-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-225343-target-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-225343-redis-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-225343-redis-1 Started \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-225343-target-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-225343-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.015,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 14.844,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"29\", \"28\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.328,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.469,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.75,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 9.859,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.4, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": false, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":1,\\\"items\\\":[{\\\"sku\\\":\\\"sku-1\\\",\\\"price\\\":\\\"12.99\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"27\", \"27\"]}, {\"name\": \"effective_config_repaired\", \"passed\": false, \"weight\": 0.15, \"detail\": \"schema_version=1\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.188,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "catalog_stable",
+              "passed": false,
+              "weight": 0.2,
+              "detail": ""
+            },
+            {
+              "name": "preview_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "schema_and_checksum",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"version\":1,\"items\":[{\"sku\":\"sku-1\",\"price\":\"12.99\"}]}"
+            },
+            {
+              "name": "ttl_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "['27', '27']"
+            },
+            {
+              "name": "effective_config_repaired",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "schema_version=1"
+            },
+            {
+              "name": "refresh_worker_persistent",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "validation_preserved",
+              "passed": true,
+              "weight": 0.05,
+              "detail": ""
+            }
+          ],
+          "score": 0.4,
+          "duration_sec": 37.407,
+          "case_digest": "7801240c7df211a3c061d69faa67a8cfff84f4a0fb88b2019218765548c1d8e6",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\reports\\control_traces\\redis-refresh-drift-hard-v2-001-oy9q554d",
+          "error_type": "verifier_failed",
+          "infrastructure_blocked": false,
+          "errors": [],
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.984,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 781B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 588B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/8] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 370B done\n#6 DONE 0.0s\n\n#7 [6/8] COPY agent /agent\n#7 CACHED\n\n#8 [2/8] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 redis-tools && rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [3/8] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [4/8] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [5/8] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#11 CACHED\n\n#12 [7/8] COPY runtime/*.py /opt/opsbench/runtime/\n#12 CACHED\n\n#13 [8/8] RUN chmod +x /agent/run.py /agent/run.sh && mkdir -p /runtime /opsbench/public /opsbench/trace /opt/opsbench/runtime\n#13 CACHED\n\n#14 exporting to image\n#14 exporting layers done\n#14 exporting manifest sha256:31499a73f08e0f226c9ea4186638bd3736dc89f6d2cba4b98fd496eb4ef619be 0.0s done\n#14 exporting config sha256:a6bf5bf69074c79613d31acf40ea3b4c1ffe8332d30af2eca221dcf0ac8016df 0.0s done\n#14 exporting attestation manifest sha256:9aa388b2d9a12e14e5e6dd7ce0f806ffd50689dbbb858f58e625e034d8cd8bef 0.0s done\n#14 exporting manifest list sha256:5532dfe219f14f99f0dc14716ee9093a0e3cb9c7794052b2c910b8f81571ffc6\n#14 exporting manifest list sha256:5532dfe219f14f99f0dc14716ee9093a0e3cb9c7794052b2c910b8f81571ffc6 0.0s done\n#14 naming to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-262750-target:latest done\n#14 unpacking to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-262750-target:latest 0.0s done\n#14 DONE 0.2s\n\n#15 resolving provenance for metadata file\n#15 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-redis-refresh-drift-hard-v2-00-9176-262750-target Building \n Image opsbench-redis-refresh-drift-hard-v2-00-9176-262750-target Built \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-262750_default Creating \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-262750_default Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-262750-redis-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-262750-redis-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-262750-target-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-262750-target-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-262750-redis-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-262750-redis-1 Started \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-262750-target-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-262750-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.016,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 11.875,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"29\", \"28\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.328,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.985,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.25,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 10.937,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.4, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": false, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":1,\\\"items\\\":[{\\\"sku\\\":\\\"sku-1\\\",\\\"price\\\":\\\"12.99\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"30\", \"29\"]}, {\"name\": \"effective_config_repaired\", \"passed\": false, \"weight\": 0.15, \"detail\": \"schema_version=1\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.141,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "catalog_stable",
+              "passed": false,
+              "weight": 0.2,
+              "detail": ""
+            },
+            {
+              "name": "preview_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "schema_and_checksum",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"version\":1,\"items\":[{\"sku\":\"sku-1\",\"price\":\"12.99\"}]}"
+            },
+            {
+              "name": "ttl_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "['30', '29']"
+            },
+            {
+              "name": "effective_config_repaired",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "schema_version=1"
+            },
+            {
+              "name": "refresh_worker_persistent",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "validation_preserved",
+              "passed": true,
+              "weight": 0.05,
+              "detail": ""
+            }
+          ],
+          "score": 0.4,
+          "duration_sec": 39.14,
+          "case_digest": "7801240c7df211a3c061d69faa67a8cfff84f4a0fb88b2019218765548c1d8e6",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\reports\\control_traces\\redis-refresh-drift-hard-v2-001-5jm2wkzm",
+          "error_type": "verifier_failed",
+          "infrastructure_blocked": false,
+          "errors": [],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.312,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 781B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 588B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/8] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 370B done\n#6 DONE 0.0s\n\n#7 [2/8] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 redis-tools && rm -rf /var/lib/apt/lists/*\n#7 CACHED\n\n#8 [3/8] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [7/8] COPY runtime/*.py /opt/opsbench/runtime/\n#9 CACHED\n\n#10 [4/8] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [5/8] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#11 CACHED\n\n#12 [6/8] COPY agent /agent\n#12 CACHED\n\n#13 [8/8] RUN chmod +x /agent/run.py /agent/run.sh && mkdir -p /runtime /opsbench/public /opsbench/trace /opt/opsbench/runtime\n#13 CACHED\n\n#14 exporting to image\n#14 exporting layers done\n#14 exporting manifest sha256:f4fb959fb428c27e7d46f008ce39eb2ecc340c58c407d89c3a0c7234ef8a24b8 0.0s done\n#14 exporting config sha256:149149228f4e7c7936a62d7ad22efd80d9272f2651a36217db7e5b0156bcb501 0.0s done\n#14 exporting attestation manifest sha256:2ed234f0e32a4bc6839f9273ac19b5d6f7a748457128bf9dc290a919fdb211a9 0.0s done\n#14 exporting manifest list sha256:477828f2ef4921152ad024464d41847b8bc04b3568dd6ebb91c540a265b8e279\n#14 exporting manifest list sha256:477828f2ef4921152ad024464d41847b8bc04b3568dd6ebb91c540a265b8e279 0.0s done\n#14 naming to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-301890-target:latest done\n#14 unpacking to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-301890-target:latest 0.0s done\n#14 DONE 0.2s\n\n#15 resolving provenance for metadata file\n#15 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-redis-refresh-drift-hard-v2-00-9176-301890-target Building \n Image opsbench-redis-refresh-drift-hard-v2-00-9176-301890-target Built \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-301890_default Creating \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-301890_default Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-301890-redis-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-301890-redis-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-301890-target-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-301890-target-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-301890-redis-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-301890-redis-1 Started \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-301890-target-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-301890-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.985,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 12.953,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"28\", \"27\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 6.594,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.734,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.25,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 12.266,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"28\", \"27\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.203,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "catalog_stable",
+              "passed": true,
+              "weight": 0.2,
+              "detail": ""
+            },
+            {
+              "name": "preview_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "schema_and_checksum",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"version\":2,\"items\":[{\"id\":\"sku-1\",\"price_cents\":1299,\"currency\":\"USD\"}]}"
+            },
+            {
+              "name": "ttl_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "['28', '27']"
+            },
+            {
+              "name": "effective_config_repaired",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "refresh_worker_persistent",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "validation_preserved",
+              "passed": true,
+              "weight": 0.05,
+              "detail": ""
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 39.922,
+          "case_digest": "7801240c7df211a3c061d69faa67a8cfff84f4a0fb88b2019218765548c1d8e6",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\reports\\control_traces\\redis-refresh-drift-hard-v2-001-fvhy9mj_",
+          "error_type": "",
+          "infrastructure_blocked": false,
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_redis_refresh_contract_drift_v2_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.89,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 781B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 588B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/8] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 370B done\n#6 DONE 0.0s\n\n#7 [5/8] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#7 CACHED\n\n#8 [7/8] COPY runtime/*.py /opt/opsbench/runtime/\n#8 CACHED\n\n#9 [3/8] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [4/8] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [6/8] COPY agent /agent\n#11 CACHED\n\n#12 [2/8] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 redis-tools && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [8/8] RUN chmod +x /agent/run.py /agent/run.sh && mkdir -p /runtime /opsbench/public /opsbench/trace /opt/opsbench/runtime\n#13 CACHED\n\n#14 exporting to image\n#14 exporting layers done\n#14 exporting manifest sha256:ac6909ec9efd8fde8fc58c8026b4cb4538deb10028db79dec7e6d0b9bf95d0b5 0.0s done\n#14 exporting config sha256:0a27f4de33bc1799bb54e0c747d8bfd04fa983be32dd9904fc834b2d3472677c 0.0s done\n#14 exporting attestation manifest sha256:1a845022dd12706704a5a1838600cc189a057929c89d0dbe40a52979f7719331 0.0s done\n#14 exporting manifest list sha256:5a70ff251db9c28d7ef05e02b4a860fc091046932fbd6ec26d2fd48bea777c85\n#14 exporting manifest list sha256:5a70ff251db9c28d7ef05e02b4a860fc091046932fbd6ec26d2fd48bea777c85 0.0s done\n#14 naming to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-341812-target:latest done\n#14 unpacking to docker.io/library/opsbench-redis-refresh-drift-hard-v2-00-9176-341812-target:latest 0.0s done\n#14 DONE 0.2s\n\n#15 resolving provenance for metadata file\n#15 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-redis-refresh-drift-hard-v2-00-9176-341812-target Building \n Image opsbench-redis-refresh-drift-hard-v2-00-9176-341812-target Built \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-341812_default Creating \n Network opsbench-redis-refresh-drift-hard-v2-00-9176-341812_default Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-341812-redis-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-341812-redis-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-341812-target-1 Creating \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-341812-target-1 Created \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-341812-redis-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-341812-redis-1 Started \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-341812-target-1 Starting \n Container opsbench-redis-refresh-drift-hard-v2-00-9176-341812-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.781,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 12.407,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"28\", \"28\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.328,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.797,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.218,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 13.079,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"catalog_stable\", \"passed\": true, \"weight\": 0.2}, {\"name\": \"preview_preserved\", \"passed\": true, \"weight\": 0.1}, {\"name\": \"schema_and_checksum\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"version\\\":2,\\\"items\\\":[{\\\"id\\\":\\\"sku-1\\\",\\\"price_cents\\\":1299,\\\"currency\\\":\\\"USD\\\"}]}\"}, {\"name\": \"ttl_preserved\", \"passed\": true, \"weight\": 0.1, \"detail\": [\"27\", \"30\"]}, {\"name\": \"effective_config_repaired\", \"passed\": true, \"weight\": 0.15, \"detail\": \"\"}, {\"name\": \"refresh_worker_persistent\", \"passed\": true, \"weight\": 0.15}, {\"name\": \"validation_preserved\", \"passed\": true, \"weight\": 0.05}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.968,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "catalog_stable",
+              "passed": true,
+              "weight": 0.2,
+              "detail": ""
+            },
+            {
+              "name": "preview_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "schema_and_checksum",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"version\":2,\"items\":[{\"id\":\"sku-1\",\"price_cents\":1299,\"currency\":\"USD\"}]}"
+            },
+            {
+              "name": "ttl_preserved",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "['27', '30']"
+            },
+            {
+              "name": "effective_config_repaired",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "refresh_worker_persistent",
+              "passed": true,
+              "weight": 0.15,
+              "detail": ""
+            },
+            {
+              "name": "validation_preserved",
+              "passed": true,
+              "weight": 0.05,
+              "detail": ""
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 42.75,
+          "case_digest": "7801240c7df211a3c061d69faa67a8cfff84f4a0fb88b2019218765548c1d8e6",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-hard-two-v2-repaired\\reports\\control_traces\\redis-refresh-drift-hard-v2-001-zkc01lh7",
+          "error_type": "",
+          "infrastructure_blocked": false,
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 7
+}

@@ -1,0 +1,9 @@
+{
+  "id": "dynamic_postgres_recurring_lock_chain_v2_000001",
+  "fault_primitive_id": "postgres_recurring_lock_chain_v2",
+  "root_cause": "A stale environment override makes a supervised inventory worker recreate a long-lived advisory lock.",
+  "oracle": ["remove lock_mode and transaction_scope environment overrides", "terminate only the discovered inventory-sync backend", "restart inventory-sync"],
+  "negative_controls": ["restart orders-api", "terminate blocker only", "edit base config only", "terminate all sessions", "disable inventory-sync"],
+  "critical_checks": ["orders_stable", "causal_lock_absent", "reporting_preserved", "effective_config_repaired", "sync_cycle_completed", "data_integrity"]
+}
+

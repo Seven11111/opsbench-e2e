@@ -1,0 +1,18 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tools": [
+    {"name":"business_probe","description":"Probe a declared business endpoint and return bounded status and latency data.","input_schema":{"type":"object","properties":{"endpoint":{"type":"string","enum":["orders","reports","inventory-sync"]},"repeat":{"type":"integer","minimum":1,"maximum":5}},"required":["endpoint"]}},
+    {"name":"service_status","description":"Read bounded status for a declared service.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["orders-api","inventory-sync","postgres"]}},"required":["service"]}},
+    {"name":"query_logs","description":"Query a bounded recent log window. No diagnosis or candidate actions are returned.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["orders-api","inventory-sync"]},"contains":{"type":"string"},"limit":{"type":"integer","minimum":1,"maximum":100}},"required":["service"]}},
+    {"name":"query_postgres","description":"Read one allowlisted PostgreSQL observability view.","input_schema":{"type":"object","properties":{"view":{"type":"string","enum":["activity","locks","blocking_graph","database_stats"]},"application_name":{"type":"string"},"pid":{"type":"integer"}},"required":["view"]}},
+    {"name":"read_service_config","description":"Read one allowlisted base, environment, or effective configuration key.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["inventory-sync"]},"layer":{"type":"string","enum":["base","environment","effective"]},"key":{"type":"string","enum":["lock_mode","lock_key","transaction_scope","schedule_enabled"]}},"required":["service","layer","key"]}},
+    {"name":"update_service_config","description":"Update or remove one allowlisted inventory-sync environment override.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["inventory-sync"]},"layer":{"type":"string","enum":["environment"]},"key":{"type":"string","enum":["lock_mode","transaction_scope"]},"operation":{"type":"string","enum":["set","remove"]},"value":{"type":"string"}},"required":["service","layer","key","operation"]}},
+    {"name":"terminate_postgres_backend","description":"Terminate exactly one PostgreSQL backend by PID.","input_schema":{"type":"object","properties":{"pid":{"type":"integer","minimum":2}},"required":["pid"]}},
+    {"name":"restart_service","description":"Restart one declared application service without restarting PostgreSQL.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["inventory-sync"]}},"required":["service"]}}
+  ],
+  "constraints": [
+    "Tool outputs never expose fault IDs, expected actions, hidden labels, or verifier state.",
+    "Do not read case roots, evaluator files, host credentials, or Docker sockets."
+  ]
+}

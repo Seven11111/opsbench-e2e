@@ -1,0 +1,18 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tools": [
+    {"name":"business_probe","description":"Probe a declared catalog endpoint and return bounded status and validation output.","input_schema":{"type":"object","properties":{"endpoint":{"type":"string","enum":["catalog","catalog-preview"]},"repeat":{"type":"integer","minimum":1,"maximum":5}},"required":["endpoint"]}},
+    {"name":"redis_inspect","description":"Read bounded value or metadata for one allowlisted cache key.","input_schema":{"type":"object","properties":{"key":{"type":"string","enum":["catalog:active","catalog:meta","catalog:preview"]},"field":{"type":"string","enum":["value","type","ttl","memory"]}},"required":["key","field"]}},
+    {"name":"query_logs","description":"Query a bounded recent log window without returning a diagnosis.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["catalog-api","cache-refresh"]},"contains":{"type":"string"},"limit":{"type":"integer","minimum":1,"maximum":100}},"required":["service"]}},
+    {"name":"service_status","description":"Read bounded status for a declared service.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["catalog-api","cache-refresh","redis"]}},"required":["service"]}},
+    {"name":"read_service_config","description":"Read one allowlisted base, environment, or effective configuration key.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["catalog-api","cache-refresh"]},"layer":{"type":"string","enum":["base","environment","effective"]},"key":{"type":"string","enum":["schema_version","refresh_interval_sec","ttl_sec","validation_enabled"]}},"required":["service","layer","key"]}},
+    {"name":"update_service_config","description":"Update or remove one allowlisted cache-refresh environment override.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["cache-refresh"]},"layer":{"type":"string","enum":["environment"]},"key":{"type":"string","enum":["schema_version","ttl_sec"]},"operation":{"type":"string","enum":["set","remove"]},"value":{"type":"string"}},"required":["service","layer","key","operation"]}},
+    {"name":"run_cache_refresh","description":"Trigger one normal cache refresh using current effective configuration.","input_schema":{"type":"object","properties":{"mode":{"type":"string","enum":["normal"]}},"required":["mode"]}},
+    {"name":"restart_service","description":"Restart the declared cache-refresh worker.","input_schema":{"type":"object","properties":{"service":{"type":"string","enum":["cache-refresh"]}},"required":["service"]}}
+  ],
+  "constraints": [
+    "No public tool deletes catalog keys, disables validation, or returns an expected repair action.",
+    "Do not read case roots, evaluator files, host credentials, or Docker sockets."
+  ]
+}

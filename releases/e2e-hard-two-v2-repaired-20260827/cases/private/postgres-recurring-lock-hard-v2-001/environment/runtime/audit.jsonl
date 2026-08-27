@@ -1,0 +1,10 @@
+{"event": "config_update", "service": "inventory-sync", "key": "transaction_scope", "operation": "remove", "value": "", "time": 1787826080.6038806}
+{"event": "service_restart", "service": "inventory-sync", "time": 1787826083.5897605}
+{"event": "terminate_backend", "pid": 142, "time": 1787826088.9003992}
+{"event": "terminate_backend", "pid": 141, "time": 1787826088.900553}
+{"event": "terminate_backend", "pid": 470, "time": 1787826115.281656}
+{"event": "service_restart", "service": "inventory-sync", "time": 1787826133.101583}
+{"event": "terminate_backend", "pid": 599, "time": 1787826139.5837848}
+{"event": "config_update", "service": "inventory-sync", "key": "lock_mode", "operation": "remove", "value": "", "time": 1787826181.3256721}
+{"event": "service_restart", "service": "inventory-sync", "time": 1787826184.3362522}
+{"event": "terminate_backend", "pid": 663, "time": 1787826191.3980384}
