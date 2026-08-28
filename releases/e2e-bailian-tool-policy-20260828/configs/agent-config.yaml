@@ -1,0 +1,11 @@
+id: deepseek-v4-flash-60
+provider: Alibaba Bailian compatible OpenAI API
+model: deepseek-v4-flash
+profile: autonomous
+max_steps: 60
+timeout_sec: 180
+temperature: 0
+protocol_id: opsbench-agent-v1
+prompt_digest: 54c22c3b990100e078e5756f775288571b663dc8278ad156efb023c6e04e90f0
+tool_contract_digest: 090d61f77ed4f6b2598b6d9c3f6b116758c1d50b68e83db3d8a451a625d4b4c6
+agent_runtime_digest: ff38d3f9f28da6e9a57b20c024d045730ba44f42cd4dda973e535929d5f4abbc

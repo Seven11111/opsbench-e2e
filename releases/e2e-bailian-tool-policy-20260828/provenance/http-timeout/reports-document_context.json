@@ -1,0 +1,8 @@
+{
+  "count": 1,
+  "metadata_path": "tmp\\e2e-bailian-tool-policy-20260828\\http-timeout-v1\\evidence\\document_contexts.jsonl",
+  "source_dir": "tmp\\e2e-bailian-tool-policy-20260828\\http-timeout-v1\\evidence\\source",
+  "document_ids": [
+    "doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec"
+  ]
+}

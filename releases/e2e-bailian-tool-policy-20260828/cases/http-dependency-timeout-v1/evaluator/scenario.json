@@ -1,0 +1,316 @@
+{
+  "case_id": "http-upstream-timeout-016",
+  "implementation": {
+    "strategy": "dependency_timeout"
+  },
+  "dynamic_spec": {
+    "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "http_dependency",
+        "component_id": "http-dependency",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "target": "http_dependency",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "The service is not reporting a healthy operational state.",
+      "impact": "The documented operational workflow cannot complete reliably.",
+      "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "business_check",
+      "diagnose",
+      "health_check",
+      "metrics_query",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "http_dependency_timeout_slo_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.25
+      },
+      {
+        "check_id": "latency_slo",
+        "weight": 0.25
+      },
+      {
+        "check_id": "dependency_delay",
+        "weight": 0.25
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.25
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "restart_only"
+      },
+      {
+        "scenario": "wrong_layer_fix"
+      },
+      {
+        "scenario": "symptom_bypass"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "difficulty_profile": "medium",
+    "difficulty_assessment": {
+      "profile": "medium",
+      "score": 6,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 1,
+        "signal_indirection": 1,
+        "tool_breadth": 1,
+        "repair_depth": 1,
+        "verification_complexity": 2
+      },
+      "rationale": [
+        "The dependency remains reachable but violates the client SLO.",
+        "The agent must use repeated latency evidence and repair the source of delay rather than hiding it with a larger timeout.",
+        "Verification checks both request success and the latency budget."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "medium",
+      "dimensions": {
+        "diagnostic_uncertainty": 1,
+        "signal_indirection": 1,
+        "tool_breadth": 1,
+        "repair_depth": 1,
+        "verification_complexity": 2
+      },
+      "causal_depth": 2,
+      "state_layers": [
+        "base_config",
+        "dependency_runtime",
+        "runtime_process"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "latency_samples",
+        "effective_config",
+        "process_tree"
+      ],
+      "persistence_id": "restart",
+      "distractor_ids": [
+        "healthy_process",
+        "unrelated_latency"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "slo_preserved",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "increase_timeout_only",
+        "restart_only",
+        "change_caller_contract"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "latency_slo",
+        "dependency_delay",
+        "persistence"
+      ],
+      "rationale": [
+        "The dependency remains reachable but violates the client SLO.",
+        "The agent must use repeated latency evidence and repair the source of delay rather than hiding it with a larger timeout.",
+        "Verification checks both request success and the latency budget."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 6,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 6,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The dependency remains reachable but violates the client SLO.",
+          "The agent must use repeated latency evidence and repair the source of delay rather than hiding it with a larger timeout.",
+          "Verification checks both request success and the latency budget."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_166"
+      },
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_180"
+      },
+      {
+        "field_path": "public_task.repair",
+        "claim_type": "repair",
+        "ref": "doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_013"
+      },
+      {
+        "field_path": "public_task.repair",
+        "claim_type": "repair",
+        "ref": "doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_017"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_016"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_002"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "HTTP",
+      "Python",
+      "Linux"
+    ],
+    "domain": "distributed_system",
+    "fault_type": "latency_regression",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "",
+    "experience_digest": "",
+    "source": {
+      "primitive_status": "demo_validated",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 6,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The dependency remains reachable but violates the client SLO.",
+          "The agent must use repeated latency evidence and repair the source of delay rather than hiding it with a larger timeout.",
+          "Verification checks both request success and the latency budget."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "medium",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 2
+        },
+        "causal_depth": 2,
+        "state_layers": [
+          "base_config",
+          "dependency_runtime",
+          "runtime_process"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "latency_samples",
+          "effective_config",
+          "process_tree"
+        ],
+        "persistence_id": "restart",
+        "distractor_ids": [
+          "healthy_process",
+          "unrelated_latency"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "slo_preserved",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "increase_timeout_only",
+          "restart_only",
+          "change_caller_contract"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "latency_slo",
+          "dependency_delay",
+          "persistence"
+        ],
+        "rationale": [
+          "The dependency remains reachable but violates the client SLO.",
+          "The agent must use repeated latency evidence and repair the source of delay rather than hiding it with a larger timeout.",
+          "Verification checks both request success and the latency budget."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 6,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "medium",
+          "score": 6,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 1,
+            "signal_indirection": 1,
+            "tool_breadth": 1,
+            "repair_depth": 1,
+            "verification_complexity": 2
+          },
+          "rationale": [
+            "The dependency remains reachable but violates the client SLO.",
+            "The agent must use repeated latency evidence and repair the source of delay rather than hiding it with a larger timeout.",
+            "Verification checks both request success and the latency budget."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "http_dependency_timeout_slo_v1"
+}

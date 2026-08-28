@@ -1,0 +1,95 @@
+{
+  "manifest_version": "opsbench-e2e-release-v1",
+  "release_id": "e2e-bailian-tool-policy-20260828",
+  "generated_at": "2026-08-28",
+  "provider": "Alibaba Bailian compatible OpenAI API",
+  "generator_model": "deepseek-v4-flash",
+  "judge_model": "deepseek-v4-flash",
+  "agent_model": "deepseek-v4-flash",
+  "artifact_mode": "trusted",
+  "agent": {
+    "protocol_id": "opsbench-agent-v1",
+    "profile": "autonomous",
+    "max_steps": 60,
+    "timeout_sec": 180,
+    "temperature": 0
+  },
+  "tool_policy": {
+    "max_words": 3,
+    "public_names": [
+      "command_run",
+      "business_probe",
+      "signal_view",
+      "service_status",
+      "metrics_read",
+      "service_control"
+    ],
+    "task_must_not_repeat_public_tool_names": true,
+    "task_must_not_expose_incident_specific_actions": true
+  },
+  "cases": [
+    {
+      "id": "candidate_001",
+      "release_name": "app-config-precedence-v1",
+      "primitive_id": "app_config_precedence_v1",
+      "source_urls": [
+        "https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation"
+      ],
+      "case_path": "cases/app-config-precedence-v1",
+      "case_status": "evaluable",
+      "target_difficulty": "hard",
+      "difficulty_score": 8,
+      "judge_rounds": 1,
+      "judge_score": 3.68,
+      "runtime_gate_passed": true,
+      "static_validation": "passed",
+      "model_result": "failed",
+      "agent_completed": true,
+      "failure_type": "task_failure",
+      "agent_duration_sec": 160.016,
+      "case_digest": "e9fb844c546ef5a7392f366e0138880cc7caf2a760648a17097ce1e87d18cda3",
+      "result_path": "results/app-config"
+    },
+    {
+      "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+      "release_name": "http-dependency-timeout-v1",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "source_urls": [
+        "https://nginx.org/en/docs/http/ngx_http_proxy_module.html"
+      ],
+      "case_path": "cases/http-dependency-timeout-v1",
+      "case_status": "evaluable",
+      "target_difficulty": "medium",
+      "difficulty_score": 6,
+      "judge_rounds": 1,
+      "judge_score": 4.2,
+      "runtime_gate_passed": true,
+      "static_validation": "passed",
+      "model_result": "failed",
+      "agent_completed": true,
+      "failure_type": "task_failure",
+      "agent_duration_sec": 168.171,
+      "case_digest": "230d81b9f9d7636ff1c3c15446178713b2c9c90277c3b35e87e1a5d474d54a67",
+      "result_path": "results/http-timeout"
+    }
+  ],
+  "aggregate": {
+    "case_count": 2,
+    "evaluable_count": 2,
+    "not_evaluable_count": 0,
+    "model_passed_count": 0,
+    "model_failed_count": 2,
+    "agent_completed_count": 2,
+    "infrastructure_error_count": 0,
+    "timeout_count": 0,
+    "cleanup_failure_count": 0,
+    "runtime_gate_passed_count": 2
+  },
+  "source_report": "results/report.json",
+  "provenance": {
+    "full_documents_and_evidence": true,
+    "judge_reviews": true,
+    "revision_history": true,
+    "agent_traces": true
+  }
+}

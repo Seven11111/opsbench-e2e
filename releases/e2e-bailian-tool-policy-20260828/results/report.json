@@ -1,0 +1,68 @@
+{
+  "release_id": "e2e-bailian-tool-policy-20260828",
+  "run_id": "e2e-bailian-tool-policy-20260828",
+  "provider": "Alibaba Bailian compatible OpenAI API",
+  "generator_model": "deepseek-v4-flash",
+  "judge_model": "deepseek-v4-flash",
+  "agent_model": "deepseek-v4-flash",
+  "artifact_mode": "trusted",
+  "document_context": "full",
+  "evidence_gate": "strict",
+  "cases": [
+    {
+      "id": "candidate_001",
+      "primitive_id": "app_config_precedence_v1",
+      "case_status": "evaluable",
+      "runtime_gate_passed": true,
+      "static_validation": "passed",
+      "model_result": "failed",
+      "agent_completed": true,
+      "agent_duration_sec": 160.016,
+      "failure_type": "task_failure",
+      "failure_interpretation": "Agent observed the effective configuration but did not complete the durable repair.",
+      "failed_checks": ["business_operation", "effective_state", "reconciler_persistence"],
+      "case_digest": "e9fb844c546ef5a7392f366e0138880cc7caf2a760648a17097ce1e87d18cda3",
+      "source_urls": ["https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation"],
+      "case_path": "cases/app-config-precedence-v1",
+      "result_path": "results/app-config",
+      "trace_path": "results/app-config/traces/candidate_001-fvo1ggoy"
+    },
+    {
+      "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "case_status": "evaluable",
+      "runtime_gate_passed": true,
+      "static_validation": "passed",
+      "model_result": "failed",
+      "agent_completed": true,
+      "agent_duration_sec": 168.171,
+      "failure_type": "task_failure",
+      "failure_interpretation": "Agent diagnosed the timeout signals but selected unsupported repair actions and did not complete the durable repair.",
+      "failed_checks": ["business_operation", "dependency_delay", "persistence"],
+      "case_digest": "230d81b9f9d7636ff1c3c15446178713b2c9c90277c3b35e87e1a5d474d54a67",
+      "source_urls": ["https://nginx.org/en/docs/http/ngx_http_proxy_module.html"],
+      "case_path": "cases/http-dependency-timeout-v1",
+      "result_path": "results/http-timeout",
+      "trace_path": "results/http-timeout/traces/dynamic_http_dependency_timeout_slo_v1_000001-g9mtwhg6"
+    }
+  ],
+  "aggregate": {
+    "case_count": 2,
+    "evaluable_count": 2,
+    "task_success_rate": 0.0,
+    "execution_completion_rate": 1.0,
+    "infrastructure_error_rate": 0.0,
+    "timeout_rate": 0.0,
+    "cleanup_failure_rate": 0.0
+  },
+  "rejected_prechecks": [
+    {"path": "provenance/postgres-v2", "reason": "evidence enrichment request timeout"},
+    {"path": "provenance/postgres-v3", "reason": "missing concrete repair evidence"},
+    {"path": "provenance/postgres-v4", "reason": "weak/irrelevant repair evidence and unresolved cross-document conflict"},
+    {"path": "provenance/nginx-v3", "reason": "source described absolute_redirect while selected primitive required bind conflict; rejected after three Judge rounds"}
+  ],
+  "tests": {
+    "targeted_pytest": "32 passed",
+    "static_validation": "both cases passed"
+  }
+}

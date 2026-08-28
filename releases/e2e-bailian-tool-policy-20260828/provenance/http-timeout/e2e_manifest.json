@@ -1,0 +1,41 @@
+{
+  "manifest_version": "opsbench-e2e-manifest-v1",
+  "family": "e2e",
+  "case_root": "E:\\codes\\opsbench-factory\\tmp\\e2e-bailian-tool-policy-20260828\\http-timeout-v1\\cases",
+  "sample_size": 1,
+  "sample_seed": 42,
+  "filters": {
+    "task_labels": [],
+    "template_id": null,
+    "domain": null,
+    "fault_type": null
+  },
+  "items": [
+    {
+      "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-bailian-tool-policy-20260828\\http-timeout-v1\\cases\\dynamic_http_dependency_timeout_slo_v1_000001",
+      "case_digest": "230d81b9f9d7636ff1c3c15446178713b2c9c90277c3b35e87e1a5d474d54a67",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "distributed_system",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_dependency_timeout_slo_v1",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 6,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    }
+  ],
+  "total_available": 1,
+  "total": 1
+}

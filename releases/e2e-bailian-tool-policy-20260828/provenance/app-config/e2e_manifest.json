@@ -1,0 +1,41 @@
+{
+  "manifest_version": "opsbench-e2e-manifest-v1",
+  "family": "e2e",
+  "case_root": "E:\\codes\\opsbench-factory\\tmp\\e2e-bailian-tool-policy-20260828\\app-config-v7\\cases",
+  "sample_size": 1,
+  "sample_seed": 42,
+  "filters": {
+    "task_labels": [],
+    "template_id": null,
+    "domain": null,
+    "fault_type": null
+  },
+  "items": [
+    {
+      "id": "candidate_001",
+      "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-bailian-tool-policy-20260828\\app-config-v7\\cases\\candidate_001",
+      "case_digest": "e9fb844c546ef5a7392f366e0138880cc7caf2a760648a17097ce1e87d18cda3",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    }
+  ],
+  "total_available": 1,
+  "total": 1
+}
