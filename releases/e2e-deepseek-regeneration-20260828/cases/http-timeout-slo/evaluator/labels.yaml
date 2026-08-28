@@ -1,0 +1,5 @@
+primary: fault_fix
+secondary:
+- fault_detection
+- root_cause
+primitive: http_dependency_timeout_slo_v1

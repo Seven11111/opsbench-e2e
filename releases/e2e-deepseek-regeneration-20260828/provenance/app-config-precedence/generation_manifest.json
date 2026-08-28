@@ -1,0 +1,1332 @@
+{
+  "manifest_version": "opsbench-e2e-dynamic-generation-v1",
+  "family": "e2e",
+  "generation_mode": "dynamic",
+  "primitive_registry_snapshot": {
+    "app_config_precedence_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "configuration_precedence"
+    },
+    "app_stale_pid_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "stale_runtime_state"
+    },
+    "fluentbit_backpressure_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "fluent-bit",
+      "fault_type": "resource_saturation"
+    },
+    "http_dependency_dns_poison_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "name_resolution"
+    },
+    "http_dependency_port_drift_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "dependency_configuration"
+    },
+    "http_dependency_timeout_slo_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_retry_circuit_breaker_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-circuit-target",
+      "fault_type": "retry_circuit_breaker"
+    },
+    "http_upstream_timeout_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_wrong_port_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "http-service",
+      "fault_type": "configuration_error"
+    },
+    "kafka_consumer_lag_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "kafka-consumer-target",
+      "fault_type": "consumer_lag"
+    },
+    "linux_cpu_runaway_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_cpu_runaway_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_disk_full_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "disk_exhaustion"
+    },
+    "linux_fd_leak_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "resource_leak"
+    },
+    "linux_file_lock_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "file_lock"
+    },
+    "linux_inode_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "inode_exhaustion"
+    },
+    "linux_memory_growth_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "memory_exhaustion"
+    },
+    "linux_temp_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "linux_upload_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "nginx_bind_conflict_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "nginx",
+      "fault_type": "resource_conflict"
+    },
+    "postgres_connection_pool_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-pool-target",
+      "fault_type": "connection_pool_exhaustion"
+    },
+    "postgres_lock_contention_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-lock-target",
+      "fault_type": "lock_contention"
+    },
+    "postgres_missing_index_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "postgres",
+      "fault_type": "database_configuration"
+    },
+    "postgres_missing_index_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres",
+      "fault_type": "performance_regression"
+    },
+    "prometheus_scrape_target_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "prometheus",
+      "fault_type": "configuration_error"
+    },
+    "rabbitmq_resource_alarm_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "rabbitmq",
+      "fault_type": "resource_saturation"
+    },
+    "redis_cache_corruption_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "redis-cache-target",
+      "fault_type": "cache_corruption"
+    },
+    "tls_hostname_mismatch_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "tls-http-service",
+      "fault_type": "certificate_identity"
+    }
+  },
+  "bundle_count": 1,
+  "candidate_count": 1,
+  "accepted_candidate_count": 1,
+  "case_count": 1,
+  "candidate_group_size": "1",
+  "artifact_mode": "trusted",
+  "allow_experimental": false,
+  "max_source_repair_rounds": 3,
+  "max_artifact_repair_rounds": 3,
+  "max_runtime_repair_rounds": 3,
+  "artifact_reports": [],
+  "artifact_repair_count": 0,
+  "stage_mode": false,
+  "runtime_required": true,
+  "candidate_timeout_sec": 1200,
+  "resolved_group_sizes": [
+    "1"
+  ],
+  "max_judge_rounds": 3,
+  "bundle_mode": "auto",
+  "max_documents_per_bundle": 4,
+  "language": "en",
+  "experience_version": "",
+  "experience_digest": "",
+  "generator_model": "deepseek-v4-flash",
+  "review_model": "deepseek-v4-pro",
+  "evidence_gate": "strict",
+  "allow_deterministic_fallback": false,
+  "require_model_judge": true,
+  "document_context_mode": "full",
+  "document_context_count": 0,
+  "evidence_gate_reports": [
+    {
+      "passed": true,
+      "issue_count": 0,
+      "issues": [],
+      "advisories": [],
+      "claim_counts": {
+        "repair": 3,
+        "root_cause": 3
+      },
+      "document_context_count": 1,
+      "runtime_contract_roles": [
+        "impact",
+        "repair",
+        "root_cause",
+        "symptom",
+        "verification"
+      ],
+      "required_claims": [
+        "root_cause",
+        "repair"
+      ],
+      "bundle_id": "dynamic_bundle_0001",
+      "initial_passed": true,
+      "judge_rounds": 0
+    }
+  ],
+  "target_difficulty": null,
+  "primitive_id": "app_config_precedence_v1",
+  "cases": [
+    {
+      "id": "dynamic_app_config_precedence_v1_000001",
+      "path": "tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\dynamic_app_config_precedence_v1_000001",
+      "primitive_id": "app_config_precedence_v1",
+      "template_id": "app_config_precedence_v1",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The visible configuration is valid but is not the effective runtime configuration.",
+          "A generated file edit is temporary because a reconciler restores the selected state.",
+          "The final check observes the service after reconciliation, not only immediately after the edit."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "judge_rounds": 1,
+      "judge_score": 4.84,
+      "candidate_group_id": "dynamic_bundle_0001_group_001",
+      "case_status": "evaluable",
+      "runtime_gate": {
+        "id": "dynamic_app_config_precedence_v1_000001",
+        "template_id": "app_config_precedence_v1",
+        "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\dynamic_app_config_precedence_v1_000001",
+        "passed": true,
+        "case_status": "evaluable",
+        "issues": [],
+        "gate": {
+          "passed": true,
+          "issues": [],
+          "required_scenarios": [
+            "no_op",
+            "oracle",
+            "partial_fix",
+            "repeat",
+            "restart_only",
+            "symptom_bypass",
+            "wrong_layer_fix"
+          ],
+          "observed_scenarios": [
+            "cleanup",
+            "no_op",
+            "oracle",
+            "partial_fix",
+            "repeat",
+            "restart_only",
+            "symptom_bypass",
+            "wrong_layer_fix"
+          ],
+          "gate_version": "e2e-runtime-gate-v1"
+        },
+        "runs": [
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.265,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 884B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 78.78kB 0.0s done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 DONE 0.0s\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 DONE 0.1s\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 DONE 1.1s\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 DONE 0.1s\n\n#15 exporting to image\n#15 exporting layers\n#15 exporting layers 0.4s done\n#15 exporting manifest sha256:de132015706c205130d159e678bbcca09054873fb34a30d17ac12fcbe6cf1dd5 0.0s done\n#15 exporting config sha256:d9dd215a96a30e7e11c6bb05dbaaf3b0727d1e0c3f8f21a341a26cad9d858bf3 0.0s done\n#15 exporting attestation manifest sha256:1fac5645890ff07a7627b2b2b54fbb2a89b99e6e7a393d68e0d2d5865b754a9e 0.0s done\n#15 exporting manifest list sha256:6a1e4f94a9b81688a4f1a54c2fce81a9981c4ab0576eeafe5414adebac811466\n#15 exporting manifest list sha256:6a1e4f94a9b81688a4f1a54c2fce81a9981c4ab0576eeafe5414adebac811466 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.1s done\n#15 DONE 0.6s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-954734_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-954734_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-954734-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-954734-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-954734-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-954734-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.157,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.781,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.016,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.344,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.296,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 2.407,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"effective_state\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"reconciler_persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "effective_state",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 15.406,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-lzrazs52",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "no_op",
+            "control_mode": "no_op",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.578,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 884B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 658B done\n#5 DONE 0.0s\n\n#7 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 CACHED\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 CACHED\n\n#13 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:8eea301706ea4a6fbceaee638449e028ba8b518875c1c5d3a76135dc043824b1 0.0s done\n#15 exporting config sha256:d91db89a98e2d3b76db3c49847f5d55f0eb2a8a5a5a85e92e31c8f5f252805df 0.0s done\n#15 exporting attestation manifest sha256:2694b9db55aa730e9d755be77a2b4c9ed2dd448475d10fe38094d804c6704491 0.0s done\n#15 exporting manifest list sha256:303da3f7d08e1b5f5d2b5bb35366c2e1666ed9232e1870ce48d506b44016b0a3\n#15 exporting manifest list sha256:303da3f7d08e1b5f5d2b5bb35366c2e1666ed9232e1870ce48d506b44016b0a3 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-970140_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-970140_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-970140-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-970140-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-970140-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-970140-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.141,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.468,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.297,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.641,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.687,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.688,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              },
+              {
+                "name": "effective_state",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 12.703,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-xjzoj1hz",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "oracle",
+            "control_mode": "oracle",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.047,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 884B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [7/9] COPY runtime /opt/opsbench/runtime\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 CACHED\n\n#12 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#12 CACHED\n\n#13 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:fb3023272ea793572985f19724bf2cc8fb49e7e2f4bf184f5a5bf5e432de492e 0.0s done\n#15 exporting config sha256:d1c5971fbc50cc4480e19f44c1931daa9847145673469cc32a6328c047bb6f8c 0.0s done\n#15 exporting attestation manifest sha256:da524987065794966edc70c42abf6d1cf2ab2d650565336af5f159d18020fa21 0.0s done\n#15 exporting manifest list sha256:60e21928b0469de67c1e5e18b3a960215a065219df837ba9143f1ad473413039\n#15 exporting manifest list sha256:60e21928b0469de67c1e5e18b3a960215a065219df837ba9143f1ad473413039 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-982843_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-982843_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-982843-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-982843-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-982843-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-982843-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.156,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.797,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.907,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.125,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.187,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 0.672,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"effective_state\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"reconciler_persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "effective_state",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 9.844,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-6oiftp40",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "restart_only",
+            "control_mode": "restart_only",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.031,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 884B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#7 CACHED\n\n#8 [6/9] COPY agent /agent\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#10 CACHED\n\n#11 [7/9] COPY runtime /opt/opsbench/runtime\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:cccf1effcd484aaab79061b12ced2ac65b19c1df95ae721dabcad7ce31e14100 0.0s done\n#15 exporting config sha256:a36bf4412f38c14284e60654701de1ff08e96c4c036b64890e685d33aecda600 0.0s done\n#15 exporting attestation manifest sha256:b3ef2127f6e3186dd26c915d815a8bd2aa0642d918770f63982203554057f5bc 0.0s done\n#15 exporting manifest list sha256:37b4dfb689e61ac015cd4acd56dbf8b0d40bfb1f83e8ceb3f5dbca9f5735e7cd\n#15 exporting manifest list sha256:37b4dfb689e61ac015cd4acd56dbf8b0d40bfb1f83e8ceb3f5dbca9f5735e7cd 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-992687_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-992687_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-992687-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-992687-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-992687-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-992687-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.578,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.953,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.89,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.204,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.234,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 1.14,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"effective_state\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"reconciler_persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "effective_state",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 11.797,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-j3oebch3",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "wrong_layer_fix",
+            "control_mode": "wrong_layer_fix",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.203,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 882B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [6/9] COPY agent /agent\n#10 CACHED\n\n#11 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#11 CACHED\n\n#12 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#12 CACHED\n\n#13 [7/9] COPY runtime /opt/opsbench/runtime\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:f1b7ecbd48ba36b28ca6d3740b2dd9f3cc73d6f7c0b261623d1b248713b50c6a 0.0s done\n#15 exporting config sha256:0324ec2a92ac9305cf837ab385e28a739eae4c5e39631c0e2c8694e936dc2710 0.0s done\n#15 exporting attestation manifest sha256:6a4c005fb80957d60454611ff30370c9174431ffe30d260cd55993e560be039a 0.0s done\n#15 exporting manifest list sha256:7e325e2cac28afced8daa044985b6ceec84d11c6f67130d41d09dfdc281c1605\n#15 exporting manifest list sha256:7e325e2cac28afced8daa044985b6ceec84d11c6f67130d41d09dfdc281c1605 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-4484_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-4484_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-4484-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-4484-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-4484-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-4484-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.14,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.046,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.891,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.172,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.187,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 0.641,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"effective_state\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"reconciler_persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "effective_state",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 11.594,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-3vz7xbjl",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "symptom_bypass",
+            "control_mode": "symptom_bypass",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.266,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 883B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 658B done\n#5 DONE 0.0s\n\n#7 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [6/9] COPY agent /agent\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:29cec3ffe085b7e6b74310a5d174307a0e99189c93c8503165afe6b4dabe81bf 0.0s done\n#15 exporting config sha256:684dcdcb694ad328d1ba4bca121a76e7f9c9b2bb68855e03166222aedd777cf4 0.0s done\n#15 exporting attestation manifest sha256:c21bcaf5d6df24c6e76015ec93b929e2f595be6bf4fc513ea6335a99980b2e16 0.0s done\n#15 exporting manifest list sha256:74f5f396ff599d8ea05c4ab8867ad5824cc5336ed73d662d9a3c90aa1214cc2a\n#15 exporting manifest list sha256:74f5f396ff599d8ea05c4ab8867ad5824cc5336ed73d662d9a3c90aa1214cc2a 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-16078_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-16078_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-16078-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-16078-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-16078-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-16078-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.156,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.922,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.875,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.171,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.188,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 0.718,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"effective_state\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"reconciler_persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.11,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "effective_state",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 11.359,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-m6tm7qu5",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "partial_fix",
+            "control_mode": "partial_fix",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 6.141,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 883B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [6/9] COPY agent /agent\n#10 CACHED\n\n#11 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:c7499c8ba265e6ff702bae161d68c807e41cb343bd54511ae51e025437934453 0.0s done\n#15 exporting config sha256:cac807b983b7a7fcb8048d3e275accccef5281491571a284ec62bd81d92a731c 0.0s done\n#15 exporting attestation manifest sha256:f977a2d97bd0e5e8ad3d5788ec86196f1f0cf847008a8626caf187a53dcf5674\n#15 exporting attestation manifest sha256:f977a2d97bd0e5e8ad3d5788ec86196f1f0cf847008a8626caf187a53dcf5674 0.0s done\n#15 exporting manifest list sha256:117c322f68bbed186c7144c421773b07ff2632c91ad8fce1e2dbcb4a2016bc39 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-27437_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-27437_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-27437-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-27437-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-27437-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-27437-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.14,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.687,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.891,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.64,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.719,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.625,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              },
+              {
+                "name": "effective_state",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 14.172,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-aqqaun9o",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "repeat",
+            "control_mode": "oracle",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.515,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 883B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#7 CACHED\n\n#8 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [6/9] COPY agent /agent\n#9 CACHED\n\n#10 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#10 CACHED\n\n#11 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:a9fd286d923eb680b481830728592ec4cd023d9689aedcb0e365349ad6cc4f85 0.0s done\n#15 exporting config sha256:8ee257060950627bba754ac4cf2b7002412f0e80c20efcaf3217d1c70d07b65d 0.0s done\n#15 exporting attestation manifest sha256:33105b3c04d8de2c4de6dc249777a308e5eaeae70ea59d69170e9fb93fd7befd 0.0s done\n#15 exporting manifest list sha256:0e8feb0ba4973b5d1a60f45c9c206cb6990c651b61c95a6dfc49be3c8eb14ee7\n#15 exporting manifest list sha256:0e8feb0ba4973b5d1a60f45c9c206cb6990c651b61c95a6dfc49be3c8eb14ee7 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-41609_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-41609_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-41609-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-41609-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-41609-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-41609-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.141,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.875,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.875,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.625,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.203,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.625,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              },
+              {
+                "name": "effective_state",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 200, \"overridden_port\": 0, \"override_present\": false}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 11.078,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-ctqinib5",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "repeat",
+            "control_mode": "oracle",
+            "repeat_index": 1
+          },
+          {
+            "id": "dynamic_app_config_precedence_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.547,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 883B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [7/9] COPY runtime /opt/opsbench/runtime\n#7 CACHED\n\n#8 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#8 CACHED\n\n#9 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#9 CACHED\n\n#10 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#10 CACHED\n\n#11 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:3ec96d939456eaf3ae67c1c88aba586cdbcbd8e73d69985c12779d79385c9cd0 0.0s done\n#15 exporting config sha256:4701f5385fc81647b8bf41a18f0b0eeddd17fe7682af1d6bf76d57c962a530c8 0.0s done\n#15 exporting attestation manifest sha256:98da51c481435b95cced04d332ad464098d8481d26ed50326c5f4b40eaa32781 0.0s done\n#15 exporting manifest list sha256:d0ae602f747cdb3c4b6fb0c02139d85f47bcd2062b09afee5d7ada3877825938\n#15 exporting manifest list sha256:d0ae602f747cdb3c4b6fb0c02139d85f47bcd2062b09afee5d7ada3877825938 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_config_precedence_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_config_precedence_v1 Building \n Image opsbench-e2e-app_config_precedence_v1 Built \n Network opsbench-dynamic_app_config_precedence_-12724-52687_default Creating \n Network opsbench-dynamic_app_config_precedence_-12724-52687_default Created \n Container opsbench-dynamic_app_config_precedence_-12724-52687-target-1 Creating \n Container opsbench-dynamic_app_config_precedence_-12724-52687-target-1 Created \n Container opsbench-dynamic_app_config_precedence_-12724-52687-target-1 Starting \n Container opsbench-dynamic_app_config_precedence_-12724-52687-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.047,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.187,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"effective_state\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}, {\"name\": \"reconciler_persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 200, \\\"overridden_port\\\": 0, \\\"override_present\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.781,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.625,
+                "stdout_tail": "{\"checks\": [{\"expected_port\": 0, \"name\": \"live_fault_active\", \"overridden_port\": 200, \"override_present\": true, \"passed\": true, \"strategy\": \"environment_override\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.188,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 0.625,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"effective_state\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}, {\"name\": \"reconciler_persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"environment_override\\\", \\\"expected_port\\\": 0, \\\"overridden_port\\\": 200, \\\"override_present\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "effective_state",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              },
+              {
+                "name": "reconciler_persistence",
+                "passed": false,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"environment_override\", \"expected_port\": 0, \"overridden_port\": 200, \"override_present\": true}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 10.141,
+            "case_digest": "77bffaeb9fe0d63c5dc070dc2c9a7158d400017ef2c4af7b7b5bd077cf297333",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\app-config-v2\\cases\\reports\\control_traces\\dynamic_app_config_precedence_v1_000001-oaoymvym",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "cleanup",
+            "control_mode": "cleanup",
+            "repeat_index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "rejected_count": 0,
+  "candidate_diversity": {
+    "passed": true,
+    "candidate_count": 1,
+    "unique_fingerprint_count": 1,
+    "duplicate_fingerprints": []
+  }
+}

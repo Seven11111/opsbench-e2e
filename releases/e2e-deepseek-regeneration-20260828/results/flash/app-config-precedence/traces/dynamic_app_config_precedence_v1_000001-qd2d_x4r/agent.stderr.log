@@ -1,0 +1,2 @@
+/agent/run.py:1032: LangGraphDeprecatedSinceV10: create_react_agent has been moved to `langchain.agents`. Please update your import to `from langchain.agents import create_agent`. Deprecated in LangGraph V1.0 to be removed in V2.0.
+  agent = create_react_agent(model, build_tools(trace_dir, public_tool_names), prompt=system_prompt)

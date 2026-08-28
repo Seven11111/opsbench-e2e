@@ -1,0 +1,1387 @@
+{
+  "manifest_version": "opsbench-e2e-dynamic-generation-v1",
+  "family": "e2e",
+  "generation_mode": "dynamic",
+  "primitive_registry_snapshot": {
+    "app_config_precedence_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "configuration_precedence"
+    },
+    "app_stale_pid_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "stale_runtime_state"
+    },
+    "fluentbit_backpressure_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "fluent-bit",
+      "fault_type": "resource_saturation"
+    },
+    "http_dependency_dns_poison_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "name_resolution"
+    },
+    "http_dependency_port_drift_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "dependency_configuration"
+    },
+    "http_dependency_timeout_slo_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_retry_circuit_breaker_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-circuit-target",
+      "fault_type": "retry_circuit_breaker"
+    },
+    "http_upstream_timeout_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_wrong_port_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "http-service",
+      "fault_type": "configuration_error"
+    },
+    "kafka_consumer_lag_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "kafka-consumer-target",
+      "fault_type": "consumer_lag"
+    },
+    "linux_cpu_runaway_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_cpu_runaway_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_disk_full_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "disk_exhaustion"
+    },
+    "linux_fd_leak_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "resource_leak"
+    },
+    "linux_file_lock_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "file_lock"
+    },
+    "linux_inode_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "inode_exhaustion"
+    },
+    "linux_memory_growth_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "memory_exhaustion"
+    },
+    "linux_temp_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "linux_upload_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "nginx_bind_conflict_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "nginx",
+      "fault_type": "resource_conflict"
+    },
+    "postgres_connection_pool_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-pool-target",
+      "fault_type": "connection_pool_exhaustion"
+    },
+    "postgres_lock_contention_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-lock-target",
+      "fault_type": "lock_contention"
+    },
+    "postgres_missing_index_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "postgres",
+      "fault_type": "database_configuration"
+    },
+    "postgres_missing_index_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres",
+      "fault_type": "performance_regression"
+    },
+    "prometheus_scrape_target_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "prometheus",
+      "fault_type": "configuration_error"
+    },
+    "rabbitmq_resource_alarm_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "rabbitmq",
+      "fault_type": "resource_saturation"
+    },
+    "redis_cache_corruption_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "redis-cache-target",
+      "fault_type": "cache_corruption"
+    },
+    "tls_hostname_mismatch_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "tls-http-service",
+      "fault_type": "certificate_identity"
+    }
+  },
+  "bundle_count": 1,
+  "candidate_count": 1,
+  "accepted_candidate_count": 1,
+  "case_count": 1,
+  "candidate_group_size": "1",
+  "artifact_mode": "trusted",
+  "allow_experimental": false,
+  "max_source_repair_rounds": 3,
+  "max_artifact_repair_rounds": 3,
+  "max_runtime_repair_rounds": 3,
+  "artifact_reports": [],
+  "artifact_repair_count": 0,
+  "stage_mode": false,
+  "runtime_required": true,
+  "candidate_timeout_sec": 1200,
+  "resolved_group_sizes": [
+    "1"
+  ],
+  "max_judge_rounds": 3,
+  "bundle_mode": "auto",
+  "max_documents_per_bundle": 4,
+  "language": "en",
+  "experience_version": "",
+  "experience_digest": "",
+  "generator_model": "deepseek-v4-flash",
+  "review_model": "deepseek-v4-pro",
+  "evidence_gate": "strict",
+  "allow_deterministic_fallback": false,
+  "require_model_judge": true,
+  "document_context_mode": "full",
+  "document_context_count": 0,
+  "evidence_gate_reports": [
+    {
+      "passed": true,
+      "issue_count": 0,
+      "issues": [],
+      "advisories": [],
+      "claim_counts": {
+        "repair": 2,
+        "root_cause": 3,
+        "verification": 3
+      },
+      "document_context_count": 1,
+      "runtime_contract_roles": [
+        "impact",
+        "repair",
+        "root_cause",
+        "symptom",
+        "verification"
+      ],
+      "required_claims": [
+        "root_cause",
+        "repair"
+      ],
+      "bundle_id": "dynamic_bundle_0001",
+      "initial_passed": true,
+      "judge_rounds": 0
+    }
+  ],
+  "target_difficulty": null,
+  "primitive_id": "http_dependency_timeout_slo_v1",
+  "cases": [
+    {
+      "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+      "path": "tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\dynamic_http_dependency_timeout_slo_v1_000001",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "template_id": "http_dependency_timeout_slo_v1",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 6,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The dependency remains reachable but violates the client SLO.",
+          "The agent must use repeated latency evidence and repair the source of delay rather than hiding it with a larger timeout.",
+          "Verification checks both request success and the latency budget."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "judge_rounds": 2,
+      "judge_score": 4.74,
+      "candidate_group_id": "dynamic_bundle_0001_group_001",
+      "case_status": "evaluable",
+      "runtime_gate": {
+        "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+        "template_id": "http_dependency_timeout_slo_v1",
+        "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\dynamic_http_dependency_timeout_slo_v1_000001",
+        "passed": true,
+        "case_status": "evaluable",
+        "issues": [],
+        "gate": {
+          "passed": true,
+          "issues": [],
+          "required_scenarios": [
+            "no_op",
+            "oracle",
+            "partial_fix",
+            "repeat",
+            "restart_only",
+            "symptom_bypass",
+            "wrong_layer_fix"
+          ],
+          "observed_scenarios": [
+            "cleanup",
+            "no_op",
+            "oracle",
+            "partial_fix",
+            "repeat",
+            "restart_only",
+            "symptom_bypass",
+            "wrong_layer_fix"
+          ],
+          "gate_version": "e2e-runtime-gate-v1"
+        },
+        "runs": [
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.453,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 78.96kB 0.0s done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 CACHED\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 DONE 0.0s\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 DONE 0.9s\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 DONE 0.1s\n\n#15 exporting to image\n#15 exporting layers\n#15 exporting layers 0.2s done\n#15 exporting manifest sha256:fa1cb686c4bcd8a01a4f49fea95d2cf7bcbfb62c493c5239d2f7ebe8908d4b89 0.0s done\n#15 exporting config sha256:5b221af434baed0dd1fab0817957799096eac7371a9979ee93a2b4192be40103 0.0s done\n#15 exporting attestation manifest sha256:f756e9cf98e614846f349359234f164eb9d75dadca68d071216d08a84a584dff 0.0s done\n#15 exporting manifest list sha256:242ff6a94a818d16179d73c2fcddf1f84d8aa9a646ce5e800bdeeeeaf0b49b86\n#15 exporting manifest list sha256:242ff6a94a818d16179d73c2fcddf1f84d8aa9a646ce5e800bdeeeeaf0b49b86 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.1s done\n#15 DONE 0.5s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-596046_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-596046_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-596046-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-596046-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-596046-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-596046-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.016,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.625,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.437, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 37.14, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.437, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 37.14, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.437, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 37.14, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.437, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 37.14, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.516,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.172,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.406, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.61,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 1.781,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.828, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"latency_slo\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.828, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"dependency_delay\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.828, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.828, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.062,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.828, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.828, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.828, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.828, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 15.891,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-6w49n1y7",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "no_op",
+            "control_mode": "no_op",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.578,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [6/9] COPY agent /agent\n#10 CACHED\n\n#11 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [7/9] COPY runtime /opt/opsbench/runtime\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:6f145d7184843c30cf743b26a52e58bdef93c2fa7c0bfeb78b48b8a960208f69 0.0s done\n#15 exporting config sha256:3622f7fcc32db31ebc18626172461e402b0a213d303a8d1fa99f32d5ebe7c3cb 0.0s done\n#15 exporting attestation manifest sha256:1b75a460d6bb2182b88af8b0d8f3d901d5603bfbf2d846a2dbef834914475936 0.0s done\n#15 exporting manifest list sha256:e802b6ea095099aed9a4a3e135a8822abae6df84bb74d47293a66a56bff3ff34\n#15 exporting manifest list sha256:e802b6ea095099aed9a4a3e135a8822abae6df84bb74d47293a66a56bff3ff34 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-611937_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-611937_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-611937-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-611937-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-611937-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-611937-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.797,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.281, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 29.24, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.281, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 29.24, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.281, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 29.24, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.281, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 29.24, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.312,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.938,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.359, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.75,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.796,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.219, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.98, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.219, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.98, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.219, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.98, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.219, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.98, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.063,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.219, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 28.98, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.219, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 28.98, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.219, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 28.98, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.219, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 28.98, \"timeout_covers_delay\": true}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 11.406,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-zb2ehodr",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "oracle",
+            "control_mode": "oracle",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.016,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [7/9] COPY runtime /opt/opsbench/runtime\n#9 CACHED\n\n#10 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#10 CACHED\n\n#11 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:5ba894d7bee359aa76fb881f5b55fc8a16c8df754b8648335280a88260ac7454 0.0s done\n#15 exporting config sha256:513b67fbd6011c3702e2f9b60652ab702af98f576b1b50945107cc9ad90033d9 0.0s done\n#15 exporting attestation manifest sha256:fa3b9c5f0f3400c715d38b4978ffee01f505ad36ac75275f30a32ca0dfdb18db 0.0s done\n#15 exporting manifest list sha256:4ea15ff76cc8f027cd77a74c6e525132a9dd2960c9bb06ba1b524107e2cd1499 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-623343_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-623343_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-623343-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-623343-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-623343-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-623343-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.172,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.829,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.219, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.14, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.219, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.14, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.219, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.14, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.219, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.14, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.281,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.953,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.343, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.187,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 1.422,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.329, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"latency_slo\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.329, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"dependency_delay\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.329, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.329, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.329, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.329, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.329, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.329, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 12.047,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-nrev9xd2",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "restart_only",
+            "control_mode": "restart_only",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.531,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#8 CACHED\n\n#9 [7/9] COPY runtime /opt/opsbench/runtime\n#9 CACHED\n\n#10 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 CACHED\n\n#12 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#12 CACHED\n\n#13 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:b5f24aedb4dabf3b96b605aadf8310ded5cb513bad1403584d55b81c26abb473 0.0s done\n#15 exporting config sha256:0aaf801fa327c7f1f335acfe0a3de3b1ee4b476740a43f011a6def8f2ee1128a 0.0s done\n#15 exporting attestation manifest sha256:571155d67c8b550a1f357c4d9a4af64f3c8f193f086166af974c6ac8fd4b89d8 0.0s done\n#15 exporting manifest list sha256:52b76392fa9c0d8783d3cd68897837415fbfa09aa936e567e414fe46404a8c94\n#15 exporting manifest list sha256:52b76392fa9c0d8783d3cd68897837415fbfa09aa936e567e414fe46404a8c94 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-635390_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-635390_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-635390-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-635390-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-635390-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-635390-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.828,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.609,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 1.031, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 35.52, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 1.031, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 35.52, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 1.031, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 35.52, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 1.031, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 35.52, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.313,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.953,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.86, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.687,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 1.672,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.25, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 1.078, \\\"client_timeout_ms\\\": 2000, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 908.72, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 1.078, \\\"client_timeout_ms\\\": 2000, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 908.72, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 1.078, \\\"client_timeout_ms\\\": 2000, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 908.72, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 1.078, \\\"client_timeout_ms\\\": 2000, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 908.72, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 1.078, \"client_timeout_ms\": 2000, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 908.72, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 1.078, \"client_timeout_ms\": 2000, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 908.72, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 1.078, \"client_timeout_ms\": 2000, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 908.72, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 1.078, \"client_timeout_ms\": 2000, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 908.72, \"timeout_covers_delay\": true}"
+              }
+            ],
+            "score": 0.25,
+            "duration_sec": 15.719,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-000f936k",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "wrong_layer_fix",
+            "control_mode": "wrong_layer_fix",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.593,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#10 CACHED\n\n#11 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [6/9] COPY agent /agent\n#12 CACHED\n\n#13 [7/9] COPY runtime /opt/opsbench/runtime\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:47089857c27e1ecf840885f386649d4f084aae82042e9b5771dfa1f768082070 0.0s done\n#15 exporting config sha256:db7d91dfea668b961b153b7dbf3905b5396caf9e55fc3a8e0715fa794bd57c01 0.0s done\n#15 exporting attestation manifest sha256:ab79e3e1dc11b7540130fe1f44d51a1008c80870acb812fa95df2de0f7278cfe 0.0s done\n#15 exporting manifest list sha256:bfac001d3f114828de92ba64e62c78a9b22583736b0c5b07b2befa7af811a534\n#15 exporting manifest list sha256:bfac001d3f114828de92ba64e62c78a9b22583736b0c5b07b2befa7af811a534 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-651109_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-651109_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-651109-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-651109-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-651109-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-651109-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.157,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.656,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.343, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 31.51, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.343, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 31.51, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.343, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 31.51, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.343, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 31.51, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.282,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.484,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.36, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.203,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 0.938,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.359, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"latency_slo\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.359, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"dependency_delay\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.359, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.359, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.359, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.359, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.359, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.359, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 11.766,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-j8_e9ce9",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "symptom_bypass",
+            "control_mode": "symptom_bypass",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.547,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [6/9] COPY agent /agent\n#7 CACHED\n\n#8 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 CACHED\n\n#13 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:20f8dfe6f6ef033b3449d004166d07ca47a90e3b0f6084ffc8f41b8a803c7045 0.0s done\n#15 exporting config sha256:3691998540634bf74c623acffba256f1e6aad79a399b69d3ae7f018cb10dfafe 0.0s done\n#15 exporting attestation manifest sha256:c37a4626a8936f6f0db9533c06411f69f5649576b54a10b04ed6861380ce8a0a 0.0s done\n#15 exporting manifest list sha256:fc12a8ad4d80b47a49151dee88e70ed9ae69e1fc7805c072c7945c44feada6d6\n#15 exporting manifest list sha256:fc12a8ad4d80b47a49151dee88e70ed9ae69e1fc7805c072c7945c44feada6d6 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-662875_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-662875_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-662875-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-662875-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-662875-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-662875-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.156,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.844,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.781, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 30.18, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.781, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 30.18, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.781, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 30.18, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.781, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 30.18, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.313,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.906,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.344, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.75,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 0.922,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.359, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 500, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"latency_slo\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.359, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 500, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"dependency_delay\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.359, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 500, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.359, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 500, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.063,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.359, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 500, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.359, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 500, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.359, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 500, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.359, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 500, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 13.718,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-ov03cs9o",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "partial_fix",
+            "control_mode": "partial_fix",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.625,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#7 CACHED\n\n#8 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [6/9] COPY agent /agent\n#9 CACHED\n\n#10 [7/9] COPY runtime /opt/opsbench/runtime\n#10 CACHED\n\n#11 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#11 CACHED\n\n#12 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#12 CACHED\n\n#13 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:bcdfbafaa63293b4fbf8d1bc063bfb3da5910e9301dbf4161fec6fdd6d2986dc 0.0s done\n#15 exporting config sha256:65b2582be11789a3641db9d955bb052239d68d475ccae006bb83553b2506b383 0.0s done\n#15 exporting attestation manifest sha256:b2c44104e26023ba2a5d1a22cfd952e4a62c309802340e2ceebea3f5de613f14 0.0s done\n#15 exporting manifest list sha256:7485964399d4ab7e10264a2511711cc58b21f8993537bc8069507d3622c4d8da\n#15 exporting manifest list sha256:7485964399d4ab7e10264a2511711cc58b21f8993537bc8069507d3622c4d8da 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-676593_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-676593_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-676593-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-676593-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-676593-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-676593-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.156,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.547,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.328, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 33.32, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.328, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 33.32, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.328, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 33.32, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.328, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 33.32, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.265,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.953,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.359, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.782,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.812,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.766, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 34.47, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.766, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 34.47, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.766, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 34.47, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.766, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 34.47, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.766, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 34.47, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.766, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 34.47, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.766, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 34.47, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.766, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 34.47, \"timeout_covers_delay\": true}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 13.172,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-jskt1jg4",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "repeat",
+            "control_mode": "oracle",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.875,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [6/9] COPY agent /agent\n#9 CACHED\n\n#10 [7/9] COPY runtime /opt/opsbench/runtime\n#10 CACHED\n\n#11 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:97584a30658034902d38287833829bfe821c0be77f447fbf5e2f4600b48f37f7 0.0s done\n#15 exporting config sha256:ab69ee82add815c9adb16325dca7be812d10702d8c9169f40c04c08b2a56c4ed 0.0s done\n#15 exporting attestation manifest sha256:074c104055f23b94f798b24069ba4a2efa78455c592e0cb4e5c927249688848b 0.1s done\n#15 exporting manifest list sha256:d607c25844726f8c1c5048875f8d7b373a8571495ebf1e33d78719568741b1d3\n#15 exporting manifest list sha256:d607c25844726f8c1c5048875f8d7b373a8571495ebf1e33d78719568741b1d3 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-689765_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-689765_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-689765-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-689765-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-689765-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-689765-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.14,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.641,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.203, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 29.73, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.203, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 29.73, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.203, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 29.73, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.203, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 29.73, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.0,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.906,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.359, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.75,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.766,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.187, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.57, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.187, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.57, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.187, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.57, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.187, \\\"client_timeout_ms\\\": 500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 28.57, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.187, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 28.57, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.187, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 28.57, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.187, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 28.57, \"timeout_covers_delay\": true}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 200, \"elapsed_sec\": 0.187, \"client_timeout_ms\": 500, \"dependency_delay_ms\": 20, \"upstream_elapsed_ms\": 28.57, \"timeout_covers_delay\": true}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 15.313,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-rhukjgjz",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "repeat",
+            "control_mode": "oracle",
+            "repeat_index": 1
+          },
+          {
+            "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.156,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 906B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [7/9] COPY runtime /opt/opsbench/runtime\n#7 CACHED\n\n#8 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#8 CACHED\n\n#9 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#9 CACHED\n\n#10 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#10 CACHED\n\n#11 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#11 CACHED\n\n#12 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:5428527fb91dfe93ed5e76b61452701969a36bcc353021a083719ee621109d0f 0.0s done\n#15 exporting config sha256:6766f00b36b3c12b68d385e87f380c25435700480edd00490a86af735f6da2d3 0.0s done\n#15 exporting attestation manifest sha256:b2168bd19218d1c604dc2d61a924e00246076dfae5dc8316145cadfda4bcf59c 0.0s done\n#15 exporting manifest list sha256:36e201bedf6150f7a74ada7c1826501be0198f4bc69c62e9db90e6c1d8332a03\n#15 exporting manifest list sha256:36e201bedf6150f7a74ada7c1826501be0198f4bc69c62e9db90e6c1d8332a03 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-http_dependency_timeout_slo_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-http_dependency_timeout_slo_v1 Building \n Image opsbench-e2e-http_dependency_timeout_slo_v1 Built \n Network opsbench-dynamic_http_dependency_timeou-34092-705078_default Creating \n Network opsbench-dynamic_http_dependency_timeou-34092-705078_default Created \n Container opsbench-dynamic_http_dependency_timeou-34092-705078-target-1 Creating \n Container opsbench-dynamic_http_dependency_timeou-34092-705078-target-1 Created \n Container opsbench-dynamic_http_dependency_timeou-34092-705078-target-1 Starting \n Container opsbench-dynamic_http_dependency_timeou-34092-705078-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.172,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.578,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.313, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 34.22, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"latency_slo\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.313, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 34.22, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"dependency_delay\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.313, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 34.22, \\\"timeout_covers_delay\\\": true}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 200, \\\"elapsed_sec\\\": 0.313, \\\"client_timeout_ms\\\": 1500, \\\"dependency_delay_ms\\\": 20, \\\"upstream_elapsed_ms\\\": 34.22, \\\"timeout_covers_delay\\\": true}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.266,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.953,
+                "stdout_tail": "{\"checks\": [{\"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"elapsed_sec\": 0.329, \"name\": \"live_fault_active\", \"orders_status\": 502, \"passed\": true, \"strategy\": \"dependency_timeout\", \"timeout_covers_delay\": false, \"upstream_elapsed_ms\": 999999.0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.172,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 0.89,
+                "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.344, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"latency_slo\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.344, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"dependency_delay\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.344, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"dependency_timeout\\\", \\\"orders_status\\\": 502, \\\"elapsed_sec\\\": 0.344, \\\"client_timeout_ms\\\": 150, \\\"dependency_delay_ms\\\": 900, \\\"upstream_elapsed_ms\\\": 999999.0, \\\"timeout_covers_delay\\\": false}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.344, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "latency_slo",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.344, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "dependency_delay",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.344, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.25,
+                "detail": "{\"strategy\": \"dependency_timeout\", \"orders_status\": 502, \"elapsed_sec\": 0.344, \"client_timeout_ms\": 150, \"dependency_delay_ms\": 900, \"upstream_elapsed_ms\": 999999.0, \"timeout_covers_delay\": false}"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 10.703,
+            "case_digest": "ea48e5d301e0f84246b9a405bec08bc67e55036175df5603737a9e171315948b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\reports\\control_traces\\dynamic_http_dependency_timeout_slo_v1_000001-mda8yjcf",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "scenario": "cleanup",
+            "control_mode": "cleanup",
+            "repeat_index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "rejected_count": 0,
+  "candidate_diversity": {
+    "passed": true,
+    "candidate_count": 1,
+    "unique_fingerprint_count": 1,
+    "duplicate_fingerprints": []
+  }
+}

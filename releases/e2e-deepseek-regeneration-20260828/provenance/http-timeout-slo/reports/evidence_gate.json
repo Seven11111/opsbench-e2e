@@ -1,0 +1,32 @@
+{
+  "mode": "strict",
+  "passed": true,
+  "bundles": [
+    {
+      "passed": true,
+      "issue_count": 0,
+      "issues": [],
+      "advisories": [],
+      "claim_counts": {
+        "repair": 2,
+        "root_cause": 3,
+        "verification": 3
+      },
+      "document_context_count": 1,
+      "runtime_contract_roles": [
+        "impact",
+        "repair",
+        "root_cause",
+        "symptom",
+        "verification"
+      ],
+      "required_claims": [
+        "root_cause",
+        "repair"
+      ],
+      "bundle_id": "dynamic_bundle_0001",
+      "initial_passed": true,
+      "judge_rounds": 0
+    }
+  ]
+}

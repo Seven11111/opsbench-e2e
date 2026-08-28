@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 32,
+  "final": "## Summary\n\n**Root Cause:** The runtime environment had an `APP_PORT=8082` configuration overriding the base configuration's port 8080. This caused the service to listen on port 8082 instead of the expected port 8080, making the health probe (which checks `http://127.0.0.1:8080/health`) unable to connect.\n\n**Fix Applied:**\n1. Removed the `APP_PORT` override from the `runtime-environment` configuration source.\n2. Restarted the `orders-api` service to apply the change.\n\n**Verification:**\n- The service is running and responds to the health probe on port 8080 with HTTP 200.\n- The effective runtime configuration now shows `port: 8080` without the `APP_PORT` override.\n- The repair survived the restart boundary."
+}

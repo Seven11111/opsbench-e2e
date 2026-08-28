@@ -1,0 +1,145 @@
+{
+  "family": "e2e",
+  "total": 1,
+  "e2e_score": 100.0,
+  "family_scores": {
+    "e2e": 100.0
+  },
+  "task_success_rate": 1.0,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 1.0,
+  "verifier_check_rate": 1.0,
+  "timeout_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "infrastructure_error_rate": 0.0,
+  "average_duration": 67.141,
+  "average_verifier_score": 1.0,
+  "counts": {
+    "passed": 1,
+    "evaluable": 1,
+    "not_evaluable": 0,
+    "model_failed": 0,
+    "agent_completed": 1,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0
+  },
+  "failure_types": {},
+  "by_primary_task_label": {
+    "fault_fix": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_fault_type": {
+    "latency_regression": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_domain": {
+    "distributed_system": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_template": {
+    "http_dependency_timeout_slo_v1": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "manifest": {
+    "manifest_version": "opsbench-e2e-manifest-v1",
+    "family": "e2e",
+    "case_root": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases",
+    "sample_size": 1,
+    "sample_seed": 42,
+    "filters": {
+      "task_labels": [],
+      "template_id": null,
+      "domain": null,
+      "fault_type": null
+    },
+    "items": [
+      {
+        "id": "dynamic_http_dependency_timeout_slo_v1_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-deepseek-regeneration-20260828\\http-timeout-v2\\cases\\dynamic_http_dependency_timeout_slo_v1_000001",
+        "case_digest": "735cb354d9b78af13dd41fa4e1ea6add0027941aaca3111a0fa42d6675df46a0",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "latency_regression",
+        "domain": "distributed_system",
+        "technology_stack": [
+          "HTTP",
+          "Python",
+          "Linux"
+        ],
+        "template_id": "http_dependency_timeout_slo_v1",
+        "primitive_id": "http_dependency_timeout_slo_v1",
+        "difficulty_profile": "medium",
+        "difficulty_score": 6,
+        "target_difficulty": "medium",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      }
+    ],
+    "total_available": 1,
+    "total": 1
+  },
+  "summary": {
+    "family": "e2e",
+    "total": 1,
+    "e2e_score": 100.0,
+    "family_scores": {
+      "e2e": 100.0
+    },
+    "task_success_rate": 1.0,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 1.0,
+    "verifier_check_rate": 1.0,
+    "timeout_rate": 0.0,
+    "cleanup_failure_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "average_duration": 67.141,
+    "average_verifier_score": 1.0,
+    "counts": {
+      "passed": 1,
+      "evaluable": 1,
+      "not_evaluable": 0,
+      "model_failed": 0,
+      "agent_completed": 1,
+      "infrastructure_errors": 0,
+      "timeouts": 0,
+      "cleanup_failures": 0
+    },
+    "failure_types": {},
+    "by_primary_task_label": {
+      "fault_fix": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_fault_type": {
+      "latency_regression": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_domain": {
+      "distributed_system": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_template": {
+      "http_dependency_timeout_slo_v1": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    }
+  }
+}

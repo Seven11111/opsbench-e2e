@@ -1,0 +1,6 @@
+id: flash_60
+model: deepseek-v4-flash
+max_steps: 60
+agent_timeout_sec: 180
+env:
+  OPSBENCH_AGENT_TEMPERATURE: "0"
