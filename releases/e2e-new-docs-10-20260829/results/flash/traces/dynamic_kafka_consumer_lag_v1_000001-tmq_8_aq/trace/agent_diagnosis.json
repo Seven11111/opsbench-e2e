@@ -1,0 +1,1 @@
+{"signals": "consumer_state={'mode': 'baseline', 'producer_paused': True, 'circuit': 'closed'}\nlag_probe=200broker_metadata=Metadata for opsbench-events (from broker 1: kafka:9092/1):\n 1 brokers:\n  broker 1 at kafka:9092 (controller)\n 1 topics:\n  topic \"opsbench-events\" with 1 partitions:\n    partition 0, leader 1, replicas: 1, isrs: 1\n"}

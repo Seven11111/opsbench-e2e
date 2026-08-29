@@ -1,0 +1,1 @@
+{"signals": "business_probe=503downstream_probe=503circuit_state={'mode': 'failed', 'circuit': 'open', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}\n"}

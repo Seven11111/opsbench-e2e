@@ -1,0 +1,17 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "profile": "autonomous",
+  "task_path": "/opsbench/public/task.md",
+  "tools_path": "/opsbench/public/tools.json",
+  "tool_names": [
+    "command_run",
+    "service_status",
+    "metrics_read"
+  ],
+  "model": "deepseek-v4-flash",
+  "max_steps": 60,
+  "timeout_sec": 180,
+  "agent_prompt_digest": "4ef266db799f78a400ac501d65984d6fd62fc4a9548006b900ecd0c5409886ed",
+  "tool_contract_digest": "57690267fd8d0c368b8c3a05568bd4740bc0cf2dae44800e91395e7f5f1f77eb",
+  "agent_runtime_digest": "d5c903af527e2822e3af63070de6f048ec5e828b89350d845c6649f9f1e5e9cf"
+}

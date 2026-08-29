@@ -1,0 +1,8 @@
+{
+  "count": 1,
+  "metadata_path": "runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\evidence\\document_contexts.jsonl",
+  "source_dir": "runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\evidence\\source",
+  "document_ids": [
+    "doc-learn-microsoft-com-en-us-azure-architecture-patterns-circui-50c696"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "seeds": [
+    {"url": "https://www.pgbouncer.org/usage", "max_pages": 1, "max_depth": 0, "allowed_domains": ["www.pgbouncer.org"], "source_type": "official_docs"},
+    {"url": "https://redis.io/docs/latest/develop/use-cases/cache-aside/", "max_pages": 1, "max_depth": 0, "allowed_domains": ["redis.io"], "source_type": "official_docs"},
+    {"url": "https://kafka.apache.org/41/configuration/consumer-configs", "max_pages": 1, "max_depth": 0, "allowed_domains": ["kafka.apache.org"], "source_type": "official_docs"},
+    {"url": "https://docs.kernel.org/admin-guide/cgroup-v2.html", "max_pages": 1, "max_depth": 0, "allowed_domains": ["docs.kernel.org"], "source_type": "official_docs"},
+    {"url": "https://www.gnu.org/software/coreutils/manual/html_node/df-invocation.html", "max_pages": 1, "max_depth": 0, "allowed_domains": ["www.gnu.org"], "source_type": "official_docs"},
+    {"url": "https://docs.kernel.org/filesystems/ext4/overview.html", "max_pages": 1, "max_depth": 0, "allowed_domains": ["docs.kernel.org"], "source_type": "official_docs"},
+    {"url": "https://docs.python.org/3/library/os.html#os.access", "max_pages": 1, "max_depth": 0, "allowed_domains": ["docs.python.org"], "source_type": "official_docs"},
+    {"url": "https://docs.python.org/3/library/fcntl.html#fcntl.flock", "max_pages": 1, "max_depth": 0, "allowed_domains": ["docs.python.org"], "source_type": "official_docs"},
+    {"url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker", "max_pages": 1, "max_depth": 0, "allowed_domains": ["learn.microsoft.com"], "source_type": "official_docs"}
+  ]
+}

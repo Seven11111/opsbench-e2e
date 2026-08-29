@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 75,
+  "final": "## Summary\n\n**Incident**: The service was unhealthy (HTTP 503) because the `/data/uploads/` directory was read-only (permissions `0555`), preventing the service from writing uploaded files.\n\n**Diagnosis**: The health endpoint at `http://localhost:8080/health` returned:\n```json\n{\"healthy\": false, \"detail\": \"upload directory is writable\"}\n```\n\nInvestigation confirmed the permissions on `/data/uploads/` were `dr-xr-xr-x` (0555), which blocked write operations.\n\n**Repair**: Changed the upload directory permissions to `0755` (drwxr-xr-x):\n```bash\nchmod 755 /data/uploads/\n```\n\n**Verification**:\n- ✅ Health endpoint returns HTTP 200: `{\"healthy\": true, \"detail\": \"upload directory is writable\"}`\n- ✅ `service_status` reports healthy\n- ✅ Business operation works: POST to `/upload` returns `{\"accepted\": true}` and files are persisted in `/data/uploads/`\n- ✅ Repair persists (service runs continuously, no restart needed)"
+}

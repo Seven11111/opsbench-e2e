@@ -1,0 +1,404 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_postgres_lock_contention_v1_000001",
+      "template_id": "postgres_lock_contention_v1",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\postgres-lock\\cases\\dynamic_postgres_lock_contention_v1_000001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "runs": [
+        {
+          "id": "dynamic_postgres_lock_contention_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "lock_holder_absent",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "1"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'blocked'}"
+            }
+          ],
+          "score": 0.2,
+          "duration_sec": 22.5,
+          "case_digest": "536582beaadaef79f3df4fb26d57217cfca7dca968c79491e081813c33a7e9bd",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\postgres-lock\\cases\\reports\\control_traces\\dynamic_postgres_lock_contention_v1_000001-vrr17zwi",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_lock_contention_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "lock_holder_absent",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "0"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 27.922,
+          "case_digest": "536582beaadaef79f3df4fb26d57217cfca7dca968c79491e081813c33a7e9bd",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\postgres-lock\\cases\\reports\\control_traces\\dynamic_postgres_lock_contention_v1_000001-vrr17zwi",
+          "error_type": "",
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_lock_contention_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "lock_holder_absent",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "1"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'blocked'}"
+            }
+          ],
+          "score": 0.2,
+          "duration_sec": 33.609,
+          "case_digest": "536582beaadaef79f3df4fb26d57217cfca7dca968c79491e081813c33a7e9bd",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\postgres-lock\\cases\\reports\\control_traces\\dynamic_postgres_lock_contention_v1_000001-vrr17zwi",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_lock_contention_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "lock_holder_absent",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "1"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'blocked'}"
+            }
+          ],
+          "score": 0.2,
+          "duration_sec": 39.172,
+          "case_digest": "536582beaadaef79f3df4fb26d57217cfca7dca968c79491e081813c33a7e9bd",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\postgres-lock\\cases\\reports\\control_traces\\dynamic_postgres_lock_contention_v1_000001-vrr17zwi",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_lock_contention_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "lock_holder_absent",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "1"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'blocked'}"
+            }
+          ],
+          "score": 0.2,
+          "duration_sec": 45.312,
+          "case_digest": "536582beaadaef79f3df4fb26d57217cfca7dca968c79491e081813c33a7e9bd",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\postgres-lock\\cases\\reports\\control_traces\\dynamic_postgres_lock_contention_v1_000001-vrr17zwi",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_lock_contention_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "lock_holder_absent",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "0"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 51.891,
+          "case_digest": "536582beaadaef79f3df4fb26d57217cfca7dca968c79491e081813c33a7e9bd",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\postgres-lock\\cases\\reports\\control_traces\\dynamic_postgres_lock_contention_v1_000001-vrr17zwi",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_postgres_lock_contention_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "lock_holder_absent",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "0"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 57.922,
+          "case_digest": "536582beaadaef79f3df4fb26d57217cfca7dca968c79491e081813c33a7e9bd",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\postgres-lock\\cases\\reports\\control_traces\\dynamic_postgres_lock_contention_v1_000001-vrr17zwi",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 7
+}

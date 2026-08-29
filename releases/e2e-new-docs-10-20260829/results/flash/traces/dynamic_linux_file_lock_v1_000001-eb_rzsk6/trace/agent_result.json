@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 24,
+  "final": "## Summary\n\n**Root cause:** A rogue process (PID 49) was holding an exclusive file lock (`flock`) on `/data/report.lock` with a 3600-second sleep, preventing the service from acquiring the report lock. The service was returning HTTP 503 with detail `\"report lock is held by another process\"`.\n\n**Repair:** Removed the stale lock file `/data/report.lock` (the process holding it had already exited after the first `kill` attempt, but the lock file persisted).\n\n**Verification:**\n- `GET /health` → HTTP 200, `{\"healthy\": true, \"detail\": \"report lock is available\"}`\n- `service_status` → `{\"healthy\": true, \"http_status\": 200}`\n- The `/report` endpoint also responds successfully\n- The repair persists after observation (verified 2 seconds later)"
+}

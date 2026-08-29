@@ -1,0 +1,313 @@
+id: dynamic_linux_disk_full_v1_000001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: disk_exhaustion
+domain: linux
+technology_stack:
+- Linux
+- Filesystem
+template_id: linux_disk_full_v1
+fault_primitive_id: linux_disk_full_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: experimental
+difficulty_profile: medium
+difficulty_assessment:
+  profile: medium
+  score: 5
+  rubric_version: e2e-difficulty-v1
+  dimensions:
+    diagnostic_uncertainty: 1
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 1
+    verification_complexity: 1
+  rationale:
+  - The agent must distinguish a real filesystem capacity fault from an application
+    health symptom.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: opsbench
+  business_check:
+    url: ''
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: doc-www-gnu-org-software-coreutils-manual-html_node-df-i-550a26#claim_001
+    claim_type: verification
+    field_path: public_task.verification
+  candidate_group_id: dynamic_bundle_0001_group_001
+  generation_strategy: layered_state
+  experience_version: ''
+  experience_digest: ''
+  scenario_seed: 1
+  novelty_fingerprint: 2ea099c01ee9dc79
+  difficulty_assessment:
+    profile: medium
+    score: 5
+    rubric_version: e2e-difficulty-v1
+    dimensions:
+      diagnostic_uncertainty: 1
+      signal_indirection: 1
+      tool_breadth: 1
+      repair_depth: 1
+      verification_complexity: 1
+    rationale:
+    - The agent must distinguish a real filesystem capacity fault from an application
+      health symptom.
+    empirical_status: not_calibrated
+  scenario_spec:
+    id: dynamic_linux_disk_full_v1_000001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: linux_filesystem
+      component_id: linux-filesystem
+      version: ''
+      params: {}
+    fault:
+      primitive_id: linux_disk_full_v1
+      target: linux_filesystem
+      params: {}
+    public_task:
+      symptom: The service is not reporting a healthy operational state.
+      impact: The documented operational workflow cannot complete reliably.
+      objective: Diagnose the live service, apply the smallest safe repair, and verify
+        recovery.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - health_check
+    - metrics_query
+    expected_actions:
+    - primitive_id: linux_disk_full_v1
+      action: repair
+    success_checks:
+    - check_id: free_space
+      weight: 0.3333333333333333
+    - check_id: business_operation
+      weight: 0.3333333333333333
+    - check_id: persistence
+      weight: 0.3333333333333333
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_fix
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: medium
+    difficulty_assessment:
+      profile: medium
+      score: 5
+      rubric_version: e2e-difficulty-v1
+      dimensions:
+        diagnostic_uncertainty: 1
+        signal_indirection: 1
+        tool_breadth: 1
+        repair_depth: 1
+        verification_complexity: 1
+      rationale:
+      - The agent must distinguish a real filesystem capacity fault from an application
+        health symptom.
+      empirical_status: not_calibrated
+    difficulty_contract: {}
+    evidence_links:
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-www-gnu-org-software-coreutils-manual-html_node-df-i-550a26#claim_001
+    scenario_seed: 1
+    technology_stack:
+    - Linux
+    - Filesystem
+    domain: linux
+    fault_type: disk_exhaustion
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: ''
+    experience_digest: ''
+    source:
+      primitive_status: experimental
+      difficulty_assessment:
+        profile: medium
+        score: 5
+        rubric_version: e2e-difficulty-v1
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 1
+        rationale:
+        - The agent must distinguish a real filesystem capacity fault from an application
+          health symptom.
+        empirical_status: not_calibrated
+      difficulty_contract: {}
+    schema_version: opsbench-e2e-scenario-v2
+  dynamic_spec:
+    id: dynamic_linux_disk_full_v1_000001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: linux_filesystem
+      component_id: linux-filesystem
+      version: ''
+      params: {}
+    fault:
+      primitive_id: linux_disk_full_v1
+      target: linux_filesystem
+      params: {}
+    public_task:
+      symptom: The service is not reporting a healthy operational state.
+      impact: The documented operational workflow cannot complete reliably.
+      objective: Diagnose the live service, apply the smallest safe repair, and verify
+        recovery.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - health_check
+    - metrics_query
+    expected_actions:
+    - primitive_id: linux_disk_full_v1
+      action: repair
+    success_checks:
+    - check_id: free_space
+      weight: 0.3333333333333333
+    - check_id: business_operation
+      weight: 0.3333333333333333
+    - check_id: persistence
+      weight: 0.3333333333333333
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_fix
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: medium
+    difficulty_assessment:
+      profile: medium
+      score: 5
+      rubric_version: e2e-difficulty-v1
+      dimensions:
+        diagnostic_uncertainty: 1
+        signal_indirection: 1
+        tool_breadth: 1
+        repair_depth: 1
+        verification_complexity: 1
+      rationale:
+      - The agent must distinguish a real filesystem capacity fault from an application
+        health symptom.
+      empirical_status: not_calibrated
+    difficulty_contract: {}
+    evidence_links:
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-www-gnu-org-software-coreutils-manual-html_node-df-i-550a26#claim_001
+    scenario_seed: 1
+    technology_stack:
+    - Linux
+    - Filesystem
+    domain: linux
+    fault_type: disk_exhaustion
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: ''
+    experience_digest: ''
+    source:
+      primitive_status: experimental
+      difficulty_assessment:
+        profile: medium
+        score: 5
+        rubric_version: e2e-difficulty-v1
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 1
+        rationale:
+        - The agent must distinguish a real filesystem capacity fault from an application
+          health symptom.
+        empirical_status: not_calibrated
+      difficulty_contract: {}
+    schema_version: opsbench-e2e-scenario-v2
+  bundle_id: dynamic_bundle_0001
+runtime_controls:
+- no_op
+- oracle
+- wrong_fix
+- partial_fix
+- restart_only
+- repeat
+public_actionability:
+  version: e2e-task-tools-verifier-alignment-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - command_run
+  - service_status
+  - metrics_read
+  repair_operations:
+  - bounded_state_change
+  verifier_checks:
+  - business_operation
+  - root_signal_absent
+  - repair_invariant
+  - persistence
+  public_success_signals:
+  - The live health endpoint returns HTTP 200.
+  - The business operation remains usable after the repair.
+  - The repair preserves the service contract and remains valid after observation.
+  semantic_state:
+  - observable business operation
+  - observable root signal absent
+  - observable repair invariant
+  - observable persistence
+  public_oracle: null
+compiler_version: opsbench-dynamic-compiler-v1
+scenario_spec_version: opsbench-e2e-scenario-v2
+case_status: evaluable
+runtime_gate_passed: true

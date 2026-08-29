@@ -1,0 +1,534 @@
+{
+  "family": "e2e",
+  "total": 10,
+  "e2e_score": 30.0,
+  "family_scores": {
+    "e2e": 30.0
+  },
+  "task_success_rate": 0.3,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 0.3,
+  "verifier_check_rate": 0.5348837209302325,
+  "timeout_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "infrastructure_error_rate": 0.0,
+  "average_duration": 113.8922,
+  "average_verifier_score": 0.535,
+  "counts": {
+    "passed": 3,
+    "evaluable": 10,
+    "not_evaluable": 0,
+    "model_failed": 7,
+    "agent_completed": 10,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0
+  },
+  "failure_types": {
+    "task_failure": 7
+  },
+  "by_primary_task_label": {
+    "fault_fix": {
+      "total": 10,
+      "success_rate": 0.3
+    }
+  },
+  "by_fault_type": {
+    "cache_corruption": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "connection_pool_exhaustion": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "consumer_lag": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "disk_exhaustion": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "file_lock": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "inode_exhaustion": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "lock_contention": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "memory_exhaustion": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "permission_error": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "retry_circuit_breaker": {
+      "total": 1,
+      "success_rate": 0.0
+    }
+  },
+  "by_domain": {
+    "cache": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "database": {
+      "total": 2,
+      "success_rate": 0.0
+    },
+    "distributed_system": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "linux": {
+      "total": 5,
+      "success_rate": 0.4
+    },
+    "messaging": {
+      "total": 1,
+      "success_rate": 1.0
+    }
+  },
+  "by_template": {
+    "http_retry_circuit_breaker_v1": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "kafka_consumer_lag_v1": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "linux_disk_full_v1": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "linux_file_lock_v1": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "linux_inode_exhaustion_v1": {
+      "total": 1,
+      "success_rate": 1.0
+    },
+    "linux_memory_growth_v1": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "linux_upload_permission_v1": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "postgres_connection_pool_exhaustion_v1": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "postgres_lock_contention_v1": {
+      "total": 1,
+      "success_rate": 0.0
+    },
+    "redis_cache_corruption_v1": {
+      "total": 1,
+      "success_rate": 0.0
+    }
+  },
+  "manifest": {
+    "manifest_version": "opsbench-e2e-manifest-v1",
+    "family": "e2e",
+    "case_root": ".",
+    "sample_size": 10,
+    "sample_seed": 42,
+    "filters": {
+      "task_labels": [],
+      "template_id": null,
+      "domain": null,
+      "fault_type": null,
+      "source": "new-docs-10-selected-original-paths"
+    },
+    "items": [
+      {
+        "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+        "case_path": "cases/dynamic_http_retry_circuit_breaker_v1_000001",
+        "case_digest": "54118f8731ba47320f03ca78e18fce95c80818da093fc46786d25aa445a13e1b",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "retry_circuit_breaker",
+        "domain": "distributed_system",
+        "technology_stack": [
+          "HTTP",
+          "Python"
+        ],
+        "template_id": "http_retry_circuit_breaker_v1",
+        "primitive_id": "http_retry_circuit_breaker_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_kafka_consumer_lag_v1_000001",
+        "case_path": "cases/dynamic_kafka_consumer_lag_v1_000001",
+        "case_digest": "5bf9627c02ebdae94932748e2c7a4c03e6e663fca875e32526412bef74fc8506",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "consumer_lag",
+        "domain": "messaging",
+        "technology_stack": [
+          "Kafka",
+          "Python"
+        ],
+        "template_id": "kafka_consumer_lag_v1",
+        "primitive_id": "kafka_consumer_lag_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_linux_disk_full_v1_000001",
+        "case_path": "cases/dynamic_linux_disk_full_v1_000001",
+        "case_digest": "dbadba386bcbf2f4b0f4ebd86252f2c4ac9e5cadda2586d857b425565211c882",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "disk_exhaustion",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Filesystem"
+        ],
+        "template_id": "linux_disk_full_v1",
+        "primitive_id": "linux_disk_full_v1",
+        "difficulty_profile": "medium",
+        "difficulty_score": 5,
+        "target_difficulty": "medium",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_linux_file_lock_v1_000001",
+        "case_path": "cases/dynamic_linux_file_lock_v1_000001",
+        "case_digest": "deb876791267504150b8fd38dcaad044128a922029496178cae237fc99f2ffd8",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "file_lock",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Python",
+          "Filesystem"
+        ],
+        "template_id": "linux_file_lock_v1",
+        "primitive_id": "linux_file_lock_v1",
+        "difficulty_profile": "medium",
+        "difficulty_score": 5,
+        "target_difficulty": "medium",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_linux_inode_exhaustion_v1_000001",
+        "case_path": "cases/dynamic_linux_inode_exhaustion_v1_000001",
+        "case_digest": "cf43e5af25d0eafa9448888dd6ca075c8b70475de2fbcfa73fed4d4c9831ad91",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "inode_exhaustion",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Filesystem"
+        ],
+        "template_id": "linux_inode_exhaustion_v1",
+        "primitive_id": "linux_inode_exhaustion_v1",
+        "difficulty_profile": "medium",
+        "difficulty_score": 5,
+        "target_difficulty": "medium",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_linux_memory_growth_v1_000001",
+        "case_path": "cases/dynamic_linux_memory_growth_v1_000001",
+        "case_digest": "92ee3dc80c3afcf5c01f736239c7bc00558e716912ee7526de827b7a64db2250",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "memory_exhaustion",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Python"
+        ],
+        "template_id": "linux_memory_growth_v1",
+        "primitive_id": "linux_memory_growth_v1",
+        "difficulty_profile": "medium",
+        "difficulty_score": 5,
+        "target_difficulty": "medium",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_linux_upload_permission_v1_000001",
+        "case_path": "cases/dynamic_linux_upload_permission_v1_000001",
+        "case_digest": "d804e7b56fe11078dd48bd313e254e9d7c76af95e41830a10dc593b304e649bc",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "permission_error",
+        "domain": "linux",
+        "technology_stack": [
+          "Linux",
+          "Filesystem",
+          "HTTP"
+        ],
+        "template_id": "linux_upload_permission_v1",
+        "primitive_id": "linux_upload_permission_v1",
+        "difficulty_profile": "easy",
+        "difficulty_score": 3,
+        "target_difficulty": "easy",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+        "case_path": "cases/dynamic_postgres_connection_pool_exhaustion_v1_000001",
+        "case_digest": "0739a04712c20bc83015ca557271f96404bb3d48a19b0a879fe2710bbc68ff26",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "connection_pool_exhaustion",
+        "domain": "database",
+        "technology_stack": [
+          "PostgreSQL",
+          "Python"
+        ],
+        "template_id": "postgres_connection_pool_exhaustion_v1",
+        "primitive_id": "postgres_connection_pool_exhaustion_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_postgres_lock_contention_v1_000001",
+        "case_path": "cases/dynamic_postgres_lock_contention_v1_000001",
+        "case_digest": "a23bfe966f390fba3024f9c94cb051279fb87983d1eaaa4704a8785b5afd1ab6",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "lock_contention",
+        "domain": "database",
+        "technology_stack": [
+          "PostgreSQL",
+          "Python"
+        ],
+        "template_id": "postgres_lock_contention_v1",
+        "primitive_id": "postgres_lock_contention_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_redis_cache_corruption_v1_000001",
+        "case_path": "cases/dynamic_redis_cache_corruption_v1_000001",
+        "case_digest": "20f8a316af0a37f7a40f691b10b1fddab03ac9e20f62a0016788e21cfb25c3d0",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "cache_corruption",
+        "domain": "cache",
+        "technology_stack": [
+          "Redis",
+          "Python"
+        ],
+        "template_id": "redis_cache_corruption_v1",
+        "primitive_id": "redis_cache_corruption_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      }
+    ],
+    "total_available": 10,
+    "total": 10
+  },
+  "summary": {
+    "family": "e2e",
+    "total": 10,
+    "e2e_score": 30.0,
+    "family_scores": {
+      "e2e": 30.0
+    },
+    "task_success_rate": 0.3,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 0.3,
+    "verifier_check_rate": 0.5348837209302325,
+    "timeout_rate": 0.0,
+    "cleanup_failure_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "average_duration": 113.8922,
+    "average_verifier_score": 0.535,
+    "counts": {
+      "passed": 3,
+      "evaluable": 10,
+      "not_evaluable": 0,
+      "model_failed": 7,
+      "agent_completed": 10,
+      "infrastructure_errors": 0,
+      "timeouts": 0,
+      "cleanup_failures": 0
+    },
+    "failure_types": {
+      "task_failure": 7
+    },
+    "by_primary_task_label": {
+      "fault_fix": {
+        "total": 10,
+        "success_rate": 0.3
+      }
+    },
+    "by_fault_type": {
+      "cache_corruption": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "connection_pool_exhaustion": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "consumer_lag": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "disk_exhaustion": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "file_lock": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "inode_exhaustion": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "lock_contention": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "memory_exhaustion": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "permission_error": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "retry_circuit_breaker": {
+        "total": 1,
+        "success_rate": 0.0
+      }
+    },
+    "by_domain": {
+      "cache": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "database": {
+        "total": 2,
+        "success_rate": 0.0
+      },
+      "distributed_system": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "linux": {
+        "total": 5,
+        "success_rate": 0.4
+      },
+      "messaging": {
+        "total": 1,
+        "success_rate": 1.0
+      }
+    },
+    "by_template": {
+      "http_retry_circuit_breaker_v1": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "kafka_consumer_lag_v1": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "linux_disk_full_v1": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "linux_file_lock_v1": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "linux_inode_exhaustion_v1": {
+        "total": 1,
+        "success_rate": 1.0
+      },
+      "linux_memory_growth_v1": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "linux_upload_permission_v1": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "postgres_connection_pool_exhaustion_v1": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "postgres_lock_contention_v1": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "redis_cache_corruption_v1": {
+        "total": 1,
+        "success_rate": 0.0
+      }
+    }
+  }
+}

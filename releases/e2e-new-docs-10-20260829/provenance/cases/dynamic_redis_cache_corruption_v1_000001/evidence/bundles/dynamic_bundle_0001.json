@@ -1,0 +1,460 @@
+{
+  "bundle_id": "dynamic_bundle_0001",
+  "documents": [
+    {
+      "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+      "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+      "canonical_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+      "content_hash": "750dc7cb1c242a04",
+      "evidence": [
+        {
+          "evidence_id": "heuristic_operational_016",
+          "claim_type": "repair",
+          "section_path": "",
+          "start_pos": 4287,
+          "end_pos": 4365,
+          "excerpt": "Cache only actively requested data, keeping memory bounded to the working set.",
+          "excerpt_hash": "82aa3b35fc5f41cf7a6e61b9933533a8c1f138576f0c2ae1683ef68deb488fc5"
+        },
+        {
+          "evidence_id": "heuristic_operational_017",
+          "claim_type": "repair",
+          "section_path": "",
+          "start_pos": 4515,
+          "end_pos": 4611,
+          "excerpt": "Update individual fields in a cached entity without deserializing and rewriting the full object.",
+          "excerpt_hash": "b34a9fac7d5a15c98fa7cbd4bef26a909ff35407c4d4cc917fc258e8203932d6"
+        },
+        {
+          "evidence_id": "heuristic_operational_010",
+          "claim_type": "root_cause",
+          "section_path": "",
+          "start_pos": 3178,
+          "end_pos": 3404,
+          "excerpt": "Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation.",
+          "excerpt_hash": "20c74e741446ca592ba05284d3c1fd9d05c5239f4e2090b3738c87bf3ef16c58"
+        },
+        {
+          "evidence_id": "heuristic_operational_011",
+          "claim_type": "root_cause",
+          "section_path": "",
+          "start_pos": 3405,
+          "end_pos": 3599,
+          "excerpt": "An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently.",
+          "excerpt_hash": "f031dbacfb10f186150d56a8abba7069fde1f0b04df5fd92e232560d9744ccbd"
+        },
+        {
+          "evidence_id": "heuristic_operational_014",
+          "claim_type": "constraint",
+          "section_path": "",
+          "start_pos": 3949,
+          "end_pos": 4073,
+          "excerpt": "It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup.",
+          "excerpt_hash": "0e902bd3ee309c562040fc38fb7fdd84085f2c5f917190a9ac2236786373b710"
+        },
+        {
+          "evidence_id": "heuristic_operational_012",
+          "claim_type": "root_cause",
+          "section_path": "",
+          "start_pos": 3600,
+          "end_pos": 3821,
+          "excerpt": "When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent.",
+          "excerpt_hash": "ac9fcff8e6c7e84849d8bda495a53f3bfe28892f58a8efabe8fd006e4e9abee9"
+        },
+        {
+          "evidence_id": "heuristic_operational_025",
+          "claim_type": "verification",
+          "section_path": "",
+          "start_pos": 5723,
+          "end_pos": 5822,
+          "excerpt": "Sub-millisecond reads from memory, so the cache check adds negligible overhead on the\nrequest path.",
+          "excerpt_hash": "ed2ff3cba6c946b4dce69c7d13afc2878a90cfb1fe203bed75d2b6889af0ec1e"
+        }
+      ],
+      "source_type": "",
+      "source_license": "",
+      "retrieved_at": "",
+      "snapshot_path": "",
+      "metadata": {}
+    }
+  ],
+  "claims": {
+    "repair": [
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_016",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_017"
+    ],
+    "root_cause": [
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_010",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_011",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_012"
+    ],
+    "constraint": [
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_014"
+    ],
+    "verification": [
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_025"
+    ]
+  },
+  "evidence_conflict": false,
+  "conflicts": [],
+  "metadata": {
+    "source_document_count": 1,
+    "deduplicated_document_count": 1,
+    "source_text": "Redis cache-aside | Docs {\"categories\":[\"docs\",\"develop\",\"stack\",\"oss\",\"rs\",\"rc\"],\"description\":\"Cache database reads in Redis with TTL-bounded staleness.\",\"duplicateOf\":\"head:data-ai-metadata\",\"location\":\"body\",\"title\":\"Redis cache-aside\",\"tableOfContents\":{\"sections\":[{\"id\":\"when-to-use-redis-cache-aside\",\"title\":\"When to use Redis cache-aside\"},{\"id\":\"why-the-problem-is-hard\",\"title\":\"Why the problem is hard\"},{\"id\":\"what-you-can-expect-from-a-redis-solution\",\"title\":\"What you can expect from a Redis solution\"},{\"id\":\"how-redis-supports-the-solution\",\"title\":\"How Redis supports the solution\"},{\"id\":\"ecosystem\",\"title\":\"Ecosystem\"},{\"id\":\"code-examples-to-build-your-own-redis-cache-aside\",\"title\":\"Code examples to build your own Redis cache-aside\"}]},\"codeExamples\":[]} AI agent builder Redis install Data types Tools Community Docs Search Login Sign up Open search Open main menu AI agent builder Redis install Data types Tools Community Docs Sign up Login Develop with Redis What's new? Quick starts Client tools Client APIs Using commands Data types Redis for AI and search Programmability Use cases Rate limiter Session store Leaderboard Time series dashboard Cache-aside redis-py example (Python) node-redis example (Node.js) go-redis example (Go) Jedis example (Java) Lettuce example (Java) StackExchange.Redis example (C#) Predis example (PHP) redis-rb example (Ruby) redis-rs example (Rust) Job queue Prefetch cache Pub/sub messaging Streaming Recommendation engine Feature store Semantic cache Agent memory Pub/sub Reference Libraries and tools Redis products Commands Download documentation Download documentation Choose the products and versions you want. Everything arrives as one .tar.gz , with a directory per product. Format Markdown — one .md file per page Markdown, single file — every page in one .md file HTML — browse offline JSON — one .json file per page This page Download Products Version Develop with Redis Clients, data types, programmability, and Redis for AI. RedisVL is listed separately. Libraries and tools Client libraries, observability, and cloud integrations. Redis Data Integration is listed separately. RedisVL latest v0.25.1 v0.25.0 v0.24.0 v0.23.0 v0.22.0 v0.20.1 v0.20.0 v0.19.0 v0.18.2 v0.18.1 v0.18.0 v0.17.1 v0.17.0 v0.16.0 v0.15.0 v0.14.0 v0.13.2 v0.13.0 v0.12.1 v0.12.0 v0.11.1 v0.11.0 v0.10.0 v0.9.1 v0.9.0 v0.8.2 v0.8.1 v0.8.0 v0.7.0 v0.6.0 Redis Software latest v8.0 v7.22 v7.8 v7.4 Redis Cloud Redis for Kubernetes latest v8.0.18 v8.0 v7.22 v7.8.6 v7.8.4 v7.4.6 Redis Open Source Redis Iris context engine Redis Feature Form Redis Insight Redis Data Integration Glossary Command reference Cancel Download Docs Docs â Develop with Redis â Redis use cases â Redis cache-aside Redis cache-aside Cache database reads in Redis with TTL-bounded staleness. When to use Redis cache-aside Use Redis cache-aside when you need to serve repeated reads at sub-millisecond latency without overloading your primary database, caching only the data that is actually requested. Why the problem is hard Read-heavy workloads (product catalogs, user profiles, API responses) hit the same records thousands of times between updates. Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation. An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently. When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent. This use case is distinct from write-through or write-behind caching, where the cache mirrors the full dataset on every write. It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup. What you can expect from a Redis solution You can: Keep P95 read latency under 5 ms for cached entities at peak traffic. Reduce primary database load proportionally to hit rate without provisioning read replicas. Cache only actively requested data, keeping memory bounded to the working set. Invalidate on write so stale data windows stay within a configured bound. Survive popular-key expiration under load without stampeding the database. Update individual fields in a cached entity without deserializing and rewriting the full object. How Redis supports the solution In practice, each cached entity is stored under a key like cache:{entity}:{id} , with a TTL that bounds how long stale data can be served. The application reads from Redis on every request, falls back to the primary on a miss, and writes the result back to Redis. On updates, the application writes the primary and invalidates the cache key. Redis provides the following features that make it a good fit for cache-aside: GET and SET with per-key EX / PX TTL so every entry has a bounded\nstaleness window, and DEL on write for explicit\ninvalidation â keeping stale data confined to a known, configurable bound. Hashes ( HSET , HGET ) and native JSON path access\n( JSON.SET , JSON.GET ) for structured and\npartial-field caching, avoiding full-object re-serialization on every read or update â a real\ngap in string-only stores like Memcached. Lua scripting with EVAL for atomic stampede mitigation: mutex locks\nor probabilistic early refresh execute in a single atomic step with no external locking. TTL for monitoring remaining staleness on any cached\nkey without recomputing. Sub-millisecond reads from memory, so the cache check adds negligible overhead on the\nrequest path. If Redis is already in the stack for sessions, rate limiting, or queues,\ncache-aside runs on the same instance at zero marginal infrastructure cost. Ecosystem The following libraries and frameworks provide Redis-backed cache-aside integrations: Java : Spring Data Redis ( @Cacheable / @CacheEvict ) , Redis Smart Cache (transparent JDBC-layer cache-aside) Python : Flask-Caching (Redis backend), Django cache framework (with redis-py ) Node.js : node-redis , ioredis (wrap route handlers with a cache-aside helper) API gateways : Kong Redis response caching (configurable TTL per route) Code examples to build your own Redis cache-aside The following guides show how to build a simple Redis-backed cache-aside layer in front\nof a slow primary store. Each guide includes a runnable interactive demo for each of the\nfollowing client libraries: redis-py (Python) node-redis (Node.js) go-redis (Go) Jedis (Java) Lettuce (Java) StackExchange.Redis (C#) Predis (PHP) redis-rb (Ruby) redis-rs (Rust) RATE THIS PAGE ★ ★ ★ ★ ★ Back to top â Submit Edit this page Create an issue Download documentation Ask AI to explain this page On this page When to use Redis cache-aside Why the problem is hard What you can expect from a Redis solution How Redis supports the solution Ecosystem Code examples to build your own Redis cache-aside Trust Privacy Terms of use Legal notices Compare Redis vs Elasticache Redis vs Memcached Redis vs Memory Store Redis vs. Open Source Company Mission & values Leadership Careers Partners Amazon Web Services Google Cloud Microsoft Azure All partners Support Professional\n            services Support Trust Privacy Terms of use Legal notices All products Redis Software Redis Cloud Redis Open Source Redis Insight Redis Enterprise for K8s Redis Data Integration Client Libraries ESC",
+    "task_labels": [],
+    "domain": "redis.io",
+    "technology_stack": [],
+    "candidates": [],
+    "dynamic": true,
+    "bundle_mode": "auto",
+    "annotation_ids": [
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7"
+    ],
+    "active_document_ids": [
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7"
+    ],
+    "excluded_document_ids": [],
+    "active_evidence_refs": [
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_010",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_011",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_012",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_014",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_016",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_017",
+      "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_025"
+    ],
+    "selection_reason": "standalone_complete_document",
+    "evidence_selection_score": 0.72,
+    "scenario_keys": [
+      {
+        "technology": "redis.io",
+        "component": "redis.io",
+        "fault_signature": "primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, p95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation. an in-process",
+        "version_scope": "",
+        "technology_stack": []
+      }
+    ],
+    "source_quality": [
+      "official"
+    ],
+    "missing_claim_types": [
+      "impact",
+      "symptom"
+    ],
+    "document_contexts": [
+      {
+        "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+        "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+        "canonical_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+        "content_hash": "750dc7cb1c242a04",
+        "source_type": "official_docs",
+        "source_license": "unknown",
+        "title": "Redis cache-aside | Docs",
+        "language": "en",
+        "full_text": "Redis cache-aside | Docs {\"categories\":[\"docs\",\"develop\",\"stack\",\"oss\",\"rs\",\"rc\"],\"description\":\"Cache database reads in Redis with TTL-bounded staleness.\",\"duplicateOf\":\"head:data-ai-metadata\",\"location\":\"body\",\"title\":\"Redis cache-aside\",\"tableOfContents\":{\"sections\":[{\"id\":\"when-to-use-redis-cache-aside\",\"title\":\"When to use Redis cache-aside\"},{\"id\":\"why-the-problem-is-hard\",\"title\":\"Why the problem is hard\"},{\"id\":\"what-you-can-expect-from-a-redis-solution\",\"title\":\"What you can expect from a Redis solution\"},{\"id\":\"how-redis-supports-the-solution\",\"title\":\"How Redis supports the solution\"},{\"id\":\"ecosystem\",\"title\":\"Ecosystem\"},{\"id\":\"code-examples-to-build-your-own-redis-cache-aside\",\"title\":\"Code examples to build your own Redis cache-aside\"}]},\"codeExamples\":[]} AI agent builder Redis install Data types Tools Community Docs Search Login Sign up Open search Open main menu AI agent builder Redis install Data types Tools Community Docs Sign up Login Develop with Redis What's new? Quick starts Client tools Client APIs Using commands Data types Redis for AI and search Programmability Use cases Rate limiter Session store Leaderboard Time series dashboard Cache-aside redis-py example (Python) node-redis example (Node.js) go-redis example (Go) Jedis example (Java) Lettuce example (Java) StackExchange.Redis example (C#) Predis example (PHP) redis-rb example (Ruby) redis-rs example (Rust) Job queue Prefetch cache Pub/sub messaging Streaming Recommendation engine Feature store Semantic cache Agent memory Pub/sub Reference Libraries and tools Redis products Commands Download documentation Download documentation Choose the products and versions you want. Everything arrives as one .tar.gz , with a directory per product. Format Markdown — one .md file per page Markdown, single file — every page in one .md file HTML — browse offline JSON — one .json file per page This page Download Products Version Develop with Redis Clients, data types, programmability, and Redis for AI. RedisVL is listed separately. Libraries and tools Client libraries, observability, and cloud integrations. Redis Data Integration is listed separately. RedisVL latest v0.25.1 v0.25.0 v0.24.0 v0.23.0 v0.22.0 v0.20.1 v0.20.0 v0.19.0 v0.18.2 v0.18.1 v0.18.0 v0.17.1 v0.17.0 v0.16.0 v0.15.0 v0.14.0 v0.13.2 v0.13.0 v0.12.1 v0.12.0 v0.11.1 v0.11.0 v0.10.0 v0.9.1 v0.9.0 v0.8.2 v0.8.1 v0.8.0 v0.7.0 v0.6.0 Redis Software latest v8.0 v7.22 v7.8 v7.4 Redis Cloud Redis for Kubernetes latest v8.0.18 v8.0 v7.22 v7.8.6 v7.8.4 v7.4.6 Redis Open Source Redis Iris context engine Redis Feature Form Redis Insight Redis Data Integration Glossary Command reference Cancel Download Docs Docs â Develop with Redis â Redis use cases â Redis cache-aside Redis cache-aside Cache database reads in Redis with TTL-bounded staleness. When to use Redis cache-aside Use Redis cache-aside when you need to serve repeated reads at sub-millisecond latency without overloading your primary database, caching only the data that is actually requested. Why the problem is hard Read-heavy workloads (product catalogs, user profiles, API responses) hit the same records thousands of times between updates. Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation. An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently. When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent. This use case is distinct from write-through or write-behind caching, where the cache mirrors the full dataset on every write. It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup. What you can expect from a Redis solution You can: Keep P95 read latency under 5 ms for cached entities at peak traffic. Reduce primary database load proportionally to hit rate without provisioning read replicas. Cache only actively requested data, keeping memory bounded to the working set. Invalidate on write so stale data windows stay within a configured bound. Survive popular-key expiration under load without stampeding the database. Update individual fields in a cached entity without deserializing and rewriting the full object. How Redis supports the solution In practice, each cached entity is stored under a key like cache:{entity}:{id} , with a TTL that bounds how long stale data can be served. The application reads from Redis on every request, falls back to the primary on a miss, and writes the result back to Redis. On updates, the application writes the primary and invalidates the cache key. Redis provides the following features that make it a good fit for cache-aside: GET and SET with per-key EX / PX TTL so every entry has a bounded\nstaleness window, and DEL on write for explicit\ninvalidation â keeping stale data confined to a known, configurable bound. Hashes ( HSET , HGET ) and native JSON path access\n( JSON.SET , JSON.GET ) for structured and\npartial-field caching, avoiding full-object re-serialization on every read or update â a real\ngap in string-only stores like Memcached. Lua scripting with EVAL for atomic stampede mitigation: mutex locks\nor probabilistic early refresh execute in a single atomic step with no external locking. TTL for monitoring remaining staleness on any cached\nkey without recomputing. Sub-millisecond reads from memory, so the cache check adds negligible overhead on the\nrequest path. If Redis is already in the stack for sessions, rate limiting, or queues,\ncache-aside runs on the same instance at zero marginal infrastructure cost. Ecosystem The following libraries and frameworks provide Redis-backed cache-aside integrations: Java : Spring Data Redis ( @Cacheable / @CacheEvict ) , Redis Smart Cache (transparent JDBC-layer cache-aside) Python : Flask-Caching (Redis backend), Django cache framework (with redis-py ) Node.js : node-redis , ioredis (wrap route handlers with a cache-aside helper) API gateways : Kong Redis response caching (configurable TTL per route) Code examples to build your own Redis cache-aside The following guides show how to build a simple Redis-backed cache-aside layer in front\nof a slow primary store. Each guide includes a runnable interactive demo for each of the\nfollowing client libraries: redis-py (Python) node-redis (Node.js) go-redis (Go) Jedis (Java) Lettuce (Java) StackExchange.Redis (C#) Predis (PHP) redis-rb (Ruby) redis-rs (Rust) RATE THIS PAGE ★ ★ ★ ★ ★ Back to top â Submit Edit this page Create an issue Download documentation Ask AI to explain this page On this page When to use Redis cache-aside Why the problem is hard What you can expect from a Redis solution How Redis supports the solution Ecosystem Code examples to build your own Redis cache-aside Trust Privacy Terms of use Legal notices Compare Redis vs Elasticache Redis vs Memcached Redis vs Memory Store Redis vs. Open Source Company Mission & values Leadership Careers Partners Amazon Web Services Google Cloud Microsoft Azure All partners Support Professional\n            services Support Trust Privacy Terms of use Legal notices All products Redis Software Redis Cloud Redis Open Source Redis Insight Redis Enterprise for K8s Redis Data Integration Client Libraries ESC",
+        "sections": [
+          {
+            "section_id": "s_0001",
+            "level": 0,
+            "heading": "document",
+            "section_path": [
+              "document"
+            ],
+            "start_pos": 0,
+            "end_pos": 7626,
+            "content_hash": "750dc7cb1c242a04b39f42b1bb8cb8cd4c3415eee24a57eff057652ff2f31a43"
+          }
+        ],
+        "code_blocks": [],
+        "full_text_ref": "evidence/source/doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7.md",
+        "schema_version": "opsbench-document-context-v1",
+        "full_text_chars": 7626
+      }
+    ],
+    "evidence_map": {
+      "schema_version": "opsbench-evidence-map-v1",
+      "mechanism": [
+        {
+          "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+          "claim_id": "heuristic_operational_010",
+          "claim_type": "root_cause",
+          "evidence_origin": "document",
+          "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+          "section_path": [],
+          "start_pos": 3178,
+          "end_pos": 3404,
+          "excerpt": "Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation.",
+          "content_hash": "750dc7cb1c242a04",
+          "confidence": 0.45
+        },
+        {
+          "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+          "claim_id": "heuristic_operational_011",
+          "claim_type": "root_cause",
+          "evidence_origin": "document",
+          "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+          "section_path": [],
+          "start_pos": 3405,
+          "end_pos": 3599,
+          "excerpt": "An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently.",
+          "content_hash": "750dc7cb1c242a04",
+          "confidence": 0.45
+        },
+        {
+          "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+          "claim_id": "heuristic_operational_014",
+          "claim_type": "root_cause",
+          "evidence_origin": "document",
+          "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+          "section_path": [],
+          "start_pos": 3949,
+          "end_pos": 4073,
+          "excerpt": "It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup.",
+          "content_hash": "750dc7cb1c242a04",
+          "confidence": 0.45
+        }
+      ],
+      "diagnostic_signal": [],
+      "repair_instruction": [
+        {
+          "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+          "claim_id": "heuristic_operational_004",
+          "claim_type": "repair",
+          "evidence_origin": "document",
+          "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+          "section_path": [],
+          "start_pos": 1323,
+          "end_pos": 1678,
+          "excerpt": "Redis example (C#) Predis example (PHP) redis-rb example (Ruby) redis-rs example (Rust) Job queue Prefetch cache Pub/sub messaging Streaming Recommendation engine Feature store Semantic cache Agent memory Pub/sub Reference Libraries and tools Redis products Commands Download documentation Download documentation Choose the products and versions you want.",
+          "content_hash": "750dc7cb1c242a04",
+          "confidence": 0.45
+        },
+        {
+          "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+          "claim_id": "heuristic_operational_016",
+          "claim_type": "repair",
+          "evidence_origin": "document",
+          "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+          "section_path": [],
+          "start_pos": 4287,
+          "end_pos": 4365,
+          "excerpt": "Cache only actively requested data, keeping memory bounded to the working set.",
+          "content_hash": "750dc7cb1c242a04",
+          "confidence": 0.45
+        },
+        {
+          "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+          "claim_id": "heuristic_operational_017",
+          "claim_type": "repair",
+          "evidence_origin": "document",
+          "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+          "section_path": [],
+          "start_pos": 4515,
+          "end_pos": 4611,
+          "excerpt": "Update individual fields in a cached entity without deserializing and rewriting the full object.",
+          "content_hash": "750dc7cb1c242a04",
+          "confidence": 0.45
+        }
+      ],
+      "verification_rule": [
+        {
+          "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+          "claim_id": "heuristic_operational_012",
+          "claim_type": "verification",
+          "evidence_origin": "document",
+          "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+          "section_path": [],
+          "start_pos": 3600,
+          "end_pos": 3821,
+          "excerpt": "When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent.",
+          "content_hash": "750dc7cb1c242a04",
+          "confidence": 0.45
+        },
+        {
+          "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+          "claim_id": "heuristic_operational_025",
+          "claim_type": "verification",
+          "evidence_origin": "document",
+          "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+          "section_path": [],
+          "start_pos": 5723,
+          "end_pos": 5822,
+          "excerpt": "Sub-millisecond reads from memory, so the cache check adds negligible overhead on the\nrequest path.",
+          "content_hash": "750dc7cb1c242a04",
+          "confidence": 0.45
+        }
+      ],
+      "incident_symptom": [],
+      "runtime_contract": []
+    },
+    "document_context_mode": "full",
+    "evidence_gate_mode": "strict",
+    "model_document_contexts": [
+      {
+        "document_id": "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7",
+        "source_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+        "canonical_url": "https://redis.io/docs/latest/develop/use-cases/cache-aside",
+        "content_hash": "750dc7cb1c242a04",
+        "source_type": "official_docs",
+        "source_license": "unknown",
+        "title": "Redis cache-aside | Docs",
+        "language": "en",
+        "full_text_chars": 7626,
+        "full_text_ref": "evidence/source/doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7.md",
+        "schema_version": "opsbench-document-context-v1",
+        "context_mode": "selected_evidence_with_source_context",
+        "selected_evidence": [
+          {
+            "evidence_id": "heuristic_operational_004",
+            "claim_type": "repair",
+            "start_pos": 1323,
+            "end_pos": 1678,
+            "content_hash": "750dc7cb1c242a04",
+            "excerpt": "Redis example (C#) Predis example (PHP) redis-rb example (Ruby) redis-rs example (Rust) Job queue Prefetch cache Pub/sub messaging Streaming Recommendation engine Feature store Semantic cache Agent memory Pub/sub Reference Libraries and tools Redis products Commands Download documentation Download documentation Choose the products and versions you want."
+          },
+          {
+            "evidence_id": "heuristic_operational_016",
+            "claim_type": "repair",
+            "start_pos": 4287,
+            "end_pos": 4365,
+            "content_hash": "750dc7cb1c242a04",
+            "excerpt": "Cache only actively requested data, keeping memory bounded to the working set."
+          },
+          {
+            "evidence_id": "heuristic_operational_017",
+            "claim_type": "repair",
+            "start_pos": 4515,
+            "end_pos": 4611,
+            "content_hash": "750dc7cb1c242a04",
+            "excerpt": "Update individual fields in a cached entity without deserializing and rewriting the full object."
+          },
+          {
+            "evidence_id": "heuristic_operational_010",
+            "claim_type": "root_cause",
+            "start_pos": 3178,
+            "end_pos": 3404,
+            "content_hash": "750dc7cb1c242a04",
+            "excerpt": "Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation."
+          },
+          {
+            "evidence_id": "heuristic_operational_011",
+            "claim_type": "root_cause",
+            "start_pos": 3405,
+            "end_pos": 3599,
+            "content_hash": "750dc7cb1c242a04",
+            "excerpt": "An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently."
+          },
+          {
+            "evidence_id": "heuristic_operational_014",
+            "claim_type": "root_cause",
+            "start_pos": 3949,
+            "end_pos": 4073,
+            "content_hash": "750dc7cb1c242a04",
+            "excerpt": "It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup."
+          },
+          {
+            "evidence_id": "heuristic_operational_012",
+            "claim_type": "verification",
+            "start_pos": 3600,
+            "end_pos": 3821,
+            "content_hash": "750dc7cb1c242a04",
+            "excerpt": "When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent."
+          },
+          {
+            "evidence_id": "heuristic_operational_025",
+            "claim_type": "verification",
+            "start_pos": 5723,
+            "end_pos": 5822,
+            "content_hash": "750dc7cb1c242a04",
+            "excerpt": "Sub-millisecond reads from memory, so the cache check adds negligible overhead on the\nrequest path."
+          }
+        ],
+        "source_excerpts": [
+          {
+            "evidence_id": "heuristic_operational_004",
+            "claim_type": "repair",
+            "start_pos": 423,
+            "end_pos": 2578,
+            "text": "\"what-you-can-expect-from-a-redis-solution\",\"title\":\"What you can expect from a Redis solution\"},{\"id\":\"how-redis-supports-the-solution\",\"title\":\"How Redis supports the solution\"},{\"id\":\"ecosystem\",\"title\":\"Ecosystem\"},{\"id\":\"code-examples-to-build-your-own-redis-cache-aside\",\"title\":\"Code examples to build your own Redis cache-aside\"}]},\"codeExamples\":[]} AI agent builder Redis install Data types Tools Community Docs Search Login Sign up Open search Open main menu AI agent builder Redis install Data types Tools Community Docs Sign up Login Develop with Redis What's new? Quick starts Client tools Client APIs Using commands Data types Redis for AI and search Programmability Use cases Rate limiter Session store Leaderboard Time series dashboard Cache-aside redis-py example (Python) node-redis example (Node.js) go-redis example (Go) Jedis example (Java) Lettuce example (Java) StackExchange.Redis example (C#) Predis example (PHP) redis-rb example (Ruby) redis-rs example (Rust) Job queue Prefetch cache Pub/sub messaging Streaming Recommendation engine Feature store Semantic cache Agent memory Pub/sub Reference Libraries and tools Redis products Commands Download documentation Download documentation Choose the products and versions you want. Everything arrives as one .tar.gz , with a directory per product. Format Markdown — one .md file per page Markdown, single file — every page in one .md file HTML — browse offline JSON — one .json file per page This page Download Products Versio"
+          },
+          {
+            "evidence_id": "heuristic_operational_016",
+            "claim_type": "repair",
+            "start_pos": 3387,
+            "end_pos": 5265,
+            "text": "vice degradation. An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently. When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent. This use case is distinct from write-through or write-behind caching, where the cache mirrors the full dataset on every write. It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup. What you can expect from a Redis solution You can: Keep P95 read latency under 5 ms for cached entities at peak traffic. Reduce primary database load proportionally to hit rate without provisioning read replicas. Cache only actively requested data, keeping memory bounded to the working set. Invalidate on write so stale data windows stay within a configured bound. Survive popular-key expiration under load without stampeding the database. Update individual fields in a cached entity without deserializing and rewriting the full object. How Redis supports the solution In practice, each cached entity is stored under a key like cache:{entity}:{id} , with a TTL that bounds how long stale data can be served. The application reads from Redis on every request, falls back to the primary on a miss, and writes the r"
+          },
+          {
+            "evidence_id": "heuristic_operational_017",
+            "claim_type": "repair",
+            "start_pos": 3615,
+            "end_pos": 5511,
+            "text": "cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent. This use case is distinct from write-through or write-behind caching, where the cache mirrors the full dataset on every write. It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup. What you can expect from a Redis solution You can: Keep P95 read latency under 5 ms for cached entities at peak traffic. Reduce primary database load proportionally to hit rate without provisioning read replicas. Cache only actively requested data, keeping memory bounded to the working set. Invalidate on write so stale data windows stay within a configured bound. Survive popular-key expiration under load without stampeding the database. Update individual fields in a cached entity without deserializing and rewriting the full object. How Redis supports the solution In practice, each cached entity is stored under a key like cache:{entity}:{id} , with a TTL that bounds how long stale data can be served. The application reads from Redis on every request, falls back to the primary on a miss, and writes the result back to Redis. On updates, the application writes the primary and invalidates the cache key. Redis provides the following features that make it a good fit for cache-aside: GET and SET with per-key EX / PX TTL so every entr"
+          },
+          {
+            "evidence_id": "heuristic_operational_010",
+            "claim_type": "root_cause",
+            "start_pos": 2278,
+            "end_pos": 4304,
+            "text": " v0.15.0 v0.14.0 v0.13.2 v0.13.0 v0.12.1 v0.12.0 v0.11.1 v0.11.0 v0.10.0 v0.9.1 v0.9.0 v0.8.2 v0.8.1 v0.8.0 v0.7.0 v0.6.0 Redis Software latest v8.0 v7.22 v7.8 v7.4 Redis Cloud Redis for Kubernetes latest v8.0.18 v8.0 v7.22 v7.8.6 v7.8.4 v7.4.6 Redis Open Source Redis Iris context engine Redis Feature Form Redis Insight Redis Data Integration Glossary Command reference Cancel Download Docs Docs â Develop with Redis â Redis use cases â Redis cache-aside Redis cache-aside Cache database reads in Redis with TTL-bounded staleness. When to use Redis cache-aside Use Redis cache-aside when you need to serve repeated reads at sub-millisecond latency without overloading your primary database, caching only the data that is actually requested. Why the problem is hard Read-heavy workloads (product catalogs, user profiles, API responses) hit the same records thousands of times between updates. Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation. An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently. When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact "
+          },
+          {
+            "evidence_id": "heuristic_operational_011",
+            "claim_type": "root_cause",
+            "start_pos": 2505,
+            "end_pos": 4499,
+            "text": "8.6 v7.8.4 v7.4.6 Redis Open Source Redis Iris context engine Redis Feature Form Redis Insight Redis Data Integration Glossary Command reference Cancel Download Docs Docs â Develop with Redis â Redis use cases â Redis cache-aside Redis cache-aside Cache database reads in Redis with TTL-bounded staleness. When to use Redis cache-aside Use Redis cache-aside when you need to serve repeated reads at sub-millisecond latency without overloading your primary database, caching only the data that is actually requested. Why the problem is hard Read-heavy workloads (product catalogs, user profiles, API responses) hit the same records thousands of times between updates. Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation. An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently. When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent. This use case is distinct from write-through or write-behind caching, where the cache mirrors the full dataset on every write. It is also distinct from semantic caching, which matches"
+          },
+          {
+            "evidence_id": "heuristic_operational_014",
+            "claim_type": "root_cause",
+            "start_pos": 3049,
+            "end_pos": 4973,
+            "text": "d Read-heavy workloads (product catalogs, user profiles, API responses) hit the same records thousands of times between updates. Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation. An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently. When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent. This use case is distinct from write-through or write-behind caching, where the cache mirrors the full dataset on every write. It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup. What you can expect from a Redis solution You can: Keep P95 read latency under 5 ms for cached entities at peak traffic. Reduce primary database load proportionally to hit rate without provisioning read replicas. Cache only actively requested data, keeping memory bounded to the working set. Invalidate on write so stale data windows stay within a configured bound. Survive popular-key expiration under load without stampeding the database. Update individual fields in a cach"
+          },
+          {
+            "evidence_id": "heuristic_operational_012",
+            "claim_type": "verification",
+            "start_pos": 2700,
+            "end_pos": 4721,
+            "text": " Redis use cases â Redis cache-aside Redis cache-aside Cache database reads in Redis with TTL-bounded staleness. When to use Redis cache-aside Use Redis cache-aside when you need to serve repeated reads at sub-millisecond latency without overloading your primary database, caching only the data that is actually requested. Why the problem is hard Read-heavy workloads (product catalogs, user profiles, API responses) hit the same records thousands of times between updates. Primary databases optimized for durability pay the full cost of a disk-based lookup on every request; as traffic grows, P95 latency degrades, connection pools exhaust, and brief spikes cascade into broader service degradation. An in-process cache solves this for a single instance but breaks across multiple stateless services: each instance warms independently, duplicates memory, and cannot be invalidated consistently. When a popular cached key expires under high concurrency, dozens of processes simultaneously query the database for the same record â a cache stampede that amplifies the exact load spike caching was supposed to prevent. This use case is distinct from write-through or write-behind caching, where the cache mirrors the full dataset on every write. It is also distinct from semantic caching, which matches LLM responses by embedding similarity rather than exact key lookup. What you can expect from a Redis solution You can: Keep P95 read latency under 5 ms for cached entities at peak traffic. Reduc"
+          },
+          {
+            "evidence_id": "heuristic_operational_025",
+            "claim_type": "verification",
+            "start_pos": 4823,
+            "end_pos": 6722,
+            "text": "y request, falls back to the primary on a miss, and writes the result back to Redis. On updates, the application writes the primary and invalidates the cache key. Redis provides the following features that make it a good fit for cache-aside: GET and SET with per-key EX / PX TTL so every entry has a bounded\nstaleness window, and DEL on write for explicit\ninvalidation â keeping stale data confined to a known, configurable bound. Hashes ( HSET , HGET ) and native JSON path access\n( JSON.SET , JSON.GET ) for structured and\npartial-field caching, avoiding full-object re-serialization on every read or update â a real\ngap in string-only stores like Memcached. Lua scripting with EVAL for atomic stampede mitigation: mutex locks\nor probabilistic early refresh execute in a single atomic step with no external locking. TTL for monitoring remaining staleness on any cached\nkey without recomputing. Sub-millisecond reads from memory, so the cache check adds negligible overhead on the\nrequest path. If Redis is already in the stack for sessions, rate limiting, or queues,\ncache-aside runs on the same instance at zero marginal infrastructure cost. Ecosystem The following libraries and frameworks provide Redis-backed cache-aside integrations: Java : Spring Data Redis ( @Cacheable / @CacheEvict ) , Redis Smart Cache (transparent JDBC-layer cache-aside) Python : Flask-Caching (Redis backend), Django cache framework (with redis-py ) Node.js : node-redis , ioredis (wrap route handlers with a cache"
+          }
+        ]
+      }
+    ],
+    "evidence_judge_selection": {
+      "round": 1,
+      "selected_count": 7,
+      "removed_count": 1
+    },
+    "requested_group_size": "1",
+    "resolved_group_size": 1
+  },
+  "links": [],
+  "schema_version": "opsbench-evidence-v1",
+  "provenance_mode": "generation_time",
+  "coverage": "complete",
+  "created_at": "2026-08-29T06:26:52.841177+00:00",
+  "active_document_ids": [
+    "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7"
+  ],
+  "excluded_document_ids": [],
+  "active_evidence_refs": [
+    "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_010",
+    "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_011",
+    "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_012",
+    "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_014",
+    "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_016",
+    "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_017",
+    "doc-redis-io-docs-latest-develop-use-cases-cache-asid-750dc7#heuristic_operational_025"
+  ],
+  "selection_reason": "standalone_complete_document",
+  "evidence_selection_score": 0.72
+}

@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 70,
+  "final": "## Recovery Summary\n\n**Diagnosis:** The Kafka consumer was in a `paused` state, causing it to stop processing messages from the `opsbench-events` topic. The broker and service process were healthy, but the consumer lag was growing unbounded because the consumer was not consuming.\n\n**Root Cause:** Consumer group was in a paused mode, preventing message processing.\n\n**Repair performed:**\n1. **Prepare stage** - Quiesced the producer (`pause_producer`) to stop new messages from being added to the backlog while the consumer catches up.\n2. **Apply stage** - Resumed the consumer (`resume_consumer`), which transitioned the consumer from `paused` → `baseline` mode with circuit closed.\n\n**Verification (all stable across repeated observations):**\n- ✅ **Business probe (lag endpoint)**: HTTP 200 OK\n- ✅ **Service health**: HTTP 200 OK\n- ✅ **Consumer state**: `baseline` mode, `circuit: closed`\n- ✅ **Lag probe**: Returns 200 (healthy, no backlog)\n- ✅ **Broker metadata**: Topic partition 0 has leader 1, all replicas in sync"
+}

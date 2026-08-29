@@ -1,0 +1,61 @@
+{
+  "report_version": "new-docs-e2e-smoke-v1",
+  "date": "2026-08-29",
+  "run_root": "runs/e2e/new-docs-10-20260829",
+  "selected_manifest": "results/e2e_manifest.json",
+  "selection_policy": "10 fresh document-driven single-candidate cases; older intermediate attempts excluded",
+  "generation": {
+    "cases": 10,
+    "candidates_per_case": 1,
+    "document_context": "full source retained with selected evidence spans",
+    "source_judge_max_rounds": 3,
+    "trusted_renderer": true,
+    "static_validation_passed": 10,
+    "runtime_gate_passed": 10,
+    "evaluable": 10,
+    "not_evaluable": 0
+  },
+  "agent_evaluation": {
+    "config": "configs/e2e-flash-60.yaml",
+    "model": "deepseek-v4-flash",
+    "max_steps": 60,
+    "repeats": 1,
+    "execution_mode": "container",
+    "cases": 10,
+    "agent_completed": 10,
+    "passed": 3,
+    "task_failures": 7,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0,
+    "task_success_rate": 0.3,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 0.3,
+    "verifier_check_rate": 0.5348837209302325,
+    "average_duration_sec": 113.8922,
+    "average_verifier_score": 0.535,
+    "note": "The Kafka result is the isolated rerun after fixing a runner-side invalid Compose image-reference name."
+  },
+  "cases": [
+    {"id":"dynamic_http_retry_circuit_breaker_v1_000001","fault_type":"retry_circuit_breaker","domain":"distributed_system","target_difficulty":"hard","difficulty_score":8,"case_status":"evaluable","model_result":"failed","failure_type":"task_failure"},
+    {"id":"dynamic_kafka_consumer_lag_v1_000001","fault_type":"consumer_lag","domain":"messaging","target_difficulty":"hard","difficulty_score":8,"case_status":"evaluable","model_result":"passed","failure_type":""},
+    {"id":"dynamic_linux_disk_full_v1_000001","fault_type":"disk_exhaustion","domain":"linux","target_difficulty":"medium","difficulty_score":5,"case_status":"evaluable","model_result":"passed","failure_type":""},
+    {"id":"dynamic_linux_file_lock_v1_000001","fault_type":"file_lock","domain":"linux","target_difficulty":"medium","difficulty_score":5,"case_status":"evaluable","model_result":"failed","failure_type":"task_failure"},
+    {"id":"dynamic_linux_inode_exhaustion_v1_000001","fault_type":"inode_exhaustion","domain":"linux","target_difficulty":"medium","difficulty_score":5,"case_status":"evaluable","model_result":"passed","failure_type":""},
+    {"id":"dynamic_linux_memory_growth_v1_000001","fault_type":"memory_exhaustion","domain":"linux","target_difficulty":"medium","difficulty_score":5,"case_status":"evaluable","model_result":"failed","failure_type":"task_failure"},
+    {"id":"dynamic_linux_upload_permission_v1_000001","fault_type":"permission_error","domain":"linux","target_difficulty":"easy","difficulty_score":3,"case_status":"evaluable","model_result":"failed","failure_type":"task_failure"},
+    {"id":"dynamic_postgres_connection_pool_exhaustion_v1_000001","fault_type":"connection_pool_exhaustion","domain":"database","target_difficulty":"hard","difficulty_score":8,"case_status":"evaluable","model_result":"failed","failure_type":"task_failure"},
+    {"id":"dynamic_postgres_lock_contention_v1_000001","fault_type":"lock_contention","domain":"database","target_difficulty":"hard","difficulty_score":8,"case_status":"evaluable","model_result":"failed","failure_type":"task_failure"},
+    {"id":"dynamic_redis_cache_corruption_v1_000001","fault_type":"cache_corruption","domain":"cache","target_difficulty":"hard","difficulty_score":8,"case_status":"evaluable","model_result":"failed","failure_type":"task_failure"}
+  ],
+  "regression": {
+    "tests": 62,
+    "passed": 62,
+    "scope": "dynamic generation, alignment, tool policy, and E2E runtime tests"
+  },
+  "limitations": [
+    "One Agent run per case is a smoke result, not difficulty calibration.",
+    "The cases are runtime-evaluable but remain empirical_status=not_calibrated.",
+    "Historical intermediate directories remain for provenance; only the frozen manifest defines the selected ten-case set."
+  ]
+}

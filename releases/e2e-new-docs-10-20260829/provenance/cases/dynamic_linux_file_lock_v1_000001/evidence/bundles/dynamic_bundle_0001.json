@@ -1,0 +1,188 @@
+{
+  "bundle_id": "dynamic_bundle_0001",
+  "documents": [
+    {
+      "document_id": "doc-docs-python-org-3-library-fcntl.html-d926a3",
+      "source_url": "https://docs.python.org/3/library/fcntl.html",
+      "canonical_url": "https://docs.python.org/3/library/fcntl.html",
+      "content_hash": "d926a37df05b0ef6",
+      "evidence": [
+        {
+          "evidence_id": "claim_001",
+          "claim_type": "verification",
+          "section_path": "",
+          "start_pos": 7454,
+          "end_pos": 7900,
+          "excerpt": "flock ( fd , operation , / ) Â¶ Perform the lock operation operation on file descriptor fd (file objects providing\na fileno() method are accepted as well). See the Unix manual flock(2) for details.  (On some systems, this function is emulated\nusing fcntl() .) If the flock() call fails, an OSError exception is raised. Raises an auditing event fcntl.flock with arguments fd , operation . fcntl. lockf ( fd , cmd , len = 0 , start = 0 , whence = 0",
+          "excerpt_hash": "9b8023669df8006d6cfc0b77155004d1dd42eab292d17a634c0f4c1dcb307ea7"
+        }
+      ],
+      "source_type": "",
+      "source_license": "",
+      "retrieved_at": "",
+      "snapshot_path": "",
+      "metadata": {}
+    }
+  ],
+  "claims": {
+    "verification": [
+      "doc-docs-python-org-3-library-fcntl.html-d926a3#claim_001"
+    ]
+  },
+  "evidence_conflict": false,
+  "conflicts": [],
+  "metadata": {
+    "source_document_count": 1,
+    "deduplicated_document_count": 1,
+    "source_text": "fcntl â The fcntl and ioctl system calls — Python 3.14.7 documentation Theme Auto Light Dark Previous topic pty â Pseudo-terminal utilities Next topic resource â Resource usage information This page Report a bug Improve this page Show source Navigation index modules | next | previous | Python » 3.14.7 Documentation » The Python Standard Library » Unix-specific services » fcntl â The fcntl and ioctl system calls | Theme Auto Light Dark | fcntl â The fcntl and ioctl system calls Â¶ This module performs file and I/O control on file descriptors. It is an\ninterface to the fcntl() and ioctl() Unix routines.\nSee the fcntl(2) and ioctl(2) Unix manual pages\nfor full details. Availability : Unix, not WASI. All functions in this module take a file descriptor fd as their first\nargument.  This can be an integer file descriptor, such as returned by sys.stdin.fileno() , or an io.IOBase object, such as sys.stdin itself, which provides a fileno() that returns a genuine file\ndescriptor. Changed in version 3.3: Operations in this module used to raise an IOError where they now\nraise an OSError . Changed in version 3.8: The fcntl module now contains F_ADD_SEALS , F_GET_SEALS , and F_SEAL_* constants for sealing of os.memfd_create() file\ndescriptors. Changed in version 3.9: On macOS, the fcntl module exposes the F_GETPATH constant,\nwhich obtains the path of a file from a file descriptor.\nOn Linux(>=3.15), the fcntl module exposes the F_OFD_GETLK , F_OFD_SETLK and F_OFD_SETLKW constants, which are used when working\nwith open file description locks. Changed in version 3.10: On Linux >= 2.6.11, the fcntl module exposes the F_GETPIPE_SZ and F_SETPIPE_SZ constants, which allow to check and modify a pipeâs size\nrespectively. Changed in version 3.11: On FreeBSD, the fcntl module exposes the F_DUP2FD and F_DUP2FD_CLOEXEC constants, which allow to duplicate a file descriptor,\nthe latter setting FD_CLOEXEC flag in addition. Changed in version 3.12: On Linux >= 4.5, the fcntl module exposes the FICLONE and FICLONERANGE constants, which allow to share some data of one file with\nanother file by reflinking on some filesystems (e.g., btrfs, OCFS2, and\nXFS). This behavior is commonly referred to as âcopy-on-writeâ. Changed in version 3.13: On Linux >= 2.6.32, the fcntl module exposes the F_GETOWN_EX , F_SETOWN_EX , F_OWNER_TID , F_OWNER_PID , F_OWNER_PGRP constants, which allow to direct I/O availability signals\nto a specific thread, process, or process group.\nOn Linux >= 4.13, the fcntl module exposes the F_GET_RW_HINT , F_SET_RW_HINT , F_GET_FILE_RW_HINT , F_SET_FILE_RW_HINT , and RWH_WRITE_LIFE_* constants, which allow\nto inform the kernel about the relative expected lifetime of writes on\na given inode or via a particular open file description.\nOn Linux >= 5.1 and NetBSD, the fcntl module exposes the F_SEAL_FUTURE_WRITE constant for use with F_ADD_SEALS and F_GET_SEALS operations.\nOn FreeBSD, the fcntl module exposes the F_READAHEAD , F_ISUNIONSTACK , and F_KINFO constants.\nOn macOS and FreeBSD, the fcntl module exposes the F_RDAHEAD constant.\nOn NetBSD and AIX, the fcntl module exposes the F_CLOSEM constant.\nOn NetBSD, the fcntl module exposes the F_MAXFD constant.\nOn macOS and NetBSD, the fcntl module exposes the F_GETNOSIGPIPE and F_SETNOSIGPIPE constant. Changed in version 3.14: On Linux >= 6.1, the fcntl module exposes the F_DUPFD_QUERY to query a file descriptor pointing to the same file. The module defines the following functions: fcntl. fcntl ( fd , cmd , arg = 0 , / ) Â¶ Perform the operation cmd on file descriptor fd (file objects providing\na fileno() method are accepted as well).  The values used\nfor cmd are operating system dependent, and are available as constants\nin the fcntl module, using the same names as used in the relevant C\nheader files. The argument arg can either be an integer value, a bytes-like object , or a string.\nThe type and size of arg must match the type and size of\nthe argument of the operation as specified in the relevant C documentation. When arg is an integer, the function returns the integer\nreturn value of the C fcntl() call. When the argument is bytes-like object, it represents a binary structure,\nfor example, created by struct.pack() .\nA string value is encoded to binary using the UTF-8 encoding.\nThe binary data is copied to a buffer whose address is\npassed to the C fcntl() call.  The return value after a successful\ncall is the contents of the buffer, converted to a bytes object.\nThe length of the returned object will be the same as the length of the arg argument. This is limited to 1024 bytes. If the fcntl() call fails, an OSError is raised. Note If the type or the size of arg does not match the type or size\nof the argument of the operation (for example, if an integer is\npassed when a pointer is expected, or the information returned in\nthe buffer by the operating system is larger than 1024 bytes),\nthis is most likely to result in a segmentation violation or\na more subtle data corruption. Raises an auditing event fcntl.fcntl with arguments fd , cmd , arg . Changed in version 3.14: Add support of arbitrary bytes-like objects ,\nnot only bytes . fcntl. ioctl ( fd , request , arg = 0 , mutate_flag = True , / ) Â¶ This function is identical to the fcntl() function, except\nthat the argument handling is even more complicated. The request parameter is limited to values that can fit in 32-bits\nor 64-bits, depending on the platform.\nAdditional constants of interest for use as the request argument can be\nfound in the termios module, under the same names as used in\nthe relevant C header files. The parameter arg can be an integer, a bytes-like object ,\nor a string.\nThe type and size of arg must match the type and size of\nthe argument of the operation as specified in the relevant C documentation. If arg does not support the read-write buffer interface or\nthe mutate_flag is false, behavior is as for the fcntl() function. If arg supports the read-write buffer interface (like bytearray )\nand mutate_flag is true (the default), then the buffer is (in effect) passed\nto the underlying ioctl() system call, the latterâs return code is\npassed back to the calling Python, and the bufferâs new contents reflect the\naction of the ioctl() .  This is a slight simplification, because if the\nsupplied buffer is less than 1024 bytes long it is first copied into a static\nbuffer 1024 bytes long which is then passed to ioctl() and copied back\ninto the supplied buffer. If the ioctl() call fails, an OSError exception is raised. Note If the type or size of arg does not match the type or size\nof the operationâs argument (for example, if an integer is\npassed when a pointer is expected, or the information returned in\nthe buffer by the operating system is larger than 1024 bytes,\nor the size of the mutable bytes-like object is too small),\nthis is most likely to result in a segmentation violation or\na more subtle data corruption. An example: >>> import array , fcntl , struct , termios , os >>> os . getpgrp () 13341 >>> struct . unpack ( 'h' , fcntl . ioctl ( 0 , termios . TIOCGPGRP , \"  \" ))[ 0 ] 13341 >>> buf = array . array ( 'h' , [ 0 ]) >>> fcntl . ioctl ( 0 , termios . TIOCGPGRP , buf , 1 ) 0 >>> buf array('h', [13341]) Raises an auditing event fcntl.ioctl with arguments fd , request , arg . Changed in version 3.14: The GIL is always released during a system call.\nSystem calls failing with EINTR are automatically retried. fcntl. flock ( fd , operation , / ) Â¶ Perform the lock operation operation on file descriptor fd (file objects providing\na fileno() method are accepted as well). See the Unix manual flock(2) for details.  (On some systems, this function is emulated\nusing fcntl() .) If the flock() call fails, an OSError exception is raised. Raises an auditing event fcntl.flock with arguments fd , operation . fcntl. lockf ( fd , cmd , len = 0 , start = 0 , whence = 0 , / ) Â¶ This is essentially a wrapper around the fcntl() locking calls. fd is the file descriptor (file objects providing a fileno() method are accepted as well) of the file to lock or unlock, and cmd is one of the following values: fcntl. LOCK_UN Â¶ Release an existing lock. fcntl. LOCK_SH Â¶ Acquire a shared lock. fcntl. LOCK_EX Â¶ Acquire an exclusive lock. fcntl. LOCK_NB Â¶ Bitwise OR with any of the other three LOCK_* constants to make\nthe request non-blocking. If LOCK_NB is used and the lock cannot be acquired, an OSError will be raised and the exception will have an errno attribute set to EACCES or EAGAIN (depending on the\noperating system; for portability, check for both values).  On at least some\nsystems, LOCK_EX can only be used if the file descriptor refers to a\nfile opened for writing. len is the number of bytes to lock, start is the byte offset at\nwhich the lock starts, relative to whence , and whence is as with io.IOBase.seek() , specifically: 0 â relative to the start of the file ( os.SEEK_SET ) 1 â relative to the current buffer position ( os.SEEK_CUR ) 2 â relative to the end of the file ( os.SEEK_END ) The default for start is 0, which means to start at the beginning of the file.\nThe default for len is 0 which means to lock to the end of the file.  The\ndefault for whence is also 0. Raises an auditing event fcntl.lockf with arguments fd , cmd , len , start , whence . Examples (all on a SVR4 compliant system): import struct , fcntl , os f = open ( ... ) rv = fcntl . fcntl ( f , fcntl . F_SETFL , os . O_NDELAY ) lockdata = struct . pack ( 'hhllhh' , fcntl . F_WRLCK , 0 , 0 , 0 , 0 , 0 ) rv = fcntl . fcntl ( f , fcntl . F_SETLKW , lockdata ) Note that in the first example the return value variable rv will hold an\ninteger value; in the second example it will hold a bytes object.  The\nstructure lay-out for the lockdata variable is system dependent â therefore\nusing the flock() call may be better. See also Module os If the locking flags O_SHLOCK and O_EXLOCK are\npresent in the os module (on BSD only), the os.open() function provides an alternative to the lockf() and flock() functions. Previous topic pty â Pseudo-terminal utilities Next topic resource â Resource usage information This page Report a bug Improve this page Show source Â« Navigation index modules | next | previous | Python » 3.14.7 Documentation » The Python Standard Library » Unix-specific services » fcntl â The fcntl and ioctl system calls | Theme Auto Light Dark | © Copyright 2001 Python Software Foundation. This page is licensed under the Python Software Foundation License Version 2. Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License. See History and License for more information. The Python Software Foundation is a non-profit corporation. Please donate. Last updated on Aug 29, 2026 (03:47 UTC). Found a bug ? Created using Sphinx 8.2.3.",
+    "task_labels": [],
+    "domain": "docs.python.org",
+    "technology_stack": [],
+    "candidates": [],
+    "dynamic": true,
+    "bundle_mode": "auto",
+    "annotation_ids": [
+      "doc-docs-python-org-3-library-fcntl.html-d926a3"
+    ],
+    "active_document_ids": [
+      "doc-docs-python-org-3-library-fcntl.html-d926a3"
+    ],
+    "excluded_document_ids": [],
+    "active_evidence_refs": [
+      "doc-docs-python-org-3-library-fcntl.html-d926a3#claim_001"
+    ],
+    "selection_reason": "standalone_document_with_missing_roles",
+    "evidence_selection_score": 0.44,
+    "scenario_keys": [
+      {
+        "technology": "docs.python.org",
+        "component": "docs.python.org",
+        "fault_signature": "",
+        "version_scope": "",
+        "technology_stack": []
+      }
+    ],
+    "source_quality": [
+      "official"
+    ],
+    "missing_claim_types": [
+      "impact",
+      "repair",
+      "root_cause",
+      "symptom"
+    ],
+    "document_contexts": [
+      {
+        "document_id": "doc-docs-python-org-3-library-fcntl.html-d926a3",
+        "source_url": "https://docs.python.org/3/library/fcntl.html",
+        "canonical_url": "https://docs.python.org/3/library/fcntl.html",
+        "content_hash": "d926a37df05b0ef6",
+        "source_type": "official_docs",
+        "source_license": "unknown",
+        "title": "fcntl â The fcntl and ioctl system calls — Python 3.14.7 documentation",
+        "language": "en",
+        "full_text": "fcntl â The fcntl and ioctl system calls — Python 3.14.7 documentation Theme Auto Light Dark Previous topic pty â Pseudo-terminal utilities Next topic resource â Resource usage information This page Report a bug Improve this page Show source Navigation index modules | next | previous | Python » 3.14.7 Documentation » The Python Standard Library » Unix-specific services » fcntl â The fcntl and ioctl system calls | Theme Auto Light Dark | fcntl â The fcntl and ioctl system calls Â¶ This module performs file and I/O control on file descriptors. It is an\ninterface to the fcntl() and ioctl() Unix routines.\nSee the fcntl(2) and ioctl(2) Unix manual pages\nfor full details. Availability : Unix, not WASI. All functions in this module take a file descriptor fd as their first\nargument.  This can be an integer file descriptor, such as returned by sys.stdin.fileno() , or an io.IOBase object, such as sys.stdin itself, which provides a fileno() that returns a genuine file\ndescriptor. Changed in version 3.3: Operations in this module used to raise an IOError where they now\nraise an OSError . Changed in version 3.8: The fcntl module now contains F_ADD_SEALS , F_GET_SEALS , and F_SEAL_* constants for sealing of os.memfd_create() file\ndescriptors. Changed in version 3.9: On macOS, the fcntl module exposes the F_GETPATH constant,\nwhich obtains the path of a file from a file descriptor.\nOn Linux(>=3.15), the fcntl module exposes the F_OFD_GETLK , F_OFD_SETLK and F_OFD_SETLKW constants, which are used when working\nwith open file description locks. Changed in version 3.10: On Linux >= 2.6.11, the fcntl module exposes the F_GETPIPE_SZ and F_SETPIPE_SZ constants, which allow to check and modify a pipeâs size\nrespectively. Changed in version 3.11: On FreeBSD, the fcntl module exposes the F_DUP2FD and F_DUP2FD_CLOEXEC constants, which allow to duplicate a file descriptor,\nthe latter setting FD_CLOEXEC flag in addition. Changed in version 3.12: On Linux >= 4.5, the fcntl module exposes the FICLONE and FICLONERANGE constants, which allow to share some data of one file with\nanother file by reflinking on some filesystems (e.g., btrfs, OCFS2, and\nXFS). This behavior is commonly referred to as âcopy-on-writeâ. Changed in version 3.13: On Linux >= 2.6.32, the fcntl module exposes the F_GETOWN_EX , F_SETOWN_EX , F_OWNER_TID , F_OWNER_PID , F_OWNER_PGRP constants, which allow to direct I/O availability signals\nto a specific thread, process, or process group.\nOn Linux >= 4.13, the fcntl module exposes the F_GET_RW_HINT , F_SET_RW_HINT , F_GET_FILE_RW_HINT , F_SET_FILE_RW_HINT , and RWH_WRITE_LIFE_* constants, which allow\nto inform the kernel about the relative expected lifetime of writes on\na given inode or via a particular open file description.\nOn Linux >= 5.1 and NetBSD, the fcntl module exposes the F_SEAL_FUTURE_WRITE constant for use with F_ADD_SEALS and F_GET_SEALS operations.\nOn FreeBSD, the fcntl module exposes the F_READAHEAD , F_ISUNIONSTACK , and F_KINFO constants.\nOn macOS and FreeBSD, the fcntl module exposes the F_RDAHEAD constant.\nOn NetBSD and AIX, the fcntl module exposes the F_CLOSEM constant.\nOn NetBSD, the fcntl module exposes the F_MAXFD constant.\nOn macOS and NetBSD, the fcntl module exposes the F_GETNOSIGPIPE and F_SETNOSIGPIPE constant. Changed in version 3.14: On Linux >= 6.1, the fcntl module exposes the F_DUPFD_QUERY to query a file descriptor pointing to the same file. The module defines the following functions: fcntl. fcntl ( fd , cmd , arg = 0 , / ) Â¶ Perform the operation cmd on file descriptor fd (file objects providing\na fileno() method are accepted as well).  The values used\nfor cmd are operating system dependent, and are available as constants\nin the fcntl module, using the same names as used in the relevant C\nheader files. The argument arg can either be an integer value, a bytes-like object , or a string.\nThe type and size of arg must match the type and size of\nthe argument of the operation as specified in the relevant C documentation. When arg is an integer, the function returns the integer\nreturn value of the C fcntl() call. When the argument is bytes-like object, it represents a binary structure,\nfor example, created by struct.pack() .\nA string value is encoded to binary using the UTF-8 encoding.\nThe binary data is copied to a buffer whose address is\npassed to the C fcntl() call.  The return value after a successful\ncall is the contents of the buffer, converted to a bytes object.\nThe length of the returned object will be the same as the length of the arg argument. This is limited to 1024 bytes. If the fcntl() call fails, an OSError is raised. Note If the type or the size of arg does not match the type or size\nof the argument of the operation (for example, if an integer is\npassed when a pointer is expected, or the information returned in\nthe buffer by the operating system is larger than 1024 bytes),\nthis is most likely to result in a segmentation violation or\na more subtle data corruption. Raises an auditing event fcntl.fcntl with arguments fd , cmd , arg . Changed in version 3.14: Add support of arbitrary bytes-like objects ,\nnot only bytes . fcntl. ioctl ( fd , request , arg = 0 , mutate_flag = True , / ) Â¶ This function is identical to the fcntl() function, except\nthat the argument handling is even more complicated. The request parameter is limited to values that can fit in 32-bits\nor 64-bits, depending on the platform.\nAdditional constants of interest for use as the request argument can be\nfound in the termios module, under the same names as used in\nthe relevant C header files. The parameter arg can be an integer, a bytes-like object ,\nor a string.\nThe type and size of arg must match the type and size of\nthe argument of the operation as specified in the relevant C documentation. If arg does not support the read-write buffer interface or\nthe mutate_flag is false, behavior is as for the fcntl() function. If arg supports the read-write buffer interface (like bytearray )\nand mutate_flag is true (the default), then the buffer is (in effect) passed\nto the underlying ioctl() system call, the latterâs return code is\npassed back to the calling Python, and the bufferâs new contents reflect the\naction of the ioctl() .  This is a slight simplification, because if the\nsupplied buffer is less than 1024 bytes long it is first copied into a static\nbuffer 1024 bytes long which is then passed to ioctl() and copied back\ninto the supplied buffer. If the ioctl() call fails, an OSError exception is raised. Note If the type or size of arg does not match the type or size\nof the operationâs argument (for example, if an integer is\npassed when a pointer is expected, or the information returned in\nthe buffer by the operating system is larger than 1024 bytes,\nor the size of the mutable bytes-like object is too small),\nthis is most likely to result in a segmentation violation or\na more subtle data corruption. An example: >>> import array , fcntl , struct , termios , os >>> os . getpgrp () 13341 >>> struct . unpack ( 'h' , fcntl . ioctl ( 0 , termios . TIOCGPGRP , \"  \" ))[ 0 ] 13341 >>> buf = array . array ( 'h' , [ 0 ]) >>> fcntl . ioctl ( 0 , termios . TIOCGPGRP , buf , 1 ) 0 >>> buf array('h', [13341]) Raises an auditing event fcntl.ioctl with arguments fd , request , arg . Changed in version 3.14: The GIL is always released during a system call.\nSystem calls failing with EINTR are automatically retried. fcntl. flock ( fd , operation , / ) Â¶ Perform the lock operation operation on file descriptor fd (file objects providing\na fileno() method are accepted as well). See the Unix manual flock(2) for details.  (On some systems, this function is emulated\nusing fcntl() .) If the flock() call fails, an OSError exception is raised. Raises an auditing event fcntl.flock with arguments fd , operation . fcntl. lockf ( fd , cmd , len = 0 , start = 0 , whence = 0 , / ) Â¶ This is essentially a wrapper around the fcntl() locking calls. fd is the file descriptor (file objects providing a fileno() method are accepted as well) of the file to lock or unlock, and cmd is one of the following values: fcntl. LOCK_UN Â¶ Release an existing lock. fcntl. LOCK_SH Â¶ Acquire a shared lock. fcntl. LOCK_EX Â¶ Acquire an exclusive lock. fcntl. LOCK_NB Â¶ Bitwise OR with any of the other three LOCK_* constants to make\nthe request non-blocking. If LOCK_NB is used and the lock cannot be acquired, an OSError will be raised and the exception will have an errno attribute set to EACCES or EAGAIN (depending on the\noperating system; for portability, check for both values).  On at least some\nsystems, LOCK_EX can only be used if the file descriptor refers to a\nfile opened for writing. len is the number of bytes to lock, start is the byte offset at\nwhich the lock starts, relative to whence , and whence is as with io.IOBase.seek() , specifically: 0 â relative to the start of the file ( os.SEEK_SET ) 1 â relative to the current buffer position ( os.SEEK_CUR ) 2 â relative to the end of the file ( os.SEEK_END ) The default for start is 0, which means to start at the beginning of the file.\nThe default for len is 0 which means to lock to the end of the file.  The\ndefault for whence is also 0. Raises an auditing event fcntl.lockf with arguments fd , cmd , len , start , whence . Examples (all on a SVR4 compliant system): import struct , fcntl , os f = open ( ... ) rv = fcntl . fcntl ( f , fcntl . F_SETFL , os . O_NDELAY ) lockdata = struct . pack ( 'hhllhh' , fcntl . F_WRLCK , 0 , 0 , 0 , 0 , 0 ) rv = fcntl . fcntl ( f , fcntl . F_SETLKW , lockdata ) Note that in the first example the return value variable rv will hold an\ninteger value; in the second example it will hold a bytes object.  The\nstructure lay-out for the lockdata variable is system dependent â therefore\nusing the flock() call may be better. See also Module os If the locking flags O_SHLOCK and O_EXLOCK are\npresent in the os module (on BSD only), the os.open() function provides an alternative to the lockf() and flock() functions. Previous topic pty â Pseudo-terminal utilities Next topic resource â Resource usage information This page Report a bug Improve this page Show source Â« Navigation index modules | next | previous | Python » 3.14.7 Documentation » The Python Standard Library » Unix-specific services » fcntl â The fcntl and ioctl system calls | Theme Auto Light Dark | © Copyright 2001 Python Software Foundation. This page is licensed under the Python Software Foundation License Version 2. Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License. See History and License for more information. The Python Software Foundation is a non-profit corporation. Please donate. Last updated on Aug 29, 2026 (03:47 UTC). Found a bug ? Created using Sphinx 8.2.3.",
+        "sections": [
+          {
+            "section_id": "s_0001",
+            "level": 0,
+            "heading": "document",
+            "section_path": [
+              "document"
+            ],
+            "start_pos": 0,
+            "end_pos": 10843,
+            "content_hash": "d926a37df05b0ef68ac1cb63e3b456e26910077b13cbe58cd9278ac875dd7a6c"
+          }
+        ],
+        "code_blocks": [],
+        "full_text_ref": "evidence/source/doc-docs-python-org-3-library-fcntl.html-d926a3.md",
+        "schema_version": "opsbench-document-context-v1",
+        "full_text_chars": 10843
+      }
+    ],
+    "evidence_map": {
+      "schema_version": "opsbench-evidence-map-v1",
+      "mechanism": [],
+      "diagnostic_signal": [],
+      "repair_instruction": [],
+      "verification_rule": [
+        {
+          "document_id": "doc-docs-python-org-3-library-fcntl.html-d926a3",
+          "claim_id": "claim_001",
+          "claim_type": "verification",
+          "evidence_origin": "document",
+          "source_url": "https://docs.python.org/3/library/fcntl.html",
+          "section_path": [],
+          "start_pos": 7454,
+          "end_pos": 7900,
+          "excerpt": "flock ( fd , operation , / ) Â¶ Perform the lock operation operation on file descriptor fd (file objects providing\na fileno() method are accepted as well). See the Unix manual flock(2) for details.  (On some systems, this function is emulated\nusing fcntl() .) If the flock() call fails, an OSError exception is raised. Raises an auditing event fcntl.flock with arguments fd , operation . fcntl. lockf ( fd , cmd , len = 0 , start = 0 , whence = 0",
+          "content_hash": "d926a37df05b0ef6",
+          "confidence": 0.9
+        }
+      ],
+      "incident_symptom": [],
+      "runtime_contract": [],
+      "runtime_contract_roles": [
+        "root_cause",
+        "repair",
+        "symptom",
+        "impact",
+        "verification"
+      ]
+    },
+    "document_context_mode": "full",
+    "evidence_gate_mode": "off",
+    "model_document_contexts": [
+      {
+        "document_id": "doc-docs-python-org-3-library-fcntl.html-d926a3",
+        "source_url": "https://docs.python.org/3/library/fcntl.html",
+        "canonical_url": "https://docs.python.org/3/library/fcntl.html",
+        "content_hash": "d926a37df05b0ef6",
+        "source_type": "official_docs",
+        "source_license": "unknown",
+        "title": "fcntl â The fcntl and ioctl system calls — Python 3.14.7 documentation",
+        "language": "en",
+        "full_text_chars": 10843,
+        "full_text_ref": "evidence/source/doc-docs-python-org-3-library-fcntl.html-d926a3.md",
+        "schema_version": "opsbench-document-context-v1",
+        "context_mode": "selected_evidence_with_source_context",
+        "selected_evidence": [
+          {
+            "evidence_id": "claim_001",
+            "claim_type": "verification",
+            "start_pos": 7454,
+            "end_pos": 7900,
+            "content_hash": "d926a37df05b0ef6",
+            "excerpt": "flock ( fd , operation , / ) Â¶ Perform the lock operation operation on file descriptor fd (file objects providing\na fileno() method are accepted as well). See the Unix manual flock(2) for details.  (On some systems, this function is emulated\nusing fcntl() .) If the flock() call fails, an OSError exception is raised. Raises an auditing event fcntl.flock with arguments fd , operation . fcntl. lockf ( fd , cmd , len = 0 , start = 0 , whence = 0"
+          }
+        ],
+        "source_excerpts": [
+          {
+            "evidence_id": "claim_001",
+            "claim_type": "verification",
+            "start_pos": 6554,
+            "end_pos": 8800,
+            "text": " size of arg does not match the type or size\nof the operationâs argument (for example, if an integer is\npassed when a pointer is expected, or the information returned in\nthe buffer by the operating system is larger than 1024 bytes,\nor the size of the mutable bytes-like object is too small),\nthis is most likely to result in a segmentation violation or\na more subtle data corruption. An example: >>> import array , fcntl , struct , termios , os >>> os . getpgrp () 13341 >>> struct . unpack ( 'h' , fcntl . ioctl ( 0 , termios . TIOCGPGRP , \"  \" ))[ 0 ] 13341 >>> buf = array . array ( 'h' , [ 0 ]) >>> fcntl . ioctl ( 0 , termios . TIOCGPGRP , buf , 1 ) 0 >>> buf array('h', [13341]) Raises an auditing event fcntl.ioctl with arguments fd , request , arg . Changed in version 3.14: The GIL is always released during a system call.\nSystem calls failing with EINTR are automatically retried. fcntl. flock ( fd , operation , / ) Â¶ Perform the lock operation operation on file descriptor fd (file objects providing\na fileno() method are accepted as well). See the Unix manual flock(2) for details.  (On some systems, this function is emulated\nusing fcntl() .) If the flock() call fails, an OSError exception is raised. Raises an auditing event fcntl.flock with arguments fd , operation . fcntl. lockf ( fd , cmd , len = 0 , start = 0 , whence = 0 , / ) Â¶ This is essentially a wrapper around the fcntl() locking calls. fd is the file descriptor (file objects providing a fileno() method are accepted as well) of the file to lock or unlock, and cmd is one of the following values: fcntl. LOCK_UN Â¶ Release an existing lock. fcntl. LOCK_SH Â¶ Acquire a shared lock. fcntl. LOCK_EX Â¶ Acquire an exclusive lock. fcntl. LOCK_NB Â¶ Bitwise OR with any of the other three LOCK_* constants to make\nthe request non-blocking. If LOCK_NB is used and the lock cannot be acquired, an OSError will be raised and the exception will have an errno attribute set to EACCES or EAGAIN (depending on the\noperating system; for portability, check for both values).  On at least some\nsystems, LOCK_EX can only be used if the file descriptor refers to a\nfile opened for writing. len is the number of bytes to lock, start is the byte offset at\nwhich the lock starts, re"
+          }
+        ]
+      }
+    ],
+    "requested_group_size": "1",
+    "resolved_group_size": 1
+  },
+  "links": [],
+  "schema_version": "opsbench-evidence-v1",
+  "provenance_mode": "generation_time",
+  "coverage": "complete",
+  "created_at": "2026-08-29T08:04:31.883216+00:00",
+  "active_document_ids": [
+    "doc-docs-python-org-3-library-fcntl.html-d926a3"
+  ],
+  "excluded_document_ids": [],
+  "active_evidence_refs": [
+    "doc-docs-python-org-3-library-fcntl.html-d926a3#claim_001"
+  ],
+  "selection_reason": "standalone_document_with_missing_roles",
+  "evidence_selection_score": 0.44
+}

@@ -1,0 +1,674 @@
+{
+  "manifest_version": "opsbench-e2e-dynamic-generation-v1",
+  "family": "e2e",
+  "generation_mode": "dynamic",
+  "primitive_registry_snapshot": {
+    "app_config_precedence_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "configuration_precedence"
+    },
+    "app_stale_pid_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "stale_runtime_state"
+    },
+    "fluentbit_backpressure_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "fluent-bit",
+      "fault_type": "resource_saturation"
+    },
+    "http_dependency_dns_poison_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "name_resolution"
+    },
+    "http_dependency_port_drift_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "dependency_configuration"
+    },
+    "http_dependency_timeout_slo_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_retry_circuit_breaker_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-circuit-target",
+      "fault_type": "retry_circuit_breaker"
+    },
+    "http_upstream_timeout_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_wrong_port_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "http-service",
+      "fault_type": "configuration_error"
+    },
+    "kafka_consumer_lag_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "kafka-consumer-target",
+      "fault_type": "consumer_lag"
+    },
+    "linux_cpu_runaway_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_cpu_runaway_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_disk_full_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "disk_exhaustion"
+    },
+    "linux_fd_leak_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "resource_leak"
+    },
+    "linux_file_lock_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "file_lock"
+    },
+    "linux_inode_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "inode_exhaustion"
+    },
+    "linux_memory_growth_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "memory_exhaustion"
+    },
+    "linux_temp_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "linux_upload_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "nginx_bind_conflict_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "nginx",
+      "fault_type": "resource_conflict"
+    },
+    "postgres_connection_pool_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-pool-target",
+      "fault_type": "connection_pool_exhaustion"
+    },
+    "postgres_lock_contention_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-lock-target",
+      "fault_type": "lock_contention"
+    },
+    "postgres_missing_index_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "postgres",
+      "fault_type": "database_configuration"
+    },
+    "postgres_missing_index_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres",
+      "fault_type": "performance_regression"
+    },
+    "prometheus_scrape_target_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "prometheus",
+      "fault_type": "configuration_error"
+    },
+    "rabbitmq_resource_alarm_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "rabbitmq",
+      "fault_type": "resource_saturation"
+    },
+    "redis_cache_corruption_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "redis-cache-target",
+      "fault_type": "cache_corruption"
+    },
+    "tls_hostname_mismatch_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "tls-http-service",
+      "fault_type": "certificate_identity"
+    }
+  },
+  "bundle_count": 1,
+  "candidate_count": 1,
+  "accepted_candidate_count": 1,
+  "case_count": 1,
+  "candidate_group_size": "1",
+  "artifact_mode": "trusted",
+  "allow_experimental": true,
+  "max_source_repair_rounds": 3,
+  "max_artifact_repair_rounds": 3,
+  "max_runtime_repair_rounds": 3,
+  "artifact_reports": [],
+  "artifact_repair_count": 0,
+  "stage_mode": false,
+  "runtime_required": true,
+  "candidate_timeout_sec": 600,
+  "resolved_group_sizes": [
+    "1"
+  ],
+  "max_judge_rounds": 3,
+  "bundle_mode": "auto",
+  "max_documents_per_bundle": 4,
+  "language": "en",
+  "experience_version": "",
+  "experience_digest": "",
+  "generator_model": "deepseek-v4-flash",
+  "review_model": "deepseek-v4-pro",
+  "evidence_gate": "strict",
+  "allow_deterministic_fallback": false,
+  "require_model_judge": true,
+  "document_context_mode": "full",
+  "document_context_count": 1,
+  "evidence_gate_reports": [
+    {
+      "passed": true,
+      "issue_count": 0,
+      "issues": [],
+      "advisories": [
+        {
+          "code": "missing_claim_or_runtime_contract",
+          "field_path": "evidence_bundle.claims.symptom",
+          "message": "Missing symptom evidence; the selected trusted runtime contract must supply it."
+        },
+        {
+          "code": "missing_claim_or_runtime_contract",
+          "field_path": "evidence_bundle.claims.impact",
+          "message": "Missing impact evidence; the selected trusted runtime contract must supply it."
+        }
+      ],
+      "claim_counts": {
+        "constraint": 1,
+        "repair": 2,
+        "root_cause": 3,
+        "verification": 1
+      },
+      "document_context_count": 1,
+      "runtime_contract_roles": [],
+      "required_claims": [
+        "root_cause",
+        "repair"
+      ],
+      "bundle_id": "dynamic_bundle_0001",
+      "initial_passed": false,
+      "judge_rounds": 1
+    }
+  ],
+  "target_difficulty": null,
+  "primitive_id": "redis_cache_corruption_v1",
+  "cases": [
+    {
+      "id": "dynamic_redis_cache_corruption_v1_000001",
+      "path": "runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\dynamic_redis_cache_corruption_v1_000001",
+      "primitive_id": "redis_cache_corruption_v1",
+      "template_id": "redis_cache_corruption_v1",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "Redis availability does not imply that the application cache payload satisfies its data contract.",
+          "The agent must repair the effective payload while preserving the key and application schema.",
+          "Verification checks live business reads and payload correctness after a service lifecycle boundary."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "judge_rounds": 2,
+      "judge_score": 4.0600000000000005,
+      "candidate_group_id": "dynamic_bundle_0001_group_001",
+      "case_status": "evaluable",
+      "runtime_gate": {
+        "id": "dynamic_redis_cache_corruption_v1_000001",
+        "template_id": "redis_cache_corruption_v1",
+        "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\dynamic_redis_cache_corruption_v1_000001",
+        "passed": true,
+        "case_status": "evaluable",
+        "issues": [],
+        "gate": {
+          "passed": true,
+          "issues": [],
+          "required_scenarios": [
+            "no_op",
+            "oracle",
+            "partial_fix",
+            "repeat",
+            "restart_only",
+            "wrong_fix"
+          ],
+          "observed_scenarios": [
+            "no_op",
+            "oracle",
+            "partial_fix",
+            "repeat",
+            "restart_only",
+            "wrong_fix"
+          ],
+          "gate_version": "e2e-runtime-gate-v1"
+        },
+        "runs": [
+          {
+            "id": "dynamic_redis_cache_corruption_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed"
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live health endpoint"
+              },
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "live business endpoint"
+              },
+              {
+                "name": "cache_payload_valid",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "BROKEN"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "{'mode': 'corrupt'}"
+              }
+            ],
+            "score": 0.2,
+            "duration_sec": 7.062,
+            "case_digest": "74dbb255284df2550b5136c4e67b5c102a147211f202aaadff273d26b123fa7f",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\reports\\control_traces\\dynamic_redis_cache_corruption_v1_000001-x5vpkbv4",
+            "error_type": "verifier_failed",
+            "errors": [],
+            "scenario": "no_op",
+            "control_mode": "no_op",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_redis_cache_corruption_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed"
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live health endpoint"
+              },
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live business endpoint"
+              },
+              {
+                "name": "cache_payload_valid",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "{\"version\":1,\"items\":[\"a\"]}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "{'mode': 'baseline'}"
+              }
+            ],
+            "score": 0.8,
+            "duration_sec": 11.094,
+            "case_digest": "74dbb255284df2550b5136c4e67b5c102a147211f202aaadff273d26b123fa7f",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\reports\\control_traces\\dynamic_redis_cache_corruption_v1_000001-x5vpkbv4",
+            "error_type": "",
+            "errors": [],
+            "scenario": "oracle",
+            "control_mode": "oracle",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_redis_cache_corruption_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed"
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live health endpoint"
+              },
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "live business endpoint"
+              },
+              {
+                "name": "cache_payload_valid",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "BROKEN"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "{'mode': 'corrupt'}"
+              }
+            ],
+            "score": 0.2,
+            "duration_sec": 13.359,
+            "case_digest": "74dbb255284df2550b5136c4e67b5c102a147211f202aaadff273d26b123fa7f",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\reports\\control_traces\\dynamic_redis_cache_corruption_v1_000001-x5vpkbv4",
+            "error_type": "verifier_failed",
+            "errors": [],
+            "scenario": "restart_only",
+            "control_mode": "restart_only",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_redis_cache_corruption_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed"
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live health endpoint"
+              },
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "live business endpoint"
+              },
+              {
+                "name": "cache_payload_valid",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "BROKEN"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "{'mode': 'corrupt'}"
+              }
+            ],
+            "score": 0.2,
+            "duration_sec": 16.781,
+            "case_digest": "74dbb255284df2550b5136c4e67b5c102a147211f202aaadff273d26b123fa7f",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\reports\\control_traces\\dynamic_redis_cache_corruption_v1_000001-x5vpkbv4",
+            "error_type": "verifier_failed",
+            "errors": [],
+            "scenario": "wrong_fix",
+            "control_mode": "wrong_fix",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_redis_cache_corruption_v1_000001",
+            "family": "e2e",
+            "passed": false,
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed"
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live health endpoint"
+              },
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live business endpoint"
+              },
+              {
+                "name": "cache_payload_valid",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "{\"version\":1,\"items\":[]}"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "{'mode': 'corrupt'}"
+              }
+            ],
+            "score": 0.6,
+            "duration_sec": 18.516,
+            "case_digest": "74dbb255284df2550b5136c4e67b5c102a147211f202aaadff273d26b123fa7f",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\reports\\control_traces\\dynamic_redis_cache_corruption_v1_000001-x5vpkbv4",
+            "error_type": "verifier_failed",
+            "errors": [],
+            "scenario": "partial_fix",
+            "control_mode": "partial_fix",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_redis_cache_corruption_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed"
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live health endpoint"
+              },
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live business endpoint"
+              },
+              {
+                "name": "cache_payload_valid",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "{\"version\":1,\"items\":[\"a\"]}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "{'mode': 'baseline'}"
+              }
+            ],
+            "score": 0.8,
+            "duration_sec": 20.734,
+            "case_digest": "74dbb255284df2550b5136c4e67b5c102a147211f202aaadff273d26b123fa7f",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\reports\\control_traces\\dynamic_redis_cache_corruption_v1_000001-x5vpkbv4",
+            "error_type": "",
+            "errors": [],
+            "scenario": "repeat",
+            "control_mode": "oracle",
+            "repeat_index": 0
+          },
+          {
+            "id": "dynamic_redis_cache_corruption_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed"
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live health endpoint"
+              },
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "live business endpoint"
+              },
+              {
+                "name": "cache_payload_valid",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "{\"version\":1,\"items\":[\"a\"]}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "{'mode': 'baseline'}"
+              }
+            ],
+            "score": 0.8,
+            "duration_sec": 22.5,
+            "case_digest": "74dbb255284df2550b5136c4e67b5c102a147211f202aaadff273d26b123fa7f",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\redis-cache-prepared\\cases\\reports\\control_traces\\dynamic_redis_cache_corruption_v1_000001-x5vpkbv4",
+            "error_type": "",
+            "errors": [],
+            "scenario": "repeat",
+            "control_mode": "oracle",
+            "repeat_index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "rejected_count": 0,
+  "candidate_diversity": {
+    "passed": true,
+    "candidate_count": 1,
+    "unique_fingerprint_count": 1,
+    "duplicate_fingerprints": []
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 73,
+  "final": "The incident is fully resolved. Here's the summary:\n\n## Diagnosis\n\n**Root cause**: A rogue process (PID 37 on the application container, PID 88 on the database server) was running:\n```sql\nSELECT pg_advisory_lock(424242); SELECT pg_sleep(600);\n```\nThis held a PostgreSQL advisory lock (424242) indefinitely, blocking the orders endpoint and causing intermittent HTTP 503 responses. The health check remained green because it only checks process/connection liveness, not query availability.\n\n## Repair\n\nTerminated the blocking database session using `pg_terminate_backend(88)` on the database host.\n\n## Verification\n\n| Check | Before | After |\n|---|---|---|\n| Orders endpoint | HTTP 503 | HTTP 200 |\n| Lock holders | 1 | 0 |\n| Health check | HTTP 200 | HTTP 200 |\n| Post-restart orders | — | HTTP 200 |\n| Post-restart lock holders | — | 0 |\n\nThe recovery persists across the service lifecycle boundary — the service was restarted (PID 1 recycled) and the orders endpoint remains healthy with no blocking sessions."
+}

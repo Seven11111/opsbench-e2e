@@ -1,0 +1,404 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_kafka_consumer_lag_v1_000001",
+      "template_id": "kafka_consumer_lag_v1",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\kafka-lag-v4\\cases\\dynamic_kafka_consumer_lag_v1_000001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "runs": [
+        {
+          "id": "dynamic_kafka_consumer_lag_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "consumer_lag",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "\nGROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                  HOST            CLIENT-ID\nopsbench-group  opsbench-events 0          7               29              22              rdkafka-5d920091-0585-4541-b1fa-cc339f322215 /172.20.0.3     rdkafka"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'paused'}"
+            }
+          ],
+          "score": 0.2,
+          "duration_sec": 53.844,
+          "case_digest": "c75b712e01e60797f98ad9b3c2921fcdc07d68031c0e2e9db1b78729d2367de0",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\kafka-lag-v4\\cases\\reports\\control_traces\\dynamic_kafka_consumer_lag_v1_000001-1xf9d3og",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_kafka_consumer_lag_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "consumer_lag",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "\nGROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                  HOST            CLIENT-ID\nopsbench-group  opsbench-events 0          28              28              0               rdkafka-84238b54-6d68-452d-beb7-1e6f3a385a12 /172.20.0.3     rdkafka"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 140.312,
+          "case_digest": "c75b712e01e60797f98ad9b3c2921fcdc07d68031c0e2e9db1b78729d2367de0",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\kafka-lag-v4\\cases\\reports\\control_traces\\dynamic_kafka_consumer_lag_v1_000001-1xf9d3og",
+          "error_type": "",
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_kafka_consumer_lag_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "consumer_lag",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "\nGROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                  HOST            CLIENT-ID\nopsbench-group  opsbench-events 0          7               28              21              rdkafka-c3a7587f-653c-4740-b1ec-00121790c5e2 /172.20.0.3     rdkafka"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'paused'}"
+            }
+          ],
+          "score": 0.2,
+          "duration_sec": 200.39,
+          "case_digest": "c75b712e01e60797f98ad9b3c2921fcdc07d68031c0e2e9db1b78729d2367de0",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\kafka-lag-v4\\cases\\reports\\control_traces\\dynamic_kafka_consumer_lag_v1_000001-1xf9d3og",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_kafka_consumer_lag_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "consumer_lag",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "\nGROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                  HOST            CLIENT-ID\nopsbench-group  opsbench-events 0          -               26              -               rdkafka-d2f0d58e-7ef8-4084-9fe7-32d97ff3337b /172.20.0.3     rdkafka"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'paused'}"
+            }
+          ],
+          "score": 0.2,
+          "duration_sec": 247.422,
+          "case_digest": "c75b712e01e60797f98ad9b3c2921fcdc07d68031c0e2e9db1b78729d2367de0",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\kafka-lag-v4\\cases\\reports\\control_traces\\dynamic_kafka_consumer_lag_v1_000001-1xf9d3og",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_kafka_consumer_lag_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "consumer_lag",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "\nGROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                  HOST            CLIENT-ID\nopsbench-group  opsbench-events 0          -               26              -               rdkafka-2777f74d-a2f6-474b-a7fd-9602a9b59596 /172.20.0.3     rdkafka"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'paused'}"
+            }
+          ],
+          "score": 0.2,
+          "duration_sec": 293.859,
+          "case_digest": "c75b712e01e60797f98ad9b3c2921fcdc07d68031c0e2e9db1b78729d2367de0",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\kafka-lag-v4\\cases\\reports\\control_traces\\dynamic_kafka_consumer_lag_v1_000001-1xf9d3og",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_kafka_consumer_lag_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "consumer_lag",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "\nGROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                  HOST            CLIENT-ID\nopsbench-group  opsbench-events 0          25              25              0               rdkafka-e4560b8f-64c1-4282-a43b-e10125942ff4 /172.20.0.3     rdkafka"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 380.203,
+          "case_digest": "c75b712e01e60797f98ad9b3c2921fcdc07d68031c0e2e9db1b78729d2367de0",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\kafka-lag-v4\\cases\\reports\\control_traces\\dynamic_kafka_consumer_lag_v1_000001-1xf9d3og",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_kafka_consumer_lag_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "consumer_lag",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "\nGROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                  HOST            CLIENT-ID\nopsbench-group  opsbench-events 0          -               25              -               rdkafka-dafc0dc2-6e28-4a98-a20a-24cd8e4158a4 /172.20.0.3     rdkafka"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline'}"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 471.187,
+          "case_digest": "c75b712e01e60797f98ad9b3c2921fcdc07d68031c0e2e9db1b78729d2367de0",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\kafka-lag-v4\\cases\\reports\\control_traces\\dynamic_kafka_consumer_lag_v1_000001-1xf9d3og",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 7
+}

@@ -1,0 +1,530 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+      "template_id": "http_retry_circuit_breaker_v1",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\cases\\dynamic_http_retry_circuit_breaker_v1_000001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "runs": [
+        {
+          "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "downstream_recovered",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "circuit_closed",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "effective_dependency",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "repair_persisted",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            }
+          ],
+          "score": 0.3,
+          "duration_sec": 8.859,
+          "case_digest": "7ca2afa7161d8936d79a5908a3ab50bd5491476a13583add78d1195a5f96fbfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\cases\\reports\\control_traces\\dynamic_http_retry_circuit_breaker_v1_000001-x2usq8z0",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "downstream_recovered",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "circuit_closed",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "effective_dependency",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "repair_persisted",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 9.656,
+          "case_digest": "7ca2afa7161d8936d79a5908a3ab50bd5491476a13583add78d1195a5f96fbfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\cases\\reports\\control_traces\\dynamic_http_retry_circuit_breaker_v1_000001-x2usq8z0",
+          "error_type": "",
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "downstream_recovered",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "circuit_closed",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "effective_dependency",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "repair_persisted",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            }
+          ],
+          "score": 0.3,
+          "duration_sec": 10.422,
+          "case_digest": "7ca2afa7161d8936d79a5908a3ab50bd5491476a13583add78d1195a5f96fbfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\cases\\reports\\control_traces\\dynamic_http_retry_circuit_breaker_v1_000001-x2usq8z0",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "downstream_recovered",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'open', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "circuit_closed",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'open', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "effective_dependency",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'open', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "repair_persisted",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'open', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'failed', 'circuit': 'open', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            }
+          ],
+          "score": 0,
+          "duration_sec": 11.797,
+          "case_digest": "7ca2afa7161d8936d79a5908a3ab50bd5491476a13583add78d1195a5f96fbfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\cases\\reports\\control_traces\\dynamic_http_retry_circuit_breaker_v1_000001-x2usq8z0",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "downstream_recovered",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "circuit_closed",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "effective_dependency",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "repair_persisted",
+              "passed": false,
+              "weight": 0.1,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "{'mode': 'failed', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'blackhole', 'repair_epoch': 0, 'fault_injected': True}"
+            }
+          ],
+          "score": 0.3,
+          "duration_sec": 12.656,
+          "case_digest": "7ca2afa7161d8936d79a5908a3ab50bd5491476a13583add78d1195a5f96fbfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\cases\\reports\\control_traces\\dynamic_http_retry_circuit_breaker_v1_000001-x2usq8z0",
+          "error_type": "verifier_failed",
+          "errors": [],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "downstream_recovered",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "circuit_closed",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "effective_dependency",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "repair_persisted",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 14.578,
+          "case_digest": "7ca2afa7161d8936d79a5908a3ab50bd5491476a13583add78d1195a5f96fbfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\cases\\reports\\control_traces\\dynamic_http_retry_circuit_breaker_v1_000001-x2usq8z0",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed"
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live health endpoint"
+            },
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "live business endpoint"
+            },
+            {
+              "name": "downstream_recovered",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "circuit_closed",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "effective_dependency",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "repair_persisted",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "{'mode': 'baseline', 'circuit': 'closed', 'base_dependency': 'downstream', 'override_dependency': 'downstream', 'repair_epoch': 1, 'fault_injected': True}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 17.016,
+          "case_digest": "7ca2afa7161d8936d79a5908a3ab50bd5491476a13583add78d1195a5f96fbfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-docs-10-20260829\\http-circuit-v3\\cases\\reports\\control_traces\\dynamic_http_retry_circuit_breaker_v1_000001-x2usq8z0",
+          "error_type": "",
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 7
+}

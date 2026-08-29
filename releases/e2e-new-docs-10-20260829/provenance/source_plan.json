@@ -1,0 +1,17 @@
+{
+  "purpose": "Ten new document-driven E2E smoke cases; no previous case primitive is reused.",
+  "generator_model": "deepseek-v4-flash",
+  "review_model": "deepseek-v4-pro",
+  "cases": [
+    {"primitive": "postgres_lock_contention_v1", "url": "https://www.postgresql.org/docs/current/explicit-locking.html", "difficulty": "hard"},
+    {"primitive": "postgres_connection_pool_exhaustion_v1", "url": "https://www.pgbouncer.org/usage", "difficulty": "medium"},
+    {"primitive": "redis_cache_corruption_v1", "url": "https://redis.io/docs/latest/develop/use-cases/cache-aside/", "difficulty": "medium"},
+    {"primitive": "kafka_consumer_lag_v1", "url": "https://kafka.apache.org/41/configuration/consumer-configs", "difficulty": "hard"},
+    {"primitive": "linux_memory_growth_v1", "url": "https://docs.kernel.org/admin-guide/mm/concepts.html", "difficulty": "medium"},
+    {"primitive": "linux_disk_full_v1", "url": "https://www.gnu.org/software/coreutils/manual/html_node/df-invocation.html", "difficulty": "medium"},
+    {"primitive": "linux_inode_exhaustion_v1", "url": "https://docs.kernel.org/filesystems/ext4/overview.html", "difficulty": "hard"},
+    {"primitive": "linux_upload_permission_v1", "url": "https://docs.python.org/3/library/os.html#os.access", "difficulty": "medium"},
+    {"primitive": "linux_file_lock_v1", "url": "https://man7.org/linux/man-pages/man2/flock.2.html", "difficulty": "hard"},
+    {"primitive": "http_retry_circuit_breaker_v1", "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker", "difficulty": "hard"}
+  ]
+}
