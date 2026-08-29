@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 24,
+  "final": "The effective configuration now correctly shows `port: 8080` without the `APP_PORT` override. The service is healthy and responding correctly.\n\n**Summary of the incident:**\n\nThe root cause was a runtime environment variable `APP_PORT=8082` that was overriding the base configuration's `port: 8080`. The application was likely listening on port 8082, but the health probe and business operation were configured to check port 8080, causing the health check to fail.\n\n**Repair performed:**\n1. Removed the `APP_PORT` environment variable from the `runtime-environment` configuration source.\n2. Restarted the `orders-api` service to apply the change.\n\n**Verification:**\n- The service is running (`service_status` returns running).\n- The health endpoint returns HTTP 200 (`business_probe` reports healthy).\n- The effective runtime configuration now shows `port: 8080` as the active port."
+}

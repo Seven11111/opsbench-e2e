@@ -1,0 +1,1252 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_tls_hostname_mismatch_v1_000001",
+      "template_id": "tls_hostname_mismatch_v1",
+      "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\dynamic_tls_hostname_mismatch_v1_000001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "insecure_fix",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "symptom_bypass",
+          "wrong_layer_fix"
+        ],
+        "observed_scenarios": [
+          "cleanup",
+          "insecure_fix",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "symptom_bypass",
+          "wrong_layer_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "public_actionability": {
+        "passed": true,
+        "issues": [],
+        "version": "e2e-public-actionability-v1",
+        "required": false
+      },
+      "public_tool_oracle": null,
+      "runs": [
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.765,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 866B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 87.83kB 0.0s done\n#6 DONE 0.0s\n\n#7 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#7 CACHED\n\n#8 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [7/9] COPY runtime /opt/opsbench/runtime\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [6/9] COPY agent /agent\n#12 CACHED\n\n#13 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:bcf91c62b024de2ec9dccc6edbfc3b7473e8fb942073080a80cc3632473ce4a3 0.0s done\n#15 exporting config sha256:b79c52458eeb7bcf8d706b39da4a9de4669a152f3b7b538522cfbe81cb00b051 0.0s done\n#15 exporting attestation manifest sha256:8ea324a7569ace807b116786a22bb0ea5d01ad97b5cb6bdd27b3e86fa1a57707 0.0s done\n#15 exporting manifest list sha256:22ea27b3dfc8faa56f24282f2f6ed7b2dbbedcc348582cc4b56d02455dd07b81 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-919281_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-919281_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-919281-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-919281-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-919281-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-919281-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.172,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.625,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.969,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.469,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.609,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 2.359,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.11,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 15.719,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-2d_rbun8",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.562,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 866B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [7/9] COPY runtime /opt/opsbench/runtime\n#8 CACHED\n\n#9 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#9 CACHED\n\n#10 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#10 CACHED\n\n#11 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#11 CACHED\n\n#12 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:ab6789959ae9ec29c3b80092c6ecc7f2838068927b2f71871c5d3da067c82986 0.0s done\n#15 exporting config sha256:c7b249fcd3d759c2321824db622cb312a98ab321cff8144e843e6a2bda6bfec1 0.0s done\n#15 exporting attestation manifest sha256:33e48e4a512d3b84384a7920ecb3ad680597344bc4c2157d2176d6d8edc0f9c9 0.0s done\n#15 exporting manifest list sha256:054f1fc5ca7dfa0343fdf28ddeca19c230b6d36da3d2c122ba64c22f326ebfe0\n#15 exporting manifest list sha256:054f1fc5ca7dfa0343fdf28ddeca19c230b6d36da3d2c122ba64c22f326ebfe0 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-935000_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-935000_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-935000-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-935000-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-935000-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-935000-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.141,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.735,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.062,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.453,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.735,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.469,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 9.734,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-mviquixa",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.516,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 866B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [6/9] COPY agent /agent\n#7 CACHED\n\n#8 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#8 CACHED\n\n#9 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#10 CACHED\n\n#11 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#12 CACHED\n\n#13 [7/9] COPY runtime /opt/opsbench/runtime\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:3de55c471a04e3704f36e854560f3538e0cd86d4dcdf974f146858d1b729c04b 0.0s done\n#15 exporting config sha256:798b35244089154d9cfaae3219b9e02e35b6f58467c91fa3bd9ccf01e8906a6d 0.0s done\n#15 exporting attestation manifest sha256:83ee14f7357009b64762462d0997598ee0959dec86dfc1205a65a5ed1b1acd66 0.0s done\n#15 exporting manifest list sha256:db74eb2f984a14d166e2d007d1872a82eba4fea3e448101fd74915c2095209ef\n#15 exporting manifest list sha256:db74eb2f984a14d166e2d007d1872a82eba4fea3e448101fd74915c2095209ef 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-944734_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-944734_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-944734-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-944734-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-944734-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-944734-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.156,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.0,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.359,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.0,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.172,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.468,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.079,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 11.844,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-z96f5u6f",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.0,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 866B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [7/9] COPY runtime /opt/opsbench/runtime\n#7 CACHED\n\n#8 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:a24e3e6eae7c5779d0fe44cc837486c579596300c27e4ac89fdaecae02308778 0.0s done\n#15 exporting config sha256:84e03dcc12602dde351ed0c338d3de4cbb457d75d32dd834971ae734b6f2fb29 0.0s done\n#15 exporting attestation manifest sha256:a52f461c7efb35bd30739ccfb16a5e1e7de9a31792de872b68c282897db03c3e 0.0s done\n#15 exporting manifest list sha256:f0545e825d2c7f6f2d6fa2f804fa51f83c02a91da732b85d58f7a78b08fc8760\n#15 exporting manifest list sha256:f0545e825d2c7f6f2d6fa2f804fa51f83c02a91da732b85d58f7a78b08fc8760 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-956578_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-956578_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-956578-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-956578-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-956578-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-956578-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.61,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.39,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.516,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.687,
+              "stdout_tail": "",
+              "stderr_tail": "cp: cannot stat '/opt/opsbench/certs/legacy.crt': No such file or directory\ncp: cannot stat '/opt/opsbench/certs/legacy.key': No such file or directory\n"
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 0.438,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 7.843,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-7by_trxt",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "wrong_layer_fix",
+          "control_mode": "wrong_layer_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.156,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 866B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [7/9] COPY runtime /opt/opsbench/runtime\n#11 CACHED\n\n#12 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:a1e9af7bdbf98a65c71669a90fd505dd228a8ed036f87147fc1e4b3e5582de53 0.0s done\n#15 exporting config sha256:7cce525ff3b7e4d25863c34ae1905df323271c1bf5ad7b40ec09913d4c9caad1 0.0s done\n#15 exporting attestation manifest sha256:0cf177b7b014a9d381a04259af0aef6d6f70a77a086f9b136286e612912493d4 0.0s done\n#15 exporting manifest list sha256:388ba34b50007c1fb4beacf315ee1c79f6f43012ab513b578a29e27b2acfaa91\n#15 exporting manifest list sha256:388ba34b50007c1fb4beacf315ee1c79f6f43012ab513b578a29e27b2acfaa91 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-964421_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-964421_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-964421-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-964421-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-964421-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-964421-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.141,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.75,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.062,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.453,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.188,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.0,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.062,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 9.688,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-lmngp7om",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "symptom_bypass",
+          "control_mode": "symptom_bypass",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.14,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 866B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [6/9] COPY agent /agent\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:b61f6ae43f5bc886da24833a2a214be52a1f9ad6e009c4bc93bd62713e62943c 0.0s done\n#15 exporting config sha256:5fa90084a065bf71bcee8fd2f2cd19669f787c51fa9580572f5ade9b1a0daba4 0.0s done\n#15 exporting attestation manifest sha256:672625b7e5d72ba0472c88e17c57ab1d5a953ac7d5715d3b49c7dce2093e00a4 0.0s done\n#15 exporting manifest list sha256:1c8cf67683b9936ea71e2cbbaad3dc719b4950767a0d5a6fadabecd7f7af2744\n#15 exporting manifest list sha256:1c8cf67683b9936ea71e2cbbaad3dc719b4950767a0d5a6fadabecd7f7af2744 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-974109_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-974109_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-974109-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-974109-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-974109-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-974109-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.157,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.797,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.125,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.453,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.687,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.016,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 12.437,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-9erciuov",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.015,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 866B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [7/9] COPY runtime /opt/opsbench/runtime\n#7 CACHED\n\n#8 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#9 CACHED\n\n#10 [6/9] COPY agent /agent\n#10 CACHED\n\n#11 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#11 CACHED\n\n#12 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#12 CACHED\n\n#13 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:9e27a5a7d6b361c9880b01fe644791c5ff0cbe73e8e080e8e551ac89b35ee5b9 0.0s done\n#15 exporting config sha256:9bbaf714347ee0c9e4b751735bb96e21c629e4a4e96ea18d0c9973e9cda32876 0.0s done\n#15 exporting attestation manifest sha256:f200c628e780595780ce38a4d3062c192a0d28cecdcd036665df8d77502f9218 0.0s done\n#15 exporting manifest list sha256:b3a4a1bfac9cd2f3d68ddf3df76b41e36f1cd9fc3faaae894b0d2fd75a0b265f\n#15 exporting manifest list sha256:b3a4a1bfac9cd2f3d68ddf3df76b41e36f1cd9fc3faaae894b0d2fd75a0b265f 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-986546_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-986546_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-986546-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-986546-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-986546-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-986546-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.141,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.594,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.015,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.532,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.187,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 0.531,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.079,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 9.704,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-ytxg6ebu",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "insecure_fix",
+          "control_mode": "insecure_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.61,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 866B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [6/9] COPY agent /agent\n#10 CACHED\n\n#11 [7/9] COPY runtime /opt/opsbench/runtime\n#11 CACHED\n\n#12 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:03156769ec10c522e6b79dfb186b4eb7ffcab59eb35b6a7b9ce4da748c940d19 0.0s done\n#15 exporting config sha256:214785d9483738ffcbfec5064002981a73b8b6dab4d7de99ac2a0b6ae99c3859 0.0s done\n#15 exporting attestation manifest sha256:0e75c8de8553ae29e9a8b9b18f6eb62438f48148add4a56fb75c18796c278d82 0.0s done\n#15 exporting manifest list sha256:6bfce5129e42a3bb95b9723ee077605c2eeb0a0b42e2465239f622eae00e1e8f\n#15 exporting manifest list sha256:6bfce5129e42a3bb95b9723ee077605c2eeb0a0b42e2465239f622eae00e1e8f 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-996250_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-996250_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-996250-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-996250-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-996250-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-996250-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.14,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.5,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.938,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.454,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.734,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.484,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.469,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 12.437,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-85d1ckvl",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.953,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 864B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#7 CACHED\n\n#8 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [7/9] COPY runtime /opt/opsbench/runtime\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:8f52d181a94a89ef60e1b9bcf51d3f14f6179a324bea31accb51afda9d44307f 0.0s done\n#15 exporting config sha256:a42a5a4364c491ba2d73cbc1e6306660583ce161f6cf82983dfb241992c03755 0.0s done\n#15 exporting attestation manifest sha256:ca9abb70aa49ebd335b8c2d3e1c43fe4ae685362bc009da4586bcd7a854cf308 0.0s done\n#15 exporting manifest list sha256:6e3a2dce1666c60929f0d657644d05a6960983a2adc24ad7ffd619a2d496a5e6\n#15 exporting manifest list sha256:6e3a2dce1666c60929f0d657644d05a6960983a2adc24ad7ffd619a2d496a5e6 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-8687_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-8687_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-8687-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-8687-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-8687-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-8687-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.141,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.828,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.078,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.875,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.734,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.453,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 200, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 9.563,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-oo819nyl",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        },
+        {
+          "id": "dynamic_tls_hostname_mismatch_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.985,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 865B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#7 CACHED\n\n#8 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [7/9] COPY runtime /opt/opsbench/runtime\n#10 CACHED\n\n#11 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#11 CACHED\n\n#12 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:5f9163c8eaae7652ad1ac27245da641eae1f1564b07aeeae3e92103847c9e858 0.0s done\n#15 exporting config sha256:4ef82eac20fdea716fea2cf03e8c7496b493d66570d806bfc5fc9d46babfe13e 0.0s done\n#15 exporting attestation manifest sha256:369d4965ae4358ec49ecf43bd1453987a177d9c70b9c8976ae44ce216ac95fc6 0.0s done\n#15 exporting manifest list sha256:c77e1e3c91743fe9230fc2cd7919f74580216aab38c9826dc48d1b324980e044\n#15 exporting manifest list sha256:c77e1e3c91743fe9230fc2cd7919f74580216aab38c9826dc48d1b324980e044 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-tls_hostname_mismatch_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-tls_hostname_mismatch_v1 Building \n Image opsbench-e2e-tls_hostname_mismatch_v1 Built \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-18250_default Creating \n Network opsbench-dynamic_tls_hostname_mismatch_-20204-18250_default Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-18250-target-1 Creating \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-18250-target-1 Created \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-18250-target-1 Starting \n Container opsbench-dynamic_tls_hostname_mismatch_-20204-18250-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.156,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.734,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 200, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.078,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.016,
+              "stdout_tail": "{\"checks\": [{\"insecure_status\": 200, \"name\": \"live_fault_active\", \"passed\": true, \"strategy\": \"tls_hostname\", \"verified_status\": 0}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.187,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 0.969,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"tls_hostname\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"certificate_chain\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25, \"detail\": \"{\\\"strategy\\\": \\\"tls_hostname\\\", \\\"verified_status\\\": 0, \\\"insecure_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.531,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "tls_hostname",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "certificate_chain",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": "{\"strategy\": \"tls_hostname\", \"verified_status\": 0, \"insecure_status\": 200}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 10.0,
+          "case_digest": "17a9c4bd8ec08e43452c907719e1a7590ff2ca3ff1a5a14f9520f237319d13de",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-17-tls-v2\\cases\\reports\\control_traces\\dynamic_tls_hostname_mismatch_v1_000001-b4gabf_q",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "cleanup",
+          "control_mode": "cleanup",
+          "repeat_index": 0
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 10
+}

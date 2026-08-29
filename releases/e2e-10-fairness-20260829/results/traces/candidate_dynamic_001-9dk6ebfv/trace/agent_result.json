@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 30,
+  "final": "## Summary\n\n**Root cause:** The `orders` table was missing an index on the `customer_id` column. Queries filtering by `customer_id` relied on a sequential scan, processing ~166,650 rows per worker to find just 50 matching rows.\n\n**Fix applied:** Created a B-tree index on `customer_id`:\n```sql\nCREATE INDEX idx_orders_customer_id ON orders (customer_id);\n```\n\n**Verification results:**\n\n| Metric | Before | After |\n|---|---|---|\n| Plan type | `Parallel Seq Scan` | `Bitmap Index Scan` + `Bitmap Heap Scan` |\n| Rows scanned | ~166,650 filtered per worker | 50 index entries matched |\n| Buffers read | 6,059 | 55 |\n| Execution time | 14.508 ms | 0.348 ms |\n| Correct rows returned | 50 | 50 |\n\nThe index-backed plan is now used, query latency is well below any threshold, and the database continues accepting connections normally."
+}

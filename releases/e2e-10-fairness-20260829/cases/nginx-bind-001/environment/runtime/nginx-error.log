@@ -1,0 +1,6 @@
+2026/08/28 18:35:31 [notice] 688#688: using the "epoll" event method
+2026/08/28 18:35:31 [notice] 688#688: nginx/1.26.3
+2026/08/28 18:35:31 [notice] 688#688: OS: Linux 6.6.87.2-microsoft-standard-WSL2
+2026/08/28 18:35:31 [notice] 688#688: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2026/08/28 18:35:31 [notice] 689#689: start worker processes
+2026/08/28 18:35:31 [notice] 689#689: start worker process 690

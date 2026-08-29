@@ -1,0 +1,232 @@
+{
+  "batch_id": "e2e-10-fairness-20260829",
+  "generation": {
+    "generated_case_count_in_frozen_release": 10,
+    "evaluable_case_count": 10,
+    "rejection_count": 42,
+    "process": "document/evidence -> single candidate -> Judge -> trusted renderer -> static validation -> Docker runtime gate"
+  },
+  "static_validation": {
+    "scope": "all frozen manifest items",
+    "case_count": 10,
+    "failed_count": 0
+  },
+  "docker_runtime_gate": {
+    "case_count": 10,
+    "passed_count": 10,
+    "cleanup_failure_count": 0
+  },
+  "evaluation": {
+    "family": "e2e",
+    "total": 10,
+    "e2e_score": 50.0,
+    "family_scores": {
+      "e2e": 50.0
+    },
+    "task_success_rate": 0.5,
+    "execution_completion_rate": 0.7,
+    "conditional_success_rate": 0.7142857142857143,
+    "verifier_check_rate": 0.5945945945945946,
+    "timeout_rate": 0.3,
+    "cleanup_failure_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "average_duration": 98.7188,
+    "average_verifier_score": 0.575,
+    "counts": {
+      "passed": 5,
+      "evaluable": 10,
+      "not_evaluable": 0,
+      "model_failed": 5,
+      "agent_completed": 7,
+      "infrastructure_errors": 0,
+      "timeouts": 3,
+      "cleanup_failures": 0
+    },
+    "failure_types": {
+      "model_timeout": 3,
+      "task_failure": 2
+    },
+    "by_primary_task_label": {
+      "fault_fix": {
+        "total": 10,
+        "success_rate": 0.5
+      }
+    },
+    "by_fault_type": {
+      "certificate_identity": {
+        "total": 2,
+        "success_rate": 0.0
+      },
+      "configuration_precedence": {
+        "total": 3,
+        "success_rate": 1.0
+      },
+      "latency_regression": {
+        "total": 2,
+        "success_rate": 0.0
+      },
+      "performance_regression": {
+        "total": 2,
+        "success_rate": 1.0
+      },
+      "resource_conflict": {
+        "total": 1,
+        "success_rate": 0.0
+      }
+    },
+    "by_domain": {
+      "configuration": {
+        "total": 3,
+        "success_rate": 1.0
+      },
+      "database": {
+        "total": 2,
+        "success_rate": 1.0
+      },
+      "distributed_system": {
+        "total": 2,
+        "success_rate": 0.0
+      },
+      "http": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "tls": {
+        "total": 2,
+        "success_rate": 0.0
+      }
+    },
+    "by_template": {
+      "app_config_precedence_v1": {
+        "total": 3,
+        "success_rate": 1.0
+      },
+      "http_dependency_timeout_slo_v1": {
+        "total": 2,
+        "success_rate": 0.0
+      },
+      "nginx_bind_conflict_v1": {
+        "total": 1,
+        "success_rate": 0.0
+      },
+      "postgres_missing_index_v2": {
+        "total": 2,
+        "success_rate": 1.0
+      },
+      "tls_hostname_mismatch_v1": {
+        "total": 2,
+        "success_rate": 0.0
+      }
+    },
+    "summary": {
+      "family": "e2e",
+      "total": 10,
+      "e2e_score": 50.0,
+      "family_scores": {
+        "e2e": 50.0
+      },
+      "task_success_rate": 0.5,
+      "execution_completion_rate": 0.7,
+      "conditional_success_rate": 0.7142857142857143,
+      "verifier_check_rate": 0.5945945945945946,
+      "timeout_rate": 0.3,
+      "cleanup_failure_rate": 0.0,
+      "infrastructure_error_rate": 0.0,
+      "average_duration": 98.7188,
+      "average_verifier_score": 0.575,
+      "counts": {
+        "passed": 5,
+        "evaluable": 10,
+        "not_evaluable": 0,
+        "model_failed": 5,
+        "agent_completed": 7,
+        "infrastructure_errors": 0,
+        "timeouts": 3,
+        "cleanup_failures": 0
+      },
+      "failure_types": {
+        "model_timeout": 3,
+        "task_failure": 2
+      },
+      "by_primary_task_label": {
+        "fault_fix": {
+          "total": 10,
+          "success_rate": 0.5
+        }
+      },
+      "by_fault_type": {
+        "certificate_identity": {
+          "total": 2,
+          "success_rate": 0.0
+        },
+        "configuration_precedence": {
+          "total": 3,
+          "success_rate": 1.0
+        },
+        "latency_regression": {
+          "total": 2,
+          "success_rate": 0.0
+        },
+        "performance_regression": {
+          "total": 2,
+          "success_rate": 1.0
+        },
+        "resource_conflict": {
+          "total": 1,
+          "success_rate": 0.0
+        }
+      },
+      "by_domain": {
+        "configuration": {
+          "total": 3,
+          "success_rate": 1.0
+        },
+        "database": {
+          "total": 2,
+          "success_rate": 1.0
+        },
+        "distributed_system": {
+          "total": 2,
+          "success_rate": 0.0
+        },
+        "http": {
+          "total": 1,
+          "success_rate": 0.0
+        },
+        "tls": {
+          "total": 2,
+          "success_rate": 0.0
+        }
+      },
+      "by_template": {
+        "app_config_precedence_v1": {
+          "total": 3,
+          "success_rate": 1.0
+        },
+        "http_dependency_timeout_slo_v1": {
+          "total": 2,
+          "success_rate": 0.0
+        },
+        "nginx_bind_conflict_v1": {
+          "total": 1,
+          "success_rate": 0.0
+        },
+        "postgres_missing_index_v2": {
+          "total": 2,
+          "success_rate": 1.0
+        },
+        "tls_hostname_mismatch_v1": {
+          "total": 2,
+          "success_rate": 0.0
+        }
+      }
+    },
+    "evaluation_manifest": "results/e2e_manifest.json",
+    "agent_config": "configs/e2e-flash-60.yaml",
+    "trace_dir": "results/traces"
+  },
+  "frozen_manifest": "results/e2e_manifest.json",
+  "details": "results/flash_details.jsonl",
+  "traces": "results/traces",
+  "note": "The release contains 10 package entries; two TLS entries share a case digest, so there are 9 unique digests."
+}

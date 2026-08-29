@@ -1,0 +1,722 @@
+id: candidate_app_config_precedence_001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: configuration_precedence
+domain: configuration
+technology_stack:
+- HTTP
+- Python
+- Linux
+template_id: app_config_precedence_v1
+fault_primitive_id: app_config_precedence_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: demo_validated
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 8
+  rubric_version: e2e-difficulty-v2
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+  rationale:
+  - The visible configuration is valid but is not the effective runtime configuration.
+  - A generated file edit is temporary because a reconciler restores the selected
+    state.
+  - The final check observes the service after reconciliation, not only immediately
+    after the edit.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/health
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#claim_003
+    claim_type: symptom
+    field_path: public_task.symptom
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_005
+    claim_type: repair
+    field_path: public_task.objective
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_016
+    claim_type: repair
+    field_path: public_task.objective
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_006
+    claim_type: repair
+    field_path: public_task.objective
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_008
+    claim_type: verification
+    field_path: success_checks[0]
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_009
+    claim_type: verification
+    field_path: success_checks[0]
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_043
+    claim_type: verification
+    field_path: success_checks[1]
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_013
+    claim_type: root_cause
+    field_path: fault
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_046
+    claim_type: root_cause
+    field_path: fault
+  candidate_group_id: dynamic_bundle_0001_group_001
+  generation_strategy: layered_state
+  experience_version: e2e-v1
+  experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+  scenario_seed: 1
+  novelty_fingerprint: 7159324fd60d8fd9
+  difficulty_assessment:
+    profile: hard
+    score: 8
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 2
+      signal_indirection: 2
+      tool_breadth: 1
+      repair_depth: 2
+      verification_complexity: 1
+    rationale:
+    - The visible configuration is valid but is not the effective runtime configuration.
+    - A generated file edit is temporary because a reconciler restores the selected
+      state.
+    - The final check observes the service after reconciliation, not only immediately
+      after the edit.
+    empirical_status: not_calibrated
+  scenario_spec:
+    id: candidate_app_config_precedence_001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: web_service
+      component_id: configurable-http-service
+      version: ''
+      params: {}
+    fault:
+      primitive_id: app_config_precedence_v1
+      target: web_service
+      params: {}
+    public_task:
+      symptom: The health endpoint of the web service returns an error, and the service
+        is not responding on the expected listener port. Attempts to reach the service
+        fail.
+      impact: Users cannot access the service, and automated health checks report
+        the service as unhealthy.
+      objective: Restore the service to a healthy state where it responds correctly
+        on the expected port and passes health checks.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - service_repair
+    expected_actions:
+    - primitive_id: app_config_precedence_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.34
+    - check_id: effective_state
+      weight: 0.33
+    - check_id: reconciler_persistence
+      weight: 0.33
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_layer_fix
+    - scenario: symptom_bypass
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 8
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 1
+        repair_depth: 2
+        verification_complexity: 1
+      rationale:
+      - The visible configuration is valid but is not the effective runtime configuration.
+      - A generated file edit is temporary because a reconciler restores the selected
+        state.
+      - The final check observes the service after reconciliation, not only immediately
+        after the edit.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 1
+        repair_depth: 2
+        verification_complexity: 1
+      causal_depth: 3
+      state_layers:
+      - base_config
+      - generated_config
+      - environment_override
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - effective_config
+      - process_tree
+      persistence_id: config_reconciler
+      distractor_ids:
+      - healthy_process
+      - stale_base_config
+      repair_invariant_ids:
+      - business_operation
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - direct_edit_generated_config
+      - restart_only
+      - ignore_schema_validation
+      verification_check_ids:
+      - business_operation
+      - effective_state
+      - reconciler_persistence
+      rationale:
+      - The visible configuration is valid but is not the effective runtime configuration.
+      - A generated file edit is temporary because a reconciler restores the selected
+        state.
+      - The final check observes the service after reconciliation, not only immediately
+        after the edit.
+      schema_version: e2e-difficulty-contract-v1
+      score: 8
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - The visible configuration is valid but is not the effective runtime configuration.
+        - A generated file edit is temporary because a reconciler restores the selected
+          state.
+        - The final check observes the service after reconciliation, not only immediately
+          after the edit.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#claim_003
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_005
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_016
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_006
+    - field_path: success_checks[0]
+      claim_type: verification
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_008
+    - field_path: success_checks[0]
+      claim_type: verification
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_009
+    - field_path: success_checks[1]
+      claim_type: verification
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_043
+    - field_path: fault
+      claim_type: root_cause
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_013
+    - field_path: fault
+      claim_type: root_cause
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_046
+    scenario_seed: 1
+    technology_stack:
+    - HTTP
+    - Python
+    - Linux
+    domain: configuration
+    fault_type: configuration_precedence
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - The visible configuration is valid but is not the effective runtime configuration.
+        - A generated file edit is temporary because a reconciler restores the selected
+          state.
+        - The final check observes the service after reconciliation, not only immediately
+          after the edit.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        causal_depth: 3
+        state_layers:
+        - base_config
+        - generated_config
+        - environment_override
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - effective_config
+        - process_tree
+        persistence_id: config_reconciler
+        distractor_ids:
+        - healthy_process
+        - stale_base_config
+        repair_invariant_ids:
+        - business_operation
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - direct_edit_generated_config
+        - restart_only
+        - ignore_schema_validation
+        verification_check_ids:
+        - business_operation
+        - effective_state
+        - reconciler_persistence
+        rationale:
+        - The visible configuration is valid but is not the effective runtime configuration.
+        - A generated file edit is temporary because a reconciler restores the selected
+          state.
+        - The final check observes the service after reconciliation, not only immediately
+          after the edit.
+        schema_version: e2e-difficulty-contract-v1
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 8
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 1
+            repair_depth: 2
+            verification_complexity: 1
+          rationale:
+          - The visible configuration is valid but is not the effective runtime configuration.
+          - A generated file edit is temporary because a reconciler restores the selected
+            state.
+          - The final check observes the service after reconciliation, not only immediately
+            after the edit.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  dynamic_spec:
+    id: candidate_app_config_precedence_001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: web_service
+      component_id: configurable-http-service
+      version: ''
+      params: {}
+    fault:
+      primitive_id: app_config_precedence_v1
+      target: web_service
+      params: {}
+    public_task:
+      symptom: The health endpoint of the web service returns an error, and the service
+        is not responding on the expected listener port. Attempts to reach the service
+        fail.
+      impact: Users cannot access the service, and automated health checks report
+        the service as unhealthy.
+      objective: Restore the service to a healthy state where it responds correctly
+        on the expected port and passes health checks.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - service_repair
+    expected_actions:
+    - primitive_id: app_config_precedence_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.34
+    - check_id: effective_state
+      weight: 0.33
+    - check_id: reconciler_persistence
+      weight: 0.33
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_layer_fix
+    - scenario: symptom_bypass
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 8
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 1
+        repair_depth: 2
+        verification_complexity: 1
+      rationale:
+      - The visible configuration is valid but is not the effective runtime configuration.
+      - A generated file edit is temporary because a reconciler restores the selected
+        state.
+      - The final check observes the service after reconciliation, not only immediately
+        after the edit.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 1
+        repair_depth: 2
+        verification_complexity: 1
+      causal_depth: 3
+      state_layers:
+      - base_config
+      - generated_config
+      - environment_override
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - effective_config
+      - process_tree
+      persistence_id: config_reconciler
+      distractor_ids:
+      - healthy_process
+      - stale_base_config
+      repair_invariant_ids:
+      - business_operation
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - direct_edit_generated_config
+      - restart_only
+      - ignore_schema_validation
+      verification_check_ids:
+      - business_operation
+      - effective_state
+      - reconciler_persistence
+      rationale:
+      - The visible configuration is valid but is not the effective runtime configuration.
+      - A generated file edit is temporary because a reconciler restores the selected
+        state.
+      - The final check observes the service after reconciliation, not only immediately
+        after the edit.
+      schema_version: e2e-difficulty-contract-v1
+      score: 8
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - The visible configuration is valid but is not the effective runtime configuration.
+        - A generated file edit is temporary because a reconciler restores the selected
+          state.
+        - The final check observes the service after reconciliation, not only immediately
+          after the edit.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#claim_003
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_005
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_016
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_006
+    - field_path: success_checks[0]
+      claim_type: verification
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_008
+    - field_path: success_checks[0]
+      claim_type: verification
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_009
+    - field_path: success_checks[1]
+      claim_type: verification
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_043
+    - field_path: fault
+      claim_type: root_cause
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_013
+    - field_path: fault
+      claim_type: root_cause
+      ref: doc-docs-docker-com-compose-how-tos-environment-variables-va-f87f19#heuristic_operational_046
+    scenario_seed: 1
+    technology_stack:
+    - HTTP
+    - Python
+    - Linux
+    domain: configuration
+    fault_type: configuration_precedence
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - The visible configuration is valid but is not the effective runtime configuration.
+        - A generated file edit is temporary because a reconciler restores the selected
+          state.
+        - The final check observes the service after reconciliation, not only immediately
+          after the edit.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        causal_depth: 3
+        state_layers:
+        - base_config
+        - generated_config
+        - environment_override
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - effective_config
+        - process_tree
+        persistence_id: config_reconciler
+        distractor_ids:
+        - healthy_process
+        - stale_base_config
+        repair_invariant_ids:
+        - business_operation
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - direct_edit_generated_config
+        - restart_only
+        - ignore_schema_validation
+        verification_check_ids:
+        - business_operation
+        - effective_state
+        - reconciler_persistence
+        rationale:
+        - The visible configuration is valid but is not the effective runtime configuration.
+        - A generated file edit is temporary because a reconciler restores the selected
+          state.
+        - The final check observes the service after reconciliation, not only immediately
+          after the edit.
+        schema_version: e2e-difficulty-contract-v1
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 8
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 1
+            repair_depth: 2
+            verification_complexity: 1
+          rationale:
+          - The visible configuration is valid but is not the effective runtime configuration.
+          - A generated file edit is temporary because a reconciler restores the selected
+            state.
+          - The final check observes the service after reconciliation, not only immediately
+            after the edit.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  bundle_id: dynamic_bundle_0001
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - service_list
+  - business_probe
+  - config_sources
+  - config_read
+  - config_update
+  - service_manage
+  repair_operations:
+  - config_update:remove
+  - service_manage:restart
+  verifier_checks:
+  - business_operation
+  - effective_state
+  - reconciler_persistence
+  semantic_state:
+  - APP_PORT key presence
+  - effective listener behavior
+  public_oracle: app_config_precedence_v1
+difficulty_contract:
+  target_profile: hard
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+  causal_depth: 3
+  state_layers:
+  - base_config
+  - generated_config
+  - environment_override
+  - runtime_process
+  required_signal_ids:
+  - logs
+  - effective_config
+  - process_tree
+  persistence_id: config_reconciler
+  distractor_ids:
+  - healthy_process
+  - stale_base_config
+  repair_invariant_ids:
+  - business_operation
+  - repair_persists
+  - root_signal_absent
+  forbidden_shortcut_ids:
+  - direct_edit_generated_config
+  - restart_only
+  - ignore_schema_validation
+  verification_check_ids:
+  - business_operation
+  - effective_state
+  - reconciler_persistence
+  rationale:
+  - The visible configuration is valid but is not the effective runtime configuration.
+  - A generated file edit is temporary because a reconciler restores the selected
+    state.
+  - The final check observes the service after reconciliation, not only immediately
+    after the edit.
+  schema_version: e2e-difficulty-contract-v1
+  score: 8
+  rubric_version: e2e-difficulty-v2
+  difficulty_assessment:
+    profile: hard
+    score: 8
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 2
+      signal_indirection: 2
+      tool_breadth: 1
+      repair_depth: 2
+      verification_complexity: 1
+    rationale:
+    - The visible configuration is valid but is not the effective runtime configuration.
+    - A generated file edit is temporary because a reconciler restores the selected
+      state.
+    - The final check observes the service after reconciliation, not only immediately
+      after the edit.
+    empirical_status: not_calibrated
+  candidate_strategy: layered_state
+runtime_controls:
+- no_op
+- oracle
+- restart_only
+- wrong_layer_fix
+- symptom_bypass
+- partial_fix
+- repeat
+- cleanup
+agent_panel_status: not_calibrated
+tool_standard:
+  id: config-operations-v1
+  version: '1'
+compiler_version: opsbench-dynamic-compiler-v1
+scenario_spec_version: opsbench-e2e-scenario-v2
+case_status: evaluable
+runtime_gate_passed: true

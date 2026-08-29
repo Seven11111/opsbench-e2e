@@ -1,0 +1,929 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "candidate_dynamic_001",
+      "template_id": "postgres_missing_index_v2",
+      "case_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-06-postgres-index-v2\\cases\\candidate_dynamic_001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "public_actionability": {
+        "passed": true,
+        "issues": [],
+        "version": "e2e-public-actionability-v1",
+        "required": false
+      },
+      "public_tool_oracle": null,
+      "runs": [
+        {
+          "id": "candidate_dynamic_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 7.89,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 786B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 615B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/10] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 69.41kB 0.0s done\n#5 DONE 0.0s\n\n#7 [ 2/10] RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client procps curl     && rm -rf /var/lib/apt/lists/*\n#7 CACHED\n\n#8 [ 3/10] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [ 4/10] WORKDIR /agent\n#9 CACHED\n\n#10 [ 5/10] COPY agent/requirements.txt /agent/requirements.txt\n#10 CACHED\n\n#11 [ 6/10] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#11 CACHED\n\n#12 [ 7/10] COPY agent /agent\n#12 DONE 0.0s\n\n#13 [ 8/10] RUN chmod +x /agent/run.py /agent/run.sh\n#13 DONE 0.5s\n\n#14 [ 9/10] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#14 DONE 0.4s\n\n#15 [10/10] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 DONE 0.3s\n\n#16 exporting to image\n#16 exporting layers\n#16 exporting layers 0.2s done\n#16 exporting manifest sha256:28a4877b00f252fbafc93f9bfb8d512035b46b1aa3713ed354e37eb7e0d16132 0.0s done\n#16 exporting config sha256:90b13d21f435f7065b195e06f5e802e573ab09d3b9c298f76d8733d4ab3d4ca4 0.0s done\n#16 exporting attestation manifest sha256:d3db7f58f0ae13f63bd715322b954c3e863e07a66b898aa95606c271480c7d6b 0.0s done\n#16 exporting manifest list sha256:3c85e027c7c69616a45c0f66fc5ad575fc735ad209170a1912b24b7de4c377c7 0.0s done\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest done\n#16 unpacking to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest 0.1s done\n#16 DONE 0.5s\n\n#17 resolving provenance for metadata file\n#17 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-postgres_missing_index_v2 Building \n Image opsbench-e2e-postgres_missing_index_v2 Built \n Network opsbench-candidate_dynamic_001-7480-695796_default Creating \n Network opsbench-candidate_dynamic_001-7480-695796_default Created \n Container opsbench-candidate_dynamic_001-7480-695796-db-1 Creating \n Container opsbench-candidate_dynamic_001-7480-695796-db-1 Created \n Container opsbench-candidate_dynamic_001-7480-695796-agent-runner-1 Creating \n Container opsbench-candidate_dynamic_001-7480-695796-agent-runner-1 Created \n Container opsbench-candidate_dynamic_001-7480-695796-db-1 Starting \n Container opsbench-candidate_dynamic_001-7480-695796-db-1 Started \n Container opsbench-candidate_dynamic_001-7480-695796-db-1 Waiting \n Container opsbench-candidate_dynamic_001-7480-695796-db-1 Healthy \n Container opsbench-candidate_dynamic_001-7480-695796-agent-runner-1 Starting \n Container opsbench-candidate_dynamic_001-7480-695796-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.812,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.875,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.563, \\\"Actual Total Time\\\": 0.57, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.561, \\\"Actual Total Time\\\": 0.564, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.04, \\\"Actual Total Time\\\": 0.524, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Para\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.647\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.016,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.281,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.797,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 7.172,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.55, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": false, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 9777.65, \\\"Total Cost\\\": 9782.55, \\\"Plan Rows\\\": 42, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 19.798, \\\"Actual Total Time\\\": 23.153, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Gather Merge\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 9777.65, \\\"Total Cost\\\": 9782.55, \\\"Plan Rows\\\": 42, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 19.796, \\\"Actual Total Time\\\": 23.145, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Workers Planned\\\": 2, \\\"Workers Launched\\\": 2, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 8777.63, \\\"Total Cost\\\": 8777.68, \\\"Plan Rows\\\": 21, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 16.767, \\\"Actual Total Time\\\": 16.77, \\\"Actual Rows\\\": 17, \\\"Actual Loops\\\": 3, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 27, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Workers\\\": [{\\\"Worker Number\\\": 0, \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 26, \\\"Sort Space Type\\\": \\\"Memory\\\"}, {\\\"Worker Number\\\": 1, \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 27, \\\"Sort Space\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=23.225\"}, {\"name\": \"index_presence\", \"passed\": false, \"weight\": 0.1, \"detail\": \"\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.25,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "query_result",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "rows=50"
+            },
+            {
+              "name": "query_plan",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 19.798, \"Actual Total Time\": 23.153, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Gather Merge\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 19.796, \"Actual Total Time\": 23.145, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Workers Planned\": 2, \"Workers Launched\": 2, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 8777.63, \"Total Cost\": 8777.68, \"Plan Rows\": 21, \"Plan Width\": 69, \"Actual Startup Time\": 16.767, \"Actual Total Time\": 16.77, \"Actual Rows\": 17, \"Actual Loops\": 3, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space Type\": \"Memory\", \"Workers\": [{\"Worker Number\": 0, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space Type\": \"Memory\"}, {\"Worker Number\": 1, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space"
+            },
+            {
+              "name": "query_latency",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "execution_time_ms=23.225"
+            },
+            {
+              "name": "index_presence",
+              "passed": false,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "/var/run/postgresql:5432 - accepting connections"
+            }
+          ],
+          "score": 0.55,
+          "duration_sec": 90.688,
+          "case_digest": "9de6cc5a319e1e13a1c025118d0b00e84a7599d7296dd263086ea46ee9ae2bfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-06-postgres-index-v2\\cases\\reports\\control_traces\\candidate_dynamic_001-dpyepam3",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_dynamic_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 9.0,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 786B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 615B 0.0s done\n#2 DONE 0.1s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.4s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/10] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 69.41kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 5/10] COPY agent/requirements.txt /agent/requirements.txt\n#7 CACHED\n\n#8 [ 9/10] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 6/10] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [ 3/10] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#10 CACHED\n\n#11 [ 7/10] COPY agent /agent\n#11 CACHED\n\n#12 [ 8/10] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [ 2/10] RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client procps curl     && rm -rf /var/lib/apt/lists/*\n#13 CACHED\n\n#14 [ 4/10] WORKDIR /agent\n#14 CACHED\n\n#15 [10/10] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:302c0b76260ef17c0cb0c079d7c54b3692259a1f787c4af24910de30f5c50c32 0.0s done\n#16 exporting config sha256:e4b40e1d51965d0f5cb88201037ce2a11ad5271cc1d08af72219e60fcb72deb4\n#16 exporting config sha256:e4b40e1d51965d0f5cb88201037ce2a11ad5271cc1d08af72219e60fcb72deb4 0.0s done\n#16 exporting attestation manifest sha256:49d5c5094ba9318bd06e390f3b628d07796923b51adee27e0578e405c89958a8 0.1s done\n#16 exporting manifest list sha256:ad70e406c2fed62353a10fd294170bd8fb9acdef110344e2d85795da642fa49d\n#16 exporting manifest list sha256:ad70e406c2fed62353a10fd294170bd8fb9acdef110344e2d85795da642fa49d 0.0s done\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest done\n#16 unpacking to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest 0.0s done\n#16 DONE 0.3s\n\n#17 resolving provenance for metadata file\n#17 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-postgres_missing_index_v2 Building \n Image opsbench-e2e-postgres_missing_index_v2 Built \n Network opsbench-candidate_dynamic_001-7480-786484_default Creating \n Network opsbench-candidate_dynamic_001-7480-786484_default Created \n Container opsbench-candidate_dynamic_001-7480-786484-db-1 Creating \n Container opsbench-candidate_dynamic_001-7480-786484-db-1 Created \n Container opsbench-candidate_dynamic_001-7480-786484-agent-runner-1 Creating \n Container opsbench-candidate_dynamic_001-7480-786484-agent-runner-1 Created \n Container opsbench-candidate_dynamic_001-7480-786484-db-1 Starting \n Container opsbench-candidate_dynamic_001-7480-786484-db-1 Started \n Container opsbench-candidate_dynamic_001-7480-786484-db-1 Waiting \n Container opsbench-candidate_dynamic_001-7480-786484-db-1 Healthy \n Container opsbench-candidate_dynamic_001-7480-786484-agent-runner-1 Starting \n Container opsbench-candidate_dynamic_001-7480-786484-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.156,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 6.484,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.198, \\\"Actual Total Time\\\": 0.204, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.196, \\\"Actual Total Time\\\": 0.199, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.041, \\\"Actual Total Time\\\": 0.162, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Pa\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.312\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.235,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.265,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.704,
+              "stdout_tail": "CREATE INDEX\nANALYZE\n",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.921,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.21, \\\"Actual Total Time\\\": 0.216, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.207, \\\"Actual Total Time\\\": 0.21, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.055, \\\"Actual Total Time\\\": 0.168, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Para\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.309\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.969,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "query_result",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "rows=50"
+            },
+            {
+              "name": "query_plan",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.21, \"Actual Total Time\": 0.216, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.207, \"Actual Total Time\": 0.21, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 31, \"Sort Space Type\": \"Memory\", \"Plans\": [{\"Node Type\": \"Bitmap Heap Scan\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Relation Name\": \"orders\", \"Alias\": \"orders\", \"Startup Cost\": 4.81, \"Total Cost\": 191.94, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.055, \"Actual Total Time\": 0.168, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Recheck Cond\": \"(customer_id = 4242)\", \"Rows Removed by Index Recheck\": 0, \"Exact Heap Blocks\": 50, \"Lossy Heap Blocks\": 0, \"Plans\": [{\"Node Type\": \"Bitmap Index Scan\", \"Parent Relationship\": \"Outer\", \"Para"
+            },
+            {
+              "name": "query_latency",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "execution_time_ms=0.309"
+            },
+            {
+              "name": "index_presence",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "orders_customer_id_idx"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "/var/run/postgresql:5432 - accepting connections"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 32.031,
+          "case_digest": "9de6cc5a319e1e13a1c025118d0b00e84a7599d7296dd263086ea46ee9ae2bfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-06-postgres-index-v2\\cases\\reports\\control_traces\\candidate_dynamic_001-hduqow8e",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_dynamic_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 8.546,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 786B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 615B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/10] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 69.41kB 0.0s done\n#5 DONE 0.0s\n\n#7 [ 3/10] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#7 CACHED\n\n#8 [ 5/10] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [ 9/10] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#9 CACHED\n\n#10 [ 4/10] WORKDIR /agent\n#10 CACHED\n\n#11 [ 8/10] RUN chmod +x /agent/run.py /agent/run.sh\n#11 CACHED\n\n#12 [ 2/10] RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client procps curl     && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [ 6/10] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [ 7/10] COPY agent /agent\n#14 CACHED\n\n#15 [10/10] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:ffdf9f99cd4a38fbf9e9294aecaed7f258558d1a41196c1ea466beac30fd1dba 0.0s done\n#16 exporting config sha256:11bfbbdb9c3d06865ce4c7e66e3745d593e855947cae9dc95c0ed551605aa23c 0.0s done\n#16 exporting attestation manifest sha256:8676f2a04a656476fd38962a9a782cfd62ea3c53507e0af67f0ca1b0f4dda388\n#16 exporting attestation manifest sha256:8676f2a04a656476fd38962a9a782cfd62ea3c53507e0af67f0ca1b0f4dda388 0.1s done\n#16 exporting manifest list sha256:9df65af838f4fe96614486c861ecf5d2ea46acf3f48f84109214b34dfd19672e 0.0s done\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest done\n#16 unpacking to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest 0.0s done\n#16 DONE 0.2s\n\n#17 resolving provenance for metadata file\n#17 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-postgres_missing_index_v2 Building \n Image opsbench-e2e-postgres_missing_index_v2 Built \n Network opsbench-candidate_dynamic_001-7480-818515_default Creating \n Network opsbench-candidate_dynamic_001-7480-818515_default Created \n Container opsbench-candidate_dynamic_001-7480-818515-db-1 Creating \n Container opsbench-candidate_dynamic_001-7480-818515-db-1 Created \n Container opsbench-candidate_dynamic_001-7480-818515-agent-runner-1 Creating \n Container opsbench-candidate_dynamic_001-7480-818515-agent-runner-1 Created \n Container opsbench-candidate_dynamic_001-7480-818515-db-1 Starting \n Container opsbench-candidate_dynamic_001-7480-818515-db-1 Started \n Container opsbench-candidate_dynamic_001-7480-818515-db-1 Waiting \n Container opsbench-candidate_dynamic_001-7480-818515-db-1 Healthy \n Container opsbench-candidate_dynamic_001-7480-818515-agent-runner-1 Starting \n Container opsbench-candidate_dynamic_001-7480-818515-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.204,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.609,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.113, \\\"Actual Total Time\\\": 0.118, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.111, \\\"Actual Total Time\\\": 0.114, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.024, \\\"Actual Total Time\\\": 0.087, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Pa\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.179\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.719,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.172,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.75,
+              "stdout_tail": "CREATE INDEX\nANALYZE\n",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 3.172,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.55, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": false, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 9777.65, \\\"Total Cost\\\": 9782.55, \\\"Plan Rows\\\": 42, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 48.128, \\\"Actual Total Time\\\": 51.467, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Gather Merge\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 9777.65, \\\"Total Cost\\\": 9782.55, \\\"Plan Rows\\\": 42, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 48.124, \\\"Actual Total Time\\\": 51.457, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Workers Planned\\\": 2, \\\"Workers Launched\\\": 2, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 8777.63, \\\"Total Cost\\\": 8777.68, \\\"Plan Rows\\\": 21, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 42.42, \\\"Actual Total Time\\\": 42.423, \\\"Actual Rows\\\": 17, \\\"Actual Loops\\\": 3, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 27, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Workers\\\": [{\\\"Worker Number\\\": 0, \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 27, \\\"Sort Space Type\\\": \\\"Memory\\\"}, {\\\"Worker Number\\\": 1, \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 26, \\\"Sort Space\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=51.573\"}, {\"name\": \"index_presence\", \"passed\": false, \"weight\": 0.1, \"detail\": \"\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.813,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "query_result",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "rows=50"
+            },
+            {
+              "name": "query_plan",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 48.128, \"Actual Total Time\": 51.467, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Gather Merge\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 48.124, \"Actual Total Time\": 51.457, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Workers Planned\": 2, \"Workers Launched\": 2, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 8777.63, \"Total Cost\": 8777.68, \"Plan Rows\": 21, \"Plan Width\": 69, \"Actual Startup Time\": 42.42, \"Actual Total Time\": 42.423, \"Actual Rows\": 17, \"Actual Loops\": 3, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space Type\": \"Memory\", \"Workers\": [{\"Worker Number\": 0, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space Type\": \"Memory\"}, {\"Worker Number\": 1, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space"
+            },
+            {
+              "name": "query_latency",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "execution_time_ms=51.573"
+            },
+            {
+              "name": "index_presence",
+              "passed": false,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "/var/run/postgresql:5432 - accepting connections"
+            }
+          ],
+          "score": 0.55,
+          "duration_sec": 27.906,
+          "case_digest": "9de6cc5a319e1e13a1c025118d0b00e84a7599d7296dd263086ea46ee9ae2bfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-06-postgres-index-v2\\cases\\reports\\control_traces\\candidate_dynamic_001-z6aroj3j",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_dynamic_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 8.297,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 786B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 615B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context:\n#4 transferring context: 2B 0.0s done\n#4 DONE 0.0s\n\n#5 [ 1/10] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.1s\n\n#6 [internal] load build context\n#6 transferring context: 69.41kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 3/10] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#7 CACHED\n\n#8 [ 5/10] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [ 4/10] WORKDIR /agent\n#9 CACHED\n\n#10 [ 9/10] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 2/10] RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client procps curl     && rm -rf /var/lib/apt/lists/*\n#11 CACHED\n\n#12 [ 8/10] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [ 6/10] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [ 7/10] COPY agent /agent\n#14 CACHED\n\n#15 [10/10] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:d6d2ee73b70338d39820196ae4d1238fa21cbccf36251402006f7212430ca1e4 0.0s done\n#16 exporting config sha256:d74a2c7d2c7c49dbee3b66769a332a1ca1b077046ca3157f8c9a246a65b44cee 0.0s done\n#16 exporting attestation manifest sha256:81f3ac3f0a3f2979b31601b1cbc1c2e11db513d24cc847af60b45830bf3d4bc8 0.0s done\n#16 exporting manifest list sha256:bb6ddd412caa763d94cb90a253a6d2ba60b51abfde6fbd6024b44440458e6c36 0.0s done\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest done\n#16 unpacking to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest 0.0s done\n#16 DONE 0.2s\n\n#17 resolving provenance for metadata file\n#17 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-postgres_missing_index_v2 Building \n Image opsbench-e2e-postgres_missing_index_v2 Built \n Network opsbench-candidate_dynamic_001-7480-846421_default Creating \n Network opsbench-candidate_dynamic_001-7480-846421_default Created \n Container opsbench-candidate_dynamic_001-7480-846421-db-1 Creating \n Container opsbench-candidate_dynamic_001-7480-846421-db-1 Created \n Container opsbench-candidate_dynamic_001-7480-846421-agent-runner-1 Creating \n Container opsbench-candidate_dynamic_001-7480-846421-agent-runner-1 Created \n Container opsbench-candidate_dynamic_001-7480-846421-db-1 Starting \n Container opsbench-candidate_dynamic_001-7480-846421-db-1 Started \n Container opsbench-candidate_dynamic_001-7480-846421-db-1 Waiting \n Container opsbench-candidate_dynamic_001-7480-846421-db-1 Healthy \n Container opsbench-candidate_dynamic_001-7480-846421-agent-runner-1 Starting \n Container opsbench-candidate_dynamic_001-7480-846421-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.562,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.36,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.204, \\\"Actual Total Time\\\": 0.211, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.202, \\\"Actual Total Time\\\": 0.205, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.034, \\\"Actual Total Time\\\": 0.168, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Pa\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.303\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.984,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.328,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.5,
+              "stdout_tail": "ANALYZE\n",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.578,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.55, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": false, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 9777.65, \\\"Total Cost\\\": 9782.55, \\\"Plan Rows\\\": 42, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 15.94, \\\"Actual Total Time\\\": 18.72, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Gather Merge\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 9777.65, \\\"Total Cost\\\": 9782.55, \\\"Plan Rows\\\": 42, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 15.938, \\\"Actual Total Time\\\": 18.713, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Workers Planned\\\": 2, \\\"Workers Launched\\\": 2, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 8777.63, \\\"Total Cost\\\": 8777.68, \\\"Plan Rows\\\": 21, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 13.729, \\\"Actual Total Time\\\": 13.731, \\\"Actual Rows\\\": 17, \\\"Actual Loops\\\": 3, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 27, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Workers\\\": [{\\\"Worker Number\\\": 0, \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 26, \\\"Sort Space Type\\\": \\\"Memory\\\"}, {\\\"Worker Number\\\": 1, \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 27, \\\"Sort Space \"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=18.782\"}, {\"name\": \"index_presence\", \"passed\": false, \"weight\": 0.1, \"detail\": \"\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "query_result",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "rows=50"
+            },
+            {
+              "name": "query_plan",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 15.94, \"Actual Total Time\": 18.72, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Gather Merge\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 15.938, \"Actual Total Time\": 18.713, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Workers Planned\": 2, \"Workers Launched\": 2, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 8777.63, \"Total Cost\": 8777.68, \"Plan Rows\": 21, \"Plan Width\": 69, \"Actual Startup Time\": 13.729, \"Actual Total Time\": 13.731, \"Actual Rows\": 17, \"Actual Loops\": 3, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space Type\": \"Memory\", \"Workers\": [{\"Worker Number\": 0, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space Type\": \"Memory\"}, {\"Worker Number\": 1, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 27, \"Sort Space "
+            },
+            {
+              "name": "query_latency",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "execution_time_ms=18.782"
+            },
+            {
+              "name": "index_presence",
+              "passed": false,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "/var/run/postgresql:5432 - accepting connections"
+            }
+          ],
+          "score": 0.55,
+          "duration_sec": 23.922,
+          "case_digest": "9de6cc5a319e1e13a1c025118d0b00e84a7599d7296dd263086ea46ee9ae2bfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-06-postgres-index-v2\\cases\\reports\\control_traces\\candidate_dynamic_001-bitdhcne",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_dynamic_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.829,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 786B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 615B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/10] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 165B done\n#5 DONE 0.0s\n\n#7 [ 5/10] COPY agent/requirements.txt /agent/requirements.txt\n#7 CACHED\n\n#8 [ 7/10] COPY agent /agent\n#8 CACHED\n\n#9 [ 9/10] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#9 CACHED\n\n#10 [ 2/10] RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client procps curl     && rm -rf /var/lib/apt/lists/*\n#10 CACHED\n\n#11 [ 3/10] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#11 CACHED\n\n#12 [ 4/10] WORKDIR /agent\n#12 CACHED\n\n#13 [ 6/10] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [ 8/10] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [10/10] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:8cc7f807784281fd6cda453fbf29278c9c9b6c894070571f8be5bac411562a66 0.0s done\n#16 exporting config sha256:1d8f348054f26e6f20f86e1fc4c2ba6ee6bbc69b0bb366a1a0becb44042c2c08 0.0s done\n#16 exporting attestation manifest sha256:cf474aaad5971eefb603205f5c0d0e8ad708a9af6ca51a3e8bc8b931952417ba\n#16 exporting attestation manifest sha256:cf474aaad5971eefb603205f5c0d0e8ad708a9af6ca51a3e8bc8b931952417ba 0.0s done\n#16 exporting manifest list sha256:252c3610133bc42afc80ceb49488c1ca723641fbc22ade9a9463161b1d094a3b 0.0s done\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest done\n#16 unpacking to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest 0.0s done\n#16 DONE 0.2s\n\n#17 resolving provenance for metadata file\n#17 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-postgres_missing_index_v2 Building \n Image opsbench-e2e-postgres_missing_index_v2 Built \n Network opsbench-candidate_dynamic_001-7480-870343_default Creating \n Network opsbench-candidate_dynamic_001-7480-870343_default Created \n Container opsbench-candidate_dynamic_001-7480-870343-db-1 Creating \n Container opsbench-candidate_dynamic_001-7480-870343-db-1 Created \n Container opsbench-candidate_dynamic_001-7480-870343-agent-runner-1 Creating \n Container opsbench-candidate_dynamic_001-7480-870343-agent-runner-1 Created \n Container opsbench-candidate_dynamic_001-7480-870343-db-1 Starting \n Container opsbench-candidate_dynamic_001-7480-870343-db-1 Started \n Container opsbench-candidate_dynamic_001-7480-870343-db-1 Waiting \n Container opsbench-candidate_dynamic_001-7480-870343-db-1 Healthy \n Container opsbench-candidate_dynamic_001-7480-870343-agent-runner-1 Starting \n Container opsbench-candidate_dynamic_001-7480-870343-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.234,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.578,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.084, \\\"Actual Total Time\\\": 0.089, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.083, \\\"Actual Total Time\\\": 0.085, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.019, \\\"Actual Total Time\\\": 0.064, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Pa\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.136\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.359,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.063,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.203,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 2.516,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.55, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": false, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 9777.65, \\\"Total Cost\\\": 9782.55, \\\"Plan Rows\\\": 42, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 16.881, \\\"Actual Total Time\\\": 19.214, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Gather Merge\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 9777.65, \\\"Total Cost\\\": 9782.55, \\\"Plan Rows\\\": 42, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 16.879, \\\"Actual Total Time\\\": 19.208, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Workers Planned\\\": 2, \\\"Workers Launched\\\": 2, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 8777.63, \\\"Total Cost\\\": 8777.68, \\\"Plan Rows\\\": 21, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 13.881, \\\"Actual Total Time\\\": 13.883, \\\"Actual Rows\\\": 17, \\\"Actual Loops\\\": 3, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 28, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Workers\\\": [{\\\"Worker Number\\\": 0, \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 26, \\\"Sort Space Type\\\": \\\"Memory\\\"}, {\\\"Worker Number\\\": 1, \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 26, \\\"Sort Spac\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=19.292\"}, {\"name\": \"index_presence\", \"passed\": false, \"weight\": 0.1, \"detail\": \"\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.093,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "query_result",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "rows=50"
+            },
+            {
+              "name": "query_plan",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 16.881, \"Actual Total Time\": 19.214, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Gather Merge\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 9777.65, \"Total Cost\": 9782.55, \"Plan Rows\": 42, \"Plan Width\": 69, \"Actual Startup Time\": 16.879, \"Actual Total Time\": 19.208, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Workers Planned\": 2, \"Workers Launched\": 2, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 8777.63, \"Total Cost\": 8777.68, \"Plan Rows\": 21, \"Plan Width\": 69, \"Actual Startup Time\": 13.881, \"Actual Total Time\": 13.883, \"Actual Rows\": 17, \"Actual Loops\": 3, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 28, \"Sort Space Type\": \"Memory\", \"Workers\": [{\"Worker Number\": 0, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Space Type\": \"Memory\"}, {\"Worker Number\": 1, \"Sort Method\": \"quicksort\", \"Sort Space Used\": 26, \"Sort Spac"
+            },
+            {
+              "name": "query_latency",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "execution_time_ms=19.292"
+            },
+            {
+              "name": "index_presence",
+              "passed": false,
+              "weight": 0.1,
+              "detail": ""
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "/var/run/postgresql:5432 - accepting connections"
+            }
+          ],
+          "score": 0.55,
+          "duration_sec": 16.172,
+          "case_digest": "9de6cc5a319e1e13a1c025118d0b00e84a7599d7296dd263086ea46ee9ae2bfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-06-postgres-index-v2\\cases\\reports\\control_traces\\candidate_dynamic_001-mpjpc1lp",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_dynamic_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.969,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 786B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 615B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/10] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 165B done\n#5 DONE 0.0s\n\n#7 [ 6/10] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#7 CACHED\n\n#8 [ 4/10] WORKDIR /agent\n#8 CACHED\n\n#9 [ 5/10] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [ 2/10] RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client procps curl     && rm -rf /var/lib/apt/lists/*\n#10 CACHED\n\n#11 [ 7/10] COPY agent /agent\n#11 CACHED\n\n#12 [ 8/10] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [ 9/10] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 3/10] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#14 CACHED\n\n#15 [10/10] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:c87e209e456e509e706bd61ae9e9cc3b06c6c3580545c1ce70b76414950a0f55 0.0s done\n#16 exporting config sha256:60f1dae4a14764823b38ed3157aef2e642eea43bf624289729b188bcd99c7180 0.0s done\n#16 exporting attestation manifest sha256:ccbc1cdebc448db52642d1d4144bbb19456081edd377fe9123a63d6e41d1aad5\n#16 exporting attestation manifest sha256:ccbc1cdebc448db52642d1d4144bbb19456081edd377fe9123a63d6e41d1aad5 0.0s done\n#16 exporting manifest list sha256:d2c1575d76eb13afb322231e71b1cd056c1e3b5a7f8c89a4c0e16febf35c09f2 0.0s done\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest done\n#16 unpacking to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest 0.0s done\n#16 DONE 0.2s\n\n#17 resolving provenance for metadata file\n#17 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-postgres_missing_index_v2 Building \n Image opsbench-e2e-postgres_missing_index_v2 Built \n Network opsbench-candidate_dynamic_001-7480-886515_default Creating \n Network opsbench-candidate_dynamic_001-7480-886515_default Created \n Container opsbench-candidate_dynamic_001-7480-886515-db-1 Creating \n Container opsbench-candidate_dynamic_001-7480-886515-db-1 Created \n Container opsbench-candidate_dynamic_001-7480-886515-agent-runner-1 Creating \n Container opsbench-candidate_dynamic_001-7480-886515-agent-runner-1 Created \n Container opsbench-candidate_dynamic_001-7480-886515-db-1 Starting \n Container opsbench-candidate_dynamic_001-7480-886515-db-1 Started \n Container opsbench-candidate_dynamic_001-7480-886515-db-1 Waiting \n Container opsbench-candidate_dynamic_001-7480-886515-db-1 Healthy \n Container opsbench-candidate_dynamic_001-7480-886515-agent-runner-1 Starting \n Container opsbench-candidate_dynamic_001-7480-886515-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.391,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.969,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.078, \\\"Actual Total Time\\\": 0.083, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.077, \\\"Actual Total Time\\\": 0.079, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.02, \\\"Actual Total Time\\\": 0.062, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Par\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.118\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.344,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.5,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.562,
+              "stdout_tail": "CREATE INDEX\nANALYZE\n",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.407,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.086, \\\"Actual Total Time\\\": 0.091, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.085, \\\"Actual Total Time\\\": 0.087, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.02, \\\"Actual Total Time\\\": 0.064, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Par\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.120\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.062,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "query_result",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "rows=50"
+            },
+            {
+              "name": "query_plan",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.086, \"Actual Total Time\": 0.091, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.085, \"Actual Total Time\": 0.087, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 31, \"Sort Space Type\": \"Memory\", \"Plans\": [{\"Node Type\": \"Bitmap Heap Scan\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Relation Name\": \"orders\", \"Alias\": \"orders\", \"Startup Cost\": 4.81, \"Total Cost\": 191.94, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.02, \"Actual Total Time\": 0.064, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Recheck Cond\": \"(customer_id = 4242)\", \"Rows Removed by Index Recheck\": 0, \"Exact Heap Blocks\": 50, \"Lossy Heap Blocks\": 0, \"Plans\": [{\"Node Type\": \"Bitmap Index Scan\", \"Parent Relationship\": \"Outer\", \"Par"
+            },
+            {
+              "name": "query_latency",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "execution_time_ms=0.120"
+            },
+            {
+              "name": "index_presence",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "orders_customer_id_idx"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "/var/run/postgresql:5432 - accepting connections"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 14.469,
+          "case_digest": "9de6cc5a319e1e13a1c025118d0b00e84a7599d7296dd263086ea46ee9ae2bfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-06-postgres-index-v2\\cases\\reports\\control_traces\\candidate_dynamic_001-zl5zfdij",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_dynamic_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.313,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 786B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 615B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/10] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 165B done\n#5 DONE 0.0s\n\n#7 [ 5/10] COPY agent/requirements.txt /agent/requirements.txt\n#7 CACHED\n\n#8 [ 7/10] COPY agent /agent\n#8 CACHED\n\n#9 [ 2/10] RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client procps curl     && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [ 8/10] RUN chmod +x /agent/run.py /agent/run.sh\n#10 CACHED\n\n#11 [ 3/10] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#11 CACHED\n\n#12 [ 4/10] WORKDIR /agent\n#12 CACHED\n\n#13 [ 6/10] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [ 9/10] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [10/10] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:d7d815ec5551138b1bfffd449bbe38799dd70c3b7be1bfd9d3d0db247cee6e17 0.0s done\n#16 exporting config sha256:2435bf898deddda8b08d1516a1682aea62cebdae606e02753b996ecfc9d48155 0.0s done\n#16 exporting attestation manifest sha256:4bb0a089e0cc68a0aa94b45a47448237ca95acaccacebf5ea570453720c230e8\n#16 exporting attestation manifest sha256:4bb0a089e0cc68a0aa94b45a47448237ca95acaccacebf5ea570453720c230e8 0.0s done\n#16 exporting manifest list sha256:375cb70ae016d3ae3c7baafc3a9d6ba62dfa6185cb992e4ffea46935eb629ef5 0.0s done\n#16 naming to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest done\n#16 unpacking to docker.io/library/opsbench-e2e-postgres_missing_index_v2:latest 0.0s done\n#16 DONE 0.2s\n\n#17 resolving provenance for metadata file\n#17 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-postgres_missing_index_v2 Building \n Image opsbench-e2e-postgres_missing_index_v2 Built \n Network opsbench-candidate_dynamic_001-7480-900984_default Creating \n Network opsbench-candidate_dynamic_001-7480-900984_default Created \n Container opsbench-candidate_dynamic_001-7480-900984-db-1 Creating \n Container opsbench-candidate_dynamic_001-7480-900984-db-1 Created \n Container opsbench-candidate_dynamic_001-7480-900984-agent-runner-1 Creating \n Container opsbench-candidate_dynamic_001-7480-900984-agent-runner-1 Created \n Container opsbench-candidate_dynamic_001-7480-900984-db-1 Starting \n Container opsbench-candidate_dynamic_001-7480-900984-db-1 Started \n Container opsbench-candidate_dynamic_001-7480-900984-db-1 Waiting \n Container opsbench-candidate_dynamic_001-7480-900984-db-1 Healthy \n Container opsbench-candidate_dynamic_001-7480-900984-agent-runner-1 Starting \n Container opsbench-candidate_dynamic_001-7480-900984-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.968,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.594,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.086, \\\"Actual Total Time\\\": 0.092, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.085, \\\"Actual Total Time\\\": 0.088, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.022, \\\"Actual Total Time\\\": 0.069, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Pa\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.139\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.328,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.594,
+              "stdout_tail": "CREATE INDEX\nANALYZE\n",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.047,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"query_result\", \"passed\": true, \"weight\": 0.2, \"detail\": \"rows=50\"}, {\"name\": \"query_plan\", \"passed\": true, \"weight\": 0.35, \"detail\": \"[{\\\"Plan\\\": {\\\"Node Type\\\": \\\"Limit\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.138, \\\"Actual Total Time\\\": 0.144, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Sort\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Startup Cost\\\": 193.35, \\\"Total Cost\\\": 193.47, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.137, \\\"Actual Total Time\\\": 0.14, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Sort Key\\\": [\\\"id\\\"], \\\"Sort Method\\\": \\\"quicksort\\\", \\\"Sort Space Used\\\": 31, \\\"Sort Space Type\\\": \\\"Memory\\\", \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Heap Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Parallel Aware\\\": false, \\\"Async Capable\\\": false, \\\"Relation Name\\\": \\\"orders\\\", \\\"Alias\\\": \\\"orders\\\", \\\"Startup Cost\\\": 4.81, \\\"Total Cost\\\": 191.94, \\\"Plan Rows\\\": 50, \\\"Plan Width\\\": 69, \\\"Actual Startup Time\\\": 0.028, \\\"Actual Total Time\\\": 0.117, \\\"Actual Rows\\\": 50, \\\"Actual Loops\\\": 1, \\\"Recheck Cond\\\": \\\"(customer_id = 4242)\\\", \\\"Rows Removed by Index Recheck\\\": 0, \\\"Exact Heap Blocks\\\": 50, \\\"Lossy Heap Blocks\\\": 0, \\\"Plans\\\": [{\\\"Node Type\\\": \\\"Bitmap Index Scan\\\", \\\"Parent Relationship\\\": \\\"Outer\\\", \\\"Par\"}, {\"name\": \"query_latency\", \"passed\": true, \"weight\": 0.25, \"detail\": \"execution_time_ms=0.183\"}, {\"name\": \"index_presence\", \"passed\": true, \"weight\": 0.1, \"detail\": \"orders_customer_id_idx\"}, {\"name\": \"service_health\", \"passed\": true, \"weight\": 0.1, \"detail\": \"/var/run/postgresql:5432 - accepting connections\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "query_result",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "rows=50"
+            },
+            {
+              "name": "query_plan",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "[{\"Plan\": {\"Node Type\": \"Limit\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.138, \"Actual Total Time\": 0.144, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Plans\": [{\"Node Type\": \"Sort\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Startup Cost\": 193.35, \"Total Cost\": 193.47, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.137, \"Actual Total Time\": 0.14, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Sort Key\": [\"id\"], \"Sort Method\": \"quicksort\", \"Sort Space Used\": 31, \"Sort Space Type\": \"Memory\", \"Plans\": [{\"Node Type\": \"Bitmap Heap Scan\", \"Parent Relationship\": \"Outer\", \"Parallel Aware\": false, \"Async Capable\": false, \"Relation Name\": \"orders\", \"Alias\": \"orders\", \"Startup Cost\": 4.81, \"Total Cost\": 191.94, \"Plan Rows\": 50, \"Plan Width\": 69, \"Actual Startup Time\": 0.028, \"Actual Total Time\": 0.117, \"Actual Rows\": 50, \"Actual Loops\": 1, \"Recheck Cond\": \"(customer_id = 4242)\", \"Rows Removed by Index Recheck\": 0, \"Exact Heap Blocks\": 50, \"Lossy Heap Blocks\": 0, \"Plans\": [{\"Node Type\": \"Bitmap Index Scan\", \"Parent Relationship\": \"Outer\", \"Par"
+            },
+            {
+              "name": "query_latency",
+              "passed": true,
+              "weight": 0.25,
+              "detail": "execution_time_ms=0.183"
+            },
+            {
+              "name": "index_presence",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "orders_customer_id_idx"
+            },
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.1,
+              "detail": "/var/run/postgresql:5432 - accepting connections"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 14.25,
+          "case_digest": "9de6cc5a319e1e13a1c025118d0b00e84a7599d7296dd263086ea46ee9ae2bfb",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "E:\\codes\\opsbench-factory\\tmp\\e2e-10-fairness-20260829\\case-06-postgres-index-v2\\cases\\reports\\control_traces\\candidate_dynamic_001-f87df_z1",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 7
+}

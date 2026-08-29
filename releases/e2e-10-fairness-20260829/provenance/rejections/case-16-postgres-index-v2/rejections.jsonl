@@ -1,0 +1,2 @@
+{"candidate_id": "scenario_postgres_missing_index_v2_001", "stage": "compile", "error_type": "ValueError", "reason": "unsafe case package: public tool policy: {\"code\": \"public_task_incident_term_leak\", \"message\": \"Public task contains an incident-specific registered term: performance_regression.\", \"term\": \"performance_regression\"}", "cause_type": "", "cause_reason": ""}
+{"candidate_group_id": "dynamic_bundle_0001_group_001", "stage": "compile", "reason": "no_candidate_compiled"}

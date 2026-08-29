@@ -1,0 +1,37 @@
+{
+  "mode": "strict",
+  "passed": true,
+  "bundles": [
+    {
+      "passed": true,
+      "issue_count": 0,
+      "issues": [],
+      "advisories": [
+        {
+          "code": "missing_claim_or_runtime_contract",
+          "field_path": "evidence_bundle.claims.symptom",
+          "message": "Missing symptom evidence; the selected trusted runtime contract must supply it."
+        },
+        {
+          "code": "missing_claim_or_runtime_contract",
+          "field_path": "evidence_bundle.claims.impact",
+          "message": "Missing impact evidence; the selected trusted runtime contract must supply it."
+        }
+      ],
+      "claim_counts": {
+        "repair": 1,
+        "root_cause": 2,
+        "verification": 3
+      },
+      "document_context_count": 1,
+      "runtime_contract_roles": [],
+      "required_claims": [
+        "root_cause",
+        "repair"
+      ],
+      "bundle_id": "dynamic_bundle_0001",
+      "initial_passed": true,
+      "judge_rounds": 0
+    }
+  ]
+}

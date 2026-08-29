@@ -1,0 +1,150 @@
+{
+  "template_id": "postgres_missing_index_v2",
+  "query": "SELECT id, customer_id, payload FROM orders WHERE customer_id = 4242 ORDER BY id LIMIT 50",
+  "dynamic_spec": {
+    "id": "e2e_postgres_missing_index_v2_001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "postgres_db",
+        "component_id": "postgres",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "postgres_missing_index_v2",
+      "target": "postgres_db",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "A database query that should return a moderate number of rows is running slowly; the query plan shows a sequential scan instead of an index scan, and the query takes several seconds to complete.",
+      "impact": "Application response times are degraded, and the database server CPU usage is higher than expected for this workload.",
+      "objective": "Restore query performance so that the query uses an index scan and completes within normal latency (e.g., under 100 ms).",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "sql_query"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "postgres_missing_index_v2",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "query_result",
+        "weight": 0.3
+      },
+      {
+        "check_id": "query_plan",
+        "weight": 0.4
+      },
+      {
+        "check_id": "query_latency",
+        "weight": 0.3
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "wrong_fix"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 9,
+      "rubric_version": "e2e-difficulty-v1",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "The public symptom is query degradation and does not reveal the missing index.",
+        "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+        "Verification checks data correctness, plan shape, index presence, and repeated latency."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {},
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_001"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "repair",
+        "ref": "doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#heuristic_operational_001"
+      },
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#heuristic_operational_012"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#heuristic_operational_006"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "PostgreSQL"
+    ],
+    "domain": "database",
+    "fault_type": "performance_regression",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36",
+    "source": {
+      "primitive_status": "demo_validated",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 9,
+        "rubric_version": "e2e-difficulty-v1",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The public symptom is query degradation and does not reveal the missing index.",
+          "The agent must inspect a live query plan and distinguish a useful index from an unrelated one.",
+          "Verification checks data correctness, plan shape, index presence, and repeated latency."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {}
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "postgres_missing_index_v2"
+}

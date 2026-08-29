@@ -1,0 +1,683 @@
+id: candidate_http_dependency_timeout_slo_v1_001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: latency_regression
+domain: distributed_system
+technology_stack:
+- HTTP
+- Python
+- Linux
+template_id: http_dependency_timeout_slo_v1
+fault_primitive_id: http_dependency_timeout_slo_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: demo_validated
+difficulty_profile: medium
+difficulty_assessment:
+  profile: medium
+  score: 6
+  rubric_version: e2e-difficulty-v2
+  dimensions:
+    diagnostic_uncertainty: 1
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 1
+    verification_complexity: 2
+  rationale:
+  - The dependency remains reachable but violates the client SLO.
+  - The agent must use repeated latency evidence and repair the source of delay rather
+    than hiding it with a larger timeout.
+  - Verification checks both request success and the latency budget.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/orders
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_166
+    claim_type: root_cause
+    field_path: public_task.symptom
+  - ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_016
+    claim_type: verification
+    field_path: public_task.impact
+  - ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_013
+    claim_type: repair
+    field_path: public_task.objective
+  candidate_group_id: dynamic_bundle_0001_group_001
+  generation_strategy: layered_state
+  experience_version: e2e-v1
+  experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+  scenario_seed: 1
+  novelty_fingerprint: 27d8a6c592078b52
+  difficulty_assessment:
+    profile: medium
+    score: 6
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 1
+      signal_indirection: 1
+      tool_breadth: 1
+      repair_depth: 1
+      verification_complexity: 2
+    rationale:
+    - The dependency remains reachable but violates the client SLO.
+    - The agent must use repeated latency evidence and repair the source of delay
+      rather than hiding it with a larger timeout.
+    - Verification checks both request success and the latency budget.
+    empirical_status: not_calibrated
+  scenario_spec:
+    id: candidate_http_dependency_timeout_slo_v1_001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: http_dependency
+      component_id: http-dependency
+      version: ''
+      params: {}
+    fault:
+      primitive_id: http_dependency_timeout_slo_v1
+      target: http_dependency
+      params: {}
+    public_task:
+      symptom: The application experiences intermittent timeouts when making requests
+        to a backend service. Timeouts occur even when the backend is responsive,
+        and the problem is more noticeable with responses that are larger or slow
+        to transmit. The connection is closed if the proxied server does not transmit
+        anything within the timeout period.
+      impact: Clients receive incomplete responses or connection errors, leading to
+        failed operations and degraded user experience. The proxy does not attempt
+        to read the whole response from the upstream server, so partial transmissions
+        can abort.
+      objective: Restore reliable communication with the backend service so that all
+        responses are received completely without timing out. Ensure that the proxy
+        can buffer and fully receive large or slow responses.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - metrics_query
+    - service_repair
+    expected_actions:
+    - primitive_id: http_dependency_timeout_slo_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.6
+    - check_id: latency_slo
+      weight: 0.4
+    - check_id: dependency_delay
+      weight: 0.25
+    - check_id: persistence
+      weight: 0.25
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_layer_fix
+    - scenario: symptom_bypass
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: medium
+    difficulty_assessment:
+      profile: medium
+      score: 6
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 1
+        signal_indirection: 1
+        tool_breadth: 1
+        repair_depth: 1
+        verification_complexity: 2
+      rationale:
+      - The dependency remains reachable but violates the client SLO.
+      - The agent must use repeated latency evidence and repair the source of delay
+        rather than hiding it with a larger timeout.
+      - Verification checks both request success and the latency budget.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: medium
+      dimensions:
+        diagnostic_uncertainty: 1
+        signal_indirection: 1
+        tool_breadth: 1
+        repair_depth: 1
+        verification_complexity: 2
+      causal_depth: 2
+      state_layers:
+      - base_config
+      - dependency_runtime
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - latency_samples
+      - effective_config
+      - process_tree
+      persistence_id: restart
+      distractor_ids:
+      - healthy_process
+      - unrelated_latency
+      repair_invariant_ids:
+      - business_operation
+      - slo_preserved
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - increase_timeout_only
+      - restart_only
+      - change_caller_contract
+      verification_check_ids:
+      - business_operation
+      - latency_slo
+      - dependency_delay
+      - persistence
+      rationale:
+      - The dependency remains reachable but violates the client SLO.
+      - The agent must use repeated latency evidence and repair the source of delay
+        rather than hiding it with a larger timeout.
+      - Verification checks both request success and the latency budget.
+      schema_version: e2e-difficulty-contract-v1
+      score: 6
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: medium
+        score: 6
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 2
+        rationale:
+        - The dependency remains reachable but violates the client SLO.
+        - The agent must use repeated latency evidence and repair the source of delay
+          rather than hiding it with a larger timeout.
+        - Verification checks both request success and the latency budget.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: root_cause
+      ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_166
+    - field_path: public_task.impact
+      claim_type: verification
+      ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_016
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_013
+    scenario_seed: 1
+    technology_stack:
+    - HTTP
+    - Python
+    - Linux
+    domain: distributed_system
+    fault_type: latency_regression
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: medium
+        score: 6
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 2
+        rationale:
+        - The dependency remains reachable but violates the client SLO.
+        - The agent must use repeated latency evidence and repair the source of delay
+          rather than hiding it with a larger timeout.
+        - Verification checks both request success and the latency budget.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: medium
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 2
+        causal_depth: 2
+        state_layers:
+        - base_config
+        - dependency_runtime
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - latency_samples
+        - effective_config
+        - process_tree
+        persistence_id: restart
+        distractor_ids:
+        - healthy_process
+        - unrelated_latency
+        repair_invariant_ids:
+        - business_operation
+        - slo_preserved
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - increase_timeout_only
+        - restart_only
+        - change_caller_contract
+        verification_check_ids:
+        - business_operation
+        - latency_slo
+        - dependency_delay
+        - persistence
+        rationale:
+        - The dependency remains reachable but violates the client SLO.
+        - The agent must use repeated latency evidence and repair the source of delay
+          rather than hiding it with a larger timeout.
+        - Verification checks both request success and the latency budget.
+        schema_version: e2e-difficulty-contract-v1
+        score: 6
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: medium
+          score: 6
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 1
+            signal_indirection: 1
+            tool_breadth: 1
+            repair_depth: 1
+            verification_complexity: 2
+          rationale:
+          - The dependency remains reachable but violates the client SLO.
+          - The agent must use repeated latency evidence and repair the source of
+            delay rather than hiding it with a larger timeout.
+          - Verification checks both request success and the latency budget.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  dynamic_spec:
+    id: candidate_http_dependency_timeout_slo_v1_001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: http_dependency
+      component_id: http-dependency
+      version: ''
+      params: {}
+    fault:
+      primitive_id: http_dependency_timeout_slo_v1
+      target: http_dependency
+      params: {}
+    public_task:
+      symptom: The application experiences intermittent timeouts when making requests
+        to a backend service. Timeouts occur even when the backend is responsive,
+        and the problem is more noticeable with responses that are larger or slow
+        to transmit. The connection is closed if the proxied server does not transmit
+        anything within the timeout period.
+      impact: Clients receive incomplete responses or connection errors, leading to
+        failed operations and degraded user experience. The proxy does not attempt
+        to read the whole response from the upstream server, so partial transmissions
+        can abort.
+      objective: Restore reliable communication with the backend service so that all
+        responses are received completely without timing out. Ensure that the proxy
+        can buffer and fully receive large or slow responses.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - metrics_query
+    - service_repair
+    expected_actions:
+    - primitive_id: http_dependency_timeout_slo_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.6
+    - check_id: latency_slo
+      weight: 0.4
+    - check_id: dependency_delay
+      weight: 0.25
+    - check_id: persistence
+      weight: 0.25
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_layer_fix
+    - scenario: symptom_bypass
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: medium
+    difficulty_assessment:
+      profile: medium
+      score: 6
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 1
+        signal_indirection: 1
+        tool_breadth: 1
+        repair_depth: 1
+        verification_complexity: 2
+      rationale:
+      - The dependency remains reachable but violates the client SLO.
+      - The agent must use repeated latency evidence and repair the source of delay
+        rather than hiding it with a larger timeout.
+      - Verification checks both request success and the latency budget.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: medium
+      dimensions:
+        diagnostic_uncertainty: 1
+        signal_indirection: 1
+        tool_breadth: 1
+        repair_depth: 1
+        verification_complexity: 2
+      causal_depth: 2
+      state_layers:
+      - base_config
+      - dependency_runtime
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - latency_samples
+      - effective_config
+      - process_tree
+      persistence_id: restart
+      distractor_ids:
+      - healthy_process
+      - unrelated_latency
+      repair_invariant_ids:
+      - business_operation
+      - slo_preserved
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - increase_timeout_only
+      - restart_only
+      - change_caller_contract
+      verification_check_ids:
+      - business_operation
+      - latency_slo
+      - dependency_delay
+      - persistence
+      rationale:
+      - The dependency remains reachable but violates the client SLO.
+      - The agent must use repeated latency evidence and repair the source of delay
+        rather than hiding it with a larger timeout.
+      - Verification checks both request success and the latency budget.
+      schema_version: e2e-difficulty-contract-v1
+      score: 6
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: medium
+        score: 6
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 2
+        rationale:
+        - The dependency remains reachable but violates the client SLO.
+        - The agent must use repeated latency evidence and repair the source of delay
+          rather than hiding it with a larger timeout.
+        - Verification checks both request success and the latency budget.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: root_cause
+      ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_166
+    - field_path: public_task.impact
+      claim_type: verification
+      ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_016
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-d269ec#heuristic_operational_013
+    scenario_seed: 1
+    technology_stack:
+    - HTTP
+    - Python
+    - Linux
+    domain: distributed_system
+    fault_type: latency_regression
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: medium
+        score: 6
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 2
+        rationale:
+        - The dependency remains reachable but violates the client SLO.
+        - The agent must use repeated latency evidence and repair the source of delay
+          rather than hiding it with a larger timeout.
+        - Verification checks both request success and the latency budget.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: medium
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 2
+        causal_depth: 2
+        state_layers:
+        - base_config
+        - dependency_runtime
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - latency_samples
+        - effective_config
+        - process_tree
+        persistence_id: restart
+        distractor_ids:
+        - healthy_process
+        - unrelated_latency
+        repair_invariant_ids:
+        - business_operation
+        - slo_preserved
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - increase_timeout_only
+        - restart_only
+        - change_caller_contract
+        verification_check_ids:
+        - business_operation
+        - latency_slo
+        - dependency_delay
+        - persistence
+        rationale:
+        - The dependency remains reachable but violates the client SLO.
+        - The agent must use repeated latency evidence and repair the source of delay
+          rather than hiding it with a larger timeout.
+        - Verification checks both request success and the latency budget.
+        schema_version: e2e-difficulty-contract-v1
+        score: 6
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: medium
+          score: 6
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 1
+            signal_indirection: 1
+            tool_breadth: 1
+            repair_depth: 1
+            verification_complexity: 2
+          rationale:
+          - The dependency remains reachable but violates the client SLO.
+          - The agent must use repeated latency evidence and repair the source of
+            delay rather than hiding it with a larger timeout.
+          - Verification checks both request success and the latency budget.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  bundle_id: dynamic_bundle_0001
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - service_list
+  - business_probe
+  - dependency_list
+  - dependency_probe
+  - slo_read
+  - config_sources
+  - config_read
+  - config_update
+  - service_manage
+  repair_operations:
+  - config_update:set
+  - service_manage:restart
+  verifier_checks:
+  - business_operation
+  - latency_slo
+  - dependency_delay
+  - persistence
+  semantic_state:
+  - effective timeout
+  - dependency delay
+  - business latency
+  public_oracle: http_dependency_timeout_slo_v1
+difficulty_contract:
+  target_profile: medium
+  dimensions:
+    diagnostic_uncertainty: 1
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 1
+    verification_complexity: 2
+  causal_depth: 2
+  state_layers:
+  - base_config
+  - dependency_runtime
+  - runtime_process
+  required_signal_ids:
+  - logs
+  - latency_samples
+  - effective_config
+  - process_tree
+  persistence_id: restart
+  distractor_ids:
+  - healthy_process
+  - unrelated_latency
+  repair_invariant_ids:
+  - business_operation
+  - slo_preserved
+  - repair_persists
+  - root_signal_absent
+  forbidden_shortcut_ids:
+  - increase_timeout_only
+  - restart_only
+  - change_caller_contract
+  verification_check_ids:
+  - business_operation
+  - latency_slo
+  - dependency_delay
+  - persistence
+  rationale:
+  - The dependency remains reachable but violates the client SLO.
+  - The agent must use repeated latency evidence and repair the source of delay rather
+    than hiding it with a larger timeout.
+  - Verification checks both request success and the latency budget.
+  schema_version: e2e-difficulty-contract-v1
+  score: 6
+  rubric_version: e2e-difficulty-v2
+  difficulty_assessment:
+    profile: medium
+    score: 6
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 1
+      signal_indirection: 1
+      tool_breadth: 1
+      repair_depth: 1
+      verification_complexity: 2
+    rationale:
+    - The dependency remains reachable but violates the client SLO.
+    - The agent must use repeated latency evidence and repair the source of delay
+      rather than hiding it with a larger timeout.
+    - Verification checks both request success and the latency budget.
+    empirical_status: not_calibrated
+  candidate_strategy: layered_state
+runtime_controls:
+- no_op
+- oracle
+- restart_only
+- wrong_layer_fix
+- symptom_bypass
+- partial_fix
+- repeat
+- cleanup
+agent_panel_status: not_calibrated
+tool_standard:
+  id: dependency-operations-v1
+  version: '1'
+compiler_version: opsbench-dynamic-compiler-v1
+scenario_spec_version: opsbench-e2e-scenario-v2
+case_status: evaluable
+runtime_gate_passed: true

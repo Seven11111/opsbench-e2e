@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 30,
+  "final": "## Summary\n\n**Diagnosis:** The `orders` table (500,000 rows) had only a primary key index on `id`. Queries filtering by `customer_id` were performing a **Parallel Sequential Scan** on the entire table, taking ~15ms and consuming unnecessary CPU.\n\n**Fix:** Created a B-tree index on `customer_id`:\n\n```sql\nCREATE INDEX idx_orders_customer_id ON orders (customer_id);\n```\n\n**Verification:**\n\n1. ✅ **Customer lookup returns expected rows** — `SELECT * FROM orders WHERE customer_id = 12345` completes successfully (0 rows, as expected).\n2. ✅ **EXPLAIN shows an index-backed plan** — The plan now uses `Bitmap Index Scan on idx_orders_customer_id` instead of `Parallel Seq Scan`.\n3. ✅ **Execution time well below threshold** — Dropped from ~15ms to ~0.066ms, a ~200x improvement."
+}

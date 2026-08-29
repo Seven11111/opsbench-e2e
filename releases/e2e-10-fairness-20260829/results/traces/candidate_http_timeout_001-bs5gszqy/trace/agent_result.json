@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 35,
+  "final": "## Incident Summary\n\n**Root cause**: The `catalog` dependency was configured with an artificial 900ms delay (`delay_ms=900`), but the `orders-api` service had a connection timeout of only 150ms (`dependency_timeout_ms=150`). This mismatch caused the orders-api to time out waiting for catalog responses, resulting in 502 Bad Gateway errors and intermittent connection closures.\n\n**Fix applied**: Set `delay_ms=0` in the catalog's writable configuration source (`dependency-config`), removing the unnecessary artificial delay.\n\n**Verification**:\n- ✅ Catalog response time dropped from **909ms → ~2.8ms** (well within the 150ms timeout)\n- ✅ Orders-api business probe returned **200 (healthy)** instead of 502\n- ✅ Both services survived a restart cycle and the fix persisted in configuration\n- ✅ Response latency (~17ms) is well under the **600ms SLO**"
+}

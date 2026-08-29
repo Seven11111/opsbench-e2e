@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 28,
+  "final": "## Summary\n\n**Root cause:** The `runtime-environment` configuration source contained `APP_PORT=8082`, which overrode the base config's `port: 8080`. The service was starting on port 8082, but the health check was targeting port 8080, causing connection failures.\n\n**Fix applied:**\n1. Removed the `APP_PORT` entry from the `runtime-environment` configuration source (writable environment config)\n2. Restarted the `orders-api` service to pick up the corrected configuration\n\n**Verification:**\n- The business health probe now returns HTTP 200 on `http://127.0.0.1:8080/health`\n- The effective runtime config shows `port: 8080` as expected\n- The fix survives a restart boundary — after a second restart, the service remains healthy"
+}

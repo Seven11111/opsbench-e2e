@@ -1,0 +1,273 @@
+{
+  "manifest_version": "opsbench-e2e-manifest-v1",
+  "family": "e2e",
+  "release_case_root": "cases",
+  "sample_size": 10,
+  "sample_seed": 42,
+  "filters": {
+    "task_labels": [],
+    "template_id": null,
+    "domain": null,
+    "fault_type": null
+  },
+  "items": [
+    {
+      "id": "candidate_001",
+      "case_path": "cases/app-config-001",
+      "case_digest": "bd081185c9536f7eef498ced2c9c347c78d068431ca2d56ab6124e5f98533803",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "app-config-001",
+      "source_run": "case-01-app-config"
+    },
+    {
+      "id": "candidate_app_config_precedence_001",
+      "case_path": "cases/app-config-002",
+      "case_digest": "d6e8eea32a476cd622e21510e02a05430fe5051ded219e2463c2d36e92a9b982",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "app-config-002",
+      "source_run": "case-05-app-config-interpolation"
+    },
+    {
+      "id": "candidate_app_config_precedence_001",
+      "case_path": "cases/app-config-003",
+      "case_digest": "8f70ec3c14c9e8eb4bd86960133551f4a7e1b399aa0cad0f4d645d7dcc8dc9b8",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "app-config-003",
+      "source_run": "case-15-app-config-v2"
+    },
+    {
+      "id": "candidate_dynamic_001",
+      "case_path": "cases/postgres-index-001",
+      "case_digest": "38c19a3a210bd83a9ad43412216579b1155bd48a4848a4551336253c0ff6c8d9",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL"
+      ],
+      "template_id": "postgres_missing_index_v2",
+      "primitive_id": "postgres_missing_index_v2",
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "postgres-index-001",
+      "source_run": "case-06-postgres-index-v2"
+    },
+    {
+      "id": "candidate_http_dependency_timeout_slo_v1_001",
+      "case_path": "cases/http-timeout-001",
+      "case_digest": "e5e6a5e8f52e2103370872d20bf54def6b2cfb05e0ed73bdd74fc99ac224c9de",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "distributed_system",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_dependency_timeout_slo_v1",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 6,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "http-timeout-001",
+      "source_run": "case-07-http-timeout-v2"
+    },
+    {
+      "id": "candidate_http_timeout_001",
+      "case_path": "cases/http-timeout-002",
+      "case_digest": "527a23d86f5291f094a118a9b3477ec190c4255f4f34935ea8b49bd187e58a4b",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "performance_tuning"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "distributed_system",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_dependency_timeout_slo_v1",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 6,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "http-timeout-002",
+      "source_run": "case-02-http-timeout-v2"
+    },
+    {
+      "id": "dynamic_nginx_bind_conflict_v1_000001",
+      "case_path": "cases/nginx-bind-001",
+      "case_digest": "550bb117219418803c6d81cbfee6f9383c58d029610729936dc19fa6bd3b6e95",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_conflict",
+      "domain": "http",
+      "technology_stack": [
+        "Nginx",
+        "HTTP"
+      ],
+      "template_id": "nginx_bind_conflict_v1",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "target_difficulty": "easy",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "nginx-bind-001",
+      "source_run": "case-03-nginx-bind-v2"
+    },
+    {
+      "id": "dynamic_tls_hostname_mismatch_v1_000001",
+      "case_path": "cases/tls-hostname-001",
+      "case_digest": "75f872a6bb24af02b228fa1d73765c737c62a5702646accab9e696e1f7f2eec6",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "certificate_identity",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_hostname_mismatch_v1",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "tls-hostname-001",
+      "source_run": "case-11-tls"
+    },
+    {
+      "id": "dynamic_tls_hostname_mismatch_v1_000001",
+      "case_path": "cases/tls-hostname-002",
+      "case_digest": "75f872a6bb24af02b228fa1d73765c737c62a5702646accab9e696e1f7f2eec6",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "certificate_identity",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_hostname_mismatch_v1",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "tls-hostname-002",
+      "source_run": "case-17-tls-v2"
+    },
+    {
+      "id": "e2e_postgres_missing_index_v2_001",
+      "case_path": "cases/postgres-index-002",
+      "case_digest": "96ce56517f80d66a17a5fc20385048c1c4c44e4de69fe32ed13a07d116c9acc8",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL"
+      ],
+      "template_id": "postgres_missing_index_v2",
+      "primitive_id": "postgres_missing_index_v2",
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "release_case_id": "postgres-index-002",
+      "source_run": "case-18-postgres-index-v3"
+    }
+  ],
+  "total_available": 10,
+  "total": 10,
+  "path_policy": "repository-relative; host paths removed"
+}

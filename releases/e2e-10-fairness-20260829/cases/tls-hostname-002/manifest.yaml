@@ -1,0 +1,674 @@
+id: dynamic_tls_hostname_mismatch_v1_000001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: certificate_identity
+domain: tls
+technology_stack:
+- TLS
+- HTTP
+- OpenSSL
+template_id: tls_hostname_mismatch_v1
+fault_primitive_id: tls_hostname_mismatch_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: demo_validated
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 10
+  rubric_version: e2e-difficulty-v2
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 2
+    repair_depth: 2
+    verification_complexity: 2
+  rationale:
+  - The endpoint is reachable and the certificate chain is trusted, but the identity
+    is wrong.
+  - The agent must inspect SAN/hostname evidence rather than disabling verification.
+  - Verification uses a normal validating client after certificate reload and restart.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: https://127.0.0.1:8443/health
+    cacert: /etc/opsbench/ca.crt
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_334
+    claim_type: root_cause
+    field_path: public_task.root_cause
+  - ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_541
+    claim_type: root_cause
+    field_path: public_task.root_cause
+  - ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_542
+    claim_type: repair
+    field_path: public_task.repair
+  - ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_085
+    claim_type: verification
+    field_path: public_task.verification
+  - ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_086
+    claim_type: verification
+    field_path: public_task.verification
+  candidate_group_id: dynamic_bundle_0001_group_001
+  generation_strategy: layered_state
+  experience_version: e2e-v1
+  experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+  scenario_seed: 1
+  novelty_fingerprint: a0d191977e422b13
+  difficulty_assessment:
+    profile: hard
+    score: 10
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 2
+      signal_indirection: 2
+      tool_breadth: 2
+      repair_depth: 2
+      verification_complexity: 2
+    rationale:
+    - The endpoint is reachable and the certificate chain is trusted, but the identity
+      is wrong.
+    - The agent must inspect SAN/hostname evidence rather than disabling verification.
+    - Verification uses a normal validating client after certificate reload and restart.
+    empirical_status: not_calibrated
+  scenario_spec:
+    id: dynamic_tls_hostname_mismatch_v1_000001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: tls_http_service
+      component_id: tls-http-service
+      version: ''
+      params: {}
+    fault:
+      primitive_id: tls_hostname_mismatch_v1
+      target: tls_http_service
+      params: {}
+    public_task:
+      symptom: The service is not reporting a healthy operational state.
+      impact: The documented operational workflow cannot complete reliably.
+      objective: Diagnose the live service, apply the smallest safe repair, and verify
+        recovery.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - service_repair
+    expected_actions:
+    - primitive_id: tls_hostname_mismatch_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.25
+    - check_id: tls_hostname
+      weight: 0.25
+    - check_id: certificate_chain
+      weight: 0.25
+    - check_id: persistence
+      weight: 0.25
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_layer_fix
+    - scenario: symptom_bypass
+    - scenario: insecure_fix
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 2
+      rationale:
+      - The endpoint is reachable and the certificate chain is trusted, but the identity
+        is wrong.
+      - The agent must inspect SAN/hostname evidence rather than disabling verification.
+      - Verification uses a normal validating client after certificate reload and
+        restart.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 2
+      causal_depth: 2
+      state_layers:
+      - base_config
+      - certificate_store
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - tls_chain
+      - effective_config
+      - process_tree
+      persistence_id: certificate_reload
+      distractor_ids:
+      - healthy_process
+      - valid_wrong_certificate
+      - listener_is_reachable_locally
+      repair_invariant_ids:
+      - business_operation
+      - security_preserved
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - insecure_tls
+      - restart_only
+      - direct_edit_generated_config
+      verification_check_ids:
+      - business_operation
+      - tls_hostname
+      - certificate_chain
+      - persistence
+      rationale:
+      - The endpoint is reachable and the certificate chain is trusted, but the identity
+        is wrong.
+      - The agent must inspect SAN/hostname evidence rather than disabling verification.
+      - Verification uses a normal validating client after certificate reload and
+        restart.
+      schema_version: e2e-difficulty-contract-v1
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        rationale:
+        - The endpoint is reachable and the certificate chain is trusted, but the
+          identity is wrong.
+        - The agent must inspect SAN/hostname evidence rather than disabling verification.
+        - Verification uses a normal validating client after certificate reload and
+          restart.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_334
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_541
+    - field_path: public_task.repair
+      claim_type: repair
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_542
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_085
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_086
+    scenario_seed: 1
+    technology_stack:
+    - TLS
+    - HTTP
+    - OpenSSL
+    domain: tls
+    fault_type: certificate_identity
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        rationale:
+        - The endpoint is reachable and the certificate chain is trusted, but the
+          identity is wrong.
+        - The agent must inspect SAN/hostname evidence rather than disabling verification.
+        - Verification uses a normal validating client after certificate reload and
+          restart.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        causal_depth: 2
+        state_layers:
+        - base_config
+        - certificate_store
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - tls_chain
+        - effective_config
+        - process_tree
+        persistence_id: certificate_reload
+        distractor_ids:
+        - healthy_process
+        - valid_wrong_certificate
+        - listener_is_reachable_locally
+        repair_invariant_ids:
+        - business_operation
+        - security_preserved
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - insecure_tls
+        - restart_only
+        - direct_edit_generated_config
+        verification_check_ids:
+        - business_operation
+        - tls_hostname
+        - certificate_chain
+        - persistence
+        rationale:
+        - The endpoint is reachable and the certificate chain is trusted, but the
+          identity is wrong.
+        - The agent must inspect SAN/hostname evidence rather than disabling verification.
+        - Verification uses a normal validating client after certificate reload and
+          restart.
+        schema_version: e2e-difficulty-contract-v1
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 10
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 2
+            repair_depth: 2
+            verification_complexity: 2
+          rationale:
+          - The endpoint is reachable and the certificate chain is trusted, but the
+            identity is wrong.
+          - The agent must inspect SAN/hostname evidence rather than disabling verification.
+          - Verification uses a normal validating client after certificate reload
+            and restart.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  dynamic_spec:
+    id: dynamic_tls_hostname_mismatch_v1_000001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: tls_http_service
+      component_id: tls-http-service
+      version: ''
+      params: {}
+    fault:
+      primitive_id: tls_hostname_mismatch_v1
+      target: tls_http_service
+      params: {}
+    public_task:
+      symptom: The service is not reporting a healthy operational state.
+      impact: The documented operational workflow cannot complete reliably.
+      objective: Diagnose the live service, apply the smallest safe repair, and verify
+        recovery.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - service_repair
+    expected_actions:
+    - primitive_id: tls_hostname_mismatch_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.25
+    - check_id: tls_hostname
+      weight: 0.25
+    - check_id: certificate_chain
+      weight: 0.25
+    - check_id: persistence
+      weight: 0.25
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_layer_fix
+    - scenario: symptom_bypass
+    - scenario: insecure_fix
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 2
+      rationale:
+      - The endpoint is reachable and the certificate chain is trusted, but the identity
+        is wrong.
+      - The agent must inspect SAN/hostname evidence rather than disabling verification.
+      - Verification uses a normal validating client after certificate reload and
+        restart.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 2
+      causal_depth: 2
+      state_layers:
+      - base_config
+      - certificate_store
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - tls_chain
+      - effective_config
+      - process_tree
+      persistence_id: certificate_reload
+      distractor_ids:
+      - healthy_process
+      - valid_wrong_certificate
+      - listener_is_reachable_locally
+      repair_invariant_ids:
+      - business_operation
+      - security_preserved
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - insecure_tls
+      - restart_only
+      - direct_edit_generated_config
+      verification_check_ids:
+      - business_operation
+      - tls_hostname
+      - certificate_chain
+      - persistence
+      rationale:
+      - The endpoint is reachable and the certificate chain is trusted, but the identity
+        is wrong.
+      - The agent must inspect SAN/hostname evidence rather than disabling verification.
+      - Verification uses a normal validating client after certificate reload and
+        restart.
+      schema_version: e2e-difficulty-contract-v1
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        rationale:
+        - The endpoint is reachable and the certificate chain is trusted, but the
+          identity is wrong.
+        - The agent must inspect SAN/hostname evidence rather than disabling verification.
+        - Verification uses a normal validating client after certificate reload and
+          restart.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_334
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_541
+    - field_path: public_task.repair
+      claim_type: repair
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_542
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_085
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-docs-python-org-3-library-ssl-html-df155b7fd39d#heuristic_operational_086
+    scenario_seed: 1
+    technology_stack:
+    - TLS
+    - HTTP
+    - OpenSSL
+    domain: tls
+    fault_type: certificate_identity
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: ede0f8648990c3e600497b87f4bba8d5c402734970c758802d38e2e8fbb9bd36
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        rationale:
+        - The endpoint is reachable and the certificate chain is trusted, but the
+          identity is wrong.
+        - The agent must inspect SAN/hostname evidence rather than disabling verification.
+        - Verification uses a normal validating client after certificate reload and
+          restart.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        causal_depth: 2
+        state_layers:
+        - base_config
+        - certificate_store
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - tls_chain
+        - effective_config
+        - process_tree
+        persistence_id: certificate_reload
+        distractor_ids:
+        - healthy_process
+        - valid_wrong_certificate
+        - listener_is_reachable_locally
+        repair_invariant_ids:
+        - business_operation
+        - security_preserved
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - insecure_tls
+        - restart_only
+        - direct_edit_generated_config
+        verification_check_ids:
+        - business_operation
+        - tls_hostname
+        - certificate_chain
+        - persistence
+        rationale:
+        - The endpoint is reachable and the certificate chain is trusted, but the
+          identity is wrong.
+        - The agent must inspect SAN/hostname evidence rather than disabling verification.
+        - Verification uses a normal validating client after certificate reload and
+          restart.
+        schema_version: e2e-difficulty-contract-v1
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 10
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 2
+            repair_depth: 2
+            verification_complexity: 2
+          rationale:
+          - The endpoint is reachable and the certificate chain is trusted, but the
+            identity is wrong.
+          - The agent must inspect SAN/hostname evidence rather than disabling verification.
+          - Verification uses a normal validating client after certificate reload
+            and restart.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  bundle_id: dynamic_bundle_0001
+difficulty_contract:
+  target_profile: hard
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 2
+    repair_depth: 2
+    verification_complexity: 2
+  causal_depth: 2
+  state_layers:
+  - base_config
+  - certificate_store
+  - runtime_process
+  required_signal_ids:
+  - logs
+  - tls_chain
+  - effective_config
+  - process_tree
+  persistence_id: certificate_reload
+  distractor_ids:
+  - healthy_process
+  - valid_wrong_certificate
+  - listener_is_reachable_locally
+  repair_invariant_ids:
+  - business_operation
+  - security_preserved
+  - repair_persists
+  - root_signal_absent
+  forbidden_shortcut_ids:
+  - insecure_tls
+  - restart_only
+  - direct_edit_generated_config
+  verification_check_ids:
+  - business_operation
+  - tls_hostname
+  - certificate_chain
+  - persistence
+  rationale:
+  - The endpoint is reachable and the certificate chain is trusted, but the identity
+    is wrong.
+  - The agent must inspect SAN/hostname evidence rather than disabling verification.
+  - Verification uses a normal validating client after certificate reload and restart.
+  schema_version: e2e-difficulty-contract-v1
+  score: 10
+  rubric_version: e2e-difficulty-v2
+  difficulty_assessment:
+    profile: hard
+    score: 10
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 2
+      signal_indirection: 2
+      tool_breadth: 2
+      repair_depth: 2
+      verification_complexity: 2
+    rationale:
+    - The endpoint is reachable and the certificate chain is trusted, but the identity
+      is wrong.
+    - The agent must inspect SAN/hostname evidence rather than disabling verification.
+    - Verification uses a normal validating client after certificate reload and restart.
+    empirical_status: not_calibrated
+  candidate_strategy: layered_state
+runtime_controls:
+- no_op
+- oracle
+- restart_only
+- wrong_layer_fix
+- symptom_bypass
+- partial_fix
+- insecure_fix
+- repeat
+- cleanup
+agent_panel_status: not_calibrated
+compiler_version: opsbench-dynamic-compiler-v1
+scenario_spec_version: opsbench-e2e-scenario-v2
+case_status: evaluable
+runtime_gate_passed: true

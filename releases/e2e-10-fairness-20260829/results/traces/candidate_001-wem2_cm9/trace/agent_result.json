@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 24,
+  "final": "## Summary\n\n### Diagnosis\nThe `orders-api` service was running as a process, but its HTTP health endpoint on port 8080 was not responding. The root cause was a **conflicting configuration source** in the `runtime-environment` layer: it contained `APP_PORT=8082`, which conflicted with the base configuration's `port=8080`. This caused the service to fail to initialize its HTTP listener correctly.\n\n### Repair\n1. **Removed** the `APP_PORT` entry from the `runtime-environment` configuration source (writable layer).\n2. **Restarted** the service to pick up the corrected configuration.\n\n### Verification\n- The health probe now returns **HTTP 200** on `http://127.0.0.1:8080/health`.\n- The effective runtime configuration no longer contains the conflicting `APP_PORT` key.\n- The fix survives the restart boundary, confirming the underlying fault signal is gone."
+}
