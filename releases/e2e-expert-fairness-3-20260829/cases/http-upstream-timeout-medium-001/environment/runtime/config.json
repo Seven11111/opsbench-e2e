@@ -1,0 +1,1 @@
+{"mode": "upstream_timeout", "delay_ms": 900, "timeout_ms": 1000, "repair_mode": "fixed"}

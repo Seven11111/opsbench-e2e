@@ -1,0 +1,89 @@
+{
+  "manifest_version": "opsbench-e2e-manifest-v1",
+  "family": "e2e",
+  "case_root": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829",
+  "sample_size": 3,
+  "sample_seed": 42,
+  "filters": {
+    "task_labels": [],
+    "template_id": null,
+    "domain": null,
+    "fault_type": null
+  },
+  "items": [
+    {
+      "id": "candidate_001",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\candidate_001",
+      "case_digest": "0391f678c149adb0c81dbf142a0bff09d60ea7034916eb89b384d780c5f266c1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "stale_runtime_state",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Linux",
+        "Python"
+      ],
+      "template_id": "app_stale_pid_v1",
+      "primitive_id": "app_stale_pid_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_001__upstream-timeout-v2",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\upstream-timeout-v2\\cases\\candidate_001",
+      "case_digest": "b794ff5dbd6f1d4d0d1ab6806d524b7b6c87892d0e3b589fce8fed23e6eb190b",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "performance_tuning"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_upstream_timeout_v1",
+      "primitive_id": "http_upstream_timeout_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\app-config\\cases\\dynamic_app_config_precedence_v1_000001",
+      "case_digest": "bab5ed4798126702d20ca92c18c47dab827bd5deca366a85b90cc24d1dd2e90e",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    }
+  ],
+  "total_available": 3,
+  "total": 3
+}

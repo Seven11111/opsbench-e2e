@@ -1,0 +1,63 @@
+{
+  "release_id": "e2e-expert-fairness-3-20260829",
+  "family": "e2e",
+  "generation_mode": "dynamic",
+  "artifact_mode": "trusted",
+  "candidate_policy": "one_candidate_per_document_bundle",
+  "generator_model": "deepseek-v4-flash",
+  "review_model": "deepseek-v4-pro",
+  "agent_model": "deepseek-v4-flash",
+  "agent_config": "flash_60",
+  "case_status_counts": {
+    "evaluable": 3,
+    "not_evaluable": 0
+  },
+  "cases": [
+    {
+      "id": "linux-stale-pid-medium-001",
+      "source_case_id": "candidate_001",
+      "primitive_id": "app_stale_pid_v1",
+      "target_difficulty": "medium",
+      "difficulty_score": 5,
+      "judge_score": 4.866666666666666,
+      "runtime_gate": "passed",
+      "source_url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html",
+      "agent_result": "failed",
+      "failure_attribution": "valid_model_failure"
+    },
+    {
+      "id": "http-upstream-timeout-medium-001",
+      "source_case_id": "candidate_001",
+      "primitive_id": "http_upstream_timeout_v1",
+      "target_difficulty": "medium",
+      "difficulty_score": 5,
+      "judge_score": 4.54,
+      "runtime_gate": "passed",
+      "source_url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html",
+      "agent_result": "failed",
+      "failure_attribution": "valid_model_failure"
+    },
+    {
+      "id": "docker-compose-config-precedence-hard-001",
+      "source_case_id": "dynamic_app_config_precedence_v1_000001",
+      "primitive_id": "app_config_precedence_v1",
+      "target_difficulty": "hard",
+      "difficulty_score": 8,
+      "judge_score": 4.94,
+      "runtime_gate": "passed",
+      "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/",
+      "agent_result": "failed",
+      "failure_attribution": "valid_model_failure"
+    }
+  ],
+  "agent_summary": {
+    "total": 3,
+    "completed": 3,
+    "passed": 0,
+    "failed": 3,
+    "timeouts": 0,
+    "infrastructure_errors": 0,
+    "cleanup_failures": 0
+  },
+  "empirical_difficulty_status": "not_calibrated"
+}

@@ -1,0 +1,295 @@
+{
+  "family": "e2e",
+  "total": 3,
+  "e2e_score": 0.0,
+  "family_scores": {
+    "e2e": 0.0
+  },
+  "task_success_rate": 0.0,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 0.0,
+  "verifier_check_rate": 0.18181818181818182,
+  "timeout_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "infrastructure_error_rate": 0.0,
+  "average_duration": 128.422,
+  "average_verifier_score": 0.22222233333333333,
+  "counts": {
+    "passed": 0,
+    "evaluable": 3,
+    "not_evaluable": 0,
+    "model_failed": 3,
+    "not_scored": 0,
+    "agent_completed": 3,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0
+  },
+  "status_dimensions": {
+    "case_quality_status": {
+      "certified": 3,
+      "not_evaluable": 0
+    },
+    "execution_status": {
+      "completed": 3,
+      "timeout": 0,
+      "infrastructure_error": 0
+    },
+    "model_result": {
+      "passed": 0,
+      "failed": 3,
+      "not_scored": 0
+    }
+  },
+  "failure_attribution": {
+    "valid_model_failure": 3
+  },
+  "failure_types": {
+    "task_failure": 3
+  },
+  "by_primary_task_label": {
+    "fault_fix": {
+      "total": 3,
+      "scored": 3,
+      "success_rate": 0.0
+    }
+  },
+  "by_fault_type": {
+    "configuration_precedence": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    },
+    "latency_regression": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    },
+    "stale_runtime_state": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    }
+  },
+  "by_domain": {
+    "configuration": {
+      "total": 2,
+      "scored": 2,
+      "success_rate": 0.0
+    },
+    "network": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    }
+  },
+  "by_template": {
+    "app_config_precedence_v1": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    },
+    "app_stale_pid_v1": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    },
+    "http_upstream_timeout_v1": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    }
+  },
+  "manifest": {
+    "manifest_version": "opsbench-e2e-manifest-v1",
+    "family": "e2e",
+    "case_root": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829",
+    "sample_size": 3,
+    "sample_seed": 42,
+    "filters": {
+      "task_labels": [],
+      "template_id": null,
+      "domain": null,
+      "fault_type": null
+    },
+    "items": [
+      {
+        "id": "candidate_001",
+        "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\candidate_001",
+        "case_digest": "0391f678c149adb0c81dbf142a0bff09d60ea7034916eb89b384d780c5f266c1",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "stale_runtime_state",
+        "domain": "configuration",
+        "technology_stack": [
+          "HTTP",
+          "Linux",
+          "Python"
+        ],
+        "template_id": "app_stale_pid_v1",
+        "primitive_id": "app_stale_pid_v1",
+        "difficulty_profile": "medium",
+        "difficulty_score": 5,
+        "target_difficulty": "medium",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "candidate_001",
+        "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\upstream-timeout-v2\\cases\\candidate_001",
+        "case_digest": "b794ff5dbd6f1d4d0d1ab6806d524b7b6c87892d0e3b589fce8fed23e6eb190b",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "performance_tuning"
+        ],
+        "fault_type": "latency_regression",
+        "domain": "network",
+        "technology_stack": [
+          "HTTP",
+          "Python",
+          "Linux"
+        ],
+        "template_id": "http_upstream_timeout_v1",
+        "primitive_id": "http_upstream_timeout_v1",
+        "difficulty_profile": "medium",
+        "difficulty_score": 5,
+        "target_difficulty": "medium",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_app_config_precedence_v1_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\app-config\\cases\\dynamic_app_config_precedence_v1_000001",
+        "case_digest": "bab5ed4798126702d20ca92c18c47dab827bd5deca366a85b90cc24d1dd2e90e",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "configuration_precedence",
+        "domain": "configuration",
+        "technology_stack": [
+          "HTTP",
+          "Python",
+          "Linux"
+        ],
+        "template_id": "app_config_precedence_v1",
+        "primitive_id": "app_config_precedence_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      }
+    ],
+    "total_available": 3,
+    "total": 3
+  },
+  "summary": {
+    "family": "e2e",
+    "total": 3,
+    "e2e_score": 0.0,
+    "family_scores": {
+      "e2e": 0.0
+    },
+    "task_success_rate": 0.0,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 0.0,
+    "verifier_check_rate": 0.18181818181818182,
+    "timeout_rate": 0.0,
+    "cleanup_failure_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "average_duration": 128.422,
+    "average_verifier_score": 0.22222233333333333,
+    "counts": {
+      "passed": 0,
+      "evaluable": 3,
+      "not_evaluable": 0,
+      "model_failed": 3,
+      "not_scored": 0,
+      "agent_completed": 3,
+      "infrastructure_errors": 0,
+      "timeouts": 0,
+      "cleanup_failures": 0
+    },
+    "status_dimensions": {
+      "case_quality_status": {
+        "certified": 3,
+        "not_evaluable": 0
+      },
+      "execution_status": {
+        "completed": 3,
+        "timeout": 0,
+        "infrastructure_error": 0
+      },
+      "model_result": {
+        "passed": 0,
+        "failed": 3,
+        "not_scored": 0
+      }
+    },
+    "failure_attribution": {
+      "valid_model_failure": 3
+    },
+    "failure_types": {
+      "task_failure": 3
+    },
+    "by_primary_task_label": {
+      "fault_fix": {
+        "total": 3,
+        "scored": 3,
+        "success_rate": 0.0
+      }
+    },
+    "by_fault_type": {
+      "configuration_precedence": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      },
+      "latency_regression": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      },
+      "stale_runtime_state": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      }
+    },
+    "by_domain": {
+      "configuration": {
+        "total": 2,
+        "scored": 2,
+        "success_rate": 0.0
+      },
+      "network": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      }
+    },
+    "by_template": {
+      "app_config_precedence_v1": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      },
+      "app_stale_pid_v1": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      },
+      "http_upstream_timeout_v1": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      }
+    }
+  }
+}

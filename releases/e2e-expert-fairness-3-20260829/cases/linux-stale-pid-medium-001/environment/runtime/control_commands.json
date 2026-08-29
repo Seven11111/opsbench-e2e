@@ -1,0 +1,5 @@
+{
+  "oracle": "rm -f /data/app.pid; python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d.update(stale_pid=False, repair_mode='persistent'); open(p,'w').write(json.dumps(d))\"",
+  "wrong_fix": "rm -f /data/other.pid",
+  "partial_fix": "rm -f /data/app.pid"
+}

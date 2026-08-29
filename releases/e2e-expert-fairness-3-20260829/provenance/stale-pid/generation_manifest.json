@@ -1,0 +1,1169 @@
+{
+  "manifest_version": "opsbench-e2e-dynamic-generation-v1",
+  "family": "e2e",
+  "generation_mode": "dynamic",
+  "primitive_registry_snapshot": {
+    "app_config_precedence_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "configuration_precedence"
+    },
+    "app_stale_pid_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "stale_runtime_state"
+    },
+    "fluentbit_backpressure_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "fluent-bit",
+      "fault_type": "resource_saturation"
+    },
+    "http_dependency_dns_poison_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "name_resolution"
+    },
+    "http_dependency_port_drift_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "dependency_configuration"
+    },
+    "http_dependency_timeout_slo_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_retry_circuit_breaker_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-circuit-target",
+      "fault_type": "retry_circuit_breaker"
+    },
+    "http_upstream_timeout_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_wrong_port_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "http-service",
+      "fault_type": "configuration_error"
+    },
+    "kafka_consumer_lag_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "kafka-consumer-target",
+      "fault_type": "consumer_lag"
+    },
+    "linux_cpu_runaway_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_cpu_runaway_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_disk_full_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "disk_exhaustion"
+    },
+    "linux_fd_leak_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "resource_leak"
+    },
+    "linux_file_lock_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "file_lock"
+    },
+    "linux_inode_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "inode_exhaustion"
+    },
+    "linux_memory_growth_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "memory_exhaustion"
+    },
+    "linux_temp_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "linux_upload_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "nginx_bind_conflict_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "nginx",
+      "fault_type": "resource_conflict"
+    },
+    "postgres_connection_pool_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-pool-target",
+      "fault_type": "connection_pool_exhaustion"
+    },
+    "postgres_lock_contention_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-lock-target",
+      "fault_type": "lock_contention"
+    },
+    "postgres_missing_index_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "postgres",
+      "fault_type": "database_configuration"
+    },
+    "postgres_missing_index_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres",
+      "fault_type": "performance_regression"
+    },
+    "prometheus_scrape_target_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "prometheus",
+      "fault_type": "configuration_error"
+    },
+    "rabbitmq_resource_alarm_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "rabbitmq",
+      "fault_type": "resource_saturation"
+    },
+    "redis_cache_corruption_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "redis-cache-target",
+      "fault_type": "cache_corruption"
+    },
+    "tls_hostname_mismatch_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "tls-http-service",
+      "fault_type": "certificate_identity"
+    }
+  },
+  "bundle_count": 1,
+  "candidate_count": 1,
+  "accepted_candidate_count": 1,
+  "case_count": 1,
+  "candidate_group_size": "1",
+  "artifact_mode": "trusted",
+  "allow_experimental": true,
+  "max_source_repair_rounds": 3,
+  "max_artifact_repair_rounds": 3,
+  "max_runtime_repair_rounds": 3,
+  "artifact_reports": [],
+  "artifact_repair_count": 0,
+  "stage_mode": false,
+  "runtime_required": true,
+  "candidate_timeout_sec": 1200,
+  "resolved_group_sizes": [
+    "1"
+  ],
+  "max_judge_rounds": 3,
+  "bundle_mode": "auto",
+  "max_documents_per_bundle": 1,
+  "language": "en",
+  "experience_version": "e2e-v1",
+  "experience_digest": "d58695defb005c5ded0ab29bda2c3bb7aa97342addb15fa3a0039a3278a789a9",
+  "generator_model": "deepseek-v4-flash",
+  "review_model": "deepseek-v4-pro",
+  "evidence_gate": "strict",
+  "allow_deterministic_fallback": false,
+  "require_model_judge": true,
+  "document_context_mode": "full",
+  "document_context_count": 1,
+  "evidence_gate_reports": [
+    {
+      "passed": true,
+      "issue_count": 0,
+      "issues": [],
+      "advisories": [],
+      "claim_counts": {
+        "repair": 3,
+        "root_cause": 3,
+        "symptom": 1,
+        "verification": 3
+      },
+      "document_context_count": 1,
+      "runtime_contract_roles": [
+        "impact",
+        "repair",
+        "root_cause",
+        "symptom",
+        "verification"
+      ],
+      "required_claims": [
+        "root_cause",
+        "repair"
+      ],
+      "bundle_id": "dynamic_bundle_0001",
+      "initial_passed": true,
+      "judge_rounds": 0
+    }
+  ],
+  "target_difficulty": "medium",
+  "primitive_id": "app_stale_pid_v1",
+  "cases": [
+    {
+      "id": "candidate_001",
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\candidate_001",
+      "primitive_id": "app_stale_pid_v1",
+      "template_id": "app_stale_pid_v1",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 5,
+        "rubric_version": "e2e-difficulty-v1",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The agent must distinguish stale runtime state from a live process and remove only the invalid state."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "judge_rounds": 1,
+      "judge_score": 4.866666666666666,
+      "candidate_group_id": "dynamic_bundle_0001_group_001",
+      "case_status": "evaluable",
+      "runtime_gate": {
+        "id": "candidate_001",
+        "template_id": "app_stale_pid_v1",
+        "case_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\candidate_001",
+        "passed": true,
+        "case_status": "evaluable",
+        "issues": [],
+        "gate": {
+          "passed": true,
+          "issues": [],
+          "required_scenarios": [
+            "no_op",
+            "oracle",
+            "partial_fix",
+            "repeat",
+            "restart_only",
+            "wrong_fix"
+          ],
+          "observed_scenarios": [
+            "no_op",
+            "oracle",
+            "partial_fix",
+            "repeat",
+            "restart_only",
+            "wrong_fix"
+          ],
+          "gate_version": "e2e-runtime-gate-v1"
+        },
+        "public_actionability": {
+          "passed": true,
+          "issues": [],
+          "version": "e2e-public-actionability-v1",
+          "required": true,
+          "public_oracle": null
+        },
+        "public_tool_oracle": {
+          "required": false,
+          "status": "not_registered",
+          "passed": null,
+          "oracle_version": "e2e-public-tool-oracle-v1",
+          "note": "No separate public-oracle adapter is registered; static actionability and runtime controls remain authoritative."
+        },
+        "runs": [
+          {
+            "id": "candidate_001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.985,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 719B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 75.89kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#7 CACHED\n\n#8 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 4/12] WORKDIR /agent\n#14 CACHED\n\n#15 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#15 CACHED\n\n#16 [ 7/12] COPY agent /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:2ba19faace3114444576ff20afbdc10231cc9ea86f3be0ee0cac35dd4e007bb8 0.0s done\n#18 exporting config sha256:dcff981467383b9eea948bbb0719f7dafa84eae1ffb6bdf5b91fb6e75123c5f5\n#18 exporting config sha256:dcff981467383b9eea948bbb0719f7dafa84eae1ffb6bdf5b91fb6e75123c5f5 0.0s done\n#18 exporting attestation manifest sha256:973c0584e66af50aff616a30b78e04fd116ca966df8d5b4c117d664e0ab2fc42 0.0s done\n#18 exporting manifest list sha256:30ed65f7618fbc8f23d07bdaa703944705e5e9607964c07b263f12b367e5dfa5 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#18 DONE 0.3s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-candidate-001-17000-31734_default Creating \n Network opsbench-candidate-001-17000-31734_default Created \n Container opsbench-candidate-001-17000-31734-target-1 Creating \n Container opsbench-candidate-001-17000-31734-target-1 Created \n Container opsbench-candidate-001-17000-31734-target-1 Starting \n Container opsbench-candidate-001-17000-31734-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.406,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.25,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.594,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.109,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.203,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 1.594,
+                "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.265,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.35,
+                "detail": "curl: (22) The requested URL returned error: 503"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": false,
+                "weight": 0.3,
+                "detail": "config={'mode': 'stale_pid', 'stale_pid': True, 'repair_mode': 'fault'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 14.703,
+            "case_digest": "d44885c52dcedf019ac5b9952c937b93f11a2cacf121d5a4a8edf391594efabf",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\reports\\control_traces\\candidate_001-i3e9a4vw",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "expected": "fail",
+            "expected_reason": "The injected fault remains active.",
+            "scenario": "no_op",
+            "control_mode": "no_op",
+            "repeat_index": 0
+          },
+          {
+            "id": "candidate_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.344,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 719B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#7 CACHED\n\n#8 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#12 CACHED\n\n#13 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#14 CACHED\n\n#15 [ 7/12] COPY agent /agent\n#15 CACHED\n\n#16 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:c1453bee1d4b1fc220f2f464b88dad257e8975b21d84f778bbbac7583c1907bd 0.0s done\n#18 exporting config sha256:94f0a5fbbb943a9b68210aa0d67299611e5cba6bfb70f8f65dd2f8cee0b66798 0.0s done\n#18 exporting attestation manifest sha256:d26f8ce9525fde44a0e2550d209591fe38e07c4db591c8d5c57c46f31cae4d20\n#18 exporting attestation manifest sha256:d26f8ce9525fde44a0e2550d209591fe38e07c4db591c8d5c57c46f31cae4d20 0.0s done\n#18 exporting manifest list sha256:3f132c03632deea9579c25643d4f2e24856dae20f3ce1dac5ccd2828f6d09241 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-candidate-001-17000-46437_default Creating \n Network opsbench-candidate-001-17000-46437_default Created \n Container opsbench-candidate-001-17000-46437-target-1 Creating \n Container opsbench-candidate-001-17000-46437-target-1 Created \n Container opsbench-candidate-001-17000-46437-target-1 Starting \n Container opsbench-candidate-001-17000-46437-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.547,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.031,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.625,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.375,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.297,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.297,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.187,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"application PID state is valid\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 9.0,
+            "case_digest": "d44885c52dcedf019ac5b9952c937b93f11a2cacf121d5a4a8edf391594efabf",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\reports\\control_traces\\candidate_001-eomiqiep",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "expected": "pass",
+            "expected_reason": "The registered safe repair restores the public contract.",
+            "scenario": "oracle",
+            "control_mode": "oracle",
+            "repeat_index": 0
+          },
+          {
+            "id": "candidate_001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.125,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 719B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#7 CACHED\n\n#8 [ 7/12] COPY agent /agent\n#8 CACHED\n\n#9 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#9 CACHED\n\n#10 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#10 CACHED\n\n#11 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#11 CACHED\n\n#12 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#13 CACHED\n\n#14 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#14 CACHED\n\n#15 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#15 CACHED\n\n#16 [ 4/12] WORKDIR /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:f744d5e4f28a5aa08c05d32989bfabe06c07d274e512b19ac4614bb91126789b 0.0s done\n#18 exporting config sha256:a97ea3b9a7e084e71d74d965baa86941707d66a032cb3f3e20ac2e4d60e4fcfb 0.0s done\n#18 exporting attestation manifest sha256:24d541c1741abc85636ebc40150b448c622b04e41aec89653b147e46a0a89fb8 0.0s done\n#18 exporting manifest list sha256:32e9f830cff06f090f89b5d4ee05fff266b254c7c68c475c6037dd713dc91471\n#18 exporting manifest list sha256:32e9f830cff06f090f89b5d4ee05fff266b254c7c68c475c6037dd713dc91471 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-candidate-001-17000-55437_default Creating \n Network opsbench-candidate-001-17000-55437_default Created \n Container opsbench-candidate-001-17000-55437-target-1 Creating \n Container opsbench-candidate-001-17000-55437-target-1 Created \n Container opsbench-candidate-001-17000-55437-target-1 Starting \n Container opsbench-candidate-001-17000-55437-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.578,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.953,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.641,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.375,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.187,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 1.25,
+                "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.422,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.35,
+                "detail": "curl: (22) The requested URL returned error: 503"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": false,
+                "weight": 0.3,
+                "detail": "config={'mode': 'stale_pid', 'stale_pid': True, 'repair_mode': 'fault'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 12.891,
+            "case_digest": "d44885c52dcedf019ac5b9952c937b93f11a2cacf121d5a4a8edf391594efabf",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\reports\\control_traces\\candidate_001-55bmm6v0",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "expected": "fail",
+            "expected_reason": "The symptom is not repaired while preserving the contract.",
+            "scenario": "wrong_fix",
+            "control_mode": "wrong_fix",
+            "repeat_index": 0
+          },
+          {
+            "id": "candidate_001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.469,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 719B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#7 CACHED\n\n#8 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#9 CACHED\n\n#10 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#10 CACHED\n\n#11 [ 7/12] COPY agent /agent\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#13 CACHED\n\n#14 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [ 4/12] WORKDIR /agent\n#15 CACHED\n\n#16 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers 0.0s done\n#18 exporting manifest sha256:c69e449f8d3b685e6b2eeedfebfd9abbb7d5a166c45739119774cc7155622574 0.0s done\n#18 exporting config sha256:da342b8c69840cbdbdcf1c5a12b917289913c2ed4350077d2914d494093d1c3b 0.0s done\n#18 exporting attestation manifest sha256:63cc19d09f5f03ec23415a1bdbd8a89d017f71d87fb136198ae0942707e46a21\n#18 exporting attestation manifest sha256:63cc19d09f5f03ec23415a1bdbd8a89d017f71d87fb136198ae0942707e46a21 0.0s done\n#18 exporting manifest list sha256:ce49b2e56ec145459c96855e6223aeec37fac75b0f7f0f084451001a6882355c 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-candidate-001-17000-68328_default Creating \n Network opsbench-candidate-001-17000-68328_default Created \n Container opsbench-candidate-001-17000-68328-target-1 Creating \n Container opsbench-candidate-001-17000-68328-target-1 Created \n Container opsbench-candidate-001-17000-68328-target-1 Starting \n Container opsbench-candidate-001-17000-68328-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.547,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.093,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.75,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.406,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.25,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 0.547,
+                "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.188,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.35,
+                "detail": "curl: (22) The requested URL returned error: 503"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": false,
+                "weight": 0.3,
+                "detail": "config={'mode': 'stale_pid', 'stale_pid': True, 'repair_mode': 'fault'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 8.406,
+            "case_digest": "d44885c52dcedf019ac5b9952c937b93f11a2cacf121d5a4a8edf391594efabf",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\reports\\control_traces\\candidate_001-gedemztn",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "expected": "fail",
+            "expected_reason": "A critical recovery or persistence condition remains unsatisfied.",
+            "scenario": "partial_fix",
+            "control_mode": "partial_fix",
+            "repeat_index": 0
+          },
+          {
+            "id": "candidate_001",
+            "family": "e2e",
+            "passed": false,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.093,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 719B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#7 CACHED\n\n#8 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 4/12] WORKDIR /agent\n#14 CACHED\n\n#15 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 [ 7/12] COPY agent /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:b7af1bda532d4d1e70abf78a33fa8a63fa7d3ad157c51b5f2dd8b63bc5f44322 0.0s done\n#18 exporting config sha256:d1f080e8eedc9c3ff61bad7285243d13b8dad2b040231b43934220a29ab88e4b 0.0s done\n#18 exporting attestation manifest sha256:e14483a7d28a5992b4b60d4b9fc60c8cc2eb8922e202b9a0bb4fe842953e7d39 0.0s done\n#18 exporting manifest list sha256:6e31424c5aa9b0224cd10f6a6abb469e9aea0b2d6bad2101b33257f148697596\n#18 exporting manifest list sha256:6e31424c5aa9b0224cd10f6a6abb469e9aea0b2d6bad2101b33257f148697596 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-candidate-001-17000-76734_default Creating \n Network opsbench-candidate-001-17000-76734_default Created \n Container opsbench-candidate-001-17000-76734-target-1 Creating \n Container opsbench-candidate-001-17000-76734-target-1 Created \n Container opsbench-candidate-001-17000-76734-target-1 Starting \n Container opsbench-candidate-001-17000-76734-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.578,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.016,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.641,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.562,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.313,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 1,
+                "timed_out": false,
+                "duration_sec": 1.297,
+                "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.765,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": false,
+                "weight": 0.35,
+                "detail": "curl: (22) The requested URL returned error: 503"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": false,
+                "weight": 0.3,
+                "detail": "config={'mode': 'stale_pid', 'stale_pid': True, 'repair_mode': 'fault'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": false,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": false,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 0.0,
+            "duration_sec": 10.047,
+            "case_digest": "d44885c52dcedf019ac5b9952c937b93f11a2cacf121d5a4a8edf391594efabf",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\reports\\control_traces\\candidate_001-nens05gr",
+            "error_type": "verifier_failed",
+            "failure_type": "task_failure",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "expected": "fail",
+            "expected_reason": "Restart alone is not a durable repair unless the case explicitly declares otherwise.",
+            "scenario": "restart_only",
+            "control_mode": "restart_only",
+            "repeat_index": 0
+          },
+          {
+            "id": "candidate_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.829,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 719B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#7 CACHED\n\n#8 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [ 7/12] COPY agent /agent\n#10 CACHED\n\n#11 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#13 CACHED\n\n#14 [ 4/12] WORKDIR /agent\n#14 CACHED\n\n#15 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#15 CACHED\n\n#16 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:6538d988091cd331dd4e0b5032cade5cdd971866be777a6fbcb0b45d4cc7739c 0.0s done\n#18 exporting config sha256:b5bb40e78278d3e8a6318309dfe3d2411523efbe5a08478281165bf7d5d5424b 0.0s done\n#18 exporting attestation manifest sha256:b7537dd64ffd5e3fa5e47af44f1ef620fb16b5f2ae20a8f44d2639e17efb87de 0.0s done\n#18 exporting manifest list sha256:5932f5304bf4aff28ed9dbbf2bc3e8024c9eb3aa48bcc8fd8562892b129f40f2\n#18 exporting manifest list sha256:5932f5304bf4aff28ed9dbbf2bc3e8024c9eb3aa48bcc8fd8562892b129f40f2 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-candidate-001-17000-86781_default Creating \n Network opsbench-candidate-001-17000-86781_default Created \n Container opsbench-candidate-001-17000-86781-target-1 Creating \n Container opsbench-candidate-001-17000-86781-target-1 Created \n Container opsbench-candidate-001-17000-86781-target-1 Starting \n Container opsbench-candidate-001-17000-86781-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.516,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.062,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.594,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.234,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.719,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.641,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.172,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"application PID state is valid\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 11.984,
+            "case_digest": "d44885c52dcedf019ac5b9952c937b93f11a2cacf121d5a4a8edf391594efabf",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\reports\\control_traces\\candidate_001-d0qinoeq",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "expected": "fail",
+            "scenario": "repeat",
+            "control_mode": "oracle",
+            "repeat_index": 0
+          },
+          {
+            "id": "candidate_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.344,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 719B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#7 CACHED\n\n#8 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#11 CACHED\n\n#12 [ 4/12] WORKDIR /agent\n#12 CACHED\n\n#13 [ 7/12] COPY agent /agent\n#13 CACHED\n\n#14 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#14 CACHED\n\n#15 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#15 CACHED\n\n#16 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:f7fd8e23744b65bad49b956e3f412b9f1ab0b89d2c057b5616d6ace0cf6f552f 0.0s done\n#18 exporting config sha256:81f812b4d8fb335639f43a732f9c775d14405c7e4e8bca55648a171b44546347 0.0s done\n#18 exporting attestation manifest sha256:dc10ca91241110f5738ef08774b3d9f6d1e08ee77d0e9dc43b0fffac782ac588\n#18 exporting attestation manifest sha256:dc10ca91241110f5738ef08774b3d9f6d1e08ee77d0e9dc43b0fffac782ac588 0.0s done\n#18 exporting manifest list sha256:6b20c0d5ae83971214e329235fb0568b7394afabf70de730435c9d124cda0901 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-candidate-001-17000-98765_default Creating \n Network opsbench-candidate-001-17000-98765_default Created \n Container opsbench-candidate-001-17000-98765-target-1 Creating \n Container opsbench-candidate-001-17000-98765-target-1 Created \n Container opsbench-candidate-001-17000-98765-target-1 Starting \n Container opsbench-candidate-001-17000-98765-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.531,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.141,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.406,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.484,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.422,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.844,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"application PID state is valid\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.906,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"application PID state is valid\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'stale_pid', 'stale_pid': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 9.547,
+            "case_digest": "d44885c52dcedf019ac5b9952c937b93f11a2cacf121d5a4a8edf391594efabf",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\stale-pid\\cases\\reports\\control_traces\\candidate_001-a2zwz5lj",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": [],
+            "expected": "fail",
+            "scenario": "repeat",
+            "control_mode": "oracle",
+            "repeat_index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "rejected_count": 0,
+  "candidate_diversity": {
+    "passed": true,
+    "candidate_count": 1,
+    "unique_fingerprint_count": 1,
+    "duplicate_fingerprints": []
+  }
+}

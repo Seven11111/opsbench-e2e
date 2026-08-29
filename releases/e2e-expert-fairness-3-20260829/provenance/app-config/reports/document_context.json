@@ -1,0 +1,8 @@
+{
+  "count": 1,
+  "metadata_path": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\app-config\\evidence\\document_contexts.jsonl",
+  "source_dir": "E:\\codes\\opsbench-factory\\runs\\e2e\\expert-fairness-3-20260829\\app-config\\evidence\\source",
+  "document_ids": [
+    "doc-docs-docker-com-compose-how-tos-environment-variables-en-9f8f36"
+  ]
+}
