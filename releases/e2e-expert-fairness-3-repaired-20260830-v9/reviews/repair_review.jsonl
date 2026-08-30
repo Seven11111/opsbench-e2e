@@ -1,0 +1,3 @@
+{"case_id": "repaired_app_config_precedence_v1_001", "review_type": "expert_fairness_repair", "status": "rebuilt", "changes": {"semantic_verifier": true, "equivalent_public_repairs": true, "real_pid_causality": false, "real_dependency_latency": false}}
+{"case_id": "repaired_http_dependency_timeout_slo_v1_001", "review_type": "expert_fairness_repair", "status": "rebuilt", "changes": {"semantic_verifier": true, "equivalent_public_repairs": false, "real_pid_causality": false, "real_dependency_latency": true}}
+{"case_id": "repaired_app_stale_pid_v1_001", "review_type": "expert_fairness_repair", "status": "rebuilt", "changes": {"semantic_verifier": true, "equivalent_public_repairs": false, "real_pid_causality": true, "real_dependency_latency": false}}

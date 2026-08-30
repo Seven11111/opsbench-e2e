@@ -1,0 +1,296 @@
+id: repaired_app_stale_pid_v1_001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: stale_runtime_state
+domain: process_management
+technology_stack:
+- HTTP
+- Linux
+- Python
+template_id: app_stale_pid_v1
+fault_primitive_id: app_stale_pid_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: demo_validated
+difficulty_profile: medium
+difficulty_assessment: &id001
+  profile: medium
+  score: 5
+  rubric_version: e2e-difficulty-v1
+  dimensions:
+    diagnostic_uncertainty: 1
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 1
+    verification_complexity: 1
+  rationale:
+  - The agent must distinguish stale runtime state from a live process and remove
+    only the invalid state.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/health
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#claim_001
+    claim_type: symptom
+    field_path: public_task.symptom
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#claim_002
+    claim_type: root_cause
+    field_path: public_task.root_cause
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#heuristic_operational_002
+    claim_type: repair
+    field_path: public_task.repair
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#heuristic_operational_037
+    claim_type: verification
+    field_path: public_task.verification
+  candidate_group_id: app_stale_pid_v1_repaired_group_001
+  generation_strategy: expert_fairness_repair
+  experience_version: e2e-v1
+  experience_digest: d58695defb005c5ded0ab29bda2c3bb7aa97342addb15fa3a0039a3278a789a9
+  scenario_seed: 20260830
+  novelty_fingerprint: 7c050684dc2370ce
+  difficulty_assessment: *id001
+  scenario_spec:
+    id: repaired_app_stale_pid_v1_001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: http_service
+      component_id: configurable-http-service
+      version: ''
+      params: {}
+    fault:
+      primitive_id: app_stale_pid_v1
+      target: http_service
+      params: {}
+    public_task:
+      symptom: The HTTP service is reported as active by the system service manager,
+        but health checks against the service fail. The service does not respond to
+        requests, and the service manager indicates the service started successfully
+        even though the service binary is not functioning.
+      impact: Users cannot access the HTTP service, causing downtime.
+      objective: Restore the service to a state where it passes health checks and
+        responds to requests correctly. The service manager should accurately reflect
+        the service's operational status.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - health_check
+    expected_actions:
+    - primitive_id: app_stale_pid_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.3333333333333333
+    - check_id: pid_identity
+      weight: 0.3333333333333333
+    - check_id: persistence
+      weight: 0.3333333333333333
+    negative_controls:
+    - scenario: no_op
+      expected: fail
+      reason: Doing nothing does not fix the stale PID; service remains unhealthy.
+    - scenario: restart_only
+      expected: fail
+      reason: Restarting the service without fixing the stale PID file may temporarily
+        work but the underlying issue persists; the service manager may still have
+        incorrect PID tracking.
+    - scenario: wrong_fix
+      expected: fail
+      reason: Modifying an unrelated configuration file does not address the stale
+        PID file or incorrect PID determination.
+    - scenario: partial_fix
+      expected: fail
+      reason: Only updating the PID file without ensuring the service manager re-reads
+        it or restarting the service leaves the service in an inconsistent state.
+    public_actionability: {}
+    difficulty_profile: medium
+    difficulty_assessment:
+      profile: medium
+      score: 5
+      rubric_version: e2e-difficulty-v1
+      dimensions:
+        diagnostic_uncertainty: 1
+        signal_indirection: 1
+        tool_breadth: 1
+        repair_depth: 1
+        verification_complexity: 1
+      rationale:
+      - The agent must distinguish stale runtime state from a live process and remove
+        only the invalid state.
+      empirical_status: not_calibrated
+    difficulty_contract: {}
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#claim_001
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#claim_002
+    - field_path: public_task.repair
+      claim_type: repair
+      ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#heuristic_operational_002
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#heuristic_operational_037
+    scenario_seed: 1
+    technology_stack:
+    - HTTP
+    - Linux
+    - Python
+    domain: configuration
+    fault_type: stale_runtime_state
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: d58695defb005c5ded0ab29bda2c3bb7aa97342addb15fa3a0039a3278a789a9
+    source:
+      primitive_status: experimental
+      difficulty_assessment:
+        profile: medium
+        score: 5
+        rubric_version: e2e-difficulty-v1
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 1
+        rationale:
+        - The agent must distinguish stale runtime state from a live process and remove
+          only the invalid state.
+        empirical_status: not_calibrated
+      difficulty_contract: {}
+    schema_version: opsbench-e2e-scenario-v2
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - service_list
+  - service_status
+  - signal_view
+  - business_probe
+  - service_manage
+  repair_operations:
+  - service_manage:restart
+  - service_manage:stop_start
+  verifier_checks:
+  - business_operation
+  - pid_identity
+  - persistence
+  semantic_state:
+  - live application PID identity
+  - business operation
+  public_oracle: app_stale_pid_v1
+  public_success_signals: &id002
+  - Restore the documented business operation using live state.
+  - Confirm that the underlying fault signal is gone, not merely hidden.
+  - Verify that the repair survives the applicable restart or reconciler boundary.
+  - Confirm the service has a live process identity that belongs to the intended application,
+    not only a file with a numeric value.
+  - Confirm the service remains healthy after a lifecycle restart.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id002
+    available_tools:
+    - service_list
+    - service_status
+    - signal_view
+    - business_probe
+    - service_manage
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_manage:restart
+    - service_manage:stop_start
+    verifier_checks:
+    - business_operation
+    - pid_identity
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: Restore the documented business operation using live state.
+    - check_id: pid_identity
+      public_signal: Confirm that the underlying fault signal is gone, not merely
+        hidden.
+    - check_id: persistence
+      public_signal: Verify that the repair survives the applicable restart or reconciler
+        boundary.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+difficulty_contract: {}
+runtime_controls:
+- no_op
+- oracle
+- alternate_oracle
+- restart_only
+- wrong_layer_fix
+- partial_fix
+- repeat
+- cleanup
+agent_panel_status: not_calibrated
+tool_standard:
+  id: service-lifecycle-v1
+  version: '1'

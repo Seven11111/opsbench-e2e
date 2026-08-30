@@ -1,0 +1,22 @@
+{
+  "version": "expert-fairness-repair-v2",
+  "generated_at": "2026-08-30T06:25:03.100907+00:00",
+  "experience_file": "prompts/experience/e2e.md",
+  "changes": [
+    {
+      "case_id": "repaired_app_config_precedence_v1_001",
+      "problem": "public verifier contract tightened without a healthy baseline value inside the public latency budget",
+      "fix": "set baseline dependency timeout to 500ms under the declared 600ms request budget and use that same contract in runtime checks"
+    },
+    {
+      "case_id": "repaired_app_stale_pid_v1_001",
+      "problem": "public oracle used a primitive-specific hidden repair action",
+      "fix": "use service discovery, status/signal/business observation, and generic service_manage restart"
+    },
+    {
+      "case_id": "repaired_http_dependency_timeout_slo_v1_001",
+      "problem": "verifier used a second hidden 250ms delay cutoff",
+      "fix": "use one public 600ms latency budget for request SLO and timeout policy; remove the hidden lower cutoff"
+    }
+  ]
+}
