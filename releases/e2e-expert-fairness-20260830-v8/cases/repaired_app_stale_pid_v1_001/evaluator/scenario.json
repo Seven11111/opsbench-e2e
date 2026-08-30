@@ -1,0 +1,6 @@
+{
+  "case_id": "repaired_app_stale_pid_v1_001",
+  "implementation": {
+    "strategy": "stale_pid"
+  }
+}

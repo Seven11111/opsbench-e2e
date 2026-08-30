@@ -1,0 +1,53 @@
+{
+  "run_id": "expert-fairness-3-repaired-20260830-v8",
+  "family": "e2e",
+  "purpose": "expert fairness repair regression",
+  "source_run": "runs\\e2e\\expert-fairness-3-20260829",
+  "cases": [
+    {
+      "id": "repaired_app_config_precedence_v1_001",
+      "template_id": "app_config_precedence_v1",
+      "case_status": "evaluable",
+      "runtime_gate": {
+        "passed": true,
+        "issues": [],
+        "report_path": "reports/runtime_controls.json"
+      }
+    },
+    {
+      "id": "repaired_http_dependency_timeout_slo_v1_001",
+      "template_id": "http_dependency_timeout_slo_v1",
+      "case_status": "evaluable",
+      "runtime_gate": {
+        "passed": true,
+        "issues": [],
+        "report_path": "reports/runtime_controls.json"
+      }
+    },
+    {
+      "id": "repaired_app_stale_pid_v1_001",
+      "template_id": "app_stale_pid_v1",
+      "case_status": "evaluable",
+      "runtime_gate": {
+        "passed": true,
+        "issues": [],
+        "report_path": "reports/runtime_controls.json"
+      }
+    }
+  ],
+  "repair_version": "expert-fairness-repair-v1",
+  "static_validation": "reports/static_validation.jsonl",
+  "runtime_policy": {
+    "public_oracle_required": true,
+    "public_oracle_repeats": 3,
+    "equivalent_repairs_must_be_accepted": true,
+    "representation_state_must_not_be_a_verifier_condition": true
+  },
+  "runtime_gate": {
+    "passed": true,
+    "case_count": 3,
+    "run_count": 26,
+    "report_path": "reports/runtime_controls.json",
+    "updated_at": "2026-08-29T20:01:23.162047+00:00"
+  }
+}

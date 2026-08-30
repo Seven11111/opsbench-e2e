@@ -1,0 +1,43 @@
+{
+  "release_id": "e2e-expert-fairness-20260830-v8",
+  "source_run": "expert-fairness-3-repaired-20260830-v8",
+  "validated_at": "2026-08-30",
+  "case_count": 3,
+  "case_status": {
+    "evaluable": 3,
+    "not_evaluable": 0
+  },
+  "runtime_gate": {
+    "passed": true,
+    "case_count": 3,
+    "control_run_count": 26,
+    "public_oracle_repeats_per_case": 3,
+    "repeat_runs_per_case": 2,
+    "cleanup_required": true,
+    "cleanup_passed": true
+  },
+  "cases": [
+    {
+      "id": "repaired_app_config_precedence_v1_001",
+      "template_id": "app_config_precedence_v1",
+      "runtime_status": "demo_validated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "repaired_http_dependency_timeout_slo_v1_001",
+      "template_id": "http_dependency_timeout_slo_v1",
+      "runtime_status": "demo_validated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "repaired_app_stale_pid_v1_001",
+      "template_id": "app_stale_pid_v1",
+      "runtime_status": "demo_validated",
+      "case_status": "evaluable"
+    }
+  ],
+  "agent_evaluation": {
+    "included": false,
+    "reason": "This release records runtime-gate validation; agent scores must be run under a separately frozen evaluation configuration."
+  }
+}
