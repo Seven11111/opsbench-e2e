@@ -1,0 +1,6 @@
+﻿{
+  "passed": true,
+  "message_count": 76,
+  "final": "The repair is complete and verified. Here's a summary of the diagnosis and resolution:\n\n## Root Cause\nThe catalog cache payload was corrupted/invalid. The signal `cache_payload=BROKEN` indicated the cache contract was not satisfied, causing the catalog endpoint to return `503 Service Unavailable` with `\"cache payload invalid\"`.\n\n## Repair Steps\n1. **Diagnosed** the issue using `business_probe`, `signal_view`, and `service_status` — the health endpoint was fine, but the catalog returned 503 with the signal `cache_payload=BROKEN`.\n\n2. **Prepared** the repair: `service_control` with `stage=prepare`, `action=rebuild_cache_payload` — returned `repair_prepared`.\n\n3. **Applied** the repair: `service_control` with `stage=apply`, `action=rebuild_cache_payload` — returned `restore_registered_service_state`.\n\n## Verification\n- **Business probe**: catalog endpoint now returns `200 OK`\n- **Signal view**: `cache_payload={\"version\":1,\"items\":[\"a\"]}` (valid payload) and `catalog_probe=200`\n- **Lifecycle persistence**: The repair survived a service restart (`kill -9`), with the catalog continuing to return `200 OK` and the cache payload remaining valid\n\nThe cache contract is now intact, the catalog payload is valid, and the key was not deleted."
+}
+

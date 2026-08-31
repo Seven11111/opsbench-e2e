@@ -1,0 +1,283 @@
+{
+  "template_id": "kafka_consumer_lag_v1",
+  "dynamic_spec": {
+    "id": "dynamic_kafka_consumer_lag_v1_000001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "kafka_consumer_target",
+        "component_id": "kafka-consumer-target",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "kafka_consumer_lag_v1",
+      "target": "kafka_consumer_target",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "The service is not reporting a healthy operational state.",
+      "impact": "The documented operational workflow cannot complete reliably.",
+      "objective": "Diagnose the live service, apply the smallest safe repair, and verify recovery.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "business_check",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "kafka_consumer_lag_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "service_contract",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.3333333333333333
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "restart_only"
+      },
+      {
+        "scenario": "wrong_fix"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 8,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 1,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "The broker remains healthy while the consumer group stops making progress.",
+        "The agent must use group and process signals to distinguish lag from broker unavailability.",
+        "Verification requires resumed processing and stable recovery across repeated observations."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "hard",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 1,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "causal_depth": 3,
+      "state_layers": [
+        "base_config",
+        "dependency_runtime",
+        "runtime_process",
+        "supervisor"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "resource_metric",
+        "process_tree",
+        "effective_config"
+      ],
+      "persistence_id": "process_lifecycle",
+      "distractor_ids": [
+        "healthy_process",
+        "caller_config_looks_correct",
+        "unrelated_latency"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "service_contract",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "restart_only",
+        "change_caller_contract",
+        "increase_timeout_only",
+        "ignore_schema_validation"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "service_contract",
+        "persistence"
+      ],
+      "rationale": [
+        "The broker remains healthy while the consumer group stops making progress.",
+        "The agent must use group and process signals to distinguish lag from broker unavailability.",
+        "Verification requires resumed processing and stable recovery across repeated observations."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 8,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The broker remains healthy while the consumer group stops making progress.",
+          "The agent must use group and process signals to distinguish lag from broker unavailability.",
+          "Verification requires resumed processing and stable recovery across repeated observations."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-kafka-apache-org-41-configuration-consumer-configs-4cc4e7#claim_001"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "Kafka",
+      "Python"
+    ],
+    "domain": "messaging",
+    "fault_type": "consumer_lag",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "c50d2bffc871711220a0fb44b3093b31aa3babefce39d74d0259db7c08a5c8bf",
+    "source": {
+      "primitive_status": "experimental",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The broker remains healthy while the consumer group stops making progress.",
+          "The agent must use group and process signals to distinguish lag from broker unavailability.",
+          "Verification requires resumed processing and stable recovery across repeated observations."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "hard",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "causal_depth": 3,
+        "state_layers": [
+          "base_config",
+          "dependency_runtime",
+          "runtime_process",
+          "supervisor"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "resource_metric",
+          "process_tree",
+          "effective_config"
+        ],
+        "persistence_id": "process_lifecycle",
+        "distractor_ids": [
+          "healthy_process",
+          "caller_config_looks_correct",
+          "unrelated_latency"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "service_contract",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "restart_only",
+          "change_caller_contract",
+          "increase_timeout_only",
+          "ignore_schema_validation"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "service_contract",
+          "persistence"
+        ],
+        "rationale": [
+          "The broker remains healthy while the consumer group stops making progress.",
+          "The agent must use group and process signals to distinguish lag from broker unavailability.",
+          "Verification requires resumed processing and stable recovery across repeated observations."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 8,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 1,
+            "repair_depth": 2,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "The broker remains healthy while the consumer group stops making progress.",
+            "The agent must use group and process signals to distinguish lag from broker unavailability.",
+            "Verification requires resumed processing and stable recovery across repeated observations."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "kafka_consumer_lag_v1"
+}

@@ -1,0 +1,6 @@
+﻿{
+  "passed": true,
+  "message_count": 16,
+  "final": "The incident is resolved. Here's a summary:\n\n## Diagnosis\n\n- **Root cause**: The Kafka consumer was in `paused` mode, which prevented it from consuming messages from the `opsbench-events` topic. The broker itself was healthy, but the consumer wasn't making progress, causing the lag endpoint to return 503.\n\n## Repair\n\n1. **Prepare**: Quiesced the backlog producer to prevent new messages from accumulating while the consumer recovered.\n2. **Apply**: Resumed the consumer from paused to `baseline` mode, allowing the backlog to drain.\n\n## Verification\n\n- **Business probe**: Returns HTTP 200 consistently across repeated observations (was 503).\n- **Consumer state**: `{'mode': 'baseline', 'producer_paused': True, 'circuit': 'closed'}` — consumer is actively processing, circuit breaker is closed.\n- **Lag probe**: `200` — lag is below the threshold of 5 messages.\n- **Stability**: Confirmed across two consecutive observations with consistent healthy signals."
+}
+

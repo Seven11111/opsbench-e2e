@@ -1,0 +1,6 @@
+﻿{
+  "passed": true,
+  "message_count": 79,
+  "final": "The repair is complete. Here's a summary of the diagnosis and resolution:\n\n## Root Cause\n\nThe runtime state file `/runtime/state.json` was set to `\"mode\": \"exhausted\"`, which caused the service to create 14 idle `psql` processes running `SELECT pg_sleep(600)` — each holding a database connection for 10 minutes. This gradually consumed all available connection pool capacity, leading to HTTP 503 errors.\n\n## Repair Actions\n\n1. **Terminated stuck backends**: Used `pg_terminate_backend` on all 14 `pg_sleep` queries holding database connections.\n2. **Fixed the root cause**: Changed `/runtime/state.json` from `\"mode\": \"exhausted\"` to `\"mode\": \"normal\"` to prevent the service from recreating pool-holder sessions.\n\n## Verification\n\nAll three public verification signals are now satisfied:\n\n| Signal | Status |\n|---|---|\n| `pool_holders` | **0** (gone) |\n| `query_probe` | **HTTP 200** |\n| Persistence | **Confirmed** — no new pool holders after 5s wait, state file remains `\"normal\"` |"
+}
+

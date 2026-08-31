@@ -1,0 +1,387 @@
+id: dynamic_postgres_connection_pool_exhaustion_v1_000001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: connection_pool_exhaustion
+domain: database
+technology_stack:
+- PostgreSQL
+- Python
+template_id: postgres_connection_pool_exhaustion_v1
+fault_primitive_id: postgres_connection_pool_exhaustion_v1
+runtime_status: experimental
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 8
+  rubric_version: e2e-difficulty-v2
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+  rationale:
+  - PostgreSQL health remains positive while application capacity is consumed by live
+    sessions.
+  - The agent must correlate request failures with active connection state rather
+    than changing the caller timeout.
+  - Verification requires restored business traffic and absence of the exhausted runtime
+    state after restart.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:18086/query
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 60
+  agent_sec: 180
+  verify_sec: 60
+  cleanup_sec: 15
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: doc-www-pgbouncer-org-usage-3ce769#heuristic_operational_006
+    claim_type: verification
+    field_path: public_task.verification
+  - ref: doc-www-pgbouncer-org-usage-3ce769#heuristic_operational_052
+    claim_type: verification
+    field_path: public_task.verification
+  candidate_group_id: dynamic_bundle_0001_group_001
+  generation_strategy: layered_state
+  scenario_seed: 1
+  dynamic_spec:
+    id: dynamic_postgres_connection_pool_exhaustion_v1_000001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: postgres_pool_target
+      component_id: postgres-pool-target
+      version: ''
+      params: {}
+    fault:
+      primitive_id: postgres_connection_pool_exhaustion_v1
+      target: postgres_pool_target
+      params: {}
+    public_task:
+      symptom: The service is not reporting a healthy operational state.
+      impact: The documented operational workflow cannot complete reliably.
+      objective: Diagnose the live service, apply the smallest safe repair, and verify
+        recovery.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - health_check
+    - business_check
+    - service_repair
+    expected_actions:
+    - primitive_id: postgres_connection_pool_exhaustion_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.3333333333333333
+    - check_id: service_contract
+      weight: 0.3333333333333333
+    - check_id: persistence
+      weight: 0.3333333333333333
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_fix
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 8
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 1
+        repair_depth: 2
+        verification_complexity: 1
+      rationale:
+      - PostgreSQL health remains positive while application capacity is consumed
+        by live sessions.
+      - The agent must correlate request failures with active connection state rather
+        than changing the caller timeout.
+      - Verification requires restored business traffic and absence of the exhausted
+        runtime state after restart.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 1
+        repair_depth: 2
+        verification_complexity: 1
+      causal_depth: 3
+      state_layers:
+      - base_config
+      - environment_override
+      - dependency_runtime
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - resource_metric
+      - process_tree
+      - effective_config
+      persistence_id: process_lifecycle
+      distractor_ids:
+      - healthy_process
+      - caller_config_looks_correct
+      - unrelated_latency
+      repair_invariant_ids:
+      - business_operation
+      - service_contract
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - restart_only
+      - change_caller_contract
+      - increase_timeout_only
+      - direct_edit_generated_config
+      verification_check_ids:
+      - business_operation
+      - service_contract
+      - persistence
+      rationale:
+      - PostgreSQL health remains positive while application capacity is consumed
+        by live sessions.
+      - The agent must correlate request failures with active connection state rather
+        than changing the caller timeout.
+      - Verification requires restored business traffic and absence of the exhausted
+        runtime state after restart.
+      schema_version: e2e-difficulty-contract-v1
+      score: 8
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - PostgreSQL health remains positive while application capacity is consumed
+          by live sessions.
+        - The agent must correlate request failures with active connection state rather
+          than changing the caller timeout.
+        - Verification requires restored business traffic and absence of the exhausted
+          runtime state after restart.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-www-pgbouncer-org-usage-3ce769#heuristic_operational_006
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-www-pgbouncer-org-usage-3ce769#heuristic_operational_052
+    scenario_seed: 1
+    technology_stack:
+    - PostgreSQL
+    - Python
+    domain: database
+    fault_type: connection_pool_exhaustion
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: c50d2bffc871711220a0fb44b3093b31aa3babefce39d74d0259db7c08a5c8bf
+    source:
+      primitive_status: experimental
+      difficulty_assessment:
+        profile: hard
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - PostgreSQL health remains positive while application capacity is consumed
+          by live sessions.
+        - The agent must correlate request failures with active connection state rather
+          than changing the caller timeout.
+        - Verification requires restored business traffic and absence of the exhausted
+          runtime state after restart.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 1
+          repair_depth: 2
+          verification_complexity: 1
+        causal_depth: 3
+        state_layers:
+        - base_config
+        - environment_override
+        - dependency_runtime
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - resource_metric
+        - process_tree
+        - effective_config
+        persistence_id: process_lifecycle
+        distractor_ids:
+        - healthy_process
+        - caller_config_looks_correct
+        - unrelated_latency
+        repair_invariant_ids:
+        - business_operation
+        - service_contract
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - restart_only
+        - change_caller_contract
+        - increase_timeout_only
+        - direct_edit_generated_config
+        verification_check_ids:
+        - business_operation
+        - service_contract
+        - persistence
+        rationale:
+        - PostgreSQL health remains positive while application capacity is consumed
+          by live sessions.
+        - The agent must correlate request failures with active connection state rather
+          than changing the caller timeout.
+        - Verification requires restored business traffic and absence of the exhausted
+          runtime state after restart.
+        schema_version: e2e-difficulty-contract-v1
+        score: 8
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 8
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 1
+            repair_depth: 2
+            verification_complexity: 1
+          rationale:
+          - PostgreSQL health remains positive while application capacity is consumed
+            by live sessions.
+          - The agent must correlate request failures with active connection state
+            rather than changing the caller timeout.
+          - Verification requires restored business traffic and absence of the exhausted
+            runtime state after restart.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  bundle_id: dynamic_bundle_0001
+public_actionability:
+  version: e2e-task-tools-verifier-alignment-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools: &id002
+  - command_run
+  - service_status
+  - business_probe
+  - signal_view
+  - service_control
+  repair_operations:
+  - bounded_state_change
+  verifier_checks: &id003
+  - service_health
+  - business_operation
+  - pool_holders_absent
+  - persistence
+  public_success_signals: &id001
+  - Queries return HTTP 200.
+  - Pool-holder sessions are gone.
+  - Recovery persists.
+  semantic_state:
+  - observable service health
+  - observable business operation
+  - observable pool holders absent
+  - observable persistence
+  public_oracle: null
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id001
+    available_tools: *id002
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - bounded_state_change
+    verifier_checks: *id003
+    task_verifier_mapping:
+    - check_id: service_health
+      public_signal: Queries return HTTP 200.
+    - check_id: business_operation
+      public_signal: Pool-holder sessions are gone.
+    - check_id: pool_holders_absent
+      public_signal: Recovery persists.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+compiler_version: opsbench-dynamic-compiler-v1
+scenario_spec_version: opsbench-e2e-scenario-v2
+case_status: evaluable
+runtime_gate_passed: true

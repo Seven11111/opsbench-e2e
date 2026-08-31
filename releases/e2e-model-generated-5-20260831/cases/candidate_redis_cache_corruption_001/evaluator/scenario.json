@@ -1,0 +1,313 @@
+{
+  "template_id": "redis_cache_corruption_v1",
+  "dynamic_spec": {
+    "id": "candidate_redis_cache_corruption_001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "redis_cache_target",
+        "component_id": "redis-cache-target",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "redis_cache_corruption_v1",
+      "target": "redis_cache_target",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "The cache service returns incorrect data or fails to respond to queries, and the server log may indicate a truncated or corrupted append-only file.",
+      "impact": "Data loss or service unavailability for applications relying on the cache.",
+      "objective": "Restore the cache to a consistent state such that it correctly serves cached data without errors and survives a restart.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "business_check",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "redis_cache_corruption_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.34
+      },
+      {
+        "check_id": "cache_payload",
+        "weight": 0.33
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.33
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "restart_only"
+      },
+      {
+        "scenario": "wrong_fix"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 8,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 1,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "Redis availability does not imply that the application cache payload satisfies its data contract.",
+        "The agent must repair the effective payload while preserving the key and application schema.",
+        "Verification checks live business reads and payload correctness after a service lifecycle boundary."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "hard",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 1,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "causal_depth": 3,
+      "state_layers": [
+        "base_config",
+        "dependency_runtime",
+        "filesystem_state",
+        "runtime_process"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "effective_config",
+        "process_tree",
+        "resource_metric"
+      ],
+      "persistence_id": "restart",
+      "distractor_ids": [
+        "healthy_process",
+        "stale_base_config",
+        "unrelated_latency"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "data_correctness",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "restart_only",
+        "disable_validation",
+        "direct_edit_generated_config",
+        "ignore_schema_validation"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "data_correctness",
+        "persistence"
+      ],
+      "rationale": [
+        "Redis availability does not imply that the application cache payload satisfies its data contract.",
+        "The agent must repair the effective payload while preserving the key and application schema.",
+        "Verification checks live business reads and payload correctness after a service lifecycle boundary."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 8,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "Redis availability does not imply that the application cache payload satisfies its data contract.",
+          "The agent must repair the effective payload while preserving the key and application schema.",
+          "Verification checks live business reads and payload correctness after a service lifecycle boundary."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "impact",
+        "ref": "doc-redis-io-docs-latest-operate-oss_and_stack-manage-f2fbaf#claim_001"
+      },
+      {
+        "field_path": "public_task.impact",
+        "claim_type": "impact",
+        "ref": "doc-redis-io-docs-latest-operate-oss_and_stack-manage-f2fbaf#claim_001"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "repair",
+        "ref": "doc-redis-io-docs-latest-operate-oss_and_stack-manage-f2fbaf#claim_002"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "repair",
+        "ref": "doc-redis-io-docs-latest-operate-oss_and_stack-manage-f2fbaf#heuristic_operational_020"
+      },
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "root_cause",
+        "ref": "doc-redis-io-docs-latest-operate-oss_and_stack-manage-f2fbaf#heuristic_operational_069"
+      },
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "root_cause",
+        "ref": "doc-redis-io-docs-latest-operate-oss_and_stack-manage-f2fbaf#heuristic_operational_088"
+      },
+      {
+        "field_path": "public_actionability.verifier_checks",
+        "claim_type": "verification",
+        "ref": "doc-redis-io-docs-latest-operate-oss_and_stack-manage-f2fbaf#heuristic_operational_093"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "Redis",
+      "Python"
+    ],
+    "domain": "cache",
+    "fault_type": "cache_corruption",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "c50d2bffc871711220a0fb44b3093b31aa3babefce39d74d0259db7c08a5c8bf",
+    "source": {
+      "primitive_status": "experimental",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "Redis availability does not imply that the application cache payload satisfies its data contract.",
+          "The agent must repair the effective payload while preserving the key and application schema.",
+          "Verification checks live business reads and payload correctness after a service lifecycle boundary."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "hard",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "causal_depth": 3,
+        "state_layers": [
+          "base_config",
+          "dependency_runtime",
+          "filesystem_state",
+          "runtime_process"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "effective_config",
+          "process_tree",
+          "resource_metric"
+        ],
+        "persistence_id": "restart",
+        "distractor_ids": [
+          "healthy_process",
+          "stale_base_config",
+          "unrelated_latency"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "data_correctness",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "restart_only",
+          "disable_validation",
+          "direct_edit_generated_config",
+          "ignore_schema_validation"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "data_correctness",
+          "persistence"
+        ],
+        "rationale": [
+          "Redis availability does not imply that the application cache payload satisfies its data contract.",
+          "The agent must repair the effective payload while preserving the key and application schema.",
+          "Verification checks live business reads and payload correctness after a service lifecycle boundary."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 8,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 1,
+            "repair_depth": 2,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "Redis availability does not imply that the application cache payload satisfies its data contract.",
+            "The agent must repair the effective payload while preserving the key and application schema.",
+            "Verification checks live business reads and payload correctness after a service lifecycle boundary."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "redis_cache_corruption_v1"
+}

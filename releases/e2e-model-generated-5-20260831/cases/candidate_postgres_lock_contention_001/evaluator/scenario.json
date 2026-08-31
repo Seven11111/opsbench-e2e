@@ -1,0 +1,298 @@
+{
+  "template_id": "postgres_lock_contention_v1",
+  "dynamic_spec": {
+    "id": "candidate_postgres_lock_contention_001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "database_target",
+        "component_id": "postgres-lock-target",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "postgres_lock_contention_v1",
+      "target": "database_target",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "Database transactions are experiencing delays or failures; attempts to update certain rows are blocked or time out. The database service appears unresponsive for write operations.",
+      "impact": "Business operations that rely on database updates are failing or stalling, causing service degradation.",
+      "objective": "Restore normal database transaction processing so that update operations complete successfully within expected time.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "business_check",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "postgres_lock_contention_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.4
+      },
+      {
+        "check_id": "lock_state",
+        "weight": 0.3
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.3
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "restart_only"
+      },
+      {
+        "scenario": "wrong_fix"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 8,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 1,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "The database and application remain reachable while a live session creates the operational failure.",
+        "The agent must distinguish a healthy process from the blocking database state and repair the active session.",
+        "The repair is checked after a lifecycle boundary, not only immediately after the first action."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "hard",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 1,
+        "repair_depth": 2,
+        "verification_complexity": 1
+      },
+      "causal_depth": 3,
+      "state_layers": [
+        "base_config",
+        "dependency_runtime",
+        "runtime_process",
+        "supervisor"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "process_tree",
+        "effective_config",
+        "query_plan"
+      ],
+      "persistence_id": "process_lifecycle",
+      "distractor_ids": [
+        "healthy_process",
+        "stale_base_config",
+        "unrelated_latency"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "service_contract",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "restart_only",
+        "kill_one_process",
+        "change_caller_contract",
+        "direct_edit_generated_config"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "service_contract",
+        "persistence"
+      ],
+      "rationale": [
+        "The database and application remain reachable while a live session creates the operational failure.",
+        "The agent must distinguish a healthy process from the blocking database state and repair the active session.",
+        "The repair is checked after a lifecycle boundary, not only immediately after the first action."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 8,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The database and application remain reachable while a live session creates the operational failure.",
+          "The agent must distinguish a healthy process from the blocking database state and repair the active session.",
+          "The repair is checked after a lifecycle boundary, not only immediately after the first action."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "repair",
+        "ref": "doc-www-postgresql-org-docs-current-explicit-locking.html-3c1473#heuristic_operational_047"
+      },
+      {
+        "field_path": "public_task.impact",
+        "claim_type": "repair",
+        "ref": "doc-www-postgresql-org-docs-current-explicit-locking.html-3c1473#heuristic_operational_047"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "root_cause",
+        "ref": "doc-www-postgresql-org-docs-current-explicit-locking.html-3c1473#heuristic_operational_036"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-www-postgresql-org-docs-current-explicit-locking.html-3c1473#heuristic_operational_004"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "PostgreSQL",
+      "Python"
+    ],
+    "domain": "database",
+    "fault_type": "lock_contention",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "c50d2bffc871711220a0fb44b3093b31aa3babefce39d74d0259db7c08a5c8bf",
+    "source": {
+      "primitive_status": "experimental",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The database and application remain reachable while a live session creates the operational failure.",
+          "The agent must distinguish a healthy process from the blocking database state and repair the active session.",
+          "The repair is checked after a lifecycle boundary, not only immediately after the first action."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "hard",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 1,
+          "repair_depth": 2,
+          "verification_complexity": 1
+        },
+        "causal_depth": 3,
+        "state_layers": [
+          "base_config",
+          "dependency_runtime",
+          "runtime_process",
+          "supervisor"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "process_tree",
+          "effective_config",
+          "query_plan"
+        ],
+        "persistence_id": "process_lifecycle",
+        "distractor_ids": [
+          "healthy_process",
+          "stale_base_config",
+          "unrelated_latency"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "service_contract",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "restart_only",
+          "kill_one_process",
+          "change_caller_contract",
+          "direct_edit_generated_config"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "service_contract",
+          "persistence"
+        ],
+        "rationale": [
+          "The database and application remain reachable while a live session creates the operational failure.",
+          "The agent must distinguish a healthy process from the blocking database state and repair the active session.",
+          "The repair is checked after a lifecycle boundary, not only immediately after the first action."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 8,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 8,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 1,
+            "repair_depth": 2,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "The database and application remain reachable while a live session creates the operational failure.",
+            "The agent must distinguish a healthy process from the blocking database state and repair the active session.",
+            "The repair is checked after a lifecycle boundary, not only immediately after the first action."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "postgres_lock_contention_v1"
+}

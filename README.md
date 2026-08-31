@@ -113,3 +113,13 @@ The benchmark is document-driven, but the current pilot is a case-pool
 snapshot. Missing capability quotas must be filled by generating new
 document-grounded cases and passing the full runtime gate before a formal
 release is claimed.
+
+## Latest model-generated five-case snapshot
+
+`releases/e2e-model-generated-5-20260831/` contains five model-generated,
+Docker-runnable cases covering PostgreSQL locks, PostgreSQL connection-pool
+exhaustion, Redis cache corruption, HTTP retry/circuit-breaker behavior, and
+Kafka consumer lag. It includes the original DeepSeek Pro 180-second run and
+a controlled 600-second rerun of the three timeout cases, with per-case
+verifier checks and traces. The snapshot is evaluable but not empirically
+calibrated and is not merged into the formal benchmark counts.

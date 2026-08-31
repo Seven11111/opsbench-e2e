@@ -1,0 +1,303 @@
+﻿{
+  "family": "e2e",
+  "total": 3,
+  "e2e_score": 33.33333333333333,
+  "family_scores": {
+    "e2e": 33.33333333333333
+  },
+  "task_success_rate": 0.3333333333333333,
+  "execution_completion_rate": 1.0,
+  "conditional_success_rate": 0.3333333333333333,
+  "verifier_check_rate": 0.4666666666666667,
+  "timeout_rate": 0.0,
+  "cleanup_failure_rate": 0.0,
+  "infrastructure_error_rate": 0.0,
+  "average_duration": 195.078,
+  "average_verifier_score": 0.4666666666666667,
+  "counts": {
+    "passed": 1,
+    "evaluable": 3,
+    "not_evaluable": 0,
+    "model_failed": 2,
+    "not_scored": 0,
+    "agent_completed": 3,
+    "infrastructure_errors": 0,
+    "timeouts": 0,
+    "cleanup_failures": 0
+  },
+  "status_dimensions": {
+    "case_quality_status": {
+      "certified": 3,
+      "not_evaluable": 0
+    },
+    "execution_status": {
+      "completed": 3,
+      "timeout": 0,
+      "infrastructure_error": 0
+    },
+    "model_result": {
+      "passed": 1,
+      "failed": 2,
+      "not_scored": 0
+    }
+  },
+  "failure_attribution": {
+    "valid_model_failure": 2
+  },
+  "failure_types": {
+    "task_failure": 2
+  },
+  "by_primary_task_label": {
+    "fault_fix": {
+      "total": 3,
+      "scored": 3,
+      "success_rate": 0.3333333333333333
+    }
+  },
+  "by_fault_type": {
+    "cache_corruption": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 1.0
+    },
+    "connection_pool_exhaustion": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    },
+    "retry_circuit_breaker": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    }
+  },
+  "by_domain": {
+    "cache": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 1.0
+    },
+    "database": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    },
+    "distributed_system": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    }
+  },
+  "by_template": {
+    "http_retry_circuit_breaker_v1": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    },
+    "postgres_connection_pool_exhaustion_v1": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 0.0
+    },
+    "redis_cache_corruption_v1": {
+      "total": 1,
+      "scored": 1,
+      "success_rate": 1.0
+    }
+  },
+  "manifest": {
+    "manifest_version": "opsbench-e2e-manifest-v1",
+    "family": "e2e",
+    "case_root": "E:\\codes\\opsbench-factory\\e2e-new-10-20260830\\model-eval-timeout600-cases",
+    "sample_size": 3,
+    "sample_seed": 42,
+    "filters": {
+      "task_labels": [],
+      "template_id": null,
+      "domain": null,
+      "fault_type": null
+    },
+    "items": [
+      {
+        "id": "candidate_redis_cache_corruption_001",
+        "case_path": "E:\\codes\\opsbench-factory\\e2e-new-10-20260830\\model-eval-timeout600-cases\\candidate_redis_cache_corruption_001",
+        "case_digest": "70bad0f069762589c60d01c368e1ee3e4a0b7fd1e10a0177ce20863eff659315",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "cache_corruption",
+        "domain": "cache",
+        "technology_stack": [
+          "Redis",
+          "Python"
+        ],
+        "template_id": "redis_cache_corruption_v1",
+        "primitive_id": "redis_cache_corruption_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\e2e-new-10-20260830\\model-eval-timeout600-cases\\dynamic_http_retry_circuit_breaker_v1_000001",
+        "case_digest": "b07faa84ad7fdfd23a293064cb8eba5b8e21a1ea620d7fdf7f61df1489c2e956",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "retry_circuit_breaker",
+        "domain": "distributed_system",
+        "technology_stack": [
+          "HTTP",
+          "Python"
+        ],
+        "template_id": "http_retry_circuit_breaker_v1",
+        "primitive_id": "http_retry_circuit_breaker_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      },
+      {
+        "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+        "case_path": "E:\\codes\\opsbench-factory\\e2e-new-10-20260830\\model-eval-timeout600-cases\\dynamic_postgres_connection_pool_exhaustion_v1_000001",
+        "case_digest": "353da7994b8335e47a3c6447468e62dc456db1fdade5dd62079834cfe520bfbd",
+        "primary_task_label": "fault_fix",
+        "secondary_task_labels": [
+          "fault_detection",
+          "root_cause"
+        ],
+        "fault_type": "connection_pool_exhaustion",
+        "domain": "database",
+        "technology_stack": [
+          "PostgreSQL",
+          "Python"
+        ],
+        "template_id": "postgres_connection_pool_exhaustion_v1",
+        "primitive_id": "postgres_connection_pool_exhaustion_v1",
+        "difficulty_profile": "hard",
+        "difficulty_score": 8,
+        "target_difficulty": "hard",
+        "empirical_status": "not_calibrated",
+        "case_status": "evaluable"
+      }
+    ],
+    "total_available": 3,
+    "total": 3
+  },
+  "summary": {
+    "family": "e2e",
+    "total": 3,
+    "e2e_score": 33.33333333333333,
+    "family_scores": {
+      "e2e": 33.33333333333333
+    },
+    "task_success_rate": 0.3333333333333333,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 0.3333333333333333,
+    "verifier_check_rate": 0.4666666666666667,
+    "timeout_rate": 0.0,
+    "cleanup_failure_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "average_duration": 195.078,
+    "average_verifier_score": 0.4666666666666667,
+    "counts": {
+      "passed": 1,
+      "evaluable": 3,
+      "not_evaluable": 0,
+      "model_failed": 2,
+      "not_scored": 0,
+      "agent_completed": 3,
+      "infrastructure_errors": 0,
+      "timeouts": 0,
+      "cleanup_failures": 0
+    },
+    "status_dimensions": {
+      "case_quality_status": {
+        "certified": 3,
+        "not_evaluable": 0
+      },
+      "execution_status": {
+        "completed": 3,
+        "timeout": 0,
+        "infrastructure_error": 0
+      },
+      "model_result": {
+        "passed": 1,
+        "failed": 2,
+        "not_scored": 0
+      }
+    },
+    "failure_attribution": {
+      "valid_model_failure": 2
+    },
+    "failure_types": {
+      "task_failure": 2
+    },
+    "by_primary_task_label": {
+      "fault_fix": {
+        "total": 3,
+        "scored": 3,
+        "success_rate": 0.3333333333333333
+      }
+    },
+    "by_fault_type": {
+      "cache_corruption": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 1.0
+      },
+      "connection_pool_exhaustion": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      },
+      "retry_circuit_breaker": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      }
+    },
+    "by_domain": {
+      "cache": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 1.0
+      },
+      "database": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      },
+      "distributed_system": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      }
+    },
+    "by_template": {
+      "http_retry_circuit_breaker_v1": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      },
+      "postgres_connection_pool_exhaustion_v1": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 0.0
+      },
+      "redis_cache_corruption_v1": {
+        "total": 1,
+        "scored": 1,
+        "success_rate": 1.0
+      }
+    }
+  }
+}
+
