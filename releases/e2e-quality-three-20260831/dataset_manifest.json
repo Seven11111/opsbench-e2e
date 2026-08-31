@@ -1,0 +1,67 @@
+﻿{
+  "release_id": "e2e-quality-three-20260831",
+  "family": "e2e",
+  "release_status": "quality_smoke",
+  "generated_at": "2026-08-31",
+  "case_count": 3,
+  "cases": [
+    {
+      "id": "dynamic_app_config_precedence_v1_000001",
+      "path": "cases/dynamic_app_config_precedence_v1_000001",
+      "primitive_id": "app_config_precedence_v1",
+      "target_difficulty": "hard",
+      "difficulty_score": 8,
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "runtime_gate": "passed",
+      "model_result": "passed",
+      "case_digest": "fc63f98c36d88250be1fcb2a70fa3e9cb249d4fee367b6c4d90696f329e52dcc"
+    },
+    {
+      "id": "candidate_http_dependency_timeout_slo_v1_001",
+      "path": "cases/candidate_http_dependency_timeout_slo_v1_001",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "target_difficulty": "medium",
+      "difficulty_score": 6,
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "runtime_gate": "passed",
+      "model_result": "passed",
+      "case_digest": "f57af2a9a4e363e8e972af33120de12999621b84ed771d4509481997cc884bab"
+    },
+    {
+      "id": "app_config_precedence_candidate_001",
+      "path": "cases/app_config_precedence_candidate_001",
+      "primitive_id": "app_config_precedence_v1",
+      "target_difficulty": "hard",
+      "difficulty_score": 8,
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable",
+      "runtime_gate": "passed",
+      "model_result": "passed",
+      "case_digest": "0e315966e425544d6760fc60962850d3d962a046a103e6ca665ef92bfa2740f6"
+    }
+  ],
+  "evaluation": {
+    "model": "deepseek-v4-flash",
+    "max_steps": 60,
+    "temperature": 0,
+    "agent_timeout_sec": 600,
+    "execution_mode": "container",
+    "protocol_id": "opsbench-agent-v1",
+    "repeats": 1,
+    "task_success_rate": 1.0,
+    "execution_completion_rate": 1.0,
+    "conditional_success_rate": 1.0,
+    "verifier_check_rate": 1.0,
+    "timeout_rate": 0.0,
+    "infrastructure_error_rate": 0.0,
+    "cleanup_failure_rate": 0.0,
+    "average_duration_sec": 67.73966666666666
+  },
+  "limitations": [
+    "This is a three-case quality smoke release, not a calibrated benchmark.",
+    "Two cases share app_config_precedence_v1; diversity is intentionally not claimed.",
+    "A single Agent run per case cannot establish empirical difficulty."
+  ]
+}

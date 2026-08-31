@@ -1,0 +1,41 @@
+﻿{
+  "cases": [
+    {
+      "name": "app-config",
+      "run_dir": "provenance/generation\\app-config",
+      "case_id": "dynamic_app_config_precedence_v1_000001",
+      "primitive": "app_config_precedence_v1",
+      "static_validation": "passed",
+      "runtime_gate_passed": true,
+      "runtime_case_status": "evaluable",
+      "runtime_run_count": 9,
+      "task_preview": "# Operations task\n\nThe health check endpoint of the configuration service returns a non-200 status code, and the service is not reachable on its expected listening port.\n\n## Impact\n\nClients cannot retrieve configuration data, causing dependent services to fail or time out.\n\n## Objective\n\nDiagnose the live incident, restore the service to its documented healthy state, and verify recovery.\n\n## Constraints\n\n- Use only the public task and runtime tools.\n- Do not replace the service with a new implem"
+    },
+    {
+      "name": "http-timeout",
+      "run_dir": "provenance/generation\\http-timeout",
+      "case_id": "candidate_http_dependency_timeout_slo_v1_001",
+      "primitive": "http_dependency_timeout_slo_v1",
+      "static_validation": "passed",
+      "runtime_gate_passed": true,
+      "runtime_case_status": "evaluable",
+      "runtime_run_count": 10,
+      "task_preview": "# Operations task\n\nHTTP requests to the external dependency are timing out or experiencing high latency under sustained load; responses are passed synchronously instead of being buffered, causing the connection to stall.\n\n## Impact\n\nBusiness operations that depend on the external service are failing or severely degraded, violating the latency SLO.\n\n## Objective\n\nDiagnose the live incident, restore the service to its documented healthy state, and verify recovery.\n\n## Constraints\n\n- Use only the p"
+    },
+    {
+      "name": "app-config-variant",
+      "run_dir": "provenance/generation\\app-config-bundle-variant",
+      "case_id": "app_config_precedence_candidate_001",
+      "primitive": "app_config_precedence_v1",
+      "static_validation": "passed",
+      "runtime_gate_passed": true,
+      "runtime_case_status": "evaluable",
+      "runtime_run_count": 9,
+      "task_preview": "# Operations task\n\nThe HTTP service is not reachable on the expected endpoint. It is using a configuration value that originates from a higher-precedence layer instead of the intended source, causing the service to behave incorrectly.\n\n## Impact\n\nClients cannot communicate with the service, disrupting normal operations.\n\n## Objective\n\nDiagnose the live incident, restore the service to its documented healthy state, and verify recovery.\n\n## Constraints\n\n- Use only the public task and runtime tools"
+    }
+  ],
+  "notes": [
+    "stale-pid, linux-cpu, postgres-index and tls attempts were not promoted because they were slow or rejected by strict evidence gate.",
+    "No business case containers remained after cleanup check."
+  ]
+}

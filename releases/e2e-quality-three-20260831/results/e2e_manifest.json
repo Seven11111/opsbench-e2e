@@ -1,0 +1,89 @@
+﻿{
+  "manifest_version": "opsbench-e2e-manifest-v1",
+  "family": "e2e",
+  "case_root": "cases",
+  "sample_size": 3,
+  "sample_seed": 42,
+  "filters": {
+    "task_labels": [],
+    "template_id": null,
+    "domain": null,
+    "fault_type": null
+  },
+  "items": [
+    {
+      "id": "app_config_precedence_candidate_001",
+      "case_path": "cases\\app_config_precedence_candidate_001",
+      "case_digest": "0e315966e425544d6760fc60962850d3d962a046a103e6ca665ef92bfa2740f6",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_http_dependency_timeout_slo_v1_001",
+      "case_path": "cases\\candidate_http_dependency_timeout_slo_v1_001",
+      "case_digest": "f57af2a9a4e363e8e972af33120de12999621b84ed771d4509481997cc884bab",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "performance_tuning"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "distributed_system",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_dependency_timeout_slo_v1",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 6,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000001",
+      "case_path": "cases\\dynamic_app_config_precedence_v1_000001",
+      "case_digest": "fc63f98c36d88250be1fcb2a70fa3e9cb249d4fee367b6c4d90696f329e52dcc",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    }
+  ],
+  "total_available": 3,
+  "total": 3
+}

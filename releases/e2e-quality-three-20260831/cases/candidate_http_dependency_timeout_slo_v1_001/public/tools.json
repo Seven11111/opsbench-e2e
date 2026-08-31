@@ -1,0 +1,266 @@
+﻿{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tool_standard": {
+    "id": "dependency-operations-v1",
+    "version": "1"
+  },
+  "tools": [
+    {
+      "name": "service_list",
+      "description": "List managed services visible in the current runtime.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "service_status",
+      "description": "Read the live lifecycle and health state of a discovered service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          }
+        },
+        "required": [
+          "service"
+        ]
+      }
+    },
+    {
+      "name": "business_probe",
+      "description": "Check the declared public business operation for a discovered service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          }
+        },
+        "required": [
+          "service"
+        ]
+      }
+    },
+    {
+      "name": "dependency_list",
+      "description": "List dependencies visible to a discovered service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "dependency_probe",
+      "description": "Read bounded reachability, response and latency signals from a discovered dependency.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "dependency": {
+            "type": "string",
+            "description": "Dependency identifier returned by dependency_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "dependency_list",
+              "field": "dependencies[].dependency_id"
+            }
+          }
+        },
+        "required": [
+          "dependency"
+        ]
+      }
+    },
+    {
+      "name": "slo_read",
+      "description": "Read the public latency or availability objective for a discovered service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          }
+        },
+        "required": [
+          "service"
+        ]
+      }
+    },
+    {
+      "name": "config_sources",
+      "description": "List configuration sources and precedence for a discovered service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          }
+        },
+        "required": [
+          "service"
+        ]
+      }
+    },
+    {
+      "name": "config_read",
+      "description": "Read bounded entries from one discovered configuration source.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          },
+          "source_id": {
+            "type": "string",
+            "description": "Configuration source identifier returned by config_sources.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "config_sources",
+              "field": "sources[].source_id"
+            }
+          },
+          "key": {
+            "type": "string",
+            "description": "Optional configuration key previously observed in this source; omit to list bounded entries.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "config_read",
+              "field": "entries[].key"
+            }
+          }
+        },
+        "required": [
+          "service",
+          "source_id"
+        ]
+      }
+    },
+    {
+      "name": "config_update",
+      "description": "Set or remove one entry in a writable discovered configuration source.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          },
+          "source_id": {
+            "type": "string",
+            "description": "Configuration source identifier returned by config_sources.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "config_sources",
+              "field": "sources[].source_id"
+            }
+          },
+          "key": {
+            "type": "string",
+            "description": "Configuration key previously observed with config_read.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "config_read",
+              "field": "entries[].key"
+            }
+          },
+          "operation": {
+            "type": "string",
+            "description": "Generic configuration operation.",
+            "enum": [
+              "set",
+              "remove"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "description": "New value when operation is set; omit for remove.",
+            "value_origin": {
+              "type": "derived_from_public_evidence"
+            }
+          }
+        },
+        "required": [
+          "service",
+          "source_id",
+          "key",
+          "operation"
+        ]
+      }
+    },
+    {
+      "name": "service_manage",
+      "description": "Read or change the lifecycle state of a discovered service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          },
+          "action": {
+            "type": "string",
+            "description": "Lifecycle operation to apply.",
+            "enum": [
+              "status",
+              "start",
+              "stop",
+              "restart"
+            ]
+          }
+        },
+        "required": [
+          "service",
+          "action"
+        ]
+      }
+    }
+  ],
+  "constraints": [
+    "Do not read case root, evaluator files, hidden labels, scenario files, host credentials, or Docker sockets.",
+    "Tool calls and outputs are recorded in the writable trace directory."
+  ]
+}
