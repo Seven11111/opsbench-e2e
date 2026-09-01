@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 24,
+  "final": "## Summary\n\n**Incident:** The service was failing because a stale PID file (`/run/demo-app.pid`) from a previous run was blocking the start. The start script refused to start the process because it believed one was already running, leaving the service down.\n\n**Root cause:** Stale PID file left over after the previous process was killed, preventing the service from starting.\n\n**Repair performed:**\n1. **Stopped** the service (which cleaned up the stale PID file).\n2. **Started** the service (which succeeded without the PID file conflict).\n3. **Verified** the service is running (`service_status` shows `running: true`).\n4. **Verified** the business operation responds with HTTP 200 (`business_probe` returns healthy).\n5. **Verified** the underlying signal (`signal_view`) now shows `health=200` instead of `health=000`.\n6. **Verified** the repair survives a restart boundary — after a `restart`, the service remains running and healthy.\n\n**Final state:** The service is healthy, responding to web requests on port 8080, and the fix persists across lifecycle restarts."
+}

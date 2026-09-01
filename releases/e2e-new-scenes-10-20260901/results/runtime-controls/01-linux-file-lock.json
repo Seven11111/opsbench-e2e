@@ -1,0 +1,1395 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "candidate_linux_file_lock_v1_001",
+      "template_id": "linux_file_lock_v1",
+      "case_path": "RELEASE_ROOT\\01-linux-file-lock\\cases\\candidate_linux_file_lock_v1_001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "public_actionability": {
+        "passed": true,
+        "issues": [],
+        "version": "e2e-public-actionability-v1",
+        "required": true,
+        "public_oracle": "linux_file_lock_v1"
+      },
+      "public_tool_oracle": {
+        "required": true,
+        "oracle_id": "linux_file_lock_v1",
+        "oracle_version": "e2e-public-tool-oracle-v1",
+        "passed": true,
+        "status": "passed",
+        "repeats": 3,
+        "results": [
+          {
+            "id": "candidate_linux_file_lock_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.75,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#8 CACHED\n\n#9 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [ 7/12] COPY agent /agent\n#12 CACHED\n\n#13 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#13 CACHED\n\n#14 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#15 CACHED\n\n#16 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:85172c81dbf9e014edf50585643bd47406e4198c4c624d87e72f7e8b901679df 0.0s done\n#18 exporting config sha256:8ea238e4fd8d0052daf81594fe06b384abf91e49ff8e9a4c72b96a62b396ef5f 0.0s done\n#18 exporting attestation manifest sha256:1281c4f67ca6e07531180c8ecf859d33664a688a0b65fff3a51cff93b01766aa\n#18 exporting attestation manifest sha256:1281c4f67ca6e07531180c8ecf859d33664a688a0b65fff3a51cff93b01766aa 0.0s done\n#18 exporting manifest list sha256:8572ab78bf496fc2e4654bb183982d321a7ad79e841d78405075372d11ae34ae 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-509734_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-509734_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-509734-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-509734-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-509734-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-509734-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.781,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.891,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.468,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.454,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.125,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.156,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.265,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"report lock is available\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 20.875,
+            "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-public-oracle-1\\candidate_linux_file_lock_v1_001-hil76nxi",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "candidate_linux_file_lock_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.375,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#7 CACHED\n\n#8 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#8 CACHED\n\n#9 [ 4/12] WORKDIR /agent\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 7/12] COPY agent /agent\n#14 CACHED\n\n#15 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#15 CACHED\n\n#16 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:06b73f731b77b760b29c5d09336a39c549f8d60a76be8523826b55a7de9d49b6 0.0s done\n#18 exporting config sha256:d74a016c6f9afc5e24753a6d8f686e9f5529114ad284120c2ad592b0eb24461e 0.0s done\n#18 exporting attestation manifest sha256:3890a3a5b6fca941c42251d900b00db84a298517b4829ed9fc53d82c961f0fde\n#18 exporting attestation manifest sha256:3890a3a5b6fca941c42251d900b00db84a298517b4829ed9fc53d82c961f0fde 0.0s done\n#18 exporting manifest list sha256:8c431a3e79d714f56ff082781252bb1a831b3af7021ad97133e4b890e9e2598f 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-530796_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-530796_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-530796-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-530796-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-530796-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-530796-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.578,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.078,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.453,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.844,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.125,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.781,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.25,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"report lock is available\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 15.469,
+            "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-public-oracle-2\\candidate_linux_file_lock_v1_001-hf98rohe",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "candidate_linux_file_lock_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.828,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 4/12] WORKDIR /agent\n#7 CACHED\n\n#8 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [ 7/12] COPY agent /agent\n#9 CACHED\n\n#10 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#11 CACHED\n\n#12 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#12 CACHED\n\n#13 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#14 CACHED\n\n#15 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#15 CACHED\n\n#16 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:e2daf4697bc4785fb57df3ac529285103716def5b4bb9cd33884b605accd8378 0.0s done\n#18 exporting config sha256:b9e7f9a0e08988e3b0cafdb25cdc00f97c97678146f5e6a3792a3e7f8b8581a3 0.0s done\n#18 exporting attestation manifest sha256:453674818189751baba5bf18bc254e8ceab254b027298e7a5a4d1b27b7d9063a 0.0s done\n#18 exporting manifest list sha256:5275661704781e1829e5127e22824b41a634d0ce6235420505235c2f1c99d054\n#18 exporting manifest list sha256:5275661704781e1829e5127e22824b41a634d0ce6235420505235c2f1c99d054 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-546500_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-546500_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-546500-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-546500-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-546500-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-546500-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.594,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.922,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.453,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.531,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.437,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.016,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.984,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"report lock is available\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 15.203,
+            "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-public-oracle-3\\candidate_linux_file_lock_v1_001-yn_9wtiq",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          }
+        ],
+        "result": {
+          "id": "candidate_linux_file_lock_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.828,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 4/12] WORKDIR /agent\n#7 CACHED\n\n#8 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [ 7/12] COPY agent /agent\n#9 CACHED\n\n#10 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#11 CACHED\n\n#12 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#12 CACHED\n\n#13 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#14 CACHED\n\n#15 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#15 CACHED\n\n#16 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:e2daf4697bc4785fb57df3ac529285103716def5b4bb9cd33884b605accd8378 0.0s done\n#18 exporting config sha256:b9e7f9a0e08988e3b0cafdb25cdc00f97c97678146f5e6a3792a3e7f8b8581a3 0.0s done\n#18 exporting attestation manifest sha256:453674818189751baba5bf18bc254e8ceab254b027298e7a5a4d1b27b7d9063a 0.0s done\n#18 exporting manifest list sha256:5275661704781e1829e5127e22824b41a634d0ce6235420505235c2f1c99d054\n#18 exporting manifest list sha256:5275661704781e1829e5127e22824b41a634d0ce6235420505235c2f1c99d054 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-546500_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-546500_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-546500-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-546500-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-546500-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-546500-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.594,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.922,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.453,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.531,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.437,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.016,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.984,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"report lock is available\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 15.203,
+          "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-public-oracle-3\\candidate_linux_file_lock_v1_001-yn_9wtiq",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": []
+        },
+        "error": ""
+      },
+      "runs": [
+        {
+          "id": "candidate_linux_file_lock_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 6.797,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.2s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#7 CACHED\n\n#8 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#8 CACHED\n\n#9 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 4/12] WORKDIR /agent\n#11 CACHED\n\n#12 [ 7/12] COPY agent /agent\n#12 CACHED\n\n#13 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#14 CACHED\n\n#15 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#15 CACHED\n\n#16 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers 0.0s done\n#18 exporting manifest sha256:7c55c561ac00c189494507842afe80b94ab08d20e88ed0600eb6c8221a0cabce 0.1s done\n#18 exporting config sha256:3fc9e3e6c830430704d9116f214352177c204a9f1442e2509ead793f71306d6f 0.0s done\n#18 exporting attestation manifest sha256:fa13d5f62b13bf39ad5a78bf7667458361387ca10a802466ebf20c5abe332768 0.1s done\n#18 exporting manifest list sha256:ffbadaef945101b982304102decb496d0327c9df6baaeb9b772b226b92b09a11 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.3s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-402078_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-402078_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-402078-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-402078-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-402078-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-402078-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.156,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.36,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.469,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.469,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.219,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.343,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.344,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'file_lock', 'lock_enabled': True, 'repair_mode': 'fault'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 15.25,
+          "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-wsjk2eh7",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The injected fault remains active.",
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_file_lock_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.235,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [ 7/12] COPY agent /agent\n#7 CACHED\n\n#8 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#8 CACHED\n\n#9 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#11 CACHED\n\n#12 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#12 CACHED\n\n#13 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#13 CACHED\n\n#14 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#14 CACHED\n\n#15 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#15 CACHED\n\n#16 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:78f38b3b294d11b5bc992aaeca8db97e2af8539db38d98e04f854dbc02b7642a 0.0s done\n#18 exporting config sha256:a13866cfc35a639e898ef8473988e7ca6100cd0088f5f3825abcf3dfead0d586\n#18 exporting config sha256:a13866cfc35a639e898ef8473988e7ca6100cd0088f5f3825abcf3dfead0d586 0.0s done\n#18 exporting attestation manifest sha256:b89adfa4ad6c0031b138bec088a6a8d265641467c2c08c64a9e4f15e3312b9e4 0.0s done\n#18 exporting manifest list sha256:27adb107c0bd5f7d338d6884c9b516ec979c586e7ed642eddd3f74d484431eef 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-417328_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-417328_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-417328-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-417328-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-417328-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-417328-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.593,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.844,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.563,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.734,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.547,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.079,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.953,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"report lock is available\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 13.453,
+          "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-nowbywc6",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "expected_reason": "The registered safe repair restores the public contract.",
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_file_lock_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 13.078,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#7 CACHED\n\n#8 [ 7/12] COPY agent /agent\n#8 CACHED\n\n#9 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#15 CACHED\n\n#16 [ 4/12] WORKDIR /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:bcd8a14fb5e69b61eb8a42eaafdef6f79727b9d22b1ae948957c5017df0b2c1b 0.0s done\n#18 exporting config sha256:65807577abb4ddd78e7de2e0df4b576879b53146ac39595dccbff6653b991eed 0.0s done\n#18 exporting attestation manifest sha256:7ff558fb7de34249e90d7068040cc309776a0d09f7af8aa0d543abe890d934e6 0.0s done\n#18 exporting manifest list sha256:c648a80566dcf4cd10955825409376bc693bf6a8ec8c25fcf9bc6ce4a7a0dfcc 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-430781_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-430781_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-430781-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-430781-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-430781-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-430781-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.594,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.984,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.734,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.125,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.891,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.25,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.218,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'file_lock', 'lock_enabled': True, 'repair_mode': 'fault'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 21.875,
+          "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-scevmy9s",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The symptom is not repaired while preserving the contract.",
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_file_lock_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": false,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "failed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.203,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#9 CACHED\n\n#10 [ 7/12] COPY agent /agent\n#10 CACHED\n\n#11 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#11 CACHED\n\n#12 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#12 CACHED\n\n#13 [ 4/12] WORKDIR /agent\n#13 CACHED\n\n#14 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#14 CACHED\n\n#15 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#15 CACHED\n\n#16 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:025360a29e20bfc96ce73c31b6eb9cc0de8eb1d5f560547595fbf6894bd1948d 0.0s done\n#18 exporting config sha256:e91a607a1e480d5db3fac90eadf030b440cfb81bf24e2ecf73cc78a9464e0353 0.0s done\n#18 exporting attestation manifest sha256:8818f39990248da278db11176a744f5944d057e86701c6e609925962a7af0b25\n#18 exporting attestation manifest sha256:8818f39990248da278db11176a744f5944d057e86701c6e609925962a7af0b25 0.0s done\n#18 exporting manifest list sha256:c13f12b0d80731ba33c271d27463c88f311f5387b71197367833ec2dfc93cb4b 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-452656_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-452656_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-452656-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-452656-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-452656-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-452656-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.0,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.109,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.469,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.391,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 143,
+              "timed_out": false,
+              "duration_sec": 0.203,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 0.609,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.813,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'file_lock', 'lock_enabled': True, 'repair_mode': 'fault'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 12.219,
+          "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-guv4xpog",
+          "error_type": "agent_error",
+          "failure_type": "runtime_error",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [
+            "agent process did not complete successfully"
+          ],
+          "expected": "fail",
+          "expected_reason": "A critical recovery or persistence condition remains unsatisfied.",
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_file_lock_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.984,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 4/12] WORKDIR /agent\n#7 CACHED\n\n#8 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#11 CACHED\n\n#12 [ 7/12] COPY agent /agent\n#12 CACHED\n\n#13 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#14 CACHED\n\n#15 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#15 CACHED\n\n#16 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:d08ab1771a149f88f54bcc13049a1cb078b30300b3933174b4830bf3dcaba72b 0.0s done\n#18 exporting config sha256:fde5f8cbdb196048e5347048eea933f34af3f56873379621f48bb662a76a1135 0.0s done\n#18 exporting attestation manifest sha256:db1dfb9df7411b09eed089d7739979faefd37e78a95c0ac8b50b65b1f6ac80ad 0.0s done\n#18 exporting manifest list sha256:fd69528f44a5e1bad5d2717f2592205bbccff3ef64a9df7b729bb085178219c6\n#18 exporting manifest list sha256:fd69528f44a5e1bad5d2717f2592205bbccff3ef64a9df7b729bb085178219c6 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-464875_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-464875_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-464875-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-464875-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-464875-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-464875-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.579,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.843,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.5,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.703,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.438,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.625,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.359,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'file_lock', 'lock_enabled': True, 'repair_mode': 'fault'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 11.203,
+          "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-j1_smmn_",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "Restart alone is not a durable repair unless the case explicitly declares otherwise.",
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_file_lock_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.219,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#7 CACHED\n\n#8 [ 7/12] COPY agent /agent\n#8 CACHED\n\n#9 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#15 CACHED\n\n#16 [ 4/12] WORKDIR /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:2c0a032f8111e5b595016a0f24384fb3f55bffc154eb0e6a5750abcb5c2d1c00 0.0s done\n#18 exporting config sha256:05986a228934344e56bcc0fa399275a85fec3db77b11ab32ee5ecf55bdb8aaab 0.0s done\n#18 exporting attestation manifest sha256:9a9959ea6e587e7d524e471ef38cbb05a3a6201f924a65be44df04b3b523d2d4\n#18 exporting attestation manifest sha256:9a9959ea6e587e7d524e471ef38cbb05a3a6201f924a65be44df04b3b523d2d4 0.0s done\n#18 exporting manifest list sha256:54c3984336c053a40cb1880eee10c1696858f056d788a30d8d13705c093200ca 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-476078_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-476078_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-476078-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-476078-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-476078-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-476078-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.579,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.86,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.531,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.625,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.5,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.5,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"report lock is available\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 18.953,
+          "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-gkxb90u6",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_file_lock_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.046,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 785B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#7 CACHED\n\n#8 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [ 4/12] WORKDIR /agent\n#9 CACHED\n\n#10 [ 7/12] COPY agent /agent\n#10 CACHED\n\n#11 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#11 CACHED\n\n#12 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#12 CACHED\n\n#13 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#14 CACHED\n\n#15 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#15 CACHED\n\n#16 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:fcfc8d37f0afd4b7f097f977220f69e61f46200363317c4439be5aaddcc8a136 0.0s done\n#18 exporting config sha256:f18fdffb574bc6aed2434dcbe352c6bec6205e7db04f92c05d6794c377885570 0.0s done\n#18 exporting attestation manifest sha256:fe9111ad8917ebf3fe5a4214fc71f9e9464727ff9852690875bf1be29f7fd97f\n#18 exporting attestation manifest sha256:fe9111ad8917ebf3fe5a4214fc71f9e9464727ff9852690875bf1be29f7fd97f 0.0s done\n#18 exporting manifest list sha256:df71fbaf7276415d62cb31ea9732896a5ccec814fe82c507b7a8dc3f547debea 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_file_lock_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_file_lock_v1 Building \n Image opsbench-e2e-linux_file_lock_v1 Built \n Network opsbench-candidate-linux-file-lock-v1-0-16540-495031_default Creating \n Network opsbench-candidate-linux-file-lock-v1-0-16540-495031_default Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-495031-target-1 Creating \n Container opsbench-candidate-linux-file-lock-v1-0-16540-495031-target-1 Created \n Container opsbench-candidate-linux-file-lock-v1-0-16540-495031-target-1 Starting \n Container opsbench-candidate-linux-file-lock-v1-0-16540-495031-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.625,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.907,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.781,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.562,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.313,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.391,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"report lock is available\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.875,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"report lock is available\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'file_lock', 'lock_enabled': False, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 14.5,
+          "case_digest": "afac42de98063533b9c4cd8eb465dc933b8b3209f39945ad968c01cf8a0b84e5",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\01-linux-file-lock\\reports\\control_traces\\candidate_linux_file_lock_v1_001-aj68z49p",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        },
+        {
+          "id": "candidate_linux_file_lock_v1_001",
+          "scenario": "cleanup",
+          "control_mode": "cleanup",
+          "repeat_index": 0,
+          "passed": true,
+          "score": 1.0,
+          "expected": "pass",
+          "expected_reason": "Each control run must leave no case-scoped Docker resources behind.",
+          "phase_status": {
+            "cleanup": "passed"
+          }
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 8
+}

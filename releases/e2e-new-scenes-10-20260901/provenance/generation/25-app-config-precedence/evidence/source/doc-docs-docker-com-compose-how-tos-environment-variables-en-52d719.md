@@ -1,0 +1,981 @@
+https://docs.docker.com/manuals/
+* https://docs.docker.com/get-started/
+* https://docs.docker.com/guides/
+* https://docs.docker.com/reference/
+
+* AI and agents
+* Overview
+* Docker Sandboxes
+* Install
+* Get started
+* Usage
+* Agents
+* Claude Code
+* Codex
+* Copilot
+* Cursor
+* Docker Agent
+* Droid
+* Gemini
+* Kiro
+* OpenCode
+* Shell
+* Workflows
+* Git workflows
+* Local development
+* Authenticate tools
+* Agent skills
+* CI and headless
+* Configuration
+* Credentials
+* Environment files Experimental
+* GPU passthrough
+* Upstream proxy
+* Integrations
+* VS Code
+* Cursor
+* Claude Desktop
+* ChatGPT
+* T3 Code
+* MCP gateway
+* Customize Early Access
+* Templates
+* Kits
+* Build an agent
+* Examples
+* Spec reference
+* Architecture
+* Security model
+* Isolation layers
+* Defaults
+* Governance
+* Policy concepts
+* Access controls
+* Local policy
+* Org policies
+* Network access
+* Filesystem access
+* MCP access
+* Audit logs
+* Local audit logs
+* Configure delivery
+* View and export
+* SIEM forwarding
+* Record reference
+* Monitor and enforce
+* Monitoring policies
+* Sign-in enforcement
+* Reference
+* API reference
+* MCP policy
+* Troubleshooting
+* FAQ
+* Release notes
+* MCP Catalog and Toolkit Beta
+* Get started
+* Catalog
+* Profiles
+* Toolkit UI
+* Use with CLI
+* Dynamic discovery
+* Gateway
+* FAQs
+* E2B sandboxes
+* Model Runner
+* Get started with DMR
+* DMR REST API
+* Configuration options
+* DMR examples
+* IDE and tool integrations
+* Open WebUI integration
+* Inference engines
+* Gordon
+* Use cases
+* Concepts
+* Capabilities
+* Data privacy
+* How-to guides
+* Docker Desktop
+* CLI
+* Permissions
+* Configure tools
+* Usage limits
+* AI and Docker Compose
+* Use AI models in Compose
+* Docker Agent
+* Getting Started
+* Introduction
+* Installation
+* Set Up a Model
+* Quick Start
+* Core Concepts
+* Agents
+* Models
+* Tools
+* Multi-Agent
+* Agent Distribution
+* Configuration
+* Overview
+* HCL Configuration
+* Agent Config
+* Model Config
+* Tool Config
+* Custom Commands
+* Hooks
+* Permissions
+* Budget
+* Ignoring files
+* Sandbox Mode
+* Structured Output
+* Flavors
+* Model Routing
+* User Settings
+* Built-in Tools
+* Filesystem
+* Shell
+* Background Jobs
+* Script
+* Open URL
+* Fetch
+* A2A
+* Handoff
+* Transfer Task
+* Background Agents
+* Memory
+* RAG
+* MCP Catalog
+* Git
+* MCP
+* Scheduler
+* Think
+* Webhook
+* Plan
+* Session Plan
+* Todo
+* Tasks
+* User Prompt
+* Model Picker
+* Session Context
+* LSP
+* OpenAPI
+* API
+* Features
+* Terminal UI
+* Kanban Board
+* Snapshots
+* Sessions
+* CLI Reference
+* MCP Mode
+* Coding Harnesses
+* A2A Protocol
+* ACP
+* API Server
+* Chat Server
+* Evaluation
+* Skills
+* Code Mode
+* Remote MCP Servers
+* Model Providers
+* Overview
+* Anthropic
+* AWS Bedrock
+* Baseten
+* Cerebras
+* ChatGPT (OpenAI account)")
+* Cloudflare AI Gateway
+* Cloudflare Workers AI
+* DeepSeek
+* Docker Model Runner
+* Fireworks AI
+* GitHub Copilot
+* Google Gemini
+* Groq
+* Hugging Face
+* Local Models
+* MiniMax
+* Mistral
+* Moonshot AI
+* Nebius
+* OpenAI
+* OpenCode Go
+* OpenCode Zen
+* OpenRouter
+* OVHcloud
+* Together AI
+* Vercel AI Gateway
+* xAI (Grok)")
+* Provider Definitions
+* NVIDIA NIM
+* Guides
+* Tips & Best Practices
+* Thinking / Reasoning
+* Managing Secrets
+* Go SDK
+* Managing Context & Compaction
+* Running Agents Headless & in CI
+* Community
+* Contributing
+* Troubleshooting
+* Telemetry
+* OpenTelemetry Tracing
+* Application development
+* Docker Desktop
+* Setup
+* Install
+* Mac
+* Mac permission requirements
+* Windows
+* Windows permission requirements
+* Linux
+* Ubuntu
+* Debian
+* Fedora
+* Arch
+* RHEL
+* VM or VDI environments
+* Sign in
+* Allowlist
+* Explore Docker Desktop
+* Containers
+* Images
+* Volumes
+* Builds
+* Kubernetes
+* Logs
+* Resource Saver mode
+* Pause Docker Desktop
+* Features and capabilities
+* Networking
+* How-tos
+* GPU support
+* USB/IP support
+* Synchronized file shares
+* containerd image store
+* Wasm workloads Beta
+* Docker Desktop CLI
+* Virtual Machine Manager Updated
+* WSL
+* Best practices
+* Custom kernels
+* Use WSL
+* Settings and maintenance
+* Change settings
+* Backup and restore data
+* Troubleshoot and support
+* Troubleshoot and diagnose
+* Common topics
+* Known issues
+* MacOS app damaged dialog
+* FAQs
+* General
+* Mac
+* Windows
+* Linux
+* Releases
+* Give feedback
+* Uninstall
+* Release notes
+* Docker Engine
+* Install
+* Ubuntu
+* Debian
+* RHEL
+* Fedora
+* Raspberry Pi OS (32-bit / armhf)")
+* CentOS
+* Binaries
+* Post-installation steps
+* Storage
+* Volumes
+* Bind mounts
+* tmpfs mounts
+* Image mounts
+* Storage drivers
+* Select a storage driver
+* BTRFS storage driver
+* Device Mapper storage driver (deprecated)")
+* OverlayFS storage driver
+* VFS storage driver
+* windowsfilter storage driver
+* ZFS storage driver
+* containerd image store
+* Networking
+* Docker with iptables
+* Docker with nftables
+* Packet filtering and firewalls
+* Port publishing and mapping
+* Network drivers
+* Bridge network driver
+* Host network driver
+* IPvlan network driver
+* Macvlan network driver
+* None network driver
+* Overlay network driver
+* CA certificates
+* Legacy container links
+* Containers
+* Start containers automatically
+* Run multiple processes in a container
+* Resource constraints
+* GPU access
+* Runtime metrics
+* Running containers
+* CLI
+* Completion
+* Proxy configuration
+* Filter commands
+* Format command and log output
+* OpenTelemetry for the Docker CLI
+* Daemon
+* Start the daemon
+* Use IPv6 networking
+* Daemon proxy configuration
+* Live restore
+* Alternative container runtimes
+* Collect Docker metrics with Prometheus
+* Configure remote access for Docker daemon
+* Read the daemon logs
+* Troubleshooting the Docker daemon
+* Manage resources
+* Docker contexts
+* Docker object labels
+* Prune unused Docker objects
+* Logs and metrics
+* Configure logging drivers
+* Customize log driver output
+* Logging drivers
+* Amazon CloudWatch Logs logging driver
+* ETW logging driver
+* Fluentd logging driver
+* Google Cloud Logging driver
+* Graylog Extended Format logging driver
+* Journald logging driver
+* JSON File logging driver
+* Local file logging driver
+* Splunk logging driver
+* Syslog logging driver
+* Use a logging driver plugin
+* Use docker logs with remote logging drivers
+* Security
+* Rootless mode
+* UID/GID mapping
+* Tips
+* Troubleshooting
+* Antivirus software and Docker
+* AppArmor security profiles for Docker
+* Content trust in Docker
+* Automation with content trust
+* Delegations for content trust
+* Deploy Notary Server with Compose
+* Manage keys for content trust
+* Play in a content trust sandbox
+* Docker security non-events
+* Isolate containers with a user namespace
+* Protect the Docker daemon socket
+* Seccomp security profiles for Docker
+* Verify repository client with certificates
+* Swarm mode
+* Administer and maintain a swarm of Docker Engines
+* Deploy a stack to a swarm
+* Deploy services to a swarm
+* Getting started with Swarm mode
+* Create a swarm
+* Add nodes to the swarm
+* Deploy a service to the swarm
+* Inspect a service on the swarm
+* Scale the service in the swarm
+* Delete the service running on the swarm
+* Apply rolling updates to a service
+* Drain a node on the swarm
+* How swarm works
+* How nodes work
+* How services work
+* Manage swarm security with public key infrastructure (PKI)")
+* Swarm task states
+* Join nodes to a swarm
+* Lock your swarm to protect its encryption key
+* Manage nodes in a swarm
+* Manage sensitive data with Docker secrets
+* Manage swarm service networks
+* Raft consensus in swarm mode
+* Run Docker Engine in swarm mode
+* Store configuration data using Docker Configs
+* Swarm mode key concepts
+* Use Swarm mode routing mesh
+* Deprecated features
+* Docker Engine plugins
+* Access authorization plugin
+* Docker log driver plugins
+* Docker network driver plugins
+* Docker Plugin API
+* Docker volume plugins
+* Plugin Config Version 1 of Plugin V2
+* Use Docker Engine plugins
+* Release notes
+* Engine v29
+* Engine v28
+* Engine v27
+* Engine v26.1
+* Engine v26.0
+* Engine v25.0
+* Engine v24.0
+* Engine v23.0
+* Engine v20.10
+* Engine v19.03
+* Engine v18.09
+* Engine v18.06
+* Engine v18.05
+* Engine v18.04
+* Engine v18.03
+* Engine v18.02
+* Engine v18.01
+* Engine v17.12
+* Engine v17.11
+* Engine v17.10
+* Engine v17.09
+* Engine v17.07
+* Engine v17.06
+* Engine v17.05
+* Engine v17.04
+* Engine v17.03
+* Prior releases
+* Docker Offload
+* Quickstart
+* About
+* Configure
+* Usage
+* Optimize usage
+* Troubleshoot
+* Give feedback
+* Docker Build
+* Core concepts
+* Docker Build Overview
+* Dockerfile overview
+* Build context
+* Build checks
+* Building
+* Multi-stage
+* Variables
+* Secrets
+* Multi-platform
+* Export binaries
+* Container Device Interface (CDI)")
+* Best practices
+* Base images
+* Builders
+* Build drivers
+* Docker container driver
+* Docker driver
+* Kubernetes driver
+* Remote driver
+* Manage builders
+* Bake
+* Introduction
+* Targets
+* Inheritance
+* Variables
+* Expressions
+* Functions
+* Matrix targets
+* Contexts
+* Bake file reference
+* Bake standard library functions
+* Building with Bake from a Compose file
+* Overriding configurations
+* Remote Bake file definition
+* Cache
+* Build cache invalidation
+* Build garbage collection
+* Cache storage backends
+* Amazon S3 cache
+* Azure Blob Storage cache
+* GitHub Actions cache
+* Inline cache
+* Local cache
+* Registry cache
+* Optimize cache usage in builds
+* CI
+* GitHub Actions
+* Annotations
+* Attestations
+* Build checks
+* Build secrets
+* Build summary
+* BuildKit configuration
+* Cache management
+* Copy image between registries
+* Export to Docker
+* GitHub Builder New
+* Architecture
+* Build workflow
+* Bake workflow
+* Local registry
+* Multi-platform image
+* Named contexts
+* Push to multiple registries
+* Reproducible builds
+* Share image between jobs
+* Tags and labels
+* Test before push
+* Update Docker Hub description
+* Validating builds Experimental
+* Introduction
+* Usage
+* Image validation
+* Git validation
+* Templates & examples
+* Testing
+* Debugging
+* Input reference
+* Built-in functions
+* Metadata
+* Annotations
+* Build attestations
+* Image attestation storage
+* Provenance attestations
+* SBOM attestations
+* SLSA definitions
+* Exporters
+* Image and registry exporters
+* Local and tar exporters
+* OCI and Docker exporters
+* BuildKit
+* buildkitd.toml
+* Configure BuildKit
+* Custom Dockerfile syntax
+* Dockerfile release notes
+* Debugging
+* OpenTelemetry support
+* Build release notes
+* Docker Build Cloud
+* Setup
+* Usage
+* Continuous integration
+* Optimization
+* Builder settings
+* Release notes
+* Docker Compose
+* Introduction to Compose
+* How Compose works
+* Why use Compose?
+* History and development
+* Install
+* Plugin
+* Standalone (Legacy)")
+* Uninstall
+* Quickstart
+* How-tos
+* Specify a project name
+* Use service profiles
+* Control startup order
+* Use environment variables
+* Set environment variables
+* Environment variables precedence
+* Pre-defined environment variables
+* Interpolation
+* Best practices
+* Build dependent images
+* Use Compose Watch
+* Secrets in Compose
+* Networking
+* Use multiple Compose files
+* Merge
+* Extend
+* Include
+* Enable GPU support
+* Use Compose in production
+* OCI artifact applications
+* Use lifecycle hooks
+* Use init containers New
+* Use provider services
+* Compose Bridge
+* Usage
+* Customize
+* Use Model Runner
+* Compose SDK
+* Trust model for Compose files
+* Support and feedback
+* FAQs
+* Give feedback
+* Release notes
+* Docker Extensions
+* Marketplace extensions
+* Non-marketplace extensions
+* Configure a private marketplace
+* Settings and feedback
+* Extensions SDK
+* The build and publish process
+* Quickstart
+* Part one: Build
+* Create a simple extension
+* Create an advanced frontend extension
+* Add a backend to your extension
+* Part two: Publish
+* Add labels
+* Validate
+* Package and release your extension
+* Share your extension
+* Publish in the Marketplace
+* Build multi-arch extensions
+* Architecture
+* Metadata
+* Security
+* Design and UI styling
+* Guidelines
+* Docker design principles
+* MUI best practices
+* Developer Guides
+* Authentication
+* Interacting with Kubernetes
+* Invoke host binaries
+* Use the Docker socket
+* Developer SDK tools
+* Test and debug
+* Continuous Integration (CI)")
+* CLI reference
+* Extension APIs
+* Dashboard
+* Docker
+* Extension Backend
+* Extension UI API
+* Navigation
+* Deprecated products and features
+* Release lifecycle
+* Supply chain security
+* Docker Hardened Images
+* Quickstart
+* Explore
+* Hardened images
+* Build process
+* Image types
+* Scanner integrations
+* Image testing
+* Responsibility overview
+* Malware scanning
+* Security concepts
+* Attestations
+* CIS Benchmark
+* Code signing
+* CVEs
+* Distroless images
+* FIPS
+* glibc and musl
+* Hardening
+* Image digests
+* Image provenance
+* Immutability
+* SBOMs
+* SLSA
+* Software Supply Chain Security
+* SSDLC
+* STIG
+* VEX
+* Migration
+* Migration checklist
+* AI-assisted migration Experimental
+* Migrate from Alpine or Debian
+* Migrate from Ubuntu
+* Migrate from Wolfi
+* Migration examples
+* Go
+* Python
+* Node.js
+* .NET
+* Java
+* How-tos
+* Search and evaluate
+* Mirror a repository
+* Customize an image or chart
+* Create and build an image
+* Use an image
+* Use a Helm chart
+* Use hardened packages
+* Verify an image or chart
+* Scan an image
+* Query VEX suppressions via API
+* Apply image policies
+* Troubleshoot
+* Use DHI Select & Enterprise
+* Tools
+* Docker Hub
+* CLI
+* MCP server
+* Terraform
+* API
+* Release notes
+* CLI release notes
+* Platform release notes
+* Resources and feedback
+* Docker Hub
+* Quickstart
+* Library
+* Search
+* Trusted content
+* Catalogs
+* Mirror
+* Repositories
+* Create
+* Manage
+* Repository information
+* Access
+* Images
+* Tags
+* Immutable tags
+* Image Management
+* Software artifacts
+* Push images
+* Move images
+* Bulk migrate images
+* Image security insights
+* Webhooks
+* Automated builds Deprecated
+* Set up
+* Link accounts
+* Automated repository tests
+* Advanced options
+* Migrate
+* Manage autobuilds
+* Troubleshoot
+* Trusted content
+* Docker Official Images
+* Docker Verified Publisher Program
+* Docker-Sponsored Open Source Program
+* Insights and analytics
+* Export repositories
+* Archive
+* Delete
+* Settings
+* Usage and limits
+* Pulls
+* Optimize usage
+* Hub MCP server
+* Troubleshoot
+* Release notes
+* Docker Scout
+* Install
+* Quickstart
+* Explore
+* Dashboard
+* Docker Scout image analysis
+* Docker Scout metrics exporter
+* Image details view
+* Manage vulnerability exceptions
+* How-tos
+* Create an exception using the GUI
+* Create an exception using the VEX
+* Docker Scout environment variables
+* Docker Scout SBOMs
+* Use Scout with different artifact types
+* Deep dive
+* Advisory database sources and matching service
+* Data collection and storage in Docker Scout
+* Policy Evaluation
+* Evaluate policies
+* Use the Dashboard Deprecated
+* Integrations
+* Code quality
+* SonarQube Deprecated
+* Container registries
+* Amazon ECR Deprecated
+* Artifactory Container Registry
+* Azure Container Registry Deprecated
+* Continuous Integration
+* Azure DevOps Pipelines
+* Circle CI
+* GitHub Actions
+* GitLab CI/CD
+* Jenkins
+* Integrating Docker Scout with environments
+* Generic (CLI)")
+* Source code management
+* GitHub Retired
+* Team collaboration
+* Slack Deprecated
+* Release notes
+* CLI release notes
+* Platform release notes
+* Platform
+* Docker accounts
+* Create
+* Manage
+* Deactivate
+* FAQs
+* Subscription
+* Plans
+* Docker
+* Gordon
+* Docker Hardened Images
+* AI Governance
+* Docker Verified Publisher
+* Manage
+* FAQs
+* Docker Desktop license agreement
+* Billing
+* Payment methods
+* 3D Secure
+* Update details
+* Invoice history
+* Taxes
+* FAQs
+* Security
+* Personal access tokens
+* Two-factor authentication
+* Recover your Docker account
+* FAQs
+* General
+* Container
+* Network and VM
+* Security announcements
+* Support
+* Release notes
+* Enterprise
+* Administration
+* Organization
+* Setup
+* Create
+* Onboard
+* Change information
+* Convert account
+* Manage
+* Members
+* Teams
+* License assignment
+* Seats
+* Product usage and access
+* Deactivate
+* FAQs
+* Company
+* Setup
+* Manage
+* FAQs
+* Activity logs
+* Insights
+* Deploy Docker Desktop
+* MSI installer
+* PKG installer
+* MS Store
+* Deploy with Intune
+* Deploy with Jamf Pro
+* Microsoft Dev Box
+* FAQs
+* Security
+* Add and manage domains
+* Single sign-on
+* Setup
+* Manage connections
+* Troubleshoot
+* FAQs
+* General
+* Domains
+* Enforcement
+* Identity providers
+* User management
+* Provision
+* SCIM
+* Setup
+* Group mapping
+* Migrate
+* Just-in-Time
+* Auto-provision
+* Troubleshoot
+* Enforce sign-in
+* Configure
+* OIDC connections
+* Create and manage connections
+* Rulesets and subject claims
+* Roles and permissions
+* Core roles
+* Custom roles
+* Manage
+* Permissions reference
+* Hardened Docker Desktop
+* Enhanced Container Isolation
+* Enable ECI
+* Configure advanced settings
+* Limitations
+* FAQs
+* Settings Management
+* Use a JSON file
+* Use Docker Home
+* Desktop settings reporting
+* Settings reference
+* Air-gapped containers
+* Registry Access Management
+* Image Access Management
+* Namespace access
+* Organization access tokens
+
+* * *
+When the same environment variable is set in multiple sources, Docker Compose follows a precedence rule to determine the value for that variable in your container's environment.
+This page explains how Docker Compose determines the final value of an environment variable when it's defined in multiple locations.
+The order of precedence (highest to lowest) is as follows:
+1. Set using `docker compose run -e` in the CLI.
+2. Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file. (either your default `.env` file, or with the `--env-file` argument in the CLI).
+3. Set using just the `environment` attribute in the Compose file.
+4. Use of the `env_file` attribute in the Compose file.
+5. Set in a container image in the ENV directive. Having any `ARG` or `ENV` setting in a `Dockerfile` evaluates only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.
+
+> Note
+> When `--env-file` is not set, Compose may load up to two `.env` files. It first loads one from the project directory (determined by `--project-directory` if set, otherwise the directory of the first `-f`/`--file` Compose file, otherwise `PWD`). If that file sets `COMPOSE_FILE` to a path in a different directory, Compose loads a second `.env` file from that directory with lower precedence. For more information, see local `.env` file versus project directory `.env` file.
+## Simple example
+In the following example, a different value for the same environment variable in an `.env` file and with the `environment` attribute in the Compose file:
+```
+$ cat ./webapp.env
+NODE_ENV=test
+
+$ cat compose.yaml
+services:
+webapp:
+image: 'webapp'
+env_file:
+- ./webapp.env
+environment:
+- NODE_ENV=production
+
+```
+
+The environment variable defined with the `environment` attribute takes precedence.
+```
+$ docker compose run webapp env | grep NODE_ENV
+NODE_ENV=production
+
+## Advanced example
+The following table uses `VALUE`, an environment variable defining the version for an image, as an example.
+### How the table works
+Each column represents a context from where you can set a value, or substitute in a value for `VALUE`.
+The columns `Host OS environment` and `.env` file is listed only for illustration purposes. In reality, they don't result in a variable in the container by itself, but in conjunction with either the `environment` or `env_file` attribute.
+Each row represents a combination of contexts where `VALUE` is set, substituted, or both. The **Result** column indicates the final value for `VALUE` in each scenario.
+# | `docker compose run` |  `environment` attribute |  `env_file` attribute | Image `ENV` |  `Host OS` environment |  `.env` file | Result
+---|---|---|---|---|---|---|---
+1 | - | - | - | - | `VALUE=1.4` | `VALUE=1.3` | -
+2 | - | - | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | - | **`VALUE=1.6`**
+3 | - | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | - | **`VALUE=1.7`**
+4 | - | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.5`**
+5 | `--env VALUE=1.8` | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**
+6 | `--env VALUE` | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**
+7 | `--env VALUE` | - | - | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**
+8 | - | - | `VALUE` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**
+9 | - | - | `VALUE` | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**
+10 | - | `VALUE` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**
+11 | - | `VALUE` | - | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**
+12 | `--env VALUE` | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**
+13 | `--env VALUE=1.8` | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**
+14 | `--env VALUE=1.8` | - | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**
+15 | `--env VALUE=1.8` | `VALUE=1.7` | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**
+### Understanding precedence results
+Result 1: The local environment takes precedence, but the Compose file is not set to replicate this inside the container, so no such variable is set.
+Result 2: The `env_file` attribute in the Compose file defines an explicit value for `VALUE` so the container environment is set accordingly.
+Result 3: The `environment` attribute in the Compose file defines an explicit value for `VALUE`, so the container environment is set accordingly.
+Result 4: The image's `ENV` directive declares the variable `VALUE`, and since the Compose file is not set to override this value, this variable is defined by image
+Result 5: The `docker compose run` command has the `--env` flag set with an explicit value, and overrides the value set by the image.
+Result 6: The `docker compose run` command has the `--env` flag set to replicate the value from the environment. Host OS value takes precedence and is replicated into the container's environment.
+Result 7: The `docker compose run` command has the `--env` flag set to replicate the value from the environment. Value from `.env` file is selected to define the container's environment.
+Result 8: The `env_file` attribute in the Compose file is set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.
+Result 9: The `env_file` attribute in the Compose file is set to replicate `VALUE` from the local environment. Value from `.env` file is selected to define the container's environment.
+Result 10: The `environment` attribute in the Compose file is set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.
+Result 11: The `environment` attribute in the Compose file is set to replicate `VALUE` from the local environment. Value from `.env` file is selected to define the container's environment.
+Result 12: The `--env` flag has higher precedence than the `environment` and `env_file` attributes and is to set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.
+Results 13 to 15: The `--env` flag has higher precedence than the `environment` and `env_file` attributes and so sets the value.
+## Next steps
+* Set environment variables in Compose
+* Use variable interpolation in Compose files

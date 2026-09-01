@@ -1,0 +1,33 @@
+services:
+  sink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "/runtime/sink.py"]
+    volumes:
+      - ./runtime:/runtime:ro
+  fluent-bit:
+    image: fluent/fluent-bit:3.2
+    command: ["/fluent-bit/bin/fluent-bit", "-c", "/fluent-bit/etc/fluent-bit.conf"]
+    volumes:
+      - ./runtime/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+    ports: ["19202:2020"]
+    depends_on: [sink]
+  agent-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ./runtime/fluent-bit.conf:/runtime/fluent-bit.conf
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_HEALTH_MODE: url
+      OPSBENCH_HEALTH_URL: http://fluent-bit:2020/api/v1/health
+      OPSBENCH_METRICS_URL: http://fluent-bit:2020/api/v1/metrics
+    depends_on: [fluent-bit]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]

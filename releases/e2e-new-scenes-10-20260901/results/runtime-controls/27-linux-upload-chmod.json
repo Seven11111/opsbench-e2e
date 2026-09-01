@@ -1,0 +1,1393 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "candidate_linux_upload_permission_v1_001",
+      "template_id": "linux_upload_permission_v1",
+      "case_path": "RELEASE_ROOT\\27-linux-upload-chmod\\cases\\candidate_linux_upload_permission_v1_001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "public_actionability": {
+        "passed": true,
+        "issues": [],
+        "version": "e2e-public-actionability-v1",
+        "required": true,
+        "public_oracle": "linux_upload_permission_v1"
+      },
+      "public_tool_oracle": {
+        "required": true,
+        "oracle_id": "linux_upload_permission_v1",
+        "oracle_version": "e2e-public-tool-oracle-v1",
+        "passed": true,
+        "status": "passed",
+        "repeats": 3,
+        "results": [
+          {
+            "id": "candidate_linux_upload_permission_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 10.516,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.1s done\n#5 DONE 0.1s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#7 CACHED\n\n#8 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 4/12] WORKDIR /agent\n#9 CACHED\n\n#10 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#12 CACHED\n\n#13 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#13 CACHED\n\n#14 [ 7/12] COPY agent /agent\n#14 CACHED\n\n#15 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers 0.0s done\n#18 exporting manifest sha256:93842bd1838ae143ccd7c7fa50b103619a20db3b728b50cf15a720a5e21fdd29 0.0s done\n#18 exporting config sha256:03d6671355d7931ce5ef1acc9ac4476088e55bbed5870397d6abd0b7b7ae6309 0.0s done\n#18 exporting attestation manifest sha256:e73297e59d98283e6f9f1d4cdd28dead1e10224434bfd2c871afa06fa8453da0 0.1s done\n#18 exporting manifest list sha256:9e4a13934b719be4795b3130ccb6a0f9b213639c9b28b335a118e0decf040cf4 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.3s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-607718_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-607718_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-607718-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-607718-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-607718-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-607718-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.0,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.516,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.532,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.375,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.546,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.594,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.297,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"upload directory is writable\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 29.36,
+            "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-public-oracle-1\\candidate_linux_upload_permission_v1_001-3xj1fdql",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "candidate_linux_upload_permission_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.422,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 82.07kB 0.0s done\n#5 DONE 0.0s\n\n#7 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#7 CACHED\n\n#8 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#8 CACHED\n\n#9 [ 7/12] COPY agent /agent\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#11 CACHED\n\n#12 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#12 CACHED\n\n#13 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#13 CACHED\n\n#14 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#15 CACHED\n\n#16 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:5be1069c06489a80f14a7a8d92694951cbd1b71dbb26e0db8dcc21f633e24631 0.0s done\n#18 exporting config sha256:6c0b229861527a2b7f5e850bef2c82ad2a1443222aab510c8def3c768921cacf 0.0s done\n#18 exporting attestation manifest sha256:e43bfb195c25f78933213171eb595be205d6d79c24b0070ebc2b7882a12f3ca3 0.0s done\n#18 exporting manifest list sha256:f5f72fe880ad6f114ff8e0dd3e46a3899ea502418ae5c0e0f90ef33ef5e38f3f 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-637250_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-637250_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-637250-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-637250-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-637250-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-637250-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.688,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.625,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.438,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.25,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.547,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.031,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.188,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"upload directory is writable\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 18.14,
+            "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-public-oracle-2\\candidate_linux_upload_permission_v1_001-288rontx",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "candidate_linux_upload_permission_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.828,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context:\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.1s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#7 CACHED\n\n#8 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#15 CACHED\n\n#16 [ 7/12] COPY agent /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers 0.0s done\n#18 exporting manifest sha256:8b0a804e366d165a37a06cff3909199db3ae4234213448b9da1406e6003c6102 0.0s done\n#18 exporting config sha256:248f549988e1180e87bd82337338fbb5456d08b1779a713e325352c10cc328d0 0.0s done\n#18 exporting attestation manifest sha256:bc47332a09fe042082b3d19a829888e1505e5335fe6fe0b29aaa41545beafb2d\n#18 exporting attestation manifest sha256:bc47332a09fe042082b3d19a829888e1505e5335fe6fe0b29aaa41545beafb2d 0.1s done\n#18 exporting manifest list sha256:216032773d71c5d72b95eeef3f52bc170025fe37581e02e2440bf59a275a75cf 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.4s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-655578_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-655578_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-655578-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-655578-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-655578-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-655578-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.172,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.422,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.344,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.984,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.813,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.265,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.204,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"upload directory is writable\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 21.375,
+            "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-public-oracle-3\\candidate_linux_upload_permission_v1_001-8pyhpaln",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          }
+        ],
+        "result": {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.828,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context:\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.1s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#7 CACHED\n\n#8 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#15 CACHED\n\n#16 [ 7/12] COPY agent /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers 0.0s done\n#18 exporting manifest sha256:8b0a804e366d165a37a06cff3909199db3ae4234213448b9da1406e6003c6102 0.0s done\n#18 exporting config sha256:248f549988e1180e87bd82337338fbb5456d08b1779a713e325352c10cc328d0 0.0s done\n#18 exporting attestation manifest sha256:bc47332a09fe042082b3d19a829888e1505e5335fe6fe0b29aaa41545beafb2d\n#18 exporting attestation manifest sha256:bc47332a09fe042082b3d19a829888e1505e5335fe6fe0b29aaa41545beafb2d 0.1s done\n#18 exporting manifest list sha256:216032773d71c5d72b95eeef3f52bc170025fe37581e02e2440bf59a275a75cf 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.4s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-655578_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-655578_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-655578-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-655578-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-655578-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-655578-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.172,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.422,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.344,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.984,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.813,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.265,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.204,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"upload directory is writable\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 21.375,
+          "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-public-oracle-3\\candidate_linux_upload_permission_v1_001-8pyhpaln",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": []
+        },
+        "error": ""
+      },
+      "runs": [
+        {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 10.25,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B 0.0s done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#12 CACHED\n\n#13 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#13 CACHED\n\n#14 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#14 CACHED\n\n#15 [ 4/12] WORKDIR /agent\n#15 CACHED\n\n#16 [ 7/12] COPY agent /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:5dee0f01b810372e7f7b59dc0282fb44e7e95fa094f3000cdf405aabe20ceeb6 0.0s done\n#18 exporting config sha256:d29121dac88c64e83560328c7379b8c73aaa543c58bcfa4d7ae9a95e45e81eb6 0.0s done\n#18 exporting attestation manifest sha256:8d2a3a7c6852bd9504d5e0ca0ea564ef21fe2a8437de88bab2b56cddda5ac7d8\n#18 exporting attestation manifest sha256:8d2a3a7c6852bd9504d5e0ca0ea564ef21fe2a8437de88bab2b56cddda5ac7d8 0.1s done\n#18 exporting manifest list sha256:481ffcddaeb4269294cd42fd593078aadc7094951dcb746273cbdd7211e87e4b 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.3s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-413375_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-413375_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-413375-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-413375-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-413375-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-413375-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.75,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.047,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.609,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.359,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.063,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 5.203,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.282,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 31.109,
+          "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-ytg8n4tx",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The injected fault remains active.",
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.984,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#7 CACHED\n\n#8 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#8 CACHED\n\n#9 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#11 CACHED\n\n#12 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#12 CACHED\n\n#13 [ 7/12] COPY agent /agent\n#13 CACHED\n\n#14 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#14 CACHED\n\n#15 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#15 CACHED\n\n#16 [ 4/12] WORKDIR /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:eb686374ef1c97af4375f1d4ffb0ef584a5a3c3969882ba05bd2c4b9ea7b3d48 0.0s done\n#18 exporting config sha256:93defa34cb6048236a8e894170980fff4a74fce62da461d7638a2e97f5baf240 0.0s done\n#18 exporting attestation manifest sha256:c3764f575c868afba399a4b511943e5a7a27adfd3b8996ca16565f8f26fa4802\n#18 exporting attestation manifest sha256:c3764f575c868afba399a4b511943e5a7a27adfd3b8996ca16565f8f26fa4802 0.0s done\n#18 exporting manifest list sha256:fcc302abc375bd1310d327842d389fd5987efbf93629013ed120f77b0e814379 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-444484_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-444484_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-444484-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-444484-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-444484-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-444484-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.578,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.375,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.531,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.703,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.782,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.937,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.235,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"upload directory is writable\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 17.328,
+          "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-ze5p8lzz",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "expected_reason": "The registered safe repair restores the public contract.",
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.359,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#7 CACHED\n\n#8 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#8 CACHED\n\n#9 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#9 CACHED\n\n#10 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#12 CACHED\n\n#13 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#13 CACHED\n\n#14 [ 7/12] COPY agent /agent\n#14 CACHED\n\n#15 [ 4/12] WORKDIR /agent\n#15 CACHED\n\n#16 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:26307d93ca380fa05e1cfc60120c186ccf3cdf839e28b8ccd5c48554ec022f1b 0.0s done\n#18 exporting config sha256:168a8066e3917ca04f5fc9aa5c438127f4cde40e42535b9e39277a43dee6edcf 0.0s done\n#18 exporting attestation manifest sha256:8b4077af58d390b671b9b9c48542fbf2c5db6de6552c8d8aca3f780aaab342ac 0.0s done\n#18 exporting manifest list sha256:62b18affe0ba37ca446236d0e3b20901513289b800d0aaea622c614ef2896a2f\n#18 exporting manifest list sha256:62b18affe0ba37ca446236d0e3b20901513289b800d0aaea622c614ef2896a2f 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-461812_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-461812_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-461812-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-461812-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-461812-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-461812-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.312,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.579,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.016,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.75,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.906,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 3.266,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.562,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 19.063,
+          "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-rhrsrrta",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The symptom is not repaired while preserving the contract.",
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 8.891,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.2s\n\n#5 [internal] load build context\n#5 transferring context: 82.07kB done\n#5 DONE 0.0s\n\n#7 [ 4/12] WORKDIR /agent\n#7 CACHED\n\n#8 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#8 CACHED\n\n#9 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#10 CACHED\n\n#11 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#14 CACHED\n\n#15 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#15 CACHED\n\n#16 [ 7/12] COPY agent /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:7a471c33afc6516f90f8f68f84f989ae66f916f64063d3060187a57e589a4d21 0.0s done\n#18 exporting config sha256:2b513b635e87c941397a955143baf3ff0da7baf82d102adf33788c95efe6b52d 0.0s done\n#18 exporting attestation manifest sha256:8982ef4fe838324b755657da91091a27d2b1e2b657252cef1eaac539bb1f352a 0.1s done\n#18 exporting manifest list sha256:2c81f26556f2ddbcc18a0e7990dbc03b5380530fa256b14ed45dc1c65bdd4347\n#18 exporting manifest list sha256:2c81f26556f2ddbcc18a0e7990dbc03b5380530fa256b14ed45dc1c65bdd4347 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.3s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-480875_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-480875_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-480875-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-480875-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-480875-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-480875-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.453,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.86,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.39,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.438,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.703,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 3.063,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.8, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.14,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"upload directory is writable\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.8,
+          "duration_sec": 28.437,
+          "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-sr0r0pw0",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "A critical recovery or persistence condition remains unsatisfied.",
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 12.844,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 7/12] COPY agent /agent\n#7 CACHED\n\n#8 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#8 CACHED\n\n#9 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#14 CACHED\n\n#15 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#15 CACHED\n\n#16 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:133880a867f71afeb2b8aaa5f5777258c15cb89738e0f90a396a929dee5aa0a7 0.0s done\n#18 exporting config sha256:bfb29aafa1df15af3aa8be5794c687b1a3de7bb0a46cb42c8c9d91f5fdca33ba 0.0s done\n#18 exporting attestation manifest sha256:78d07becf305dd389479b36271371d43a45f606a85305d9325e6dd72430ef64c 0.0s done\n#18 exporting manifest list sha256:f073f1265a1541d4405e1c6d41764a4406c0ce389f88ed141f20c0996470faa0\n#18 exporting manifest list sha256:f073f1265a1541d4405e1c6d41764a4406c0ce389f88ed141f20c0996470faa0 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-509312_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-509312_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-509312-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-509312-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-509312-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-509312-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.828,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 6.094,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.781,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.531,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.313,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 4.171,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.188,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 39.172,
+          "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-fvgyaqh6",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "Restart alone is not a durable repair unless the case explicitly declares otherwise.",
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 16.047,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B 0.0s done\n#4 DONE 0.1s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.1s done\n#6 DONE 0.1s\n\n#5 [internal] load build context\n#5 transferring context: 82.07kB 0.0s done\n#5 DONE 0.0s\n\n#7 [ 4/12] WORKDIR /agent\n#7 CACHED\n\n#8 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#11 CACHED\n\n#12 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#12 CACHED\n\n#13 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#14 CACHED\n\n#15 [ 7/12] COPY agent /agent\n#15 CACHED\n\n#16 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:74248d802a5f489e52db768619c8b25d747f388d8667d38392f38f292600cfc5 0.0s done\n#18 exporting config sha256:95da36598b2d40d9d35b3b8051918d5089a7f0b18f67078319012ad20979b4f6\n#18 exporting config sha256:95da36598b2d40d9d35b3b8051918d5089a7f0b18f67078319012ad20979b4f6 0.0s done\n#18 exporting attestation manifest sha256:cfc1edcfa9b3212aaaf42dafcf908f032eb29a70fcab3d179e913b9d5ee7a167 0.0s done\n#18 exporting manifest list sha256:c63b847b1417cba068272b13d34ee06c491372c884b1f46707eea2bc214ccad9 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-548484_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-548484_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-548484-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-548484-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-548484-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-548484-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.687,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.813,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.797,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 6.094,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.781,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"upload directory is writable\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 37.344,
+          "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-ef9mipum",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.734,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 815B 0.1s done\n#1 DONE 0.1s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB done\n#6 DONE 0.0s\n\n#7 [ 4/12] WORKDIR /agent\n#7 CACHED\n\n#8 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#10 CACHED\n\n#11 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#11 CACHED\n\n#12 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#12 CACHED\n\n#13 [ 7/12] COPY agent /agent\n#13 CACHED\n\n#14 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:c8633fa147c9c21a8a4bc7f773d9406c1563087a44440ad989084457f4d5051b 0.0s done\n#18 exporting config sha256:871b46968633f1bdde0ef7ec2a6b7d679ef8c6b77354b9870d994205527331b3 0.0s done\n#18 exporting attestation manifest sha256:0065e386510cd8a62226dadac835efd01908d969869e47a32b2161ffd8734061\n#18 exporting attestation manifest sha256:0065e386510cd8a62226dadac835efd01908d969869e47a32b2161ffd8734061 0.0s done\n#18 exporting manifest list sha256:41e034a91ef71795007c7fbf5f5ee9d46081a69d59e896daa103fe474b9fc720 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_upload_permission_v1:latest 0.1s done\n#18 DONE 0.4s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_upload_permission_v1 Building \n Image opsbench-e2e-linux_upload_permission_v1 Built \n Network opsbench-candidate-linux-upload-permiss-22448-585828_default Creating \n Network opsbench-candidate-linux-upload-permiss-22448-585828_default Created \n Container opsbench-candidate-linux-upload-permiss-22448-585828-target-1 Creating \n Container opsbench-candidate-linux-upload-permiss-22448-585828-target-1 Created \n Container opsbench-candidate-linux-upload-permiss-22448-585828-target-1 Starting \n Container opsbench-candidate-linux-upload-permiss-22448-585828-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.547,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.625,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.922,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.469,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.297,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.219,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"upload directory is writable\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upload_permission', 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.437,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"upload directory is writable\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upload_permission', 'repair_mode': 'baseline'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 21.687,
+          "case_digest": "b05ff5b5097f38db1be5a5ecc32e607ead5d62b44177a3cfe6ebc4fadbe06423",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\27-linux-upload-chmod\\reports\\control_traces\\candidate_linux_upload_permission_v1_001-hdww9w6d",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        },
+        {
+          "id": "candidate_linux_upload_permission_v1_001",
+          "scenario": "cleanup",
+          "control_mode": "cleanup",
+          "repeat_index": 0,
+          "passed": true,
+          "score": 1.0,
+          "expected": "pass",
+          "expected_reason": "Each control run must leave no case-scoped Docker resources behind.",
+          "phase_status": {
+            "cleanup": "passed"
+          }
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 8
+}

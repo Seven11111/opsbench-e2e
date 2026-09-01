@@ -1,0 +1,1445 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_app_stale_pid_v1_000001",
+      "template_id": "app_stale_pid_v1",
+      "case_path": "RELEASE_ROOT\\24-app-stale-pid\\cases\\dynamic_app_stale_pid_v1_000001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "alternate_oracle",
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_layer_fix"
+        ],
+        "observed_scenarios": [
+          "alternate_oracle",
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_layer_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "public_actionability": {
+        "passed": true,
+        "issues": [],
+        "version": "e2e-public-actionability-v1",
+        "required": true,
+        "public_oracle": "app_stale_pid_v1"
+      },
+      "public_tool_oracle": {
+        "required": true,
+        "oracle_id": "app_stale_pid_v1",
+        "oracle_version": "e2e-public-tool-oracle-v1",
+        "passed": true,
+        "status": "passed",
+        "repeats": 3,
+        "results": [
+          {
+            "id": "dynamic_app_stale_pid_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.672,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#7 CACHED\n\n#8 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#8 CACHED\n\n#9 [7/9] COPY runtime /opt/opsbench/runtime\n#9 CACHED\n\n#10 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#10 CACHED\n\n#11 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#11 CACHED\n\n#12 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:54178bc8e1aa6f5c43ae438fd7388ec01376a5b799cb16c5e525f65eb4df2f78 0.0s done\n#15 exporting config sha256:5c05f2422d1177dc0fd0484d9065e988f5531526dfd1737becb364ef274bd598 0.0s done\n#15 exporting attestation manifest sha256:570d1240d1b802584759472f2b9b2d86b3fb9667fc404b70ed61cf0b9092a7dc 0.0s done\n#15 exporting manifest list sha256:1a18e120710b9ee29a5d7e3d0e18f620c8b9254b27ebcb52e8b412a77ed34cbd\n#15 exporting manifest list sha256:1a18e120710b9ee29a5d7e3d0e18f620c8b9254b27ebcb52e8b412a77ed34cbd 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-984875_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-984875_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-984875-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-984875-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-984875-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-984875-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.094,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.047,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.812,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.25,
+                "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 6.656,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.36,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 215, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 215, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 215, \\\"health_status\\\": 200}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.047,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 215, \"health_status\": 200}"
+              },
+              {
+                "name": "pid_identity",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 215, \"health_status\": 200}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 215, \"health_status\": 200}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 29.046,
+            "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-public-oracle-1\\dynamic_app_stale_pid_v1_000001-_c4bbai7",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "dynamic_app_stale_pid_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 7.922,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 850B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 94.63kB 0.0s done\n#5 DONE 0.0s\n\n#7 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [7/9] COPY runtime /opt/opsbench/runtime\n#8 CACHED\n\n#9 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#9 CACHED\n\n#10 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#10 CACHED\n\n#11 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#11 CACHED\n\n#12 [6/9] COPY agent /agent\n#12 CACHED\n\n#13 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:cd9f366ac2433bde732b313f9c24f59baaaf12a3630d436689c2c1b027d5e3b8 0.0s done\n#15 exporting config sha256:c8d330c7656856fb27d47b049f2ad695a0b4da0c142f03498dc49523beaeefea 0.0s done\n#15 exporting attestation manifest sha256:406ba13a711487d73d28516b2572d2d16d37d4cc8f410a13fb8b06094fe2bc54 0.1s done\n#15 exporting manifest list sha256:8bda8af98e04db6826897aab069a923a96ebbe69fadaafb51f14e058cd418d6b 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.3s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-14093_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-14093_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-14093-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-14093-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-14093-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-14093-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.109,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 3.938,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 57, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 57, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 57, \\\"health_status\\\": 200}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.765,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 7.672,
+                "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.953,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 6.953,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 215, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 215, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 215, \\\"health_status\\\": 200}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.141,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 215, \"health_status\": 200}"
+              },
+              {
+                "name": "pid_identity",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 215, \"health_status\": 200}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 215, \"health_status\": 200}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 39.641,
+            "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-public-oracle-2\\dynamic_app_stale_pid_v1_000001-fy4gvsjr",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "dynamic_app_stale_pid_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 6.922,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 850B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 94.63kB 0.0s done\n#5 DONE 0.0s\n\n#7 [7/9] COPY runtime /opt/opsbench/runtime\n#7 CACHED\n\n#8 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 CACHED\n\n#12 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#12 CACHED\n\n#13 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers 0.0s done\n#15 exporting manifest sha256:7098d57a034f2c3db78542b5aaa497537db1d60695107d8df7ec1e3c6a3c808c\n#15 exporting manifest sha256:7098d57a034f2c3db78542b5aaa497537db1d60695107d8df7ec1e3c6a3c808c 0.2s done\n#15 exporting config sha256:c7ee26ca73fcd997ea8bf2188cab46a58f9cb39f229149d1c1b3ff26f15819a2\n#15 exporting config sha256:c7ee26ca73fcd997ea8bf2188cab46a58f9cb39f229149d1c1b3ff26f15819a2 0.0s done\n#15 exporting attestation manifest sha256:7f0b8e7a32a6788cc2809af5068713da151a8cc34ea960b6c6d846c80937c072 0.1s done\n#15 exporting manifest list sha256:ba7b246b4b1bd78cd88fbf31ff439f700f592ee9238f26a92750e95554262742\n#15 exporting manifest list sha256:ba7b246b4b1bd78cd88fbf31ff439f700f592ee9238f26a92750e95554262742 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.4s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-54015_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-54015_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-54015-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-54015-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-54015-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-54015-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.172,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 6.969,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 50, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 50, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 50, \\\"health_status\\\": 200}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.156,
+                "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.375,
+                "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.515,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 10.672,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 219, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 219, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 219, \\\"health_status\\\": 200}\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.625,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 219, \"health_status\": 200}"
+              },
+              {
+                "name": "pid_identity",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 219, \"health_status\": 200}"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.3333333333333333,
+                "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 219, \"health_status\": 200}"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 42.969,
+            "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-public-oracle-3\\dynamic_app_stale_pid_v1_000001-ilnazkzc",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          }
+        ],
+        "result": {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 6.922,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 850B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 94.63kB 0.0s done\n#5 DONE 0.0s\n\n#7 [7/9] COPY runtime /opt/opsbench/runtime\n#7 CACHED\n\n#8 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 CACHED\n\n#12 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#12 CACHED\n\n#13 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers 0.0s done\n#15 exporting manifest sha256:7098d57a034f2c3db78542b5aaa497537db1d60695107d8df7ec1e3c6a3c808c\n#15 exporting manifest sha256:7098d57a034f2c3db78542b5aaa497537db1d60695107d8df7ec1e3c6a3c808c 0.2s done\n#15 exporting config sha256:c7ee26ca73fcd997ea8bf2188cab46a58f9cb39f229149d1c1b3ff26f15819a2\n#15 exporting config sha256:c7ee26ca73fcd997ea8bf2188cab46a58f9cb39f229149d1c1b3ff26f15819a2 0.0s done\n#15 exporting attestation manifest sha256:7f0b8e7a32a6788cc2809af5068713da151a8cc34ea960b6c6d846c80937c072 0.1s done\n#15 exporting manifest list sha256:ba7b246b4b1bd78cd88fbf31ff439f700f592ee9238f26a92750e95554262742\n#15 exporting manifest list sha256:ba7b246b4b1bd78cd88fbf31ff439f700f592ee9238f26a92750e95554262742 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.4s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-54015_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-54015_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-54015-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-54015-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-54015-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-54015-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.172,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 6.969,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 50, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 50, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 50, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.156,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.375,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.515,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 10.672,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 219, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 219, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 219, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.625,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 219, \"health_status\": 200}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 219, \"health_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 219, \"health_status\": 200}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 42.969,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-public-oracle-3\\dynamic_app_stale_pid_v1_000001-ilnazkzc",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": []
+        },
+        "error": ""
+      },
+      "runs": [
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.078,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 94.63kB 0.0s done\n#6 DONE 0.0s\n\n#7 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#7 CACHED\n\n#8 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#8 CACHED\n\n#9 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [7/9] COPY runtime /opt/opsbench/runtime\n#10 CACHED\n\n#11 [6/9] COPY agent /agent\n#11 CACHED\n\n#12 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#12 CACHED\n\n#13 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:bf8f296ee54db1c3895ab0e79b5a4792f8ecbbbbc2bd4b6360aa1f646363b7f1 0.0s done\n#15 exporting config sha256:a9f3daa0e50e3cb8f573b4c8942d0f6a5dcc9324e4d6542a4640162832788f02 0.0s done\n#15 exporting attestation manifest sha256:e5073dc075d591f89117a035947ec10720dd348213a21da5cbb0ccba1f593fc0 0.0s done\n#15 exporting manifest list sha256:dba31c19ac226c5760de7e030ec6c310ab096808f0db1075b17548be14d88bc5\n#15 exporting manifest list sha256:dba31c19ac226c5760de7e030ec6c310ab096808f0db1075b17548be14d88bc5 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-848125_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-848125_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-848125-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-848125-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-848125-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-848125-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.86,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.125,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 44, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 44, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 44, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.641,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.375,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.984,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.922,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}, {\"name\": \"pid_identity\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 15.187,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-rr5h2xs_",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The injected fault remains active.",
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.656,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [7/9] COPY runtime /opt/opsbench/runtime\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#10 CACHED\n\n#11 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:b56f939a3c2f74f2bda22b8c4b8566c95fc444986b6b03dfe6edc9c209b84439 0.0s done\n#15 exporting config sha256:b6c7603ea899a4fc9acd12078a1d08afa495d67e8b08b036e1e4aa7aff52a8a0 0.0s done\n#15 exporting attestation manifest sha256:6293cf0720536cc79d38f748eb68c1bfc48b5b5a6a34c725d3d39640ef65405f 0.0s done\n#15 exporting manifest list sha256:09f371f57c32b2103ff5d664e536b7a19540e2a489422fa3734abd9cb520b29a\n#15 exporting manifest list sha256:09f371f57c32b2103ff5d664e536b7a19540e2a489422fa3734abd9cb520b29a 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-863312_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-863312_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-863312-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-863312-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-863312-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-863312-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.094,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.906,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.812,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.297,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.344,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.812,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 206, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 206, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 206, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 206, \"health_status\": 200}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 206, \"health_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 206, \"health_status\": 200}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 14.297,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-8dl4ljpb",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "expected_reason": "The registered safe repair restores the public contract.",
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.281,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 658B done\n#5 DONE 0.0s\n\n#7 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#7 CACHED\n\n#8 [7/9] COPY runtime /opt/opsbench/runtime\n#8 CACHED\n\n#9 [6/9] COPY agent /agent\n#9 CACHED\n\n#10 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#10 CACHED\n\n#11 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#11 CACHED\n\n#12 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:05bf32f183626272d41453cf48978fbf160c4c453d8375d7be4b15f27bde11aa 0.0s done\n#15 exporting config sha256:b0431bf4ad1f9815de08b5a3c35cb90722e59fd663c0c4b43970037fd6a5c934 0.0s done\n#15 exporting attestation manifest sha256:8943031aba9223fa34785eb15a8602a0844a4d56deab6dc358ee8416d7ed0192\n#15 exporting attestation manifest sha256:8943031aba9223fa34785eb15a8602a0844a4d56deab6dc358ee8416d7ed0192 0.0s done\n#15 exporting manifest list sha256:d04aaa3a7594d3d113061123edc0be070a1cfaf76fc2e0d1e8c2c06d95409e86 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-877609_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-877609_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-877609-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-877609-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-877609-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-877609-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.14,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.032,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 58, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 58, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 58, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.765,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.891,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.594,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.578,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 213, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 213, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 213, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.687,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 213, \"health_status\": 200}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 213, \"health_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 213, \"health_status\": 200}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 16.922,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-vyvtn9ue",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "alternate_oracle",
+          "control_mode": "alternate_oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.297,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 658B done\n#5 DONE 0.0s\n\n#7 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [7/9] COPY runtime /opt/opsbench/runtime\n#10 CACHED\n\n#11 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [6/9] COPY agent /agent\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:572a62212cc3e7af001652907ff5dcbea35731e4541e3168b33761484ab8f63b 0.0s done\n#15 exporting config sha256:a7bce8d78ad705810b3bdf6614997040cefa04d5021df1d7df74fe52865ffc09 0.0s done\n#15 exporting attestation manifest sha256:7babbdaf518f8b0d6dc17f126bda8595278ba51806edbfd817278be27e7ee6f5\n#15 exporting attestation manifest sha256:7babbdaf518f8b0d6dc17f126bda8595278ba51806edbfd817278be27e7ee6f5 0.0s done\n#15 exporting manifest list sha256:b5cb7d4d8be480299ba590012a0af7427477cfd8dd3db49a85ed2309d111987e 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-894531_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-894531_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-894531-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-894531-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-894531-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-894531-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.516,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 6.125,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.047,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.312,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.203,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 5.344,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}, {\"name\": \"pid_identity\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.594,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 24.328,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-vwgnpnui",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "Restart alone is not a durable repair unless the case explicitly declares otherwise.",
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.234,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 658B done\n#5 DONE 0.0s\n\n#7 [7/9] COPY runtime /opt/opsbench/runtime\n#7 CACHED\n\n#8 [6/9] COPY agent /agent\n#8 CACHED\n\n#9 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#9 CACHED\n\n#10 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#10 CACHED\n\n#11 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:90442dd8dec77a641a78a72f7362c84e0b05f921791eadabc321f6a80ea4b066 0.0s done\n#15 exporting config sha256:890427eef218bf1b613b104ff65592c1813982c7e8cc1e3c3c28597a2c5a37e7 0.0s done\n#15 exporting attestation manifest sha256:b733513f3cda3917bddbcac125d5c13f6f178a4edd9078d6d16f508fa37cb708 0.0s done\n#15 exporting manifest list sha256:492a6b867d8ec5fe5f47c37e9f29ad3888a36cebd8fc3cca5010eda4da520d0a 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.3s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-918859_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-918859_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-918859-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-918859-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-918859-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-918859-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.141,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 9.047,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.843,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.032,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.296,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 3.813,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}, {\"name\": \"pid_identity\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.062,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 26.187,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-evpvxz88",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "scenario": "wrong_layer_fix",
+          "control_mode": "wrong_layer_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": false,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "failed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.015,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#7 CACHED\n\n#8 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#8 CACHED\n\n#9 [6/9] COPY agent /agent\n#9 CACHED\n\n#10 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#10 CACHED\n\n#11 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [7/9] COPY runtime /opt/opsbench/runtime\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:984a6c4ee92b31c27dbf8d96a660ea7b7ac8c44dd6d132996b715d86f175b6ce 0.0s done\n#15 exporting config sha256:bd41b5c804888eed3e39bc2fa9398d1518f693bffb02cabb7411f7070558bf0d 0.0s done\n#15 exporting attestation manifest sha256:bb265d10bb5de405dfa0643926f1df28e2406a42b334868bdd03c70fab4692df 0.0s done\n#15 exporting manifest list sha256:03fda18daa8c4175e0f1fe8ddfcc687d8423e7b09d599419097a6e8638f03d5c\n#15 exporting manifest list sha256:03fda18daa8c4175e0f1fe8ddfcc687d8423e7b09d599419097a6e8638f03d5c 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-945046_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-945046_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-945046-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-945046-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-945046-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-945046-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.11,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.234,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 48, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.313,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.218,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 0.188,
+              "stdout_tail": "",
+              "stderr_tail": "refusing to start: pid file already exists: /run/demo-app.pid\n"
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.156,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}, {\"name\": \"pid_identity\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": false, \\\"launcher_status\\\": false, \\\"pid_file\\\": true, \\\"pid_alive\\\": false, \\\"pid_is_app\\\": false, \\\"pid\\\": 999999, \\\"health_status\\\": 0}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": false, \"launcher_status\": false, \"pid_file\": true, \"pid_alive\": false, \"pid_is_app\": false, \"pid\": 999999, \"health_status\": 0}"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 14.438,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-ir5gdwee",
+          "error_type": "agent_error",
+          "failure_type": "runtime_error",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [
+            "agent process did not complete successfully"
+          ],
+          "expected": "fail",
+          "expected_reason": "A critical recovery or persistence condition remains unsatisfied.",
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.75,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [6/9] COPY agent /agent\n#7 CACHED\n\n#8 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#8 CACHED\n\n#9 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#9 CACHED\n\n#10 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#10 CACHED\n\n#11 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#11 CACHED\n\n#12 [7/9] COPY runtime /opt/opsbench/runtime\n#12 CACHED\n\n#13 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:6f66840a8c3ccf330bfbfdb951ee56ff4a5cb5d32f2b1139230ecceca282a174 0.0s done\n#15 exporting config sha256:30610dab0fad390c8f5be4f89933cf14598b6f4bf153929d741f4a07a3e7ab93 0.0s done\n#15 exporting attestation manifest sha256:b74abec184bf8e44f6f8d97216a67d1cd584a6ec87079552c81b17b61b00d909 0.0s done\n#15 exporting manifest list sha256:b91c62602935b9505060fe84486d94710cf03c5e25e1a2e24223f9dcaf94e7a3 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-959484_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-959484_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-959484-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-959484-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-959484-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-959484-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.093,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.844,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 56, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 56, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 56, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.844,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.39,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.641,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.828,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 208, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 208, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 208, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 208, \"health_status\": 200}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 208, \"health_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 208, \"health_status\": 200}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 13.906,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-arkdk4o6",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.625,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 851B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.47kB done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 658B done\n#6 DONE 0.0s\n\n#7 [3/9] RUN (id demo >/dev/null 2>&1 || useradd --create-home --uid 1000 demo)     && (id opsbench >/dev/null 2>&1 || useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench)\n#7 CACHED\n\n#8 [2/9] RUN if command -v curl >/dev/null 2>&1 && command -v getent >/dev/null 2>&1     && command -v ps >/dev/null 2>&1 && command -v ss >/dev/null 2>&1; then true;     else apt-get update && apt-get install -y --no-install-recommends       ca-certificates curl iproute2 iptables jq lsof openssl procps util-linux       && rm -rf /var/lib/apt/lists/*; fi\n#8 CACHED\n\n#9 [5/9] RUN python3 -c \"import langchain_core, langchain_openai, langgraph\" >/dev/null 2>&1     || pip install --no-cache-dir -r /tmp/agent-requirements.txt\n#9 CACHED\n\n#10 [8/9] RUN chmod +x /opt/opsbench/runtime/*.sh /opt/opsbench/runtime/*.py 2>/dev/null || true     && python3 -m compileall -q -b /opt/opsbench/runtime     && mkdir -p /opt/opsbench/certs     && /opt/opsbench/runtime/generate-certs.sh     && rm -f /opt/opsbench/runtime/generate-certs.sh     && mkdir -p /agent-runtime /etc/opsbench /opt/opsbench/certs /var/log/demo     && chmod +x /agent/run.sh /agent/run.py\n#10 CACHED\n\n#11 [7/9] COPY runtime /opt/opsbench/runtime\n#11 CACHED\n\n#12 [4/9] COPY agent/requirements.txt /tmp/agent-requirements.txt\n#12 CACHED\n\n#13 [6/9] COPY agent /agent\n#13 CACHED\n\n#14 [9/9] WORKDIR /agent-runtime\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:df48fd63385ba493573483859512dcf547fcab7723c9557a8ef7808f2dba2773 0.0s done\n#15 exporting config sha256:967baa0cfda503d8ecefd5d59c9869f8588d60e40fe7786d3e93e335e2f6bc3b 0.0s done\n#15 exporting attestation manifest sha256:c75e6c2ea7888146a665a52917269de6fdcf5116fcb5cdc19581504788832f12 0.0s done\n#15 exporting manifest list sha256:23d231de4c654ba51a9b7c3c0cef61466715f0bb942816bddf5c585717d33e10\n#15 exporting manifest list sha256:23d231de4c654ba51a9b7c3c0cef61466715f0bb942816bddf5c585717d33e10 0.0s done\n#15 naming to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest done\n#15 unpacking to docker.io/library/opsbench-e2e-app_stale_pid_v1:latest 0.0s done\n#15 DONE 0.2s\n\n#16 resolving provenance for metadata file\n#16 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-app_stale_pid_v1 Building \n Image opsbench-e2e-app_stale_pid_v1 Built \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-973390_default Creating \n Network opsbench-dynamic-app-stale-pid-v1-00000-7528-973390_default Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-973390-target-1 Creating \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-973390-target-1 Created \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-973390-target-1 Starting \n Container opsbench-dynamic-app-stale-pid-v1-00000-7528-973390-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.094,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.89,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": false, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 55, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.844,
+              "stdout_tail": "{\"passed\": true, \"phase\": \"inject\"}\r\n",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.25,
+              "stdout_tail": "{\"checks\": [{\"app_running\": false, \"health_status\": 0, \"launcher_status\": false, \"name\": \"live_fault_active\", \"passed\": true, \"pid\": 999999, \"pid_alive\": false, \"pid_file\": true, \"pid_is_app\": false, \"strategy\": \"stale_pid\"}], \"passed\": true, \"phase\": \"check_injected\"}\r\n",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.609,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.797,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 207, \\\"health_status\\\": 200}\"}, {\"name\": \"pid_identity\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 207, \\\"health_status\\\": 200}\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.3333333333333333, \"detail\": \"{\\\"strategy\\\": \\\"stale_pid\\\", \\\"app_running\\\": true, \\\"launcher_status\\\": true, \\\"pid_file\\\": true, \\\"pid_alive\\\": true, \\\"pid_is_app\\\": true, \\\"pid\\\": 207, \\\"health_status\\\": 200}\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 207, \"health_status\": 200}"
+            },
+            {
+              "name": "pid_identity",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 207, \"health_status\": 200}"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.3333333333333333,
+              "detail": "{\"strategy\": \"stale_pid\", \"app_running\": true, \"launcher_status\": true, \"pid_file\": true, \"pid_alive\": true, \"pid_is_app\": true, \"pid\": 207, \"health_status\": 200}"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 11.313,
+          "case_digest": "16e9d05f517e4014f39ad331c5c597c52584661aef415c652928fa27055ef40b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\24-app-stale-pid\\reports\\control_traces\\dynamic_app_stale_pid_v1_000001-pasr7iuv",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        },
+        {
+          "id": "dynamic_app_stale_pid_v1_000001",
+          "scenario": "cleanup",
+          "control_mode": "cleanup",
+          "repeat_index": 0,
+          "passed": true,
+          "score": 1.0,
+          "expected": "pass",
+          "expected_reason": "Each control run must leave no case-scoped Docker resources behind.",
+          "phase_status": {
+            "cleanup": "passed"
+          }
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 9
+}

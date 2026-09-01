@@ -1,0 +1,8 @@
+{
+  "count": 1,
+  "metadata_path": "tmp\\e2e-new-10-quality-20260831\\23-http-upstream-timeout\\evidence\\document_contexts.jsonl",
+  "source_dir": "tmp\\e2e-new-10-quality-20260831\\23-http-upstream-timeout\\evidence\\source",
+  "document_ids": [
+    "doc-nginx-org-en-docs-http-ngx_http_proxy_module.html-a51e28"
+  ]
+}

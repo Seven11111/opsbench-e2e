@@ -1,0 +1,281 @@
+{
+  "manifest_version": "opsbench-e2e-dynamic-generation-v1",
+  "family": "e2e",
+  "generation_mode": "dynamic",
+  "primitive_registry_snapshot": {
+    "app_config_precedence_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "configuration_precedence"
+    },
+    "app_stale_pid_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "configurable-http-service",
+      "fault_type": "stale_runtime_state"
+    },
+    "fluentbit_backpressure_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "fluent-bit",
+      "fault_type": "resource_saturation"
+    },
+    "http_dependency_dns_poison_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "name_resolution"
+    },
+    "http_dependency_port_drift_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "dependency_configuration"
+    },
+    "http_dependency_timeout_slo_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_retry_circuit_breaker_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-circuit-target",
+      "fault_type": "retry_circuit_breaker"
+    },
+    "http_upstream_timeout_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "http-dependency",
+      "fault_type": "latency_regression"
+    },
+    "http_wrong_port_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "http-service",
+      "fault_type": "configuration_error"
+    },
+    "kafka_consumer_lag_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "kafka-consumer-target",
+      "fault_type": "consumer_lag"
+    },
+    "linux_cpu_runaway_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_cpu_runaway_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "performance_regression"
+    },
+    "linux_disk_full_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "disk_exhaustion"
+    },
+    "linux_fd_leak_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "resource_leak"
+    },
+    "linux_file_lock_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "file_lock"
+    },
+    "linux_inode_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "inode_exhaustion"
+    },
+    "linux_memory_growth_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-worker",
+      "fault_type": "memory_exhaustion"
+    },
+    "linux_temp_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "linux_upload_permission_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "linux-filesystem",
+      "fault_type": "permission_error"
+    },
+    "nginx_bind_conflict_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "nginx",
+      "fault_type": "resource_conflict"
+    },
+    "postgres_connection_pool_exhaustion_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-pool-target",
+      "fault_type": "connection_pool_exhaustion"
+    },
+    "postgres_lock_contention_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres-lock-target",
+      "fault_type": "lock_contention"
+    },
+    "postgres_missing_index_v1": {
+      "runtime_status": "calibrated",
+      "runtime_profile": "legacy_adapter",
+      "component_id": "postgres",
+      "fault_type": "database_configuration"
+    },
+    "postgres_missing_index_v2": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "postgres",
+      "fault_type": "performance_regression"
+    },
+    "prometheus_scrape_target_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "prometheus",
+      "fault_type": "configuration_error"
+    },
+    "rabbitmq_resource_alarm_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "compose",
+      "component_id": "rabbitmq",
+      "fault_type": "resource_saturation"
+    },
+    "redis_cache_corruption_v1": {
+      "runtime_status": "experimental",
+      "runtime_profile": "real_compose",
+      "component_id": "redis-cache-target",
+      "fault_type": "cache_corruption"
+    },
+    "tls_hostname_mismatch_v1": {
+      "runtime_status": "demo_validated",
+      "runtime_profile": "real_compose",
+      "component_id": "tls-http-service",
+      "fault_type": "certificate_identity"
+    }
+  },
+  "bundle_count": 1,
+  "candidate_count": 1,
+  "accepted_candidate_count": 1,
+  "case_count": 1,
+  "candidate_group_size": "1",
+  "artifact_mode": "trusted",
+  "allow_experimental": true,
+  "max_source_repair_rounds": 3,
+  "max_artifact_repair_rounds": 3,
+  "max_runtime_repair_rounds": 3,
+  "artifact_reports": [],
+  "artifact_repair_count": 0,
+  "stage_mode": false,
+  "runtime_required": false,
+  "candidate_timeout_sec": 1200,
+  "resolved_group_sizes": [
+    "1"
+  ],
+  "max_judge_rounds": 3,
+  "bundle_mode": "auto",
+  "max_documents_per_bundle": 4,
+  "language": "en",
+  "experience_version": "e2e-v1",
+  "experience_digest": "1912da5c4987e1bca0483771a61493df8d5d57d0f03fd9ca7ca75d63e959b49b",
+  "generator_model": "deepseek-v4-flash",
+  "review_model": "qwen3.7-flash",
+  "evidence_gate": "strict",
+  "allow_deterministic_fallback": false,
+  "require_model_judge": true,
+  "document_context_mode": "full",
+  "document_context_count": 1,
+  "evidence_gate_reports": [
+    {
+      "passed": true,
+      "issue_count": 0,
+      "issues": [],
+      "advisories": [],
+      "claim_counts": {
+        "symptom": 1
+      },
+      "document_context_count": 1,
+      "runtime_contract_roles": [
+        "impact",
+        "repair",
+        "root_cause",
+        "symptom",
+        "verification"
+      ],
+      "required_claims": [
+        "root_cause",
+        "repair"
+      ],
+      "bundle_id": "dynamic_bundle_0001",
+      "initial_passed": false,
+      "judge_rounds": 1
+    }
+  ],
+  "target_difficulty": null,
+  "primitive_id": "http_upstream_timeout_v1",
+  "cases": [
+    {
+      "id": "dynamic_http_upstream_timeout_v1_000001",
+      "path": "tmp\\e2e-new-10-quality-20260831\\23-http-upstream-timeout\\cases\\dynamic_http_upstream_timeout_v1_000001",
+      "primitive_id": "http_upstream_timeout_v1",
+      "template_id": "http_upstream_timeout_v1",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 5,
+        "rubric_version": "e2e-difficulty-v1",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The agent must separate dependency delay from an unsafe timeout-budget workaround."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "judge_rounds": 1,
+      "judge_score": 4.1000000000000005,
+      "candidate_group_id": "dynamic_bundle_0001_group_001",
+      "case_status": "evaluable",
+      "runtime_gate": {
+        "passed": true,
+        "issues": [],
+        "report_path": "reports/runtime_controls.json"
+      }
+    }
+  ],
+  "rejected_count": 0,
+  "candidate_diversity": {
+    "passed": true,
+    "candidate_count": 1,
+    "unique_fingerprint_count": 1,
+    "duplicate_fingerprints": []
+  },
+  "runtime_gate": {
+    "passed": true,
+    "case_count": 1,
+    "run_count": 8,
+    "report_path": "reports/runtime_controls.json",
+    "updated_at": "2026-08-31T16:01:40.340271+00:00"
+  }
+}

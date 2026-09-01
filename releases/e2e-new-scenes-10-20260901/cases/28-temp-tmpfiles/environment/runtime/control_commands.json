@@ -1,0 +1,5 @@
+{
+  "oracle": "chown 10001:10001 /data/tmp; chmod 1730 /data/tmp",
+  "wrong_fix": "chmod 0555 /data/tmp",
+  "partial_fix": "chmod 0777 /data/tmp"
+}

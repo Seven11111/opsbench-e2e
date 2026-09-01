@@ -1,0 +1,421 @@
+{
+  "bundle_id": "dynamic_bundle_0001",
+  "documents": [
+    {
+      "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+      "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+      "canonical_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+      "content_hash": "52d7196ccba76b06",
+      "evidence": [
+        {
+          "evidence_id": "claim_001",
+          "claim_type": "root_cause",
+          "section_path": "## Simple example",
+          "start_pos": 18511,
+          "end_pos": 18594,
+          "excerpt": "The environment variable defined with the `environment` attribute takes precedence.",
+          "excerpt_hash": "92f9349b5173c1979246b65d7e73202aab633f0916674edf4891b2f1526689c8"
+        },
+        {
+          "evidence_id": "heuristic_operational_020",
+          "claim_type": "root_cause",
+          "section_path": "",
+          "start_pos": 18458,
+          "end_pos": 18594,
+          "excerpt": "/webapp.env\nenvironment:\n- NODE_ENV=production\n\n```\n\nThe environment variable defined with the `environment` attribute takes precedence.",
+          "excerpt_hash": "a2700ec551b4578b697837c1a4341b54bf4897f5da780aa4500e2b972e9e0b9c"
+        }
+      ],
+      "source_type": "",
+      "source_license": "",
+      "retrieved_at": "",
+      "snapshot_path": "",
+      "metadata": {}
+    }
+  ],
+  "claims": {
+    "root_cause": [
+      "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719#claim_001",
+      "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719#heuristic_operational_020"
+    ]
+  },
+  "evidence_conflict": false,
+  "conflicts": [],
+  "metadata": {
+    "source_document_count": 1,
+    "deduplicated_document_count": 1,
+    "source_text": "https://docs.docker.com/manuals/\n* https://docs.docker.com/get-started/\n* https://docs.docker.com/guides/\n* https://docs.docker.com/reference/\n\n* AI and agents\n* Overview\n* Docker Sandboxes\n* Install\n* Get started\n* Usage\n* Agents\n* Claude Code\n* Codex\n* Copilot\n* Cursor\n* Docker Agent\n* Droid\n* Gemini\n* Kiro\n* OpenCode\n* Shell\n* Workflows\n* Git workflows\n* Local development\n* Authenticate tools\n* Agent skills\n* CI and headless\n* Configuration\n* Credentials\n* Environment files Experimental\n* GPU passthrough\n* Upstream proxy\n* Integrations\n* VS Code\n* Cursor\n* Claude Desktop\n* ChatGPT\n* T3 Code\n* MCP gateway\n* Customize Early Access\n* Templates\n* Kits\n* Build an agent\n* Examples\n* Spec reference\n* Architecture\n* Security model\n* Isolation layers\n* Defaults\n* Governance\n* Policy concepts\n* Access controls\n* Local policy\n* Org policies\n* Network access\n* Filesystem access\n* MCP access\n* Audit logs\n* Local audit logs\n* Configure delivery\n* View and export\n* SIEM forwarding\n* Record reference\n* Monitor and enforce\n* Monitoring policies\n* Sign-in enforcement\n* Reference\n* API reference\n* MCP policy\n* Troubleshooting\n* FAQ\n* Release notes\n* MCP Catalog and Toolkit Beta\n* Get started\n* Catalog\n* Profiles\n* Toolkit UI\n* Use with CLI\n* Dynamic discovery\n* Gateway\n* FAQs\n* E2B sandboxes\n* Model Runner\n* Get started with DMR\n* DMR REST API\n* Configuration options\n* DMR examples\n* IDE and tool integrations\n* Open WebUI integration\n* Inference engines\n* Gordon\n* Use cases\n* Concepts\n* Capabilities\n* Data privacy\n* How-to guides\n* Docker Desktop\n* CLI\n* Permissions\n* Configure tools\n* Usage limits\n* AI and Docker Compose\n* Use AI models in Compose\n* Docker Agent\n* Getting Started\n* Introduction\n* Installation\n* Set Up a Model\n* Quick Start\n* Core Concepts\n* Agents\n* Models\n* Tools\n* Multi-Agent\n* Agent Distribution\n* Configuration\n* Overview\n* HCL Configuration\n* Agent Config\n* Model Config\n* Tool Config\n* Custom Commands\n* Hooks\n* Permissions\n* Budget\n* Ignoring files\n* Sandbox Mode\n* Structured Output\n* Flavors\n* Model Routing\n* User Settings\n* Built-in Tools\n* Filesystem\n* Shell\n* Background Jobs\n* Script\n* Open URL\n* Fetch\n* A2A\n* Handoff\n* Transfer Task\n* Background Agents\n* Memory\n* RAG\n* MCP Catalog\n* Git\n* MCP\n* Scheduler\n* Think\n* Webhook\n* Plan\n* Session Plan\n* Todo\n* Tasks\n* User Prompt\n* Model Picker\n* Session Context\n* LSP\n* OpenAPI\n* API\n* Features\n* Terminal UI\n* Kanban Board\n* Snapshots\n* Sessions\n* CLI Reference\n* MCP Mode\n* Coding Harnesses\n* A2A Protocol\n* ACP\n* API Server\n* Chat Server\n* Evaluation\n* Skills\n* Code Mode\n* Remote MCP Servers\n* Model Providers\n* Overview\n* Anthropic\n* AWS Bedrock\n* Baseten\n* Cerebras\n* ChatGPT (OpenAI account)\")\n* Cloudflare AI Gateway\n* Cloudflare Workers AI\n* DeepSeek\n* Docker Model Runner\n* Fireworks AI\n* GitHub Copilot\n* Google Gemini\n* Groq\n* Hugging Face\n* Local Models\n* MiniMax\n* Mistral\n* Moonshot AI\n* Nebius\n* OpenAI\n* OpenCode Go\n* OpenCode Zen\n* OpenRouter\n* OVHcloud\n* Together AI\n* Vercel AI Gateway\n* xAI (Grok)\")\n* Provider Definitions\n* NVIDIA NIM\n* Guides\n* Tips & Best Practices\n* Thinking / Reasoning\n* Managing Secrets\n* Go SDK\n* Managing Context & Compaction\n* Running Agents Headless & in CI\n* Community\n* Contributing\n* Troubleshooting\n* Telemetry\n* OpenTelemetry Tracing\n* Application development\n* Docker Desktop\n* Setup\n* Install\n* Mac\n* Mac permission requirements\n* Windows\n* Windows permission requirements\n* Linux\n* Ubuntu\n* Debian\n* Fedora\n* Arch\n* RHEL\n* VM or VDI environments\n* Sign in\n* Allowlist\n* Explore Docker Desktop\n* Containers\n* Images\n* Volumes\n* Builds\n* Kubernetes\n* Logs\n* Resource Saver mode\n* Pause Docker Desktop\n* Features and capabilities\n* Networking\n* How-tos\n* GPU support\n* USB/IP support\n* Synchronized file shares\n* containerd image store\n* Wasm workloads Beta\n* Docker Desktop CLI\n* Virtual Machine Manager Updated\n* WSL\n* Best practices\n* Custom kernels\n* Use WSL\n* Settings and maintenance\n* Change settings\n* Backup and restore data\n* Troubleshoot and support\n* Troubleshoot and diagnose\n* Common topics\n* Known issues\n* MacOS app damaged dialog\n* FAQs\n* General\n* Mac\n* Windows\n* Linux\n* Releases\n* Give feedback\n* Uninstall\n* Release notes\n* Docker Engine\n* Install\n* Ubuntu\n* Debian\n* RHEL\n* Fedora\n* Raspberry Pi OS (32-bit / armhf)\")\n* CentOS\n* Binaries\n* Post-installation steps\n* Storage\n* Volumes\n* Bind mounts\n* tmpfs mounts\n* Image mounts\n* Storage drivers\n* Select a storage driver\n* BTRFS storage driver\n* Device Mapper storage driver (deprecated)\")\n* OverlayFS storage driver\n* VFS storage driver\n* windowsfilter storage driver\n* ZFS storage driver\n* containerd image store\n* Networking\n* Docker with iptables\n* Docker with nftables\n* Packet filtering and firewalls\n* Port publishing and mapping\n* Network drivers\n* Bridge network driver\n* Host network driver\n* IPvlan network driver\n* Macvlan network driver\n* None network driver\n* Overlay network driver\n* CA certificates\n* Legacy container links\n* Containers\n* Start containers automatically\n* Run multiple processes in a container\n* Resource constraints\n* GPU access\n* Runtime metrics\n* Running containers\n* CLI\n* Completion\n* Proxy configuration\n* Filter commands\n* Format command and log output\n* OpenTelemetry for the Docker CLI\n* Daemon\n* Start the daemon\n* Use IPv6 networking\n* Daemon proxy configuration\n* Live restore\n* Alternative container runtimes\n* Collect Docker metrics with Prometheus\n* Configure remote access for Docker daemon\n* Read the daemon logs\n* Troubleshooting the Docker daemon\n* Manage resources\n* Docker contexts\n* Docker object labels\n* Prune unused Docker objects\n* Logs and metrics\n* Configure logging drivers\n* Customize log driver output\n* Logging drivers\n* Amazon CloudWatch Logs logging driver\n* ETW logging driver\n* Fluentd logging driver\n* Google Cloud Logging driver\n* Graylog Extended Format logging driver\n* Journald logging driver\n* JSON File logging driver\n* Local file logging driver\n* Splunk logging driver\n* Syslog logging driver\n* Use a logging driver plugin\n* Use docker logs with remote logging drivers\n* Security\n* Rootless mode\n* UID/GID mapping\n* Tips\n* Troubleshooting\n* Antivirus software and Docker\n* AppArmor security profiles for Docker\n* Content trust in Docker\n* Automation with content trust\n* Delegations for content trust\n* Deploy Notary Server with Compose\n* Manage keys for content trust\n* Play in a content trust sandbox\n* Docker security non-events\n* Isolate containers with a user namespace\n* Protect the Docker daemon socket\n* Seccomp security profiles for Docker\n* Verify repository client with certificates\n* Swarm mode\n* Administer and maintain a swarm of Docker Engines\n* Deploy a stack to a swarm\n* Deploy services to a swarm\n* Getting started with Swarm mode\n* Create a swarm\n* Add nodes to the swarm\n* Deploy a service to the swarm\n* Inspect a service on the swarm\n* Scale the service in the swarm\n* Delete the service running on the swarm\n* Apply rolling updates to a service\n* Drain a node on the swarm\n* How swarm works\n* How nodes work\n* How services work\n* Manage swarm security with public key infrastructure (PKI)\")\n* Swarm task states\n* Join nodes to a swarm\n* Lock your swarm to protect its encryption key\n* Manage nodes in a swarm\n* Manage sensitive data with Docker secrets\n* Manage swarm service networks\n* Raft consensus in swarm mode\n* Run Docker Engine in swarm mode\n* Store configuration data using Docker Configs\n* Swarm mode key concepts\n* Use Swarm mode routing mesh\n* Deprecated features\n* Docker Engine plugins\n* Access authorization plugin\n* Docker log driver plugins\n* Docker network driver plugins\n* Docker Plugin API\n* Docker volume plugins\n* Plugin Config Version 1 of Plugin V2\n* Use Docker Engine plugins\n* Release notes\n* Engine v29\n* Engine v28\n* Engine v27\n* Engine v26.1\n* Engine v26.0\n* Engine v25.0\n* Engine v24.0\n* Engine v23.0\n* Engine v20.10\n* Engine v19.03\n* Engine v18.09\n* Engine v18.06\n* Engine v18.05\n* Engine v18.04\n* Engine v18.03\n* Engine v18.02\n* Engine v18.01\n* Engine v17.12\n* Engine v17.11\n* Engine v17.10\n* Engine v17.09\n* Engine v17.07\n* Engine v17.06\n* Engine v17.05\n* Engine v17.04\n* Engine v17.03\n* Prior releases\n* Docker Offload\n* Quickstart\n* About\n* Configure\n* Usage\n* Optimize usage\n* Troubleshoot\n* Give feedback\n* Docker Build\n* Core concepts\n* Docker Build Overview\n* Dockerfile overview\n* Build context\n* Build checks\n* Building\n* Multi-stage\n* Variables\n* Secrets\n* Multi-platform\n* Export binaries\n* Container Device Interface (CDI)\")\n* Best practices\n* Base images\n* Builders\n* Build drivers\n* Docker container driver\n* Docker driver\n* Kubernetes driver\n* Remote driver\n* Manage builders\n* Bake\n* Introduction\n* Targets\n* Inheritance\n* Variables\n* Expressions\n* Functions\n* Matrix targets\n* Contexts\n* Bake file reference\n* Bake standard library functions\n* Building with Bake from a Compose file\n* Overriding configurations\n* Remote Bake file definition\n* Cache\n* Build cache invalidation\n* Build garbage collection\n* Cache storage backends\n* Amazon S3 cache\n* Azure Blob Storage cache\n* GitHub Actions cache\n* Inline cache\n* Local cache\n* Registry cache\n* Optimize cache usage in builds\n* CI\n* GitHub Actions\n* Annotations\n* Attestations\n* Build checks\n* Build secrets\n* Build summary\n* BuildKit configuration\n* Cache management\n* Copy image between registries\n* Export to Docker\n* GitHub Builder New\n* Architecture\n* Build workflow\n* Bake workflow\n* Local registry\n* Multi-platform image\n* Named contexts\n* Push to multiple registries\n* Reproducible builds\n* Share image between jobs\n* Tags and labels\n* Test before push\n* Update Docker Hub description\n* Validating builds Experimental\n* Introduction\n* Usage\n* Image validation\n* Git validation\n* Templates & examples\n* Testing\n* Debugging\n* Input reference\n* Built-in functions\n* Metadata\n* Annotations\n* Build attestations\n* Image attestation storage\n* Provenance attestations\n* SBOM attestations\n* SLSA definitions\n* Exporters\n* Image and registry exporters\n* Local and tar exporters\n* OCI and Docker exporters\n* BuildKit\n* buildkitd.toml\n* Configure BuildKit\n* Custom Dockerfile syntax\n* Dockerfile release notes\n* Debugging\n* OpenTelemetry support\n* Build release notes\n* Docker Build Cloud\n* Setup\n* Usage\n* Continuous integration\n* Optimization\n* Builder settings\n* Release notes\n* Docker Compose\n* Introduction to Compose\n* How Compose works\n* Why use Compose?\n* History and development\n* Install\n* Plugin\n* Standalone (Legacy)\")\n* Uninstall\n* Quickstart\n* How-tos\n* Specify a project name\n* Use service profiles\n* Control startup order\n* Use environment variables\n* Set environment variables\n* Environment variables precedence\n* Pre-defined environment variables\n* Interpolation\n* Best practices\n* Build dependent images\n* Use Compose Watch\n* Secrets in Compose\n* Networking\n* Use multiple Compose files\n* Merge\n* Extend\n* Include\n* Enable GPU support\n* Use Compose in production\n* OCI artifact applications\n* Use lifecycle hooks\n* Use init containers New\n* Use provider services\n* Compose Bridge\n* Usage\n* Customize\n* Use Model Runner\n* Compose SDK\n* Trust model for Compose files\n* Support and feedback\n* FAQs\n* Give feedback\n* Release notes\n* Docker Extensions\n* Marketplace extensions\n* Non-marketplace extensions\n* Configure a private marketplace\n* Settings and feedback\n* Extensions SDK\n* The build and publish process\n* Quickstart\n* Part one: Build\n* Create a simple extension\n* Create an advanced frontend extension\n* Add a backend to your extension\n* Part two: Publish\n* Add labels\n* Validate\n* Package and release your extension\n* Share your extension\n* Publish in the Marketplace\n* Build multi-arch extensions\n* Architecture\n* Metadata\n* Security\n* Design and UI styling\n* Guidelines\n* Docker design principles\n* MUI best practices\n* Developer Guides\n* Authentication\n* Interacting with Kubernetes\n* Invoke host binaries\n* Use the Docker socket\n* Developer SDK tools\n* Test and debug\n* Continuous Integration (CI)\")\n* CLI reference\n* Extension APIs\n* Dashboard\n* Docker\n* Extension Backend\n* Extension UI API\n* Navigation\n* Deprecated products and features\n* Release lifecycle\n* Supply chain security\n* Docker Hardened Images\n* Quickstart\n* Explore\n* Hardened images\n* Build process\n* Image types\n* Scanner integrations\n* Image testing\n* Responsibility overview\n* Malware scanning\n* Security concepts\n* Attestations\n* CIS Benchmark\n* Code signing\n* CVEs\n* Distroless images\n* FIPS\n* glibc and musl\n* Hardening\n* Image digests\n* Image provenance\n* Immutability\n* SBOMs\n* SLSA\n* Software Supply Chain Security\n* SSDLC\n* STIG\n* VEX\n* Migration\n* Migration checklist\n* AI-assisted migration Experimental\n* Migrate from Alpine or Debian\n* Migrate from Ubuntu\n* Migrate from Wolfi\n* Migration examples\n* Go\n* Python\n* Node.js\n* .NET\n* Java\n* How-tos\n* Search and evaluate\n* Mirror a repository\n* Customize an image or chart\n* Create and build an image\n* Use an image\n* Use a Helm chart\n* Use hardened packages\n* Verify an image or chart\n* Scan an image\n* Query VEX suppressions via API\n* Apply image policies\n* Troubleshoot\n* Use DHI Select & Enterprise\n* Tools\n* Docker Hub\n* CLI\n* MCP server\n* Terraform\n* API\n* Release notes\n* CLI release notes\n* Platform release notes\n* Resources and feedback\n* Docker Hub\n* Quickstart\n* Library\n* Search\n* Trusted content\n* Catalogs\n* Mirror\n* Repositories\n* Create\n* Manage\n* Repository information\n* Access\n* Images\n* Tags\n* Immutable tags\n* Image Management\n* Software artifacts\n* Push images\n* Move images\n* Bulk migrate images\n* Image security insights\n* Webhooks\n* Automated builds Deprecated\n* Set up\n* Link accounts\n* Automated repository tests\n* Advanced options\n* Migrate\n* Manage autobuilds\n* Troubleshoot\n* Trusted content\n* Docker Official Images\n* Docker Verified Publisher Program\n* Docker-Sponsored Open Source Program\n* Insights and analytics\n* Export repositories\n* Archive\n* Delete\n* Settings\n* Usage and limits\n* Pulls\n* Optimize usage\n* Hub MCP server\n* Troubleshoot\n* Release notes\n* Docker Scout\n* Install\n* Quickstart\n* Explore\n* Dashboard\n* Docker Scout image analysis\n* Docker Scout metrics exporter\n* Image details view\n* Manage vulnerability exceptions\n* How-tos\n* Create an exception using the GUI\n* Create an exception using the VEX\n* Docker Scout environment variables\n* Docker Scout SBOMs\n* Use Scout with different artifact types\n* Deep dive\n* Advisory database sources and matching service\n* Data collection and storage in Docker Scout\n* Policy Evaluation\n* Evaluate policies\n* Use the Dashboard Deprecated\n* Integrations\n* Code quality\n* SonarQube Deprecated\n* Container registries\n* Amazon ECR Deprecated\n* Artifactory Container Registry\n* Azure Container Registry Deprecated\n* Continuous Integration\n* Azure DevOps Pipelines\n* Circle CI\n* GitHub Actions\n* GitLab CI/CD\n* Jenkins\n* Integrating Docker Scout with environments\n* Generic (CLI)\")\n* Source code management\n* GitHub Retired\n* Team collaboration\n* Slack Deprecated\n* Release notes\n* CLI release notes\n* Platform release notes\n* Platform\n* Docker accounts\n* Create\n* Manage\n* Deactivate\n* FAQs\n* Subscription\n* Plans\n* Docker\n* Gordon\n* Docker Hardened Images\n* AI Governance\n* Docker Verified Publisher\n* Manage\n* FAQs\n* Docker Desktop license agreement\n* Billing\n* Payment methods\n* 3D Secure\n* Update details\n* Invoice history\n* Taxes\n* FAQs\n* Security\n* Personal access tokens\n* Two-factor authentication\n* Recover your Docker account\n* FAQs\n* General\n* Container\n* Network and VM\n* Security announcements\n* Support\n* Release notes\n* Enterprise\n* Administration\n* Organization\n* Setup\n* Create\n* Onboard\n* Change information\n* Convert account\n* Manage\n* Members\n* Teams\n* License assignment\n* Seats\n* Product usage and access\n* Deactivate\n* FAQs\n* Company\n* Setup\n* Manage\n* FAQs\n* Activity logs\n* Insights\n* Deploy Docker Desktop\n* MSI installer\n* PKG installer\n* MS Store\n* Deploy with Intune\n* Deploy with Jamf Pro\n* Microsoft Dev Box\n* FAQs\n* Security\n* Add and manage domains\n* Single sign-on\n* Setup\n* Manage connections\n* Troubleshoot\n* FAQs\n* General\n* Domains\n* Enforcement\n* Identity providers\n* User management\n* Provision\n* SCIM\n* Setup\n* Group mapping\n* Migrate\n* Just-in-Time\n* Auto-provision\n* Troubleshoot\n* Enforce sign-in\n* Configure\n* OIDC connections\n* Create and manage connections\n* Rulesets and subject claims\n* Roles and permissions\n* Core roles\n* Custom roles\n* Manage\n* Permissions reference\n* Hardened Docker Desktop\n* Enhanced Container Isolation\n* Enable ECI\n* Configure advanced settings\n* Limitations\n* FAQs\n* Settings Management\n* Use a JSON file\n* Use Docker Home\n* Desktop settings reporting\n* Settings reference\n* Air-gapped containers\n* Registry Access Management\n* Image Access Management\n* Namespace access\n* Organization access tokens\n\n* * *\nWhen the same environment variable is set in multiple sources, Docker Compose follows a precedence rule to determine the value for that variable in your container's environment.\nThis page explains how Docker Compose determines the final value of an environment variable when it's defined in multiple locations.\nThe order of precedence (highest to lowest) is as follows:\n1. Set using `docker compose run -e` in the CLI.\n2. Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file. (either your default `.env` file, or with the `--env-file` argument in the CLI).\n3. Set using just the `environment` attribute in the Compose file.\n4. Use of the `env_file` attribute in the Compose file.\n5. Set in a container image in the ENV directive. Having any `ARG` or `ENV` setting in a `Dockerfile` evaluates only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.\n\n> Note\n> When `--env-file` is not set, Compose may load up to two `.env` files. It first loads one from the project directory (determined by `--project-directory` if set, otherwise the directory of the first `-f`/`--file` Compose file, otherwise `PWD`). If that file sets `COMPOSE_FILE` to a path in a different directory, Compose loads a second `.env` file from that directory with lower precedence. For more information, see local `.env` file versus project directory `.env` file.\n## Simple example\nIn the following example, a different value for the same environment variable in an `.env` file and with the `environment` attribute in the Compose file:\n```\n$ cat ./webapp.env\nNODE_ENV=test\n\n$ cat compose.yaml\nservices:\nwebapp:\nimage: 'webapp'\nenv_file:\n- ./webapp.env\nenvironment:\n- NODE_ENV=production\n\n```\n\nThe environment variable defined with the `environment` attribute takes precedence.\n```\n$ docker compose run webapp env | grep NODE_ENV\nNODE_ENV=production\n\n## Advanced example\nThe following table uses `VALUE`, an environment variable defining the version for an image, as an example.\n### How the table works\nEach column represents a context from where you can set a value, or substitute in a value for `VALUE`.\nThe columns `Host OS environment` and `.env` file is listed only for illustration purposes. In reality, they don't result in a variable in the container by itself, but in conjunction with either the `environment` or `env_file` attribute.\nEach row represents a combination of contexts where `VALUE` is set, substituted, or both. The **Result** column indicates the final value for `VALUE` in each scenario.\n# | `docker compose run` |  `environment` attribute |  `env_file` attribute | Image `ENV` |  `Host OS` environment |  `.env` file | Result\n---|---|---|---|---|---|---|---\n1 | - | - | - | - | `VALUE=1.4` | `VALUE=1.3` | -\n2 | - | - | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | - | **`VALUE=1.6`**\n3 | - | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | - | **`VALUE=1.7`**\n4 | - | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.5`**\n5 | `--env VALUE=1.8` | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n6 | `--env VALUE` | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n7 | `--env VALUE` | - | - | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n8 | - | - | `VALUE` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n9 | - | - | `VALUE` | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n10 | - | `VALUE` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n11 | - | `VALUE` | - | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n12 | `--env VALUE` | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n13 | `--env VALUE=1.8` | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n14 | `--env VALUE=1.8` | - | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n15 | `--env VALUE=1.8` | `VALUE=1.7` | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n### Understanding precedence results\nResult 1: The local environment takes precedence, but the Compose file is not set to replicate this inside the container, so no such variable is set.\nResult 2: The `env_file` attribute in the Compose file defines an explicit value for `VALUE` so the container environment is set accordingly.\nResult 3: The `environment` attribute in the Compose file defines an explicit value for `VALUE`, so the container environment is set accordingly.\nResult 4: The image's `ENV` directive declares the variable `VALUE`, and since the Compose file is not set to override this value, this variable is defined by image\nResult 5: The `docker compose run` command has the `--env` flag set with an explicit value, and overrides the value set by the image.\nResult 6: The `docker compose run` command has the `--env` flag set to replicate the value from the environment. Host OS value takes precedence and is replicated into the container's environment.\nResult 7: The `docker compose run` command has the `--env` flag set to replicate the value from the environment. Value from `.env` file is selected to define the container's environment.\nResult 8: The `env_file` attribute in the Compose file is set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.\nResult 9: The `env_file` attribute in the Compose file is set to replicate `VALUE` from the local environment. Value from `.env` file is selected to define the container's environment.\nResult 10: The `environment` attribute in the Compose file is set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.\nResult 11: The `environment` attribute in the Compose file is set to replicate `VALUE` from the local environment. Value from `.env` file is selected to define the container's environment.\nResult 12: The `--env` flag has higher precedence than the `environment` and `env_file` attributes and is to set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.\nResults 13 to 15: The `--env` flag has higher precedence than the `environment` and `env_file` attributes and so sets the value.\n## Next steps\n* Set environment variables in Compose\n* Use variable interpolation in Compose files",
+    "task_labels": [
+      "性能调优",
+      "代码变更",
+      "故障修复",
+      "故障发现",
+      "可观测性",
+      "根因定位",
+      "代码审计",
+      "代码测试"
+    ],
+    "domain": "docs.docker.com",
+    "technology_stack": [],
+    "candidates": [],
+    "dynamic": true,
+    "bundle_mode": "auto",
+    "annotation_ids": [
+      "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719"
+    ],
+    "active_document_ids": [
+      "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719"
+    ],
+    "excluded_document_ids": [],
+    "active_evidence_refs": [
+      "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719#claim_001",
+      "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719#heuristic_operational_020"
+    ],
+    "selection_reason": "standalone_complete_document",
+    "evidence_selection_score": 0.58,
+    "scenario_keys": [
+      {
+        "technology": "docker",
+        "component": "docker",
+        "fault_signature": "the environment attribute takes precedence over env_file in compose. /webapp.env environment: - node_env=production ``` the environment variable defined with the `environment` attribute takes precedence. 3` | **`value=1.8`** ### understandi",
+        "version_scope": "",
+        "technology_stack": [
+          "docker"
+        ]
+      }
+    ],
+    "source_quality": [
+      "official"
+    ],
+    "missing_claim_types": [
+      "impact",
+      "symptom",
+      "verification"
+    ],
+    "document_contexts": [
+      {
+        "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+        "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+        "canonical_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+        "content_hash": "52d7196ccba76b06",
+        "source_type": "official_docs",
+        "source_license": "unknown",
+        "title": "Simple example",
+        "language": "en",
+        "full_text": "https://docs.docker.com/manuals/\n* https://docs.docker.com/get-started/\n* https://docs.docker.com/guides/\n* https://docs.docker.com/reference/\n\n* AI and agents\n* Overview\n* Docker Sandboxes\n* Install\n* Get started\n* Usage\n* Agents\n* Claude Code\n* Codex\n* Copilot\n* Cursor\n* Docker Agent\n* Droid\n* Gemini\n* Kiro\n* OpenCode\n* Shell\n* Workflows\n* Git workflows\n* Local development\n* Authenticate tools\n* Agent skills\n* CI and headless\n* Configuration\n* Credentials\n* Environment files Experimental\n* GPU passthrough\n* Upstream proxy\n* Integrations\n* VS Code\n* Cursor\n* Claude Desktop\n* ChatGPT\n* T3 Code\n* MCP gateway\n* Customize Early Access\n* Templates\n* Kits\n* Build an agent\n* Examples\n* Spec reference\n* Architecture\n* Security model\n* Isolation layers\n* Defaults\n* Governance\n* Policy concepts\n* Access controls\n* Local policy\n* Org policies\n* Network access\n* Filesystem access\n* MCP access\n* Audit logs\n* Local audit logs\n* Configure delivery\n* View and export\n* SIEM forwarding\n* Record reference\n* Monitor and enforce\n* Monitoring policies\n* Sign-in enforcement\n* Reference\n* API reference\n* MCP policy\n* Troubleshooting\n* FAQ\n* Release notes\n* MCP Catalog and Toolkit Beta\n* Get started\n* Catalog\n* Profiles\n* Toolkit UI\n* Use with CLI\n* Dynamic discovery\n* Gateway\n* FAQs\n* E2B sandboxes\n* Model Runner\n* Get started with DMR\n* DMR REST API\n* Configuration options\n* DMR examples\n* IDE and tool integrations\n* Open WebUI integration\n* Inference engines\n* Gordon\n* Use cases\n* Concepts\n* Capabilities\n* Data privacy\n* How-to guides\n* Docker Desktop\n* CLI\n* Permissions\n* Configure tools\n* Usage limits\n* AI and Docker Compose\n* Use AI models in Compose\n* Docker Agent\n* Getting Started\n* Introduction\n* Installation\n* Set Up a Model\n* Quick Start\n* Core Concepts\n* Agents\n* Models\n* Tools\n* Multi-Agent\n* Agent Distribution\n* Configuration\n* Overview\n* HCL Configuration\n* Agent Config\n* Model Config\n* Tool Config\n* Custom Commands\n* Hooks\n* Permissions\n* Budget\n* Ignoring files\n* Sandbox Mode\n* Structured Output\n* Flavors\n* Model Routing\n* User Settings\n* Built-in Tools\n* Filesystem\n* Shell\n* Background Jobs\n* Script\n* Open URL\n* Fetch\n* A2A\n* Handoff\n* Transfer Task\n* Background Agents\n* Memory\n* RAG\n* MCP Catalog\n* Git\n* MCP\n* Scheduler\n* Think\n* Webhook\n* Plan\n* Session Plan\n* Todo\n* Tasks\n* User Prompt\n* Model Picker\n* Session Context\n* LSP\n* OpenAPI\n* API\n* Features\n* Terminal UI\n* Kanban Board\n* Snapshots\n* Sessions\n* CLI Reference\n* MCP Mode\n* Coding Harnesses\n* A2A Protocol\n* ACP\n* API Server\n* Chat Server\n* Evaluation\n* Skills\n* Code Mode\n* Remote MCP Servers\n* Model Providers\n* Overview\n* Anthropic\n* AWS Bedrock\n* Baseten\n* Cerebras\n* ChatGPT (OpenAI account)\")\n* Cloudflare AI Gateway\n* Cloudflare Workers AI\n* DeepSeek\n* Docker Model Runner\n* Fireworks AI\n* GitHub Copilot\n* Google Gemini\n* Groq\n* Hugging Face\n* Local Models\n* MiniMax\n* Mistral\n* Moonshot AI\n* Nebius\n* OpenAI\n* OpenCode Go\n* OpenCode Zen\n* OpenRouter\n* OVHcloud\n* Together AI\n* Vercel AI Gateway\n* xAI (Grok)\")\n* Provider Definitions\n* NVIDIA NIM\n* Guides\n* Tips & Best Practices\n* Thinking / Reasoning\n* Managing Secrets\n* Go SDK\n* Managing Context & Compaction\n* Running Agents Headless & in CI\n* Community\n* Contributing\n* Troubleshooting\n* Telemetry\n* OpenTelemetry Tracing\n* Application development\n* Docker Desktop\n* Setup\n* Install\n* Mac\n* Mac permission requirements\n* Windows\n* Windows permission requirements\n* Linux\n* Ubuntu\n* Debian\n* Fedora\n* Arch\n* RHEL\n* VM or VDI environments\n* Sign in\n* Allowlist\n* Explore Docker Desktop\n* Containers\n* Images\n* Volumes\n* Builds\n* Kubernetes\n* Logs\n* Resource Saver mode\n* Pause Docker Desktop\n* Features and capabilities\n* Networking\n* How-tos\n* GPU support\n* USB/IP support\n* Synchronized file shares\n* containerd image store\n* Wasm workloads Beta\n* Docker Desktop CLI\n* Virtual Machine Manager Updated\n* WSL\n* Best practices\n* Custom kernels\n* Use WSL\n* Settings and maintenance\n* Change settings\n* Backup and restore data\n* Troubleshoot and support\n* Troubleshoot and diagnose\n* Common topics\n* Known issues\n* MacOS app damaged dialog\n* FAQs\n* General\n* Mac\n* Windows\n* Linux\n* Releases\n* Give feedback\n* Uninstall\n* Release notes\n* Docker Engine\n* Install\n* Ubuntu\n* Debian\n* RHEL\n* Fedora\n* Raspberry Pi OS (32-bit / armhf)\")\n* CentOS\n* Binaries\n* Post-installation steps\n* Storage\n* Volumes\n* Bind mounts\n* tmpfs mounts\n* Image mounts\n* Storage drivers\n* Select a storage driver\n* BTRFS storage driver\n* Device Mapper storage driver (deprecated)\")\n* OverlayFS storage driver\n* VFS storage driver\n* windowsfilter storage driver\n* ZFS storage driver\n* containerd image store\n* Networking\n* Docker with iptables\n* Docker with nftables\n* Packet filtering and firewalls\n* Port publishing and mapping\n* Network drivers\n* Bridge network driver\n* Host network driver\n* IPvlan network driver\n* Macvlan network driver\n* None network driver\n* Overlay network driver\n* CA certificates\n* Legacy container links\n* Containers\n* Start containers automatically\n* Run multiple processes in a container\n* Resource constraints\n* GPU access\n* Runtime metrics\n* Running containers\n* CLI\n* Completion\n* Proxy configuration\n* Filter commands\n* Format command and log output\n* OpenTelemetry for the Docker CLI\n* Daemon\n* Start the daemon\n* Use IPv6 networking\n* Daemon proxy configuration\n* Live restore\n* Alternative container runtimes\n* Collect Docker metrics with Prometheus\n* Configure remote access for Docker daemon\n* Read the daemon logs\n* Troubleshooting the Docker daemon\n* Manage resources\n* Docker contexts\n* Docker object labels\n* Prune unused Docker objects\n* Logs and metrics\n* Configure logging drivers\n* Customize log driver output\n* Logging drivers\n* Amazon CloudWatch Logs logging driver\n* ETW logging driver\n* Fluentd logging driver\n* Google Cloud Logging driver\n* Graylog Extended Format logging driver\n* Journald logging driver\n* JSON File logging driver\n* Local file logging driver\n* Splunk logging driver\n* Syslog logging driver\n* Use a logging driver plugin\n* Use docker logs with remote logging drivers\n* Security\n* Rootless mode\n* UID/GID mapping\n* Tips\n* Troubleshooting\n* Antivirus software and Docker\n* AppArmor security profiles for Docker\n* Content trust in Docker\n* Automation with content trust\n* Delegations for content trust\n* Deploy Notary Server with Compose\n* Manage keys for content trust\n* Play in a content trust sandbox\n* Docker security non-events\n* Isolate containers with a user namespace\n* Protect the Docker daemon socket\n* Seccomp security profiles for Docker\n* Verify repository client with certificates\n* Swarm mode\n* Administer and maintain a swarm of Docker Engines\n* Deploy a stack to a swarm\n* Deploy services to a swarm\n* Getting started with Swarm mode\n* Create a swarm\n* Add nodes to the swarm\n* Deploy a service to the swarm\n* Inspect a service on the swarm\n* Scale the service in the swarm\n* Delete the service running on the swarm\n* Apply rolling updates to a service\n* Drain a node on the swarm\n* How swarm works\n* How nodes work\n* How services work\n* Manage swarm security with public key infrastructure (PKI)\")\n* Swarm task states\n* Join nodes to a swarm\n* Lock your swarm to protect its encryption key\n* Manage nodes in a swarm\n* Manage sensitive data with Docker secrets\n* Manage swarm service networks\n* Raft consensus in swarm mode\n* Run Docker Engine in swarm mode\n* Store configuration data using Docker Configs\n* Swarm mode key concepts\n* Use Swarm mode routing mesh\n* Deprecated features\n* Docker Engine plugins\n* Access authorization plugin\n* Docker log driver plugins\n* Docker network driver plugins\n* Docker Plugin API\n* Docker volume plugins\n* Plugin Config Version 1 of Plugin V2\n* Use Docker Engine plugins\n* Release notes\n* Engine v29\n* Engine v28\n* Engine v27\n* Engine v26.1\n* Engine v26.0\n* Engine v25.0\n* Engine v24.0\n* Engine v23.0\n* Engine v20.10\n* Engine v19.03\n* Engine v18.09\n* Engine v18.06\n* Engine v18.05\n* Engine v18.04\n* Engine v18.03\n* Engine v18.02\n* Engine v18.01\n* Engine v17.12\n* Engine v17.11\n* Engine v17.10\n* Engine v17.09\n* Engine v17.07\n* Engine v17.06\n* Engine v17.05\n* Engine v17.04\n* Engine v17.03\n* Prior releases\n* Docker Offload\n* Quickstart\n* About\n* Configure\n* Usage\n* Optimize usage\n* Troubleshoot\n* Give feedback\n* Docker Build\n* Core concepts\n* Docker Build Overview\n* Dockerfile overview\n* Build context\n* Build checks\n* Building\n* Multi-stage\n* Variables\n* Secrets\n* Multi-platform\n* Export binaries\n* Container Device Interface (CDI)\")\n* Best practices\n* Base images\n* Builders\n* Build drivers\n* Docker container driver\n* Docker driver\n* Kubernetes driver\n* Remote driver\n* Manage builders\n* Bake\n* Introduction\n* Targets\n* Inheritance\n* Variables\n* Expressions\n* Functions\n* Matrix targets\n* Contexts\n* Bake file reference\n* Bake standard library functions\n* Building with Bake from a Compose file\n* Overriding configurations\n* Remote Bake file definition\n* Cache\n* Build cache invalidation\n* Build garbage collection\n* Cache storage backends\n* Amazon S3 cache\n* Azure Blob Storage cache\n* GitHub Actions cache\n* Inline cache\n* Local cache\n* Registry cache\n* Optimize cache usage in builds\n* CI\n* GitHub Actions\n* Annotations\n* Attestations\n* Build checks\n* Build secrets\n* Build summary\n* BuildKit configuration\n* Cache management\n* Copy image between registries\n* Export to Docker\n* GitHub Builder New\n* Architecture\n* Build workflow\n* Bake workflow\n* Local registry\n* Multi-platform image\n* Named contexts\n* Push to multiple registries\n* Reproducible builds\n* Share image between jobs\n* Tags and labels\n* Test before push\n* Update Docker Hub description\n* Validating builds Experimental\n* Introduction\n* Usage\n* Image validation\n* Git validation\n* Templates & examples\n* Testing\n* Debugging\n* Input reference\n* Built-in functions\n* Metadata\n* Annotations\n* Build attestations\n* Image attestation storage\n* Provenance attestations\n* SBOM attestations\n* SLSA definitions\n* Exporters\n* Image and registry exporters\n* Local and tar exporters\n* OCI and Docker exporters\n* BuildKit\n* buildkitd.toml\n* Configure BuildKit\n* Custom Dockerfile syntax\n* Dockerfile release notes\n* Debugging\n* OpenTelemetry support\n* Build release notes\n* Docker Build Cloud\n* Setup\n* Usage\n* Continuous integration\n* Optimization\n* Builder settings\n* Release notes\n* Docker Compose\n* Introduction to Compose\n* How Compose works\n* Why use Compose?\n* History and development\n* Install\n* Plugin\n* Standalone (Legacy)\")\n* Uninstall\n* Quickstart\n* How-tos\n* Specify a project name\n* Use service profiles\n* Control startup order\n* Use environment variables\n* Set environment variables\n* Environment variables precedence\n* Pre-defined environment variables\n* Interpolation\n* Best practices\n* Build dependent images\n* Use Compose Watch\n* Secrets in Compose\n* Networking\n* Use multiple Compose files\n* Merge\n* Extend\n* Include\n* Enable GPU support\n* Use Compose in production\n* OCI artifact applications\n* Use lifecycle hooks\n* Use init containers New\n* Use provider services\n* Compose Bridge\n* Usage\n* Customize\n* Use Model Runner\n* Compose SDK\n* Trust model for Compose files\n* Support and feedback\n* FAQs\n* Give feedback\n* Release notes\n* Docker Extensions\n* Marketplace extensions\n* Non-marketplace extensions\n* Configure a private marketplace\n* Settings and feedback\n* Extensions SDK\n* The build and publish process\n* Quickstart\n* Part one: Build\n* Create a simple extension\n* Create an advanced frontend extension\n* Add a backend to your extension\n* Part two: Publish\n* Add labels\n* Validate\n* Package and release your extension\n* Share your extension\n* Publish in the Marketplace\n* Build multi-arch extensions\n* Architecture\n* Metadata\n* Security\n* Design and UI styling\n* Guidelines\n* Docker design principles\n* MUI best practices\n* Developer Guides\n* Authentication\n* Interacting with Kubernetes\n* Invoke host binaries\n* Use the Docker socket\n* Developer SDK tools\n* Test and debug\n* Continuous Integration (CI)\")\n* CLI reference\n* Extension APIs\n* Dashboard\n* Docker\n* Extension Backend\n* Extension UI API\n* Navigation\n* Deprecated products and features\n* Release lifecycle\n* Supply chain security\n* Docker Hardened Images\n* Quickstart\n* Explore\n* Hardened images\n* Build process\n* Image types\n* Scanner integrations\n* Image testing\n* Responsibility overview\n* Malware scanning\n* Security concepts\n* Attestations\n* CIS Benchmark\n* Code signing\n* CVEs\n* Distroless images\n* FIPS\n* glibc and musl\n* Hardening\n* Image digests\n* Image provenance\n* Immutability\n* SBOMs\n* SLSA\n* Software Supply Chain Security\n* SSDLC\n* STIG\n* VEX\n* Migration\n* Migration checklist\n* AI-assisted migration Experimental\n* Migrate from Alpine or Debian\n* Migrate from Ubuntu\n* Migrate from Wolfi\n* Migration examples\n* Go\n* Python\n* Node.js\n* .NET\n* Java\n* How-tos\n* Search and evaluate\n* Mirror a repository\n* Customize an image or chart\n* Create and build an image\n* Use an image\n* Use a Helm chart\n* Use hardened packages\n* Verify an image or chart\n* Scan an image\n* Query VEX suppressions via API\n* Apply image policies\n* Troubleshoot\n* Use DHI Select & Enterprise\n* Tools\n* Docker Hub\n* CLI\n* MCP server\n* Terraform\n* API\n* Release notes\n* CLI release notes\n* Platform release notes\n* Resources and feedback\n* Docker Hub\n* Quickstart\n* Library\n* Search\n* Trusted content\n* Catalogs\n* Mirror\n* Repositories\n* Create\n* Manage\n* Repository information\n* Access\n* Images\n* Tags\n* Immutable tags\n* Image Management\n* Software artifacts\n* Push images\n* Move images\n* Bulk migrate images\n* Image security insights\n* Webhooks\n* Automated builds Deprecated\n* Set up\n* Link accounts\n* Automated repository tests\n* Advanced options\n* Migrate\n* Manage autobuilds\n* Troubleshoot\n* Trusted content\n* Docker Official Images\n* Docker Verified Publisher Program\n* Docker-Sponsored Open Source Program\n* Insights and analytics\n* Export repositories\n* Archive\n* Delete\n* Settings\n* Usage and limits\n* Pulls\n* Optimize usage\n* Hub MCP server\n* Troubleshoot\n* Release notes\n* Docker Scout\n* Install\n* Quickstart\n* Explore\n* Dashboard\n* Docker Scout image analysis\n* Docker Scout metrics exporter\n* Image details view\n* Manage vulnerability exceptions\n* How-tos\n* Create an exception using the GUI\n* Create an exception using the VEX\n* Docker Scout environment variables\n* Docker Scout SBOMs\n* Use Scout with different artifact types\n* Deep dive\n* Advisory database sources and matching service\n* Data collection and storage in Docker Scout\n* Policy Evaluation\n* Evaluate policies\n* Use the Dashboard Deprecated\n* Integrations\n* Code quality\n* SonarQube Deprecated\n* Container registries\n* Amazon ECR Deprecated\n* Artifactory Container Registry\n* Azure Container Registry Deprecated\n* Continuous Integration\n* Azure DevOps Pipelines\n* Circle CI\n* GitHub Actions\n* GitLab CI/CD\n* Jenkins\n* Integrating Docker Scout with environments\n* Generic (CLI)\")\n* Source code management\n* GitHub Retired\n* Team collaboration\n* Slack Deprecated\n* Release notes\n* CLI release notes\n* Platform release notes\n* Platform\n* Docker accounts\n* Create\n* Manage\n* Deactivate\n* FAQs\n* Subscription\n* Plans\n* Docker\n* Gordon\n* Docker Hardened Images\n* AI Governance\n* Docker Verified Publisher\n* Manage\n* FAQs\n* Docker Desktop license agreement\n* Billing\n* Payment methods\n* 3D Secure\n* Update details\n* Invoice history\n* Taxes\n* FAQs\n* Security\n* Personal access tokens\n* Two-factor authentication\n* Recover your Docker account\n* FAQs\n* General\n* Container\n* Network and VM\n* Security announcements\n* Support\n* Release notes\n* Enterprise\n* Administration\n* Organization\n* Setup\n* Create\n* Onboard\n* Change information\n* Convert account\n* Manage\n* Members\n* Teams\n* License assignment\n* Seats\n* Product usage and access\n* Deactivate\n* FAQs\n* Company\n* Setup\n* Manage\n* FAQs\n* Activity logs\n* Insights\n* Deploy Docker Desktop\n* MSI installer\n* PKG installer\n* MS Store\n* Deploy with Intune\n* Deploy with Jamf Pro\n* Microsoft Dev Box\n* FAQs\n* Security\n* Add and manage domains\n* Single sign-on\n* Setup\n* Manage connections\n* Troubleshoot\n* FAQs\n* General\n* Domains\n* Enforcement\n* Identity providers\n* User management\n* Provision\n* SCIM\n* Setup\n* Group mapping\n* Migrate\n* Just-in-Time\n* Auto-provision\n* Troubleshoot\n* Enforce sign-in\n* Configure\n* OIDC connections\n* Create and manage connections\n* Rulesets and subject claims\n* Roles and permissions\n* Core roles\n* Custom roles\n* Manage\n* Permissions reference\n* Hardened Docker Desktop\n* Enhanced Container Isolation\n* Enable ECI\n* Configure advanced settings\n* Limitations\n* FAQs\n* Settings Management\n* Use a JSON file\n* Use Docker Home\n* Desktop settings reporting\n* Settings reference\n* Air-gapped containers\n* Registry Access Management\n* Image Access Management\n* Namespace access\n* Organization access tokens\n\n* * *\nWhen the same environment variable is set in multiple sources, Docker Compose follows a precedence rule to determine the value for that variable in your container's environment.\nThis page explains how Docker Compose determines the final value of an environment variable when it's defined in multiple locations.\nThe order of precedence (highest to lowest) is as follows:\n1. Set using `docker compose run -e` in the CLI.\n2. Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file. (either your default `.env` file, or with the `--env-file` argument in the CLI).\n3. Set using just the `environment` attribute in the Compose file.\n4. Use of the `env_file` attribute in the Compose file.\n5. Set in a container image in the ENV directive. Having any `ARG` or `ENV` setting in a `Dockerfile` evaluates only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.\n\n> Note\n> When `--env-file` is not set, Compose may load up to two `.env` files. It first loads one from the project directory (determined by `--project-directory` if set, otherwise the directory of the first `-f`/`--file` Compose file, otherwise `PWD`). If that file sets `COMPOSE_FILE` to a path in a different directory, Compose loads a second `.env` file from that directory with lower precedence. For more information, see local `.env` file versus project directory `.env` file.\n## Simple example\nIn the following example, a different value for the same environment variable in an `.env` file and with the `environment` attribute in the Compose file:\n```\n$ cat ./webapp.env\nNODE_ENV=test\n\n$ cat compose.yaml\nservices:\nwebapp:\nimage: 'webapp'\nenv_file:\n- ./webapp.env\nenvironment:\n- NODE_ENV=production\n\n```\n\nThe environment variable defined with the `environment` attribute takes precedence.\n```\n$ docker compose run webapp env | grep NODE_ENV\nNODE_ENV=production\n\n## Advanced example\nThe following table uses `VALUE`, an environment variable defining the version for an image, as an example.\n### How the table works\nEach column represents a context from where you can set a value, or substitute in a value for `VALUE`.\nThe columns `Host OS environment` and `.env` file is listed only for illustration purposes. In reality, they don't result in a variable in the container by itself, but in conjunction with either the `environment` or `env_file` attribute.\nEach row represents a combination of contexts where `VALUE` is set, substituted, or both. The **Result** column indicates the final value for `VALUE` in each scenario.\n# | `docker compose run` |  `environment` attribute |  `env_file` attribute | Image `ENV` |  `Host OS` environment |  `.env` file | Result\n---|---|---|---|---|---|---|---\n1 | - | - | - | - | `VALUE=1.4` | `VALUE=1.3` | -\n2 | - | - | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | - | **`VALUE=1.6`**\n3 | - | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | - | **`VALUE=1.7`**\n4 | - | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.5`**\n5 | `--env VALUE=1.8` | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n6 | `--env VALUE` | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n7 | `--env VALUE` | - | - | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n8 | - | - | `VALUE` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n9 | - | - | `VALUE` | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n10 | - | `VALUE` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n11 | - | `VALUE` | - | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n12 | `--env VALUE` | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n13 | `--env VALUE=1.8` | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n14 | `--env VALUE=1.8` | - | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n15 | `--env VALUE=1.8` | `VALUE=1.7` | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n### Understanding precedence results\nResult 1: The local environment takes precedence, but the Compose file is not set to replicate this inside the container, so no such variable is set.\nResult 2: The `env_file` attribute in the Compose file defines an explicit value for `VALUE` so the container environment is set accordingly.\nResult 3: The `environment` attribute in the Compose file defines an explicit value for `VALUE`, so the container environment is set accordingly.\nResult 4: The image's `ENV` directive declares the variable `VALUE`, and since the Compose file is not set to override this value, this variable is defined by image\nResult 5: The `docker compose run` command has the `--env` flag set with an explicit value, and overrides the value set by the image.\nResult 6: The `docker compose run` command has the `--env` flag set to replicate the value from the environment. Host OS value takes precedence and is replicated into the container's environment.\nResult 7: The `docker compose run` command has the `--env` flag set to replicate the value from the environment. Value from `.env` file is selected to define the container's environment.\nResult 8: The `env_file` attribute in the Compose file is set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.\nResult 9: The `env_file` attribute in the Compose file is set to replicate `VALUE` from the local environment. Value from `.env` file is selected to define the container's environment.\nResult 10: The `environment` attribute in the Compose file is set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.\nResult 11: The `environment` attribute in the Compose file is set to replicate `VALUE` from the local environment. Value from `.env` file is selected to define the container's environment.\nResult 12: The `--env` flag has higher precedence than the `environment` and `env_file` attributes and is to set to replicate `VALUE` from the local environment. Host OS value takes precedence and is replicated into the container's environment.\nResults 13 to 15: The `--env` flag has higher precedence than the `environment` and `env_file` attributes and so sets the value.\n## Next steps\n* Set environment variables in Compose\n* Use variable interpolation in Compose files",
+        "sections": [
+          {
+            "section_id": "s_0001",
+            "level": 2,
+            "heading": "Simple example",
+            "section_path": [
+              "Simple example"
+            ],
+            "start_pos": 18182,
+            "end_pos": 18667,
+            "content_hash": "9d882877152fd9085cdf4c83c9825db4d0318031c45f15bd8c8773ed3cb5a7f9"
+          },
+          {
+            "section_id": "s_0002",
+            "level": 2,
+            "heading": "Advanced example",
+            "section_path": [
+              "Advanced example"
+            ],
+            "start_pos": 18667,
+            "end_pos": 18796,
+            "content_hash": "20152e515e81dac37e1aaa6f38777cd8583e34bb5ee6d77afdcacb7b93faf1d3"
+          },
+          {
+            "section_id": "s_0003",
+            "level": 3,
+            "heading": "How the table works",
+            "section_path": [
+              "How the table works"
+            ],
+            "start_pos": 18796,
+            "end_pos": 19329,
+            "content_hash": "b75f9391861bb382d62173937df7887c1e5089653d522f8a6164bfeb97b248d9"
+          },
+          {
+            "section_id": "s_0004",
+            "level": 1,
+            "heading": "| `docker compose run` |  `environment` attribute |  `env_file` attribute | Image `ENV` |  `Host OS` environment |  `.env` file | Result",
+            "section_path": [
+              "| `docker compose run` |  `environment` attribute |  `env_file` attribute | Image `ENV` |  `Host OS` environment |  `.env` file | Result"
+            ],
+            "start_pos": 19329,
+            "end_pos": 20736,
+            "content_hash": "44cde337330e6c6a896aa41cf0241d5b148632f3c4f754b5f6b0c1b63133ae71"
+          },
+          {
+            "section_id": "s_0005",
+            "level": 3,
+            "heading": "Understanding precedence results",
+            "section_path": [
+              "Understanding precedence results"
+            ],
+            "start_pos": 20736,
+            "end_pos": 23033,
+            "content_hash": "273f601b3423a615dc51a7c8246db371499feac2a9d6164932467cbd9ccfb9a0"
+          },
+          {
+            "section_id": "s_0006",
+            "level": 2,
+            "heading": "Next steps",
+            "section_path": [
+              "Next steps"
+            ],
+            "start_pos": 23033,
+            "end_pos": 23131,
+            "content_hash": "367038c7c4529bf707c93e5d90affcd381c6f35a802805e8e69e4ae1e3029ee8"
+          }
+        ],
+        "code_blocks": [
+          {
+            "block_id": "code_0001",
+            "language": "",
+            "start_pos": 18354,
+            "end_pos": 18509,
+            "content_hash": "6db0c814f067bd0f3ff416572b2b833fc7825df8d75d940ea217dc0d6d489a55"
+          }
+        ],
+        "full_text_ref": "evidence/source/doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719.md",
+        "schema_version": "opsbench-document-context-v1",
+        "full_text_chars": 23131
+      }
+    ],
+    "evidence_map": {
+      "schema_version": "opsbench-evidence-map-v1",
+      "mechanism": [
+        {
+          "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+          "claim_id": "claim_001",
+          "claim_type": "root_cause",
+          "evidence_origin": "document",
+          "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+          "section_path": [
+            "## Simple example"
+          ],
+          "start_pos": 18511,
+          "end_pos": 18594,
+          "excerpt": "The environment variable defined with the `environment` attribute takes precedence.",
+          "content_hash": "52d7196ccba76b06",
+          "confidence": 1.0
+        },
+        {
+          "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+          "claim_id": "heuristic_operational_020",
+          "claim_type": "root_cause",
+          "evidence_origin": "document",
+          "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+          "section_path": [],
+          "start_pos": 18458,
+          "end_pos": 18594,
+          "excerpt": "/webapp.env\nenvironment:\n- NODE_ENV=production\n\n```\n\nThe environment variable defined with the `environment` attribute takes precedence.",
+          "content_hash": "52d7196ccba76b06",
+          "confidence": 0.45
+        },
+        {
+          "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+          "claim_id": "heuristic_operational_053",
+          "claim_type": "root_cause",
+          "evidence_origin": "document",
+          "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+          "section_path": [],
+          "start_pos": 20715,
+          "end_pos": 20922,
+          "excerpt": "3` | **`VALUE=1.8`**\n### Understanding precedence results\nResult 1: The local environment takes precedence, but the Compose file is not set to replicate this inside the container, so no such variable is set.",
+          "content_hash": "52d7196ccba76b06",
+          "confidence": 0.45
+        }
+      ],
+      "diagnostic_signal": [],
+      "repair_instruction": [
+        {
+          "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+          "claim_id": "heuristic_operational_003",
+          "claim_type": "repair",
+          "evidence_origin": "document",
+          "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+          "section_path": [],
+          "start_pos": 17162,
+          "end_pos": 17294,
+          "excerpt": "2. Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file.",
+          "content_hash": "52d7196ccba76b06",
+          "confidence": 0.45
+        },
+        {
+          "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+          "claim_id": "heuristic_operational_004",
+          "claim_type": "repair",
+          "evidence_origin": "document",
+          "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+          "section_path": [],
+          "start_pos": 17165,
+          "end_pos": 17294,
+          "excerpt": "Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file.",
+          "content_hash": "52d7196ccba76b06",
+          "confidence": 0.45
+        },
+        {
+          "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+          "claim_id": "heuristic_operational_005",
+          "claim_type": "repair",
+          "evidence_origin": "document",
+          "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+          "section_path": [],
+          "start_pos": 17295,
+          "end_pos": 17375,
+          "excerpt": "(either your default `.env` file, or with the `--env-file` argument in the CLI).",
+          "content_hash": "52d7196ccba76b06",
+          "confidence": 0.45
+        }
+      ],
+      "verification_rule": [],
+      "incident_symptom": [],
+      "runtime_contract": [],
+      "runtime_contract_roles": [
+        "root_cause",
+        "repair",
+        "symptom",
+        "impact",
+        "verification"
+      ]
+    },
+    "document_context_mode": "full",
+    "evidence_gate_mode": "strict",
+    "model_document_contexts": [
+      {
+        "document_id": "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719",
+        "source_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+        "canonical_url": "https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence",
+        "content_hash": "52d7196ccba76b06",
+        "source_type": "official_docs",
+        "source_license": "unknown",
+        "title": "Simple example",
+        "language": "en",
+        "full_text_chars": 23131,
+        "full_text_ref": "evidence/source/doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719.md",
+        "schema_version": "opsbench-document-context-v1",
+        "context_mode": "selected_evidence_with_source_context",
+        "selected_evidence": [
+          {
+            "evidence_id": "claim_001",
+            "claim_type": "root_cause",
+            "start_pos": 18511,
+            "end_pos": 18594,
+            "content_hash": "52d7196ccba76b06",
+            "excerpt": "The environment variable defined with the `environment` attribute takes precedence."
+          },
+          {
+            "evidence_id": "heuristic_operational_020",
+            "claim_type": "root_cause",
+            "start_pos": 18458,
+            "end_pos": 18594,
+            "content_hash": "52d7196ccba76b06",
+            "excerpt": "/webapp.env\nenvironment:\n- NODE_ENV=production\n\n```\n\nThe environment variable defined with the `environment` attribute takes precedence."
+          },
+          {
+            "evidence_id": "heuristic_operational_053",
+            "claim_type": "root_cause",
+            "start_pos": 20715,
+            "end_pos": 20922,
+            "content_hash": "52d7196ccba76b06",
+            "excerpt": "3` | **`VALUE=1.8`**\n### Understanding precedence results\nResult 1: The local environment takes precedence, but the Compose file is not set to replicate this inside the container, so no such variable is set."
+          },
+          {
+            "evidence_id": "heuristic_operational_003",
+            "claim_type": "repair",
+            "start_pos": 17162,
+            "end_pos": 17294,
+            "content_hash": "52d7196ccba76b06",
+            "excerpt": "2. Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file."
+          },
+          {
+            "evidence_id": "heuristic_operational_004",
+            "claim_type": "repair",
+            "start_pos": 17165,
+            "end_pos": 17294,
+            "content_hash": "52d7196ccba76b06",
+            "excerpt": "Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file."
+          },
+          {
+            "evidence_id": "heuristic_operational_005",
+            "claim_type": "repair",
+            "start_pos": 17295,
+            "end_pos": 17375,
+            "content_hash": "52d7196ccba76b06",
+            "excerpt": "(either your default `.env` file, or with the `--env-file` argument in the CLI)."
+          }
+        ],
+        "source_excerpts": [
+          {
+            "evidence_id": "claim_001",
+            "claim_type": "root_cause",
+            "start_pos": 17611,
+            "end_pos": 19494,
+            "text": "only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.\n\n> Note\n> When `--env-file` is not set, Compose may load up to two `.env` files. It first loads one from the project directory (determined by `--project-directory` if set, otherwise the directory of the first `-f`/`--file` Compose file, otherwise `PWD`). If that file sets `COMPOSE_FILE` to a path in a different directory, Compose loads a second `.env` file from that directory with lower precedence. For more information, see local `.env` file versus project directory `.env` file.\n## Simple example\nIn the following example, a different value for the same environment variable in an `.env` file and with the `environment` attribute in the Compose file:\n```\n$ cat ./webapp.env\nNODE_ENV=test\n\n$ cat compose.yaml\nservices:\nwebapp:\nimage: 'webapp'\nenv_file:\n- ./webapp.env\nenvironment:\n- NODE_ENV=production\n\n```\n\nThe environment variable defined with the `environment` attribute takes precedence.\n```\n$ docker compose run webapp env | grep NODE_ENV\nNODE_ENV=production\n\n## Advanced example\nThe following table uses `VALUE`, an environment variable defining the version for an image, as an example.\n### How the table works\nEach column represents a context from where you can set a value, or substitute in a value for `VALUE`.\nThe columns `Host OS environment` and `.env` file is listed only for illustration purposes. In reality, they don't result in a variable in the container by itself, but in conjunction with either the `environment` or `env_file` attribute.\nEach row represents a combination of contexts where `VALUE` is set, substituted, or both. The **Result** column indicates the final value for `VALUE` in each scenario.\n# | `docker compose run` |  `environment` attribute |  `env_file` attribute | Image `ENV` |  `Host OS` environment |  `.env` file | Result\n---|---|---|---|---|---|--"
+          },
+          {
+            "evidence_id": "heuristic_operational_020",
+            "claim_type": "root_cause",
+            "start_pos": 17558,
+            "end_pos": 19494,
+            "text": "y `ARG` or `ENV` setting in a `Dockerfile` evaluates only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.\n\n> Note\n> When `--env-file` is not set, Compose may load up to two `.env` files. It first loads one from the project directory (determined by `--project-directory` if set, otherwise the directory of the first `-f`/`--file` Compose file, otherwise `PWD`). If that file sets `COMPOSE_FILE` to a path in a different directory, Compose loads a second `.env` file from that directory with lower precedence. For more information, see local `.env` file versus project directory `.env` file.\n## Simple example\nIn the following example, a different value for the same environment variable in an `.env` file and with the `environment` attribute in the Compose file:\n```\n$ cat ./webapp.env\nNODE_ENV=test\n\n$ cat compose.yaml\nservices:\nwebapp:\nimage: 'webapp'\nenv_file:\n- ./webapp.env\nenvironment:\n- NODE_ENV=production\n\n```\n\nThe environment variable defined with the `environment` attribute takes precedence.\n```\n$ docker compose run webapp env | grep NODE_ENV\nNODE_ENV=production\n\n## Advanced example\nThe following table uses `VALUE`, an environment variable defining the version for an image, as an example.\n### How the table works\nEach column represents a context from where you can set a value, or substitute in a value for `VALUE`.\nThe columns `Host OS environment` and `.env` file is listed only for illustration purposes. In reality, they don't result in a variable in the container by itself, but in conjunction with either the `environment` or `env_file` attribute.\nEach row represents a combination of contexts where `VALUE` is set, substituted, or both. The **Result** column indicates the final value for `VALUE` in each scenario.\n# | `docker compose run` |  `environment` attribute |  `env_file` attribute | Image `ENV` |  `Host OS` environment |  `.env` file | Result\n---|---|---|---|---|---|--"
+          },
+          {
+            "evidence_id": "heuristic_operational_053",
+            "claim_type": "root_cause",
+            "start_pos": 19815,
+            "end_pos": 21822,
+            "text": " | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n6 | `--env VALUE` | - | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n7 | `--env VALUE` | - | - | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n8 | - | - | `VALUE` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n9 | - | - | `VALUE` | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n10 | - | `VALUE` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n11 | - | `VALUE` | - | `VALUE=1.5` | - | `VALUE=1.3` | **`VALUE=1.3`**\n12 | `--env VALUE` | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.4`**\n13 | `--env VALUE=1.8` | `VALUE=1.7` | - | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n14 | `--env VALUE=1.8` | - | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n15 | `--env VALUE=1.8` | `VALUE=1.7` | `VALUE=1.6` | `VALUE=1.5` | `VALUE=1.4` | `VALUE=1.3` | **`VALUE=1.8`**\n### Understanding precedence results\nResult 1: The local environment takes precedence, but the Compose file is not set to replicate this inside the container, so no such variable is set.\nResult 2: The `env_file` attribute in the Compose file defines an explicit value for `VALUE` so the container environment is set accordingly.\nResult 3: The `environment` attribute in the Compose file defines an explicit value for `VALUE`, so the container environment is set accordingly.\nResult 4: The image's `ENV` directive declares the variable `VALUE`, and since the Compose file is not set to override this value, this variable is defined by image\nResult 5: The `docker compose run` command has the `--env` flag set with an explicit value, and overrides the value set by the image.\nResult 6: The `docker compose run` command has the `--env` flag set to replicate the value from the environment. Host OS value takes precedence and is replicated into the container's environment.\nResult 7: The `docker compose run` command has the `--env` flag set to replicate the value from the environme"
+          },
+          {
+            "evidence_id": "heuristic_operational_003",
+            "claim_type": "repair",
+            "start_pos": 16262,
+            "end_pos": 18194,
+            "text": "ns\n* Rulesets and subject claims\n* Roles and permissions\n* Core roles\n* Custom roles\n* Manage\n* Permissions reference\n* Hardened Docker Desktop\n* Enhanced Container Isolation\n* Enable ECI\n* Configure advanced settings\n* Limitations\n* FAQs\n* Settings Management\n* Use a JSON file\n* Use Docker Home\n* Desktop settings reporting\n* Settings reference\n* Air-gapped containers\n* Registry Access Management\n* Image Access Management\n* Namespace access\n* Organization access tokens\n\n* * *\nWhen the same environment variable is set in multiple sources, Docker Compose follows a precedence rule to determine the value for that variable in your container's environment.\nThis page explains how Docker Compose determines the final value of an environment variable when it's defined in multiple locations.\nThe order of precedence (highest to lowest) is as follows:\n1. Set using `docker compose run -e` in the CLI.\n2. Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file. (either your default `.env` file, or with the `--env-file` argument in the CLI).\n3. Set using just the `environment` attribute in the Compose file.\n4. Use of the `env_file` attribute in the Compose file.\n5. Set in a container image in the ENV directive. Having any `ARG` or `ENV` setting in a `Dockerfile` evaluates only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.\n\n> Note\n> When `--env-file` is not set, Compose may load up to two `.env` files. It first loads one from the project directory (determined by `--project-directory` if set, otherwise the directory of the first `-f`/`--file` Compose file, otherwise `PWD`). If that file sets `COMPOSE_FILE` to a path in a different directory, Compose loads a second `.env` file from that directory with lower precedence. For more information, see local `.env` file versus project directory `.env` file.\n## Simple ex"
+          },
+          {
+            "evidence_id": "heuristic_operational_004",
+            "claim_type": "repair",
+            "start_pos": 16265,
+            "end_pos": 18194,
+            "text": "* Rulesets and subject claims\n* Roles and permissions\n* Core roles\n* Custom roles\n* Manage\n* Permissions reference\n* Hardened Docker Desktop\n* Enhanced Container Isolation\n* Enable ECI\n* Configure advanced settings\n* Limitations\n* FAQs\n* Settings Management\n* Use a JSON file\n* Use Docker Home\n* Desktop settings reporting\n* Settings reference\n* Air-gapped containers\n* Registry Access Management\n* Image Access Management\n* Namespace access\n* Organization access tokens\n\n* * *\nWhen the same environment variable is set in multiple sources, Docker Compose follows a precedence rule to determine the value for that variable in your container's environment.\nThis page explains how Docker Compose determines the final value of an environment variable when it's defined in multiple locations.\nThe order of precedence (highest to lowest) is as follows:\n1. Set using `docker compose run -e` in the CLI.\n2. Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file. (either your default `.env` file, or with the `--env-file` argument in the CLI).\n3. Set using just the `environment` attribute in the Compose file.\n4. Use of the `env_file` attribute in the Compose file.\n5. Set in a container image in the ENV directive. Having any `ARG` or `ENV` setting in a `Dockerfile` evaluates only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.\n\n> Note\n> When `--env-file` is not set, Compose may load up to two `.env` files. It first loads one from the project directory (determined by `--project-directory` if set, otherwise the directory of the first `-f`/`--file` Compose file, otherwise `PWD`). If that file sets `COMPOSE_FILE` to a path in a different directory, Compose loads a second `.env` file from that directory with lower precedence. For more information, see local `.env` file versus project directory `.env` file.\n## Simple ex"
+          },
+          {
+            "evidence_id": "heuristic_operational_005",
+            "claim_type": "repair",
+            "start_pos": 16395,
+            "end_pos": 18275,
+            "text": "er Desktop\n* Enhanced Container Isolation\n* Enable ECI\n* Configure advanced settings\n* Limitations\n* FAQs\n* Settings Management\n* Use a JSON file\n* Use Docker Home\n* Desktop settings reporting\n* Settings reference\n* Air-gapped containers\n* Registry Access Management\n* Image Access Management\n* Namespace access\n* Organization access tokens\n\n* * *\nWhen the same environment variable is set in multiple sources, Docker Compose follows a precedence rule to determine the value for that variable in your container's environment.\nThis page explains how Docker Compose determines the final value of an environment variable when it's defined in multiple locations.\nThe order of precedence (highest to lowest) is as follows:\n1. Set using `docker compose run -e` in the CLI.\n2. Set with either the `environment` or `env_file` attribute but with the value interpolated from your shell or an environment file. (either your default `.env` file, or with the `--env-file` argument in the CLI).\n3. Set using just the `environment` attribute in the Compose file.\n4. Use of the `env_file` attribute in the Compose file.\n5. Set in a container image in the ENV directive. Having any `ARG` or `ENV` setting in a `Dockerfile` evaluates only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.\n\n> Note\n> When `--env-file` is not set, Compose may load up to two `.env` files. It first loads one from the project directory (determined by `--project-directory` if set, otherwise the directory of the first `-f`/`--file` Compose file, otherwise `PWD`). If that file sets `COMPOSE_FILE` to a path in a different directory, Compose loads a second `.env` file from that directory with lower precedence. For more information, see local `.env` file versus project directory `.env` file.\n## Simple example\nIn the following example, a different value for the same environment variab"
+          }
+        ]
+      }
+    ],
+    "evidence_judge_selection": {
+      "round": 1,
+      "selected_count": 2,
+      "removed_count": 4
+    },
+    "requested_group_size": "1",
+    "resolved_group_size": 1
+  },
+  "links": [],
+  "schema_version": "opsbench-evidence-v1",
+  "provenance_mode": "generation_time",
+  "coverage": "complete",
+  "created_at": "2026-08-31T16:01:38.645764+00:00",
+  "active_document_ids": [
+    "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719"
+  ],
+  "excluded_document_ids": [],
+  "active_evidence_refs": [
+    "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719#claim_001",
+    "doc-docs-docker-com-compose-how-tos-environment-variables-en-52d719#heuristic_operational_020"
+  ],
+  "selection_reason": "standalone_complete_document",
+  "evidence_selection_score": 0.58
+}

@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "message_count": 47,
+  "final": "The incident is resolved. Here's a summary of the diagnosis and repair:\n\n## Diagnosis\n\n- The `orders-api` service was running as a process but not listening on the expected port (8080).\n- The **base config** specified `port: 8080` and `bind: 0.0.0.0`.\n- The **runtime environment** contained a conflicting `APP_PORT=8082` entry, which was overriding the base port configuration.\n- The effective runtime showed both `port: 8080` and `APP_PORT: 8082`, indicating the environment variable was interfering with the service's binding.\n\n## Repair\n\n- Removed the `APP_PORT` environment variable from the `runtime-environment` configuration source.\n- Restarted the service to apply the corrected configuration.\n\n## Verification\n\n- The business probe now returns **healthy** (HTTP 200 on port 8080).\n- The effective runtime no longer contains the `APP_PORT` override.\n- The fix survived a subsequent restart, confirming it persists across the lifecycle boundary."
+}

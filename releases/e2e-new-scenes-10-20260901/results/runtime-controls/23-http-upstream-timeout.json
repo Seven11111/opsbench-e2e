@@ -1,0 +1,915 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_http_upstream_timeout_v1_000001",
+      "template_id": "http_upstream_timeout_v1",
+      "case_path": "RELEASE_ROOT\\23-http-upstream-timeout\\cases\\dynamic_http_upstream_timeout_v1_000001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "public_actionability": {
+        "passed": true,
+        "issues": [],
+        "version": "e2e-public-actionability-v1",
+        "required": false,
+        "public_oracle": null
+      },
+      "public_tool_oracle": null,
+      "runs": [
+        {
+          "id": "dynamic_http_upstream_timeout_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.109,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 817B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB done\n#6 DONE 0.0s\n\n#7 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#7 CACHED\n\n#8 [ 4/12] WORKDIR /agent\n#8 CACHED\n\n#9 [ 7/12] COPY agent /agent\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#14 CACHED\n\n#15 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#15 CACHED\n\n#16 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:fc875e56f49cf79d8d3e2696f33698e07d52eba235f33a064a376236d39eede4 0.0s done\n#18 exporting config sha256:97b355d40783ac3f14ae9d6cdd708ed761c44b23e4c55540bce26c1b9083899f 0.0s done\n#18 exporting attestation manifest sha256:0e609c4ccca4e4a95346ed5f4475e068349c25e1d870d343d12f5f082a4bb1c5\n#18 exporting attestation manifest sha256:0e609c4ccca4e4a95346ed5f4475e068349c25e1d870d343d12f5f082a4bb1c5 0.0s done\n#18 exporting manifest list sha256:f42bfc0565860cdc0e2749a46cf84f1bd1676285fac5ccc10f3368e64eaf0d49 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-http_upstream_timeout_v1 Building \n Image opsbench-e2e-http_upstream_timeout_v1 Built \n Network opsbench-dynamic-http-upstream-timeout--36304-997593_default Creating \n Network opsbench-dynamic-http-upstream-timeout--36304-997593_default Created \n Container opsbench-dynamic-http-upstream-timeout--36304-997593-target-1 Creating \n Container opsbench-dynamic-http-upstream-timeout--36304-997593-target-1 Created \n Container opsbench-dynamic-http-upstream-timeout--36304-997593-target-1 Starting \n Container opsbench-dynamic-http-upstream-timeout--36304-997593-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.625,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.594,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.453,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.672,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 2.64,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 900, 'timeout_ms': 500, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.922,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upstream_timeout', 'delay_ms': 900, 'timeout_ms': 500, 'repair_mode': 'fault'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 17.75,
+          "case_digest": "8a7432516c7c31d76a8efba049334ffcb9e5b4db7879f28b530fe03b9bd0a669",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\23-http-upstream-timeout\\reports\\control_traces\\dynamic_http_upstream_timeout_v1_000001-wu5_z1rd",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The injected fault remains active.",
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_upstream_timeout_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 7.328,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 816B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B 0.0s done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#4 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#4 DONE 0.0s\n\n#5 [internal] load .dockerignore\n#5 transferring context: 2B done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#12 CACHED\n\n#13 [ 7/12] COPY agent /agent\n#13 CACHED\n\n#14 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#14 CACHED\n\n#15 [ 4/12] WORKDIR /agent\n#15 CACHED\n\n#16 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers 0.0s done\n#18 exporting manifest sha256:80012c598e9054f6400fbb74d76a49a6a0f56c4530fcc39c61d37784f70df8c9 0.1s done\n#18 exporting config sha256:5e8d9c598a4be9ae7974a3423c1be6d44fc05214120f386789a8453fc19a0b02 0.0s done\n#18 exporting attestation manifest sha256:6889488374d08e8f0b0a1cc1da12f3f31449a0a42551818097918f1077d69f74 0.1s done\n#18 exporting manifest list sha256:e8f158efc4a9d3d8fbf8fb1efe13266541be94fb84e446ca5d2a607bfbe1ff4d\n#18 exporting manifest list sha256:e8f158efc4a9d3d8fbf8fb1efe13266541be94fb84e446ca5d2a607bfbe1ff4d 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest 0.0s done\n#18 DONE 0.4s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-http_upstream_timeout_v1 Building \n Image opsbench-e2e-http_upstream_timeout_v1 Built \n Network opsbench-dynamic-http-upstream-timeout--36304-15343_default Creating \n Network opsbench-dynamic-http-upstream-timeout--36304-15343_default Created \n Container opsbench-dynamic-http-upstream-timeout--36304-15343-target-1 Creating \n Container opsbench-dynamic-http-upstream-timeout--36304-15343-target-1 Created \n Container opsbench-dynamic-http-upstream-timeout--36304-15343-target-1 Starting \n Container opsbench-dynamic-http-upstream-timeout--36304-15343-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.422,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.969,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.062,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.86,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.765,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.844,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.438,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"dependency latency is inside the service budget\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 21.688,
+          "case_digest": "8a7432516c7c31d76a8efba049334ffcb9e5b4db7879f28b530fe03b9bd0a669",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\23-http-upstream-timeout\\reports\\control_traces\\dynamic_http_upstream_timeout_v1_000001-ixna5n2x",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "expected_reason": "The registered safe repair restores the public contract.",
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_upstream_timeout_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.828,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 816B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.1s\n\n#7 [ 4/12] WORKDIR /agent\n#7 CACHED\n\n#8 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [ 7/12] COPY agent /agent\n#12 CACHED\n\n#13 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers 0.0s done\n#18 exporting manifest sha256:ab83a308683c3164eef62eb7dbad44e2fe62e3a33da0df686077208f8410c66a 0.1s done\n#18 exporting config sha256:335c47441f375ba3295223780e08a1865c78b726d4a86f9bb5c918c3b44d1570\n#18 exporting config sha256:335c47441f375ba3295223780e08a1865c78b726d4a86f9bb5c918c3b44d1570 0.1s done\n#18 exporting attestation manifest sha256:f90d9e4f497b11a215b46693f9c2c18196dc004186f8012882aeec3aa64c8e23 0.1s done\n#18 exporting manifest list sha256:449f28eb5912bfa9896f2762c61f6dd3ce4ed29b1fbe2b26782e4e2f265ff340\n#18 exporting manifest list sha256:449f28eb5912bfa9896f2762c61f6dd3ce4ed29b1fbe2b26782e4e2f265ff340 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest 0.0s done\n#18 DONE 0.3s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-http_upstream_timeout_v1 Building \n Image opsbench-e2e-http_upstream_timeout_v1 Built \n Network opsbench-dynamic-http-upstream-timeout--36304-37031_default Creating \n Network opsbench-dynamic-http-upstream-timeout--36304-37031_default Created \n Container opsbench-dynamic-http-upstream-timeout--36304-37031-target-1 Creating \n Container opsbench-dynamic-http-upstream-timeout--36304-37031-target-1 Created \n Container opsbench-dynamic-http-upstream-timeout--36304-37031-target-1 Starting \n Container opsbench-dynamic-http-upstream-timeout--36304-37031-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.843,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.844,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.047,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.125,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 2.562,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 900, 'timeout_ms': 2000, 'repair_mode': 'wrong-contract'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.25,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upstream_timeout', 'delay_ms': 900, 'timeout_ms': 2000, 'repair_mode': 'wrong-contract'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 25.797,
+          "case_digest": "8a7432516c7c31d76a8efba049334ffcb9e5b4db7879f28b530fe03b9bd0a669",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\23-http-upstream-timeout\\reports\\control_traces\\dynamic_http_upstream_timeout_v1_000001-gcmy8oj1",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The symptom is not repaired while preserving the contract.",
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_upstream_timeout_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 11.859,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 816B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.1s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 4/12] WORKDIR /agent\n#9 CACHED\n\n#10 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#11 CACHED\n\n#12 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#12 CACHED\n\n#13 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#13 CACHED\n\n#14 [ 7/12] COPY agent /agent\n#14 CACHED\n\n#15 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#15 CACHED\n\n#16 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:cb989c5895be7b9726c2875b64a3618b0b97aa66e5d1facc6651d6d09e010559 0.0s done\n#18 exporting config sha256:d9a996dcaee68388290ea593a34656649b7aa0c4f7a173eee17792553c60f993\n#18 exporting config sha256:d9a996dcaee68388290ea593a34656649b7aa0c4f7a173eee17792553c60f993 0.0s done\n#18 exporting attestation manifest sha256:8f79ac57ba45e5f22c55260be104a335599cb070f3f33f3c06200e60e667a481 0.0s done\n#18 exporting manifest list sha256:1018678341780a5413b1ad5ca9b4f9c6fc217398f5d7dbb897c9e457aefeac06 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest\n#18 unpacking to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-http_upstream_timeout_v1 Building \n Image opsbench-e2e-http_upstream_timeout_v1 Built \n Network opsbench-dynamic-http-upstream-timeout--36304-62828_default Creating \n Network opsbench-dynamic-http-upstream-timeout--36304-62828_default Created \n Container opsbench-dynamic-http-upstream-timeout--36304-62828-target-1 Creating \n Container opsbench-dynamic-http-upstream-timeout--36304-62828-target-1 Created \n Container opsbench-dynamic-http-upstream-timeout--36304-62828-target-1 Starting \n Container opsbench-dynamic-http-upstream-timeout--36304-62828-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.86,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.046,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.782,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.515,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.312,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 2.594,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 400, 'timeout_ms': 500, 'repair_mode': 'temporary'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.547,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upstream_timeout', 'delay_ms': 400, 'timeout_ms': 500, 'repair_mode': 'temporary'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 31.765,
+          "case_digest": "8a7432516c7c31d76a8efba049334ffcb9e5b4db7879f28b530fe03b9bd0a669",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\23-http-upstream-timeout\\reports\\control_traces\\dynamic_http_upstream_timeout_v1_000001-z8relscf",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "A critical recovery or persistence condition remains unsatisfied.",
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_upstream_timeout_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.609,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 816B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#7 CACHED\n\n#8 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#8 CACHED\n\n#9 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#9 CACHED\n\n#10 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#10 CACHED\n\n#11 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#11 CACHED\n\n#12 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#12 CACHED\n\n#13 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#13 CACHED\n\n#14 [ 7/12] COPY agent /agent\n#14 CACHED\n\n#15 [ 4/12] WORKDIR /agent\n#15 CACHED\n\n#16 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:3a6671332c830f980133d94e3b383f79a65605956bf9140f9194f2ecc2ea1ab2 0.0s done\n#18 exporting config sha256:e8edf7d3455ca4793a519d46c43db7d4f33a7891b7a869e87b4555f4935f6f47 0.0s done\n#18 exporting attestation manifest sha256:91c16a0af4fb0a7d688fdec7a97e8e3d97dc1278f6389b2736ba435ee473e3b0\n#18 exporting attestation manifest sha256:91c16a0af4fb0a7d688fdec7a97e8e3d97dc1278f6389b2736ba435ee473e3b0 0.0s done\n#18 exporting manifest list sha256:dc29cb11bcf0c1cd75b040095969d0643222d6acb1a1ad95d09ce9d58fc013ac 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-http_upstream_timeout_v1 Building \n Image opsbench-e2e-http_upstream_timeout_v1 Built \n Network opsbench-dynamic-http-upstream-timeout--36304-94593_default Creating \n Network opsbench-dynamic-http-upstream-timeout--36304-94593_default Created \n Container opsbench-dynamic-http-upstream-timeout--36304-94593-target-1 Creating \n Container opsbench-dynamic-http-upstream-timeout--36304-94593-target-1 Created \n Container opsbench-dynamic-http-upstream-timeout--36304-94593-target-1 Starting \n Container opsbench-dynamic-http-upstream-timeout--36304-94593-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.157,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.093,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.282,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.89,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.719,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 2.937,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 900, 'timeout_ms': 500, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.641,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upstream_timeout', 'delay_ms': 900, 'timeout_ms': 500, 'repair_mode': 'fault'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 18.688,
+          "case_digest": "8a7432516c7c31d76a8efba049334ffcb9e5b4db7879f28b530fe03b9bd0a669",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\23-http-upstream-timeout\\reports\\control_traces\\dynamic_http_upstream_timeout_v1_000001-kbdhvrp1",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "Restart alone is not a durable repair unless the case explicitly declares otherwise.",
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_upstream_timeout_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.109,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 817B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#7 CACHED\n\n#8 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 7/12] COPY agent /agent\n#9 CACHED\n\n#10 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#10 CACHED\n\n#11 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#11 CACHED\n\n#12 [ 4/12] WORKDIR /agent\n#12 CACHED\n\n#13 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#13 CACHED\n\n#14 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#14 CACHED\n\n#15 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#15 CACHED\n\n#16 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:2d7c3d681f4ea8f4f09af53d98eb52bca45816b6ae853b811c62c38dfb4ab6bc 0.0s done\n#18 exporting config sha256:941ce6fc8f8019dcf634a1240aa66178b5ae8efcae41f4ca577c2ab134462bb7 0.0s done\n#18 exporting attestation manifest sha256:b5b7dfdffdebf28b7e6716a4349ec6b977148dfe93f42effdb82a4e4fdb4646a 0.0s done\n#18 exporting manifest list sha256:9ce0347fd61c6ef01345cc95bf84b9c0d22d0e47ad6cd8ad1754ee9157afcab8\n#18 exporting manifest list sha256:9ce0347fd61c6ef01345cc95bf84b9c0d22d0e47ad6cd8ad1754ee9157afcab8 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-http_upstream_timeout_v1 Building \n Image opsbench-e2e-http_upstream_timeout_v1 Built \n Network opsbench-dynamic-http-upstream-timeout--36304-113281_default Creating \n Network opsbench-dynamic-http-upstream-timeout--36304-113281_default Created \n Container opsbench-dynamic-http-upstream-timeout--36304-113281-target-1 Creating \n Container opsbench-dynamic-http-upstream-timeout--36304-113281-target-1 Created \n Container opsbench-dynamic-http-upstream-timeout--36304-113281-target-1 Starting \n Container opsbench-dynamic-http-upstream-timeout--36304-113281-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.61,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.828,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.453,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.766,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.468,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.297,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.875,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"dependency latency is inside the service budget\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 11.765,
+          "case_digest": "8a7432516c7c31d76a8efba049334ffcb9e5b4db7879f28b530fe03b9bd0a669",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\23-http-upstream-timeout\\reports\\control_traces\\dynamic_http_upstream_timeout_v1_000001-ogbt3c6d",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_http_upstream_timeout_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 9.234,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 817B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#7 CACHED\n\n#8 [ 7/12] COPY agent /agent\n#8 CACHED\n\n#9 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#9 CACHED\n\n#10 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [ 4/12] WORKDIR /agent\n#11 CACHED\n\n#12 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#13 CACHED\n\n#14 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#14 CACHED\n\n#15 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#15 CACHED\n\n#16 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:e92c25e00bc938ee75e538e783b81d0e9907f81b30c9af6fbe54068217008e14 0.0s done\n#18 exporting config sha256:d8fdafff28ecf31e4812dd0f511c368b58719cb40e9b1fe7de7f8ab194360895 0.0s done\n#18 exporting attestation manifest sha256:b11baab648be0923b563a232dc0c3460dc043840eed5fa0d38c49613ff3fcab5 0.0s done\n#18 exporting manifest list sha256:537963a1b1ad24f0c5a796a3cb837aa3389125626b0505fb500b0133b9e9088b 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-http_upstream_timeout_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-http_upstream_timeout_v1 Building \n Image opsbench-e2e-http_upstream_timeout_v1 Built \n Network opsbench-dynamic-http-upstream-timeout--36304-125046_default Creating \n Network opsbench-dynamic-http-upstream-timeout--36304-125046_default Created \n Container opsbench-dynamic-http-upstream-timeout--36304-125046-target-1 Creating \n Container opsbench-dynamic-http-upstream-timeout--36304-125046-target-1 Created \n Container opsbench-dynamic-http-upstream-timeout--36304-125046-target-1 Starting \n Container opsbench-dynamic-http-upstream-timeout--36304-125046-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.531,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.86,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.437,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.531,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.594,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.375,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"dependency latency is inside the service budget\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.219,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"dependency latency is inside the service budget\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'upstream_timeout', 'delay_ms': 20, 'timeout_ms': 500, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 17.157,
+          "case_digest": "8a7432516c7c31d76a8efba049334ffcb9e5b4db7879f28b530fe03b9bd0a669",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\23-http-upstream-timeout\\reports\\control_traces\\dynamic_http_upstream_timeout_v1_000001-osn5m99a",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        },
+        {
+          "id": "dynamic_http_upstream_timeout_v1_000001",
+          "scenario": "cleanup",
+          "control_mode": "cleanup",
+          "repeat_index": 0,
+          "passed": true,
+          "score": 1.0,
+          "expected": "pass",
+          "expected_reason": "Each control run must leave no case-scoped Docker resources behind.",
+          "phase_status": {
+            "cleanup": "passed"
+          }
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 8
+}

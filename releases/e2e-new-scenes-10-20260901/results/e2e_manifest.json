@@ -1,0 +1,253 @@
+{
+  "manifest_version": "opsbench-e2e-manifest-v1",
+  "family": "e2e",
+  "case_root": "cases",
+  "sample_size": 10,
+  "sample_seed": 42,
+  "filters": {
+    "task_labels": [],
+    "template_id": null,
+    "domain": null,
+    "fault_type": null
+  },
+  "items": [
+    {
+      "id": "candidate_linux_file_lock_v1_001",
+      "case_path": "cases/01-file-lock",
+      "case_digest": "bc0b83e3484e66f20781328cbb74688b86bc8f003a5c4a58346de4215e35778d",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "file_lock",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python",
+        "Filesystem"
+      ],
+      "template_id": "linux_file_lock_v1",
+      "primitive_id": "linux_file_lock_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_linux_upload_permission_v1_001",
+      "case_path": "cases/27-upload-chmod",
+      "case_digest": "def39977c0c9956506a9e46aba01ed75d050e41218693133c54d67e4c3c6b5e3",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "root_cause"
+      ],
+      "fault_type": "permission_error",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Filesystem",
+        "HTTP"
+      ],
+      "template_id": "linux_upload_permission_v1",
+      "primitive_id": "linux_upload_permission_v1",
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "target_difficulty": "easy",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_prometheus_file_sd_001",
+      "case_path": "cases/15-prometheus-scrape",
+      "case_digest": "d62a66c2fdb7274e5ad382f0dee14b033f0af1c353da78181dcec7352822dda9",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_error",
+      "domain": "observability",
+      "technology_stack": [
+        "Prometheus",
+        "HTTP"
+      ],
+      "template_id": "prometheus_scrape_target_v1",
+      "primitive_id": "prometheus_scrape_target_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000001",
+      "case_path": "cases/25-config-precedence",
+      "case_digest": "a7980c0625948ce4db8ae8a0b846f5ce8c7cf949d9577d484f47cc48876cd0f7",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_stale_pid_v1_000001",
+      "case_path": "cases/24-stale-pid",
+      "case_digest": "bb2557bee7faa1f7ac93c9974bb2461083933a66762347498b2070ac3cb56938",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "stale_runtime_state",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Linux",
+        "Python"
+      ],
+      "template_id": "app_stale_pid_v1",
+      "primitive_id": "app_stale_pid_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_http_upstream_timeout_v1_000001",
+      "case_path": "cases/23-upstream-timeout",
+      "case_digest": "835e9d9641ad2e26f1831a57dc25d028c5d08c3ee9f9ec7f79cc540bda4a2b7b",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_upstream_timeout_v1",
+      "primitive_id": "http_upstream_timeout_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_linux_memory_growth_v1_000001",
+      "case_path": "cases/19-memory-growth",
+      "case_digest": "cfd37222f74de075efe288ad716c2d1624b394ea29e6c6c069ef2fcdc7d254ab",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "memory_exhaustion",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "linux_memory_growth_v1",
+      "primitive_id": "linux_memory_growth_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_linux_temp_permission_v1_000001",
+      "case_path": "cases/28-temp-tmpfiles",
+      "case_digest": "9f71c891687f8001fc5db106d30198fad6cb9977ba3d20db51f3e17faaca01dd",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "permission_error",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Filesystem",
+        "HTTP"
+      ],
+      "template_id": "linux_temp_permission_v1",
+      "primitive_id": "linux_temp_permission_v1",
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "target_difficulty": "easy",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_tls_hostname_mismatch_v1_000001",
+      "case_path": "cases/05-tls-hostname",
+      "case_digest": "4ad6949e08d40eb093cca0a9042069671324d2b0024c0194017e1d075761a653",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "certificate_identity",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_hostname_mismatch_v1",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "fluentbit_backpressure_v1_001",
+      "case_path": "cases/16-fluentbit-backpressure",
+      "case_digest": "7719e883c83da644c05eb768f0fb7e41593c5df434d731d0997e62af7151f591",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_saturation",
+      "domain": "logging",
+      "technology_stack": [
+        "Fluent Bit",
+        "Linux"
+      ],
+      "template_id": "fluentbit_backpressure_v1",
+      "primitive_id": "fluentbit_backpressure_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    }
+  ],
+  "total_available": 10,
+  "total": 10
+}

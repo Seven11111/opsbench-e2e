@@ -1,0 +1,1393 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "dynamic_linux_memory_growth_v1_000001",
+      "template_id": "linux_memory_growth_v1",
+      "case_path": "RELEASE_ROOT\\19-linux-memory-growth\\cases\\dynamic_linux_memory_growth_v1_000001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "public_actionability": {
+        "passed": true,
+        "issues": [],
+        "version": "e2e-public-actionability-v1",
+        "required": true,
+        "public_oracle": "linux_memory_growth_v1"
+      },
+      "public_tool_oracle": {
+        "required": true,
+        "oracle_id": "linux_memory_growth_v1",
+        "oracle_version": "e2e-public-tool-oracle-v1",
+        "passed": true,
+        "status": "passed",
+        "repeats": 3,
+        "results": [
+          {
+            "id": "dynamic_linux_memory_growth_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 7.234,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#9 CACHED\n\n#10 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#10 CACHED\n\n#11 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#11 CACHED\n\n#12 [ 7/12] COPY agent /agent\n#12 CACHED\n\n#13 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#13 CACHED\n\n#14 [ 4/12] WORKDIR /agent\n#14 CACHED\n\n#15 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#15 CACHED\n\n#16 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:02d603d8d8ec670eafa8bd2cd63b1b0efaed19cf6cca039cb57c8c88f4e467a5 0.0s done\n#18 exporting config sha256:aa94917d82c3f7be64914584e6f6f16bc5fe2e07fd72c3ce7ad0f62b632ead9a 0.0s done\n#18 exporting attestation manifest sha256:1dd162be37db5f09a7ea7a901b2f01bcbc5e2a47e42234f458c26159b44a6292\n#18 exporting attestation manifest sha256:1dd162be37db5f09a7ea7a901b2f01bcbc5e2a47e42234f458c26159b44a6292 0.0s done\n#18 exporting manifest list sha256:c1a27c11c79a523ed0e0ec5565f7248cf50e03f632b5c5289eae21ad8352b43e 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-331046_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-331046_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-331046-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-331046-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-331046-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-331046-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.562,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.844,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.5,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.36,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 5.187,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.297,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.906,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"memory growth is disabled\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 20.5,
+            "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-public-oracle-1\\dynamic_linux_memory_growth_v1_000001-vena9u2z",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "dynamic_linux_memory_growth_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 8.219,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [ 4/12] WORKDIR /agent\n#7 CACHED\n\n#8 [ 7/12] COPY agent /agent\n#8 CACHED\n\n#9 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#9 CACHED\n\n#10 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#14 CACHED\n\n#15 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:f4ec6bfcb73ce039755598495c93057a3bbb8e6fa34e5123dc603e314692fc58 0.0s done\n#18 exporting config sha256:bf4ecce72c2a8bae399f7be6d01b20ff16f86165e4ea80f49500c524a21e73cd\n#18 exporting config sha256:bf4ecce72c2a8bae399f7be6d01b20ff16f86165e4ea80f49500c524a21e73cd 0.0s done\n#18 exporting attestation manifest sha256:8fd67db7426992f948d7b424fe00735831c568c3a9283b37eb1a97edcb47854e 0.1s done\n#18 exporting manifest list sha256:966237ab304be232844bcc050a15e1a2da9d299becc85563507dce575d492433\n#18 exporting manifest list sha256:966237ab304be232844bcc050a15e1a2da9d299becc85563507dce575d492433 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.3s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.1s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-351703_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-351703_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-351703-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-351703-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-351703-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-351703-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.922,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.219,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.437,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.828,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.594,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.797,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"memory growth is disabled\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 32.953,
+            "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-public-oracle-2\\dynamic_linux_memory_growth_v1_000001-tm78y822",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "dynamic_linux_memory_growth_v1_000001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 2.735,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#9 CACHED\n\n#10 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#10 CACHED\n\n#11 [ 7/12] COPY agent /agent\n#11 CACHED\n\n#12 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#12 CACHED\n\n#13 [ 4/12] WORKDIR /agent\n#13 CACHED\n\n#14 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#14 CACHED\n\n#15 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#15 CACHED\n\n#16 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:29242a63d43da39c7a96f347f24afca571c74598aedd0bf1b1ec1caa86c89818 0.0s done\n#18 exporting config sha256:d740176c3b1ec74b3d509a60b5a1b5d299eef688b56bc870cd04642e2298a61d 0.0s done\n#18 exporting attestation manifest sha256:ba601d7068ffca95e0fb97210cd642e0d9d7812946cf5ff11e388e303e05a274 0.0s done\n#18 exporting manifest list sha256:9e0951e92173abecb08cd29898de9d6c21b3d23c11268de6301f4d74447338f8 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-384859_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-384859_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-384859-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-384859-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-384859-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-384859-target-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.578,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.25,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.61,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.703,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.671,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.641,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              }
+            },
+            "checks": [
+              {
+                "name": "business_operation",
+                "passed": true,
+                "weight": 0.35,
+                "detail": "{\"healthy\": true, \"detail\": \"memory growth is disabled\"}"
+              },
+              {
+                "name": "root_signal_absent",
+                "passed": true,
+                "weight": 0.3,
+                "detail": "config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}"
+              },
+              {
+                "name": "repair_invariant",
+                "passed": true,
+                "weight": 0.2,
+                "detail": "trusted runtime contract remains intact"
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.15,
+                "detail": "repair state is persistent and root signal is absent"
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 19.344,
+            "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-public-oracle-3\\dynamic_linux_memory_growth_v1_000001-sb18sxi1",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          }
+        ],
+        "result": {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.735,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#9 CACHED\n\n#10 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#10 CACHED\n\n#11 [ 7/12] COPY agent /agent\n#11 CACHED\n\n#12 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#12 CACHED\n\n#13 [ 4/12] WORKDIR /agent\n#13 CACHED\n\n#14 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#14 CACHED\n\n#15 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#15 CACHED\n\n#16 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:29242a63d43da39c7a96f347f24afca571c74598aedd0bf1b1ec1caa86c89818 0.0s done\n#18 exporting config sha256:d740176c3b1ec74b3d509a60b5a1b5d299eef688b56bc870cd04642e2298a61d 0.0s done\n#18 exporting attestation manifest sha256:ba601d7068ffca95e0fb97210cd642e0d9d7812946cf5ff11e388e303e05a274 0.0s done\n#18 exporting manifest list sha256:9e0951e92173abecb08cd29898de9d6c21b3d23c11268de6301f4d74447338f8 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-384859_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-384859_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-384859-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-384859-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-384859-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-384859-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.578,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.25,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.61,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.703,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.078,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.671,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.641,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"memory growth is disabled\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 19.344,
+          "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-public-oracle-3\\dynamic_linux_memory_growth_v1_000001-sb18sxi1",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": []
+        },
+        "error": ""
+      },
+      "runs": [
+        {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.437,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 82.07kB 0.0s done\n#6 DONE 0.0s\n\n#7 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#7 CACHED\n\n#8 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#8 CACHED\n\n#9 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#12 CACHED\n\n#13 [ 4/12] WORKDIR /agent\n#13 CACHED\n\n#14 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#14 CACHED\n\n#15 [ 7/12] COPY agent /agent\n#15 CACHED\n\n#16 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:fcb61795f18a105f013511c7c6c908d9c3580bbfdb852dfa3552d359d3200556 0.0s done\n#18 exporting config sha256:80096be813421e4a6871bd4b0f875ab9aea819a32fb5350679dfcb63b67a21a2 0.0s done\n#18 exporting attestation manifest sha256:2321b10ed741392c15f571728c4fc6fe38dd4379fcb3dc4cf7cb548da9f01b06 0.0s done\n#18 exporting manifest list sha256:8997be3520e08c0d39c82ed6303550bd51e6355a6b52dc8eabaa3a9c83d00521 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-224390_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-224390_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-224390-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-224390-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-224390-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-224390-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.532,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.937,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.578,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.438,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.0,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 3.235,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.984,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'memory_growth', 'growth_enabled': True, 'repair_mode': 'fault'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 19.36,
+          "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-y6plo518",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The injected fault remains active.",
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.25,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 DONE 0.0s\n\n#6 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 230B done\n#5 DONE 0.0s\n\n#7 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#8 CACHED\n\n#9 [ 4/12] WORKDIR /agent\n#9 CACHED\n\n#10 [ 7/12] COPY agent /agent\n#10 CACHED\n\n#11 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#13 CACHED\n\n#14 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#14 CACHED\n\n#15 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#15 CACHED\n\n#16 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:5c2a2474481310beed4cc0a2cf2e6c746289093131b4954e78733f67ad408513 0.0s done\n#18 exporting config sha256:ad24bc1fa059fe814930922c2deb33af4225759b2d1ace88db3c5a254caae0e9 0.0s done\n#18 exporting attestation manifest sha256:ca5568d6d408945f396c4e002bbd16fe1e4023fb7bb37727d18ce0a87bde3f94 0.0s done\n#18 exporting manifest list sha256:8b433a05c2db7f1e8ff2a57c29c9a5abb07582d913027d0a38ec8925bccf9e6a 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-243750_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-243750_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-243750-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-243750-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-243750-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-243750-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.734,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.641,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.515,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.813,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.797,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.953,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.297,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"memory growth is disabled\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 18.687,
+          "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-495f_v5d",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "expected_reason": "The registered safe repair restores the public contract.",
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.953,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#7 CACHED\n\n#8 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#8 CACHED\n\n#9 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [ 7/12] COPY agent /agent\n#13 CACHED\n\n#14 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#14 CACHED\n\n#15 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#15 CACHED\n\n#16 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:a282df21435892641c6482022cfa0efa5bbb0b7c2549bb961e2de73a38ef7cda 0.0s done\n#18 exporting config sha256:23f59ed4fff5e7a933d3afb47ffbf3dc8a315b27b0bc96d23f053106aea51f7e 0.0s done\n#18 exporting attestation manifest sha256:c546b688853143f30f42a9c693aa5b4135f729d871e92aa97217f9366df11884 0.0s done\n#18 exporting manifest list sha256:26f28a6dda7d87521c168d4f2756cc8e9086f524306f86d452af115bb423bfc9\n#18 exporting manifest list sha256:26f28a6dda7d87521c168d4f2756cc8e9086f524306f86d452af115bb423bfc9 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-262437_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-262437_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-262437-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-262437-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-262437-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-262437-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.516,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.937,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.594,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.984,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.344,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 2.563,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': True, 'repair_mode': 'wrong-layer'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.437,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'memory_growth', 'growth_enabled': True, 'repair_mode': 'wrong-layer'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 16.859,
+          "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-c7lihf8a",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The symptom is not repaired while preserving the contract.",
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 3.234,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [ 7/12] COPY agent /agent\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#12 CACHED\n\n#13 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#13 CACHED\n\n#14 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#15 CACHED\n\n#16 [ 4/12] WORKDIR /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:de3c7a33715015dd3cf76136a68165ed2bd100f7a1f33ac7505f5538272b3055 0.0s done\n#18 exporting config sha256:54c7128c6c1fe9aa9d48bd26651d21fe000aa5a33d07712313f1315c851cdd5c\n#18 exporting config sha256:54c7128c6c1fe9aa9d48bd26651d21fe000aa5a33d07712313f1315c851cdd5c 0.0s done\n#18 exporting attestation manifest sha256:5fcd7cd9ed9d04c2b5da456180df51c36562f24e33abddd37c8fc04f96117300 0.0s done\n#18 exporting manifest list sha256:89a481e5ce5680255e07b781de59e01d5b332475f9d9f5a50fd8c02dfe332627 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-279296_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-279296_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-279296-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-279296-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-279296-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-279296-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.656,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.906,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.75,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.282,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.0,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 0.593,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.65, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'temporary'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.172,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"memory growth is disabled\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'temporary'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.65,
+          "duration_sec": 12.719,
+          "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-x7oetfzm",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "A critical recovery or persistence condition remains unsatisfied.",
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 7.281,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [ 4/12] WORKDIR /agent\n#9 CACHED\n\n#10 [ 7/12] COPY agent /agent\n#10 CACHED\n\n#11 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#11 CACHED\n\n#12 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#13 CACHED\n\n#14 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#14 CACHED\n\n#15 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#15 CACHED\n\n#16 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:29ccb26a52ff77657f6fee35873e4272f7c0256ff0347f9b529ec2039a643036 0.0s done\n#18 exporting config sha256:d0df174c2ad5fd1868fcf4e6207af5ba912f38bf79adc6cb2df33f00c6a76809 0.0s done\n#18 exporting attestation manifest sha256:df72051d44b052c8daf969b08ef3549f99d7ea57f3eb78a60f1adfaa44bc0abf 0.0s done\n#18 exporting manifest list sha256:ac8f2cf95b8ba0f34466b79fbf7cd97a2115e8b0e07077ed1bc9dd65e6064378 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-292015_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-292015_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-292015-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-292015-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-292015-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-292015-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.562,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.844,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.703,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.266,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.953,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 0.625,
+              "stdout_tail": "{\"passed\": false, \"score\": 0, \"checks\": [{\"name\": \"business_operation\", \"passed\": false, \"weight\": 0.35, \"detail\": \"curl: (22) The requested URL returned error: 503\"}, {\"name\": \"root_signal_absent\", \"passed\": false, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': True, 'repair_mode': 'fault'}\"}, {\"name\": \"repair_invariant\", \"passed\": false, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.828,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": false,
+              "weight": 0.35,
+              "detail": "curl: (22) The requested URL returned error: 503"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": false,
+              "weight": 0.3,
+              "detail": "config={'mode': 'memory_growth', 'growth_enabled': True, 'repair_mode': 'fault'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": false,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 0.0,
+          "duration_sec": 15.235,
+          "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-nzqj4d5i",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "Restart alone is not a durable repair unless the case explicitly declares otherwise.",
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.171,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#7 CACHED\n\n#8 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#9 CACHED\n\n#10 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#10 CACHED\n\n#11 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [ 7/12] COPY agent /agent\n#12 CACHED\n\n#13 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#13 CACHED\n\n#14 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#14 CACHED\n\n#15 [ 4/12] WORKDIR /agent\n#15 CACHED\n\n#16 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:ac1fcd3c8f9438a781f8ad830960b374369bb10361dc1cb2a3270359829bc60b 0.0s done\n#18 exporting config sha256:b6e5597f4a33f90d76486cf398abb713f3b42b6ca9cd12f49093d5d8e21f991f 0.0s done\n#18 exporting attestation manifest sha256:b0ba759514687317ee923685f9aeed2e8096afc04acb50da88a54685e12bbcc7 0.0s done\n#18 exporting manifest list sha256:1c9ec99513b759eccae961ddc401e83e18e33b445210e3b0d1aa0a0a17934700\n#18 exporting manifest list sha256:1c9ec99513b759eccae961ddc401e83e18e33b445210e3b0d1aa0a0a17934700 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-307250_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-307250_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-307250-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-307250-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-307250-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-307250-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.422,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.297,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.188,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.453,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.281,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.578,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.719,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"memory growth is disabled\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 11.437,
+          "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-b6q9ee_j",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.812,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 807B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 715B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [ 1/12] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 transferring context: 230B done\n#6 DONE 0.0s\n\n#7 [10/12] COPY runtime/service.py /opt/opsbench/service.py\n#7 CACHED\n\n#8 [ 3/12] RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin opsbench\n#8 CACHED\n\n#9 [11/12] RUN chown -R root:root /opt/opsbench && chmod 700 /opt/opsbench\n#9 CACHED\n\n#10 [ 4/12] WORKDIR /agent\n#10 CACHED\n\n#11 [ 8/12] RUN chmod +x /agent/run.py /agent/run.sh\n#11 CACHED\n\n#12 [ 9/12] RUN mkdir -p /opt/opsbench && chmod 700 /opt/opsbench\n#12 CACHED\n\n#13 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl procps util-linux lsof     && rm -rf /var/lib/apt/lists/*\n#13 CACHED\n\n#14 [ 5/12] COPY agent/requirements.txt /agent/requirements.txt\n#14 CACHED\n\n#15 [ 6/12] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#15 CACHED\n\n#16 [ 7/12] COPY agent /agent\n#16 CACHED\n\n#17 [12/12] RUN chmod 755 /opt/opsbench /opt/opsbench/service.py\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:779af38a146e14da698fc49c7bc7b4335ead917a40354555c13c2282ef74f4c9 0.0s done\n#18 exporting config sha256:7ab55d92ecc633e4e35b9a65d06c3c43ed3c65e674e9becf9ece8f57de4a5265 0.0s done\n#18 exporting attestation manifest sha256:6feb7f596ba44ff0f06fe2dff3019b0c941997796235a44371dfcef87d24109d 0.0s done\n#18 exporting manifest list sha256:1d6b9315dd19dc30841aee9029b1b0fcb71696af89318e2d90c220bbf792be98\n#18 exporting manifest list sha256:1d6b9315dd19dc30841aee9029b1b0fcb71696af89318e2d90c220bbf792be98 0.0s done\n#18 naming to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest done\n#18 unpacking to docker.io/library/opsbench-e2e-linux_memory_growth_v1:latest 0.0s done\n#18 DONE 0.2s\n\n#19 resolving provenance for metadata file\n#19 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-e2e-linux_memory_growth_v1 Building \n Image opsbench-e2e-linux_memory_growth_v1 Built \n Network opsbench-dynamic-linux-memory-growth-v1-29748-318687_default Creating \n Network opsbench-dynamic-linux-memory-growth-v1-29748-318687_default Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-318687-target-1 Creating \n Container opsbench-dynamic-linux-memory-growth-v1-29748-318687-target-1 Created \n Container opsbench-dynamic-linux-memory-growth-v1-29748-318687-target-1 Starting \n Container opsbench-dynamic-linux-memory-growth-v1-29748-318687-target-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.641,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.859,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'baseline'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.625,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.5,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.234,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.265,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"business_operation\", \"passed\": true, \"weight\": 0.35, \"detail\": \"{\\\"healthy\\\": true, \\\"detail\\\": \\\"memory growth is disabled\\\"}\"}, {\"name\": \"root_signal_absent\", \"passed\": true, \"weight\": 0.3, \"detail\": \"config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}\"}, {\"name\": \"repair_invariant\", \"passed\": true, \"weight\": 0.2, \"detail\": \"trusted runtime contract remains intact\"}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.15, \"detail\": \"repair state is persistent and root signal is absent\"}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.829,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "business_operation",
+              "passed": true,
+              "weight": 0.35,
+              "detail": "{\"healthy\": true, \"detail\": \"memory growth is disabled\"}"
+            },
+            {
+              "name": "root_signal_absent",
+              "passed": true,
+              "weight": 0.3,
+              "detail": "config={'mode': 'memory_growth', 'growth_enabled': False, 'repair_mode': 'persistent'}"
+            },
+            {
+              "name": "repair_invariant",
+              "passed": true,
+              "weight": 0.2,
+              "detail": "trusted runtime contract remains intact"
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.15,
+              "detail": "repair state is persistent and root signal is absent"
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 12.094,
+          "case_digest": "eb682b7fcc7fc93adccb671796cd5d97a24828fdde654bfa1bd2c1e91732a99b",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\19-linux-memory-growth\\reports\\control_traces\\dynamic_linux_memory_growth_v1_000001-sualz6i7",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        },
+        {
+          "id": "dynamic_linux_memory_growth_v1_000001",
+          "scenario": "cleanup",
+          "control_mode": "cleanup",
+          "repeat_index": 0,
+          "passed": true,
+          "score": 1.0,
+          "expected": "pass",
+          "expected_reason": "Each control run must leave no case-scoped Docker resources behind.",
+          "phase_status": {
+            "cleanup": "passed"
+          }
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 8
+}

@@ -1,0 +1,1393 @@
+{
+  "report_version": "opsbench-e2e-runtime-controls-v1",
+  "execution_mode": "container",
+  "passed": true,
+  "cases": [
+    {
+      "id": "fluentbit_backpressure_v1_001",
+      "template_id": "fluentbit_backpressure_v1",
+      "case_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\cases\\fluentbit_backpressure_v1_001",
+      "passed": true,
+      "case_status": "evaluable",
+      "issues": [],
+      "gate": {
+        "passed": true,
+        "issues": [],
+        "required_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "observed_scenarios": [
+          "cleanup",
+          "no_op",
+          "oracle",
+          "partial_fix",
+          "repeat",
+          "restart_only",
+          "wrong_fix"
+        ],
+        "gate_version": "e2e-runtime-gate-v1"
+      },
+      "public_actionability": {
+        "passed": true,
+        "issues": [],
+        "version": "e2e-public-actionability-v1",
+        "required": true,
+        "public_oracle": "fluentbit_backpressure_v1"
+      },
+      "public_tool_oracle": {
+        "required": true,
+        "oracle_id": "fluentbit_backpressure_v1",
+        "oracle_version": "e2e-public-tool-oracle-v1",
+        "passed": true,
+        "status": "passed",
+        "repeats": 3,
+        "results": [
+          {
+            "id": "fluentbit_backpressure_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.484,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.57kB 0.0s done\n#1 DONE 0.0s\n\n#2 [agent-runner internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [agent-runner internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [sink internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [sink 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [sink internal] load build context\n#6 transferring context: 732B done\n#6 DONE 0.0s\n\n#7 [agent-runner 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#7 CACHED\n\n#8 [agent-runner 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#8 CACHED\n\n#9 [agent-runner 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [agent-runner 4/9] WORKDIR /agent\n#10 CACHED\n\n#11 [agent-runner 8/9] COPY runtime /runtime\n#11 CACHED\n\n#12 [agent-runner 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [agent-runner 7/9] COPY agent /agent\n#13 CACHED\n\n#14 [agent-runner 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [agent-runner] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:50d9d5e73845f7592bc5a81053572f46579bfa0c056d15c0b0e72e2f55a361f5 0.0s done\n#15 exporting config sha256:a0887559f5d2b70258e8ab86b6b597f9386b231a5be70c11d22e1f166949e79b 0.0s done\n#15 exporting attestation manifest sha256:71dc60e8007d87390a6478735d905f5909ad8bd0280aa3cfda7ca4479a9af3eb\n#15 exporting attestation manifest sha256:71dc60e8007d87390a6478735d905f5909ad8bd0280aa3cfda7ca4479a9af3eb 0.1s done\n#15 exporting manifest list sha256:0239f0aaa0c5818d7946b3c23dadb2a941d5ee3dd3a742de72dae66a15aa96c7 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-107421-agent-runner:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-107421-agent-runner:latest 0.0s done\n#15 DONE 0.3s\n\n#16 [sink] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:383f31be91a89e051e6ba3a2c71e98cf49e09fd4f2642eed3feb440c6eb9d739 0.0s done\n#16 exporting config sha256:7d208cf492049881b02f71573faf82367c7f7647b7b315c3ea365398026ae8b1 0.0s done\n#16 exporting attestation manifest sha256:f10d5ae81abcbaf5bb06e66b1dee4f2985d1a1b347925f644a2cf36fabb1ced6 0.1s done\n#16 exporting manifest list sha256:f08006c136f3b559c0f34c6127b0f91a732e0221a2e058a5d2c144878ede846f 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-107421-sink:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-107421-sink:latest 0.0s done\n#16 DONE 0.3s\n\n#17 [agent-runner] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [sink] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-107421-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-107421-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-107421-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-107421-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-107421_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-107421_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-107421-agent-runner-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.313,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.203,
+                "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.078,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.75,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.5,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.406,
+                "stdout_tail": "",
+                "stderr_tail": "curl: (22) The requested URL returned error: 400\r\n"
+              }
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "effective_output",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "metrics_available",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 19.719,
+            "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-public-oracle-1\\fluentbit_backpressure_v1_001-zl750jit",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "fluentbit_backpressure_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 9.953,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.57kB 0.0s done\n#1 DONE 0.0s\n\n#2 [sink internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [sink internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [sink internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [agent-runner internal] load build context\n#5 DONE 0.0s\n\n#6 [agent-runner 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [sink internal] load build context\n#5 transferring context: 732B done\n#5 DONE 0.0s\n\n#7 [sink 7/9] COPY agent /agent\n#7 CACHED\n\n#8 [sink 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [sink 4/9] WORKDIR /agent\n#9 CACHED\n\n#10 [sink 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#10 CACHED\n\n#11 [sink 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#11 CACHED\n\n#12 [sink 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#12 CACHED\n\n#13 [sink 8/9] COPY runtime /runtime\n#13 CACHED\n\n#14 [agent-runner 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [sink] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:4a7fa9ff6d99df8f2dc35e2b68b617f541b007729ea58c4b3399189da41769a0 0.0s done\n#15 exporting config sha256:4f4aa10f983188c63db9321f372dcb7230cb1ae267d61d39057004f2905c3101 0.0s done\n#15 exporting attestation manifest sha256:2b15afb6b41c9d2ad6d2b0753af899dd12653ab097d198554bfe8e2862f1cecf 0.1s done\n#15 exporting manifest list sha256:fa477cbd62b36353192de6fa4968b9b43764fa5904303783fc06785fd04b385a 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-127406-sink:latest\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-127406-sink:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-127406-sink:latest 0.0s done\n#15 DONE 0.4s\n\n#16 [agent-runner] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:1e2f2b74034f3576374f94dba4e06bcf8eeaaeeaea79ed937a0ac0d5f417efba 0.0s done\n#16 exporting config sha256:b373734d5916228827e4422d7b4ce0a1ba877205b0fa6acaa175af382959be43 0.0s done\n#16 exporting attestation manifest sha256:bf8499cd2e7f0948d14e8f914f8565920675e9018015979f2f4202607addf2af 0.1s done\n#16 exporting manifest list sha256:37fbdca24649892ad929a1eac42d50d63bb277d1c6882bb8be9ca5fe42b0e85a 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-127406-agent-runner:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-127406-agent-runner:latest 0.0s done\n#16 DONE 0.4s\n\n#17 [sink] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [agent-runner] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-127406-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-127406-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-127406-agent-runner Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-127406-sink Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-127406_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-127406_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-127406-agent-runner-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.094,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.328,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.078,
+                "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.062,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.734,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.75,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 1.485,
+                "stdout_tail": "",
+                "stderr_tail": "curl: (22) The requested URL returned error: 400\r\n"
+              }
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "effective_output",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "metrics_available",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 25.234,
+            "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-public-oracle-2\\fluentbit_backpressure_v1_001-xhuxphen",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          },
+          {
+            "id": "fluentbit_backpressure_v1_001",
+            "family": "e2e",
+            "passed": true,
+            "case_status": "evaluable",
+            "agent_completed": true,
+            "phase_status": {
+              "validate": "passed",
+              "provision": "passed",
+              "setup": "passed",
+              "baseline_check": "passed",
+              "inject": "passed",
+              "check_injected": "passed",
+              "run_agent": "passed",
+              "verify": "passed",
+              "cleanup": "passed"
+            },
+            "phase_details": {
+              "provision": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 10.875,
+                "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.57kB 0.0s done\n#1 DONE 0.0s\n\n#2 [agent-runner internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [agent-runner internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [sink internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [agent-runner internal] load build context\n#5 DONE 0.0s\n\n#6 [sink 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#6 [agent-runner 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [sink internal] load build context\n#5 transferring context: 732B done\n#5 DONE 0.0s\n\n#7 [agent-runner 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#7 CACHED\n\n#8 [agent-runner 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#8 CACHED\n\n#9 [agent-runner 7/9] COPY agent /agent\n#9 CACHED\n\n#10 [agent-runner 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#10 CACHED\n\n#11 [agent-runner 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [agent-runner 8/9] COPY runtime /runtime\n#12 CACHED\n\n#13 [agent-runner 4/9] WORKDIR /agent\n#13 CACHED\n\n#14 [sink 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [sink] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:dd8f04fe699a3fd3c69b18e49da6d591a7058d99bd5ccbced172567ac744e276 0.0s done\n#15 exporting config sha256:3f27b06f4d21087c32c33ca8ca8a2d469fd7f5e61489992eff7cc406b450a124 0.0s done\n#15 exporting attestation manifest sha256:11c6d880ae8c6f4e38b1c7c3bc410a61c3a396a467cd98918b403efcf13b9b22 0.1s done\n#15 exporting manifest list sha256:f0495490cb2b8e117382e5906739e37d8406de1ca8ac3c2b339e301eeee77895 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-sink:latest\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-sink:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-sink:latest 0.0s done\n#15 DONE 0.3s\n\n#16 [agent-runner] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:953bf6adc1b13024f08cc69af5336e7e021954ee4ec946ea48425a6951fba55f 0.0s done\n#16 exporting config sha256:5e5cca839f2e8e717c15749155730818c461d7b1bfb82d291c670504c28e9308 0.0s done\n#16 exporting attestation manifest sha256:42ad7996e93244044e1bf9303bb889fc0c9e2cbca146bcf1d888972713d93fd1 0.1s done\n#16 exporting manifest list sha256:2690298e1ee93b0c4996918f784b69f45e21cd4cd94100043500cd90da322fb5 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner:latest 0.0s done\n#16 DONE 0.3s\n\n#17 [sink] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [agent-runner] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+                "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-152921-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-152921-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-152921_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-152921_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner-1 Started \n"
+              },
+              "setup": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.109,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "baseline_check": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.344,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+                "stderr_tail": ""
+              },
+              "inject": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.828,
+                "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+                "stderr_tail": ""
+              },
+              "check_injected": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.125,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "run_agent": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 4.563,
+                "stdout_tail": "",
+                "stderr_tail": ""
+              },
+              "verify": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.531,
+                "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+                "stderr_tail": ""
+              },
+              "cleanup_script": {
+                "returncode": 0,
+                "timed_out": false,
+                "duration_sec": 0.219,
+                "stdout_tail": "",
+                "stderr_tail": "curl: (22) The requested URL returned error: 400\r\n"
+              }
+            },
+            "checks": [
+              {
+                "name": "service_health",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "effective_output",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "metrics_available",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              },
+              {
+                "name": "persistence",
+                "passed": true,
+                "weight": 0.25,
+                "detail": ""
+              }
+            ],
+            "score": 1.0,
+            "duration_sec": 22.75,
+            "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+            "protocol_id": "opsbench-agent-v1",
+            "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-public-oracle-3\\fluentbit_backpressure_v1_001-75guqmzl",
+            "error_type": "",
+            "failure_type": "",
+            "infrastructure_blocked": false,
+            "agent_prompt_digest": "",
+            "tool_contract_digest": "",
+            "agent_runtime_digest": "",
+            "agent_model": "",
+            "agent_max_steps": 0,
+            "agent_timeout_sec": 0,
+            "errors": []
+          }
+        ],
+        "result": {
+          "id": "fluentbit_backpressure_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 10.875,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.57kB 0.0s done\n#1 DONE 0.0s\n\n#2 [agent-runner internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [agent-runner internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [sink internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [agent-runner internal] load build context\n#5 DONE 0.0s\n\n#6 [sink 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#6 [agent-runner 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [sink internal] load build context\n#5 transferring context: 732B done\n#5 DONE 0.0s\n\n#7 [agent-runner 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#7 CACHED\n\n#8 [agent-runner 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#8 CACHED\n\n#9 [agent-runner 7/9] COPY agent /agent\n#9 CACHED\n\n#10 [agent-runner 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#10 CACHED\n\n#11 [agent-runner 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [agent-runner 8/9] COPY runtime /runtime\n#12 CACHED\n\n#13 [agent-runner 4/9] WORKDIR /agent\n#13 CACHED\n\n#14 [sink 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [sink] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:dd8f04fe699a3fd3c69b18e49da6d591a7058d99bd5ccbced172567ac744e276 0.0s done\n#15 exporting config sha256:3f27b06f4d21087c32c33ca8ca8a2d469fd7f5e61489992eff7cc406b450a124 0.0s done\n#15 exporting attestation manifest sha256:11c6d880ae8c6f4e38b1c7c3bc410a61c3a396a467cd98918b403efcf13b9b22 0.1s done\n#15 exporting manifest list sha256:f0495490cb2b8e117382e5906739e37d8406de1ca8ac3c2b339e301eeee77895 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-sink:latest\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-sink:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-sink:latest 0.0s done\n#15 DONE 0.3s\n\n#16 [agent-runner] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:953bf6adc1b13024f08cc69af5336e7e021954ee4ec946ea48425a6951fba55f 0.0s done\n#16 exporting config sha256:5e5cca839f2e8e717c15749155730818c461d7b1bfb82d291c670504c28e9308 0.0s done\n#16 exporting attestation manifest sha256:42ad7996e93244044e1bf9303bb889fc0c9e2cbca146bcf1d888972713d93fd1 0.1s done\n#16 exporting manifest list sha256:2690298e1ee93b0c4996918f784b69f45e21cd4cd94100043500cd90da322fb5 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner:latest 0.0s done\n#16 DONE 0.3s\n\n#17 [sink] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [agent-runner] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-152921-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-152921-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-152921_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-152921_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-152921-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.109,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.344,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.828,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.125,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.563,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.531,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.219,
+              "stdout_tail": "",
+              "stderr_tail": "curl: (22) The requested URL returned error: 400\r\n"
+            }
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "effective_output",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "metrics_available",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 22.75,
+          "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-public-oracle-3\\fluentbit_backpressure_v1_001-75guqmzl",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": []
+        },
+        "error": ""
+      },
+      "runs": [
+        {
+          "id": "fluentbit_backpressure_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 5.531,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.57kB 0.0s done\n#1 DONE 0.0s\n\n#2 [agent-runner internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [sink internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [sink internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [sink 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [sink internal] load build context\n#6 transferring context: 1.34kB done\n#6 DONE 0.0s\n\n#7 [agent-runner 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#7 CACHED\n\n#8 [agent-runner 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#8 CACHED\n\n#9 [agent-runner 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#9 CACHED\n\n#10 [agent-runner 4/9] WORKDIR /agent\n#10 CACHED\n\n#11 [agent-runner 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#11 CACHED\n\n#12 [agent-runner 7/9] COPY agent /agent\n#12 CACHED\n\n#13 [agent-runner 8/9] COPY runtime /runtime\n#13 DONE 0.0s\n\n#14 [agent-runner 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 DONE 0.2s\n\n#14 [sink 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 DONE 0.2s\n\n#15 [sink] exporting to image\n#15 exporting layers 0.1s done\n#15 exporting manifest sha256:6d4d8613c7bea1d054ec5af2946f10b7cf1ebc7b7ef17f8d1adffcd0caddc9bc 0.0s done\n#15 exporting config sha256:1376bd0cc6c46604e6cbb3ef39b28e6c416ad78a4121720758c2227f21afd0c9 0.0s done\n#15 exporting attestation manifest sha256:0695aad92448617e7e9d05dbff1274634ace82d5bd446d598900fdf50b70812a\n#15 exporting attestation manifest sha256:0695aad92448617e7e9d05dbff1274634ace82d5bd446d598900fdf50b70812a 0.1s done\n#15 exporting manifest list sha256:c49ddfd88062a5239ed5e51fdec949a412cad51b1b46c064d439d3aa68c12a86 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-996515-sink:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-996515-sink:latest\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-996515-sink:latest 0.1s done\n#15 DONE 0.5s\n\n#16 [agent-runner] exporting to image\n#16 exporting layers 0.1s done\n#16 exporting manifest sha256:1c23d9b5451dbde1d8a1f8a2d2b61be7b62c86c1cf71f0fbb47c3bbbc8869fb0 0.0s done\n#16 exporting config sha256:0d508ccb114648377106a18525f8397c6a2219c935f5d4f72c09c1d6fc9a259b 0.0s done\n#16 exporting attestation manifest sha256:9933e315702a0ce3b125e99f93ee547768ac7589f73ddf6619950aa87a2e86c1 0.1s done\n#16 exporting manifest list sha256:85e646f18a0fef33d4ee7ea6f734de3c6b91dab64fd9b035a52afc8f62426c01 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-996515-agent-runner:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-996515-agent-runner:latest 0.1s done\n#16 DONE 0.4s\n\n#17 [agent-runner] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [sink] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-996515-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-996515-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-996515-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-996515-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-996515_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-996515_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-996515-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.156,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.438,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.219,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.109,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.234,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.344,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.5, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": false, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.266,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "effective_output",
+              "passed": false,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "metrics_available",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": ""
+            }
+          ],
+          "score": 0.5,
+          "duration_sec": 13.594,
+          "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-6lz06q1r",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The injected fault remains active.",
+          "scenario": "no_op",
+          "control_mode": "no_op",
+          "repeat_index": 0
+        },
+        {
+          "id": "fluentbit_backpressure_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 7.453,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.56kB 0.0s done\n#1 DONE 0.0s\n\n#2 [sink internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [agent-runner internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [sink internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [agent-runner internal] load build context\n#5 DONE 0.0s\n\n#6 [agent-runner 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [sink internal] load build context\n#5 transferring context: 732B done\n#5 DONE 0.0s\n\n#7 [agent-runner 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#7 CACHED\n\n#8 [agent-runner 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#8 CACHED\n\n#9 [agent-runner 7/9] COPY agent /agent\n#9 CACHED\n\n#10 [agent-runner 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#10 CACHED\n\n#11 [agent-runner 8/9] COPY runtime /runtime\n#11 CACHED\n\n#12 [agent-runner 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [agent-runner 4/9] WORKDIR /agent\n#13 CACHED\n\n#14 [sink 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [agent-runner] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:8fac38ca6687ea16f6d5955d870e6c6794aeef52e72df5e775a3d6ff28944b12 0.0s done\n#15 exporting config sha256:5b08612fb5ba6f98dfabc884032a94d0f659b3310a7176dc3e0b3cdc3823804d 0.0s done\n#15 exporting attestation manifest sha256:d99b378a1f77a65328cd141d5d5c6d16ea6dde987f0935eee73f06fe3c15bd4c 0.1s done\n#15 exporting manifest list sha256:bb77e4fa5395d96c9abad6162d9d752d257a575ba15caa79c2adb26887b6369b 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner:latest\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner:latest 0.0s done\n#15 DONE 0.3s\n\n#16 [sink] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:0dd60b194a1994bf75d2a0d0a20188dcc05593edf0582d945ced61d2c21e1a83 0.0s done\n#16 exporting config sha256:1ca54fb5b164f2d328b84137fe695fe95ec47a1b0222913d6e14f47ce0c47924 0.0s done\n#16 exporting attestation manifest sha256:1014c2c0b530a2f5e95ef42ea554fe5205e81f9b5c81459d439d8082062c49bc 0.1s done\n#16 exporting manifest list sha256:06c4bebecbca912b3bed264ce14eaf7997806d42dcc6e9a28958f2d9419c3543 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-10109-sink:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-10109-sink:latest 0.0s done\n#16 DONE 0.3s\n\n#17 [agent-runner] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [sink] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-10109-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-10109-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-10109_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-10109_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-10109-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.375,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.969,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.484,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.063,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.468,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.203,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.782,
+              "stdout_tail": "",
+              "stderr_tail": "curl: (22) The requested URL returned error: 400\r\n"
+            }
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "effective_output",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "metrics_available",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 19.562,
+          "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-vzxw7_ri",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "expected_reason": "The registered safe repair restores the public contract.",
+          "scenario": "oracle",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "fluentbit_backpressure_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.594,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.56kB 0.0s done\n#1 DONE 0.0s\n\n#2 [sink internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [agent-runner internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [agent-runner internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [agent-runner 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [sink internal] load build context\n#6 transferring context: 732B done\n#6 DONE 0.0s\n\n#7 [agent-runner 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#7 CACHED\n\n#8 [agent-runner 4/9] WORKDIR /agent\n#8 CACHED\n\n#9 [agent-runner 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#9 CACHED\n\n#10 [agent-runner 7/9] COPY agent /agent\n#10 CACHED\n\n#11 [agent-runner 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#11 CACHED\n\n#12 [agent-runner 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#12 CACHED\n\n#13 [agent-runner 8/9] COPY runtime /runtime\n#13 CACHED\n\n#14 [sink 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [agent-runner] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:d82e9cf7932d159def4e3b30a123509db4510d733f048c75e8fddcf9b2162d6e 0.0s done\n#15 exporting config sha256:c180caa136e17361289d87a8f5bfdfea0c873bcec43538aaed3e28d3b1327336 0.0s done\n#15 exporting attestation manifest sha256:b1d697dafc94d6b116dfc2cd56d5991beb2f7c4e7800b84568966dd124a125c2\n#15 exporting attestation manifest sha256:b1d697dafc94d6b116dfc2cd56d5991beb2f7c4e7800b84568966dd124a125c2 0.1s done\n#15 exporting manifest list sha256:9b0e19f433d5b759b2d362552884692ee9f44f4938308e140d2d6d5c8e9fe8fd 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-29671-agent-runner:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-29671-agent-runner:latest 0.0s done\n#15 DONE 0.2s\n\n#16 [sink] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:f091b7a65d9d84abaca730630dcbbf3560e66ef4ccb7eeee88a9e4b0c3cbb25a 0.0s done\n#16 exporting config sha256:c29ec2b790865157e016cbf7ef8c1ee1f4828d93d897e312a7480e10cb2898c7 0.0s done\n#16 exporting attestation manifest sha256:d42c291fa2f762bdbde959ca6914cc6fa9c7951b009e4ea0afdd6c37b78afd73 0.1s done\n#16 exporting manifest list sha256:c296b1fcd363ea94977b80e9f9bcc9166e2ab0686b1086094c25c73c6cbc47d5 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-29671-sink:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-29671-sink:latest 0.0s done\n#16 DONE 0.3s\n\n#17 [agent-runner] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [sink] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-29671-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-29671-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-29671-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-29671-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-29671_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-29671_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-29671-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.0,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.297,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.171,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.125,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.313,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.89,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.5, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": false, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.735,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "effective_output",
+              "passed": false,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "metrics_available",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": ""
+            }
+          ],
+          "score": 0.5,
+          "duration_sec": 17.282,
+          "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-2_q56kv_",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "Restart alone is not a durable repair unless the case explicitly declares otherwise.",
+          "scenario": "restart_only",
+          "control_mode": "restart_only",
+          "repeat_index": 0
+        },
+        {
+          "id": "fluentbit_backpressure_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.844,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.56kB 0.0s done\n#1 DONE 0.0s\n\n#2 [sink internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [agent-runner internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [sink internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [agent-runner 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [sink internal] load build context\n#6 transferring context: 732B done\n#6 DONE 0.0s\n\n#7 [sink 4/9] WORKDIR /agent\n#7 CACHED\n\n#8 [sink 7/9] COPY agent /agent\n#8 CACHED\n\n#9 [sink 8/9] COPY runtime /runtime\n#9 CACHED\n\n#10 [sink 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#10 CACHED\n\n#11 [sink 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#11 CACHED\n\n#12 [sink 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#12 CACHED\n\n#13 [sink 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#13 CACHED\n\n#14 [agent-runner 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [agent-runner] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:fdba653603513136f501dc7b543af4dd5de9abc1cfc7dbc3ee63888c1340442c 0.0s done\n#15 exporting config sha256:660eaec5c728f0cb18a27f78a578ba0207297083058a21792f3d75098eba284f 0.0s done\n#15 exporting attestation manifest sha256:321dae452dcfe1ade6c381d52ab97a7f7ff790653ee3d67e221b3ebae3683d4f\n#15 exporting attestation manifest sha256:321dae452dcfe1ade6c381d52ab97a7f7ff790653ee3d67e221b3ebae3683d4f 0.1s done\n#15 exporting manifest list sha256:9b0b1cc4fab09a3ef66defcf92d503f006221b2e8a2b79466e196e275f280d16 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-46953-agent-runner:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-46953-agent-runner:latest 0.0s done\n#15 DONE 0.3s\n\n#16 [sink] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:55fb28a823826adced16dd7a875afe22ab9b0eb3c0a31e885ecd60bf75cd4bb2 0.0s done\n#16 exporting config sha256:1539608083194bfd0398dd52998b65ef78f82e8ebbfcda28414178a560a046a3 0.0s done\n#16 exporting attestation manifest sha256:5141bb3a3ee9b1682a27c9e04a8f73cbc6f2a0365d95b598f0534e34267459e2 0.1s done\n#16 exporting manifest list sha256:22855f91ad797efa1174f230ec4fbf5ec0bbe892f98c28333b9e1e846c090113 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-46953-sink:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-46953-sink:latest 0.0s done\n#16 DONE 0.3s\n\n#17 [agent-runner] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [sink] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-46953-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-46953-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-46953-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-46953-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-46953_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-46953_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-46953-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.109,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.328,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.188,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.125,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.25,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 0.296,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.5, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": false, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.172,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "effective_output",
+              "passed": false,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "metrics_available",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": ""
+            }
+          ],
+          "score": 0.5,
+          "duration_sec": 12.531,
+          "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-kl7t9i_8",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "The symptom is not repaired while preserving the contract.",
+          "scenario": "wrong_fix",
+          "control_mode": "wrong_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "fluentbit_backpressure_v1_001",
+          "family": "e2e",
+          "passed": false,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.656,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.56kB 0.0s done\n#1 DONE 0.0s\n\n#2 [agent-runner internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [sink internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [agent-runner internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [sink internal] load build context\n#5 DONE 0.0s\n\n#6 [sink 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#6 DONE 0.0s\n\n#5 [agent-runner internal] load build context\n#5 transferring context: 732B done\n#5 DONE 0.0s\n\n#7 [agent-runner 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#7 CACHED\n\n#8 [agent-runner 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#8 CACHED\n\n#9 [agent-runner 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#9 CACHED\n\n#10 [agent-runner 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#10 CACHED\n\n#11 [agent-runner 7/9] COPY agent /agent\n#11 CACHED\n\n#12 [agent-runner 4/9] WORKDIR /agent\n#12 CACHED\n\n#13 [agent-runner 8/9] COPY runtime /runtime\n#13 CACHED\n\n#14 [agent-runner 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [agent-runner] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:59b57e15538be8f08841a04a41b30bcbf657948ef4c134e4cc994d030c18960a 0.0s done\n#15 exporting config sha256:b2362828fc012be700bdf574ec1b20e4b8dc0df04b0bd98fdea978ea7493fa77 0.0s done\n#15 exporting attestation manifest sha256:8831a597efaff265d0f7c3eefeade4d0ade069280420ae5e478225ef404793a4 0.1s done\n#15 exporting manifest list sha256:7db875edfdde6dc787ff2fd066a4c895f193239e415c9e1e08b5c12afff7c269 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner:latest\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner:latest 0.0s done\n#15 DONE 0.3s\n\n#16 [sink] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:d2ff55d1c1306e80eade7c9eb7d1c86d217bfa7fbbb8dee34c68f4cbe40ae083 0.0s done\n#16 exporting config sha256:75295156b3c5ce43e5202fcfb9137704bd3d38452e09349feb76a832b908c674 0.0s done\n#16 exporting attestation manifest sha256:b5148ba0896e3801a4bf772fcb1889e31dce208668055cd174d29849bc9aa92a 0.1s done\n#16 exporting manifest list sha256:5da39be0321d87990b0d0edd40fa5702eb8101554ffb28c45562a97eedb4c7aa 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-59484-sink:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-59484-sink:latest 0.0s done\n#16 DONE 0.3s\n\n#17 [agent-runner] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [sink] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-59484-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-59484-sink Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-59484_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-59484_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-59484-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.157,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.343,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.235,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.14,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.219,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 1,
+              "timed_out": false,
+              "duration_sec": 1.125,
+              "stdout_tail": "{\"passed\": false, \"score\": 0.5, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": false, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": false, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.828,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            }
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "effective_output",
+              "passed": false,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "metrics_available",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "persistence",
+              "passed": false,
+              "weight": 0.25,
+              "detail": ""
+            }
+          ],
+          "score": 0.5,
+          "duration_sec": 15.531,
+          "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-m7denmxj",
+          "error_type": "verifier_failed",
+          "failure_type": "task_failure",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "fail",
+          "expected_reason": "A critical recovery or persistence condition remains unsatisfied.",
+          "scenario": "partial_fix",
+          "control_mode": "partial_fix",
+          "repeat_index": 0
+        },
+        {
+          "id": "fluentbit_backpressure_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.719,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.56kB 0.0s done\n#1 DONE 0.0s\n\n#2 [sink internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [sink internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.0s\n\n#4 [agent-runner internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [agent-runner 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [agent-runner internal] load build context\n#6 transferring context: 732B done\n#6 DONE 0.0s\n\n#7 [sink 4/9] WORKDIR /agent\n#7 CACHED\n\n#8 [sink 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#8 CACHED\n\n#9 [sink 8/9] COPY runtime /runtime\n#9 CACHED\n\n#10 [sink 7/9] COPY agent /agent\n#10 CACHED\n\n#11 [sink 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#11 CACHED\n\n#12 [sink 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#12 CACHED\n\n#13 [sink 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#13 CACHED\n\n#14 [sink 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [agent-runner] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:afb1ce6d7c05160136762960fa78dd64f3354a1b06cff5feeb51e3eecf44df03 0.0s done\n#15 exporting config sha256:305fc223cb7ce404de540ab8cdcc679ef848baf39e442ad0a40642bbbf5a895c 0.1s done\n#15 exporting attestation manifest sha256:1838016afd1de95348ca0dd71fd3d441582f312ab08c5f35972aa4c8cb3bd29f 0.1s done\n#15 exporting manifest list sha256:fa9b424f8c80a8ff23e82475eb7bbf7bec6ffc75d813ddb5d699ffe757235cbf\n#15 exporting manifest list sha256:fa9b424f8c80a8ff23e82475eb7bbf7bec6ffc75d813ddb5d699ffe757235cbf 0.1s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-75015-agent-runner:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-75015-agent-runner:latest 0.0s done\n#15 DONE 0.3s\n\n#16 [sink] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:6cc6cc5a52a9e7e1d7a4aa44c3ad8579a98e18be3aebccbcdfb71019530517b9 0.0s done\n#16 exporting config sha256:72f16dbb923d95a076e2b96cead33a46e53656305ee376c51f19bd93c2f2fdbe 0.1s done\n#16 exporting attestation manifest sha256:de2e02b8f6314c982be9bd517c20c52a274650898346dfc413289cdeedaf4d5a 0.1s done\n#16 exporting manifest list sha256:61b59b667a8f2545d9f3f92227a462ac8fd3ec2abe7326a0deb6b44c0080cf0b 0.1s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-75015-sink:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-75015-sink:latest 0.0s done\n#16 DONE 0.3s\n\n#17 [agent-runner] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [sink] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-75015-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-75015-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-75015-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-75015-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-75015_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-75015_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-75015-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.094,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.328,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.187,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.11,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.468,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": "curl: (22) The requested URL returned error: 400\n"
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.188,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.109,
+              "stdout_tail": "",
+              "stderr_tail": "curl: (22) The requested URL returned error: 400\r\n"
+            }
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "effective_output",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "metrics_available",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 13.266,
+          "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-vgntimkx",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 0
+        },
+        {
+          "id": "fluentbit_backpressure_v1_001",
+          "family": "e2e",
+          "passed": true,
+          "case_status": "evaluable",
+          "agent_completed": true,
+          "phase_status": {
+            "validate": "passed",
+            "provision": "passed",
+            "setup": "passed",
+            "baseline_check": "passed",
+            "inject": "passed",
+            "check_injected": "passed",
+            "run_agent": "passed",
+            "verify": "passed",
+            "cleanup": "passed"
+          },
+          "phase_details": {
+            "provision": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 4.812,
+              "stdout_tail": "#1 [internal] load local bake definitions\n#1 reading from stdin 1.56kB 0.0s done\n#1 DONE 0.0s\n\n#2 [sink internal] load build definition from Dockerfile\n#2 transferring dockerfile: 496B done\n#2 DONE 0.0s\n\n#3 [agent-runner internal] load metadata for docker.io/library/python:3.12-slim\n#3 DONE 0.1s\n\n#4 [sink internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [agent-runner 1/9] FROM docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b\n#5 resolve docker.io/library/python:3.12-slim@sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b 0.0s done\n#5 DONE 0.0s\n\n#6 [sink internal] load build context\n#6 transferring context: 732B done\n#6 DONE 0.0s\n\n#7 [sink 2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl procps iproute2 && rm -rf /var/lib/apt/lists/*\n#7 CACHED\n\n#8 [sink 7/9] COPY agent /agent\n#8 CACHED\n\n#9 [sink 6/9] RUN pip install --no-cache-dir -r /agent/requirements.txt\n#9 CACHED\n\n#10 [sink 4/9] WORKDIR /agent\n#10 CACHED\n\n#11 [sink 8/9] COPY runtime /runtime\n#11 CACHED\n\n#12 [sink 3/9] RUN useradd --create-home --uid 10001 --shell /bin/sh opsbench\n#12 CACHED\n\n#13 [sink 5/9] COPY agent/requirements.txt /agent/requirements.txt\n#13 CACHED\n\n#14 [sink 9/9] RUN chmod +x /agent/run.py /agent/run.sh\n#14 CACHED\n\n#15 [agent-runner] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:e3a4171a7efcac07e9b5699734d3708622b71406cc70096714da7d13c3c7a309 0.0s done\n#15 exporting config sha256:a14231a46133fbc1ca976418142ca0e531249c1b1064b3b76d10be21888389f7\n#15 exporting config sha256:a14231a46133fbc1ca976418142ca0e531249c1b1064b3b76d10be21888389f7 0.0s done\n#15 exporting attestation manifest sha256:122e8a53eb8a36a9568e46e127da9ad64cd6940faa5aa038675bee9db2817305 0.1s done\n#15 exporting manifest list sha256:f4182e5590313a6d2af47cee1d3698b5b2025f9cef66c84515bce4486f92701c\n#15 exporting manifest list sha256:f4182e5590313a6d2af47cee1d3698b5b2025f9cef66c84515bce4486f92701c 0.0s done\n#15 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-88281-agent-runner:latest done\n#15 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-88281-agent-runner:latest 0.0s done\n#15 DONE 0.2s\n\n#16 [sink] exporting to image\n#16 exporting layers done\n#16 exporting manifest sha256:ea1aa229f18f54bff3c3348510cd5650c9e727ad4f7e13e1b94051f4a6a196e6 0.0s done\n#16 exporting config sha256:309fef48f46716fad6de7890a6600aa458b8a3b17c81fc0f6494be8f7b3e47e7 0.0s done\n#16 exporting attestation manifest sha256:7c4339a863ba31c0d6cfac8674bd2d25ba35324e83164e8e20a4d2d7caa83bb3 0.1s done\n#16 exporting manifest list sha256:3893c44d972fe56436c61c7ece1f72ab976a66f0753a2011a3249f7b574ba154 0.0s done\n#16 naming to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-88281-sink:latest done\n#16 unpacking to docker.io/library/opsbench-fluentbit-backpressure-v1-001-21536-88281-sink:latest 0.0s done\n#16 DONE 0.2s\n\n#17 [agent-runner] resolving provenance for metadata file\n#17 DONE 0.0s\n\n#18 [sink] resolving provenance for metadata file\n#18 DONE 0.0s\n",
+              "stderr_tail": " Image opsbench-fluentbit-backpressure-v1-001-21536-88281-agent-runner Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-88281-sink Building \n Image opsbench-fluentbit-backpressure-v1-001-21536-88281-sink Built \n Image opsbench-fluentbit-backpressure-v1-001-21536-88281-agent-runner Built \n Network opsbench-fluentbit-backpressure-v1-001-21536-88281_default Creating \n Network opsbench-fluentbit-backpressure-v1-001-21536-88281_default Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-sink-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-sink-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-fluent-bit-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-fluent-bit-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-agent-runner-1 Creating \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-agent-runner-1 Created \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-sink-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-sink-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-fluent-bit-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-fluent-bit-1 Started \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-agent-runner-1 Starting \n Container opsbench-fluentbit-backpressure-v1-001-21536-88281-agent-runner-1 Started \n"
+            },
+            "setup": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.407,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "baseline_check": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.875,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "inject": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.031,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "check_injected": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 1.141,
+              "stdout_tail": "",
+              "stderr_tail": ""
+            },
+            "run_agent": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.969,
+              "stdout_tail": "{\"reload\":\"done\",\"status\":0}",
+              "stderr_tail": ""
+            },
+            "verify": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 0.562,
+              "stdout_tail": "{\"passed\": true, \"score\": 1.0, \"checks\": [{\"name\": \"service_health\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"effective_output\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"metrics_available\", \"passed\": true, \"weight\": 0.25}, {\"name\": \"persistence\", \"passed\": true, \"weight\": 0.25}]}\r\n",
+              "stderr_tail": ""
+            },
+            "cleanup_script": {
+              "returncode": 0,
+              "timed_out": false,
+              "duration_sec": 2.594,
+              "stdout_tail": "",
+              "stderr_tail": "curl: (22) The requested URL returned error: 400\r\n"
+            }
+          },
+          "checks": [
+            {
+              "name": "service_health",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "effective_output",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "metrics_available",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            },
+            {
+              "name": "persistence",
+              "passed": true,
+              "weight": 0.25,
+              "detail": ""
+            }
+          ],
+          "score": 1.0,
+          "duration_sec": 18.734,
+          "case_digest": "bcedd7bb5de6d4b0956e2fb3ebcf35ae360e21484481b09700a38cbcf440df8c",
+          "protocol_id": "opsbench-agent-v1",
+          "trace_path": "RELEASE_ROOT\\16-fluentbit-backpressure\\reports\\control_traces\\fluentbit_backpressure_v1_001-i1rfiue0",
+          "error_type": "",
+          "failure_type": "",
+          "infrastructure_blocked": false,
+          "agent_prompt_digest": "",
+          "tool_contract_digest": "",
+          "agent_runtime_digest": "",
+          "agent_model": "",
+          "agent_max_steps": 0,
+          "agent_timeout_sec": 0,
+          "errors": [],
+          "expected": "pass",
+          "scenario": "repeat",
+          "control_mode": "oracle",
+          "repeat_index": 1
+        },
+        {
+          "id": "fluentbit_backpressure_v1_001",
+          "scenario": "cleanup",
+          "control_mode": "cleanup",
+          "repeat_index": 0,
+          "passed": true,
+          "score": 1.0,
+          "expected": "pass",
+          "expected_reason": "Each control run must leave no case-scoped Docker resources behind.",
+          "phase_status": {
+            "cleanup": "passed"
+          }
+        }
+      ]
+    }
+  ],
+  "case_count": 1,
+  "run_count": 8
+}

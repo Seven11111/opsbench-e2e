@@ -1,0 +1,8 @@
+id: flash_60_timeout600
+model: deepseek-v4-flash
+max_steps: 60
+agent_timeout_sec: 600
+profile: autonomous
+env:
+  OPSBENCH_AGENT_TEMPERATURE: "0"
+  OPSBENCH_AGENT_PROFILE: autonomous
