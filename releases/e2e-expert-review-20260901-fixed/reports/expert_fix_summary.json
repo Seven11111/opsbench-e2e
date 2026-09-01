@@ -1,0 +1,36 @@
+{
+  "report_version": "e2e-expert-fix-summary-v1",
+  "date": "2026-09-01",
+  "release": "e2e-expert-review-20260901",
+  "scope": [
+    "01-file-lock",
+    "19-memory-growth",
+    "15-prometheus-scrape",
+    "16-fluentbit-backpressure",
+    "23-upstream-timeout",
+    "27-upload-chmod"
+  ],
+  "runtime_gate": {
+    "execution_mode": "container",
+    "controls_per_case": 8,
+    "all_cases_passed": true,
+    "case_results": {
+      "01-file-lock": {"passed": true, "runs": 8},
+      "19-memory-growth": {"passed": true, "runs": 8},
+      "15-prometheus-scrape": {"passed": true, "runs": 8},
+      "16-fluentbit-backpressure": {"passed": true, "runs": 8},
+      "23-upstream-timeout": {"passed": true, "runs": 8},
+      "27-upload-chmod": {"passed": true, "runs": 8}
+    }
+  },
+  "static_validation": {"passed": true, "case_count": 9},
+  "regression_tests": {"command": "pytest -q tests/test_e2e.py tests/test_e2e_alignment.py tests/test_e2e_lightweight_capabilities.py tests/test_e2e_model_artifacts.py", "passed": true, "passed_tests": 53},
+  "generic_repairs": [
+    "Prometheus verifier uses active target health instead of stale up time series and verifies persistence after an actual Prometheus restart.",
+    "Prometheus Agent no longer receives the private prometheus.yml mount; repair uses a bounded exporter control endpoint.",
+    "Upload and temp permission fixtures initialize the application UID/GID, persist injected fault state across restart, and use the semantic restore control for oracle runs.",
+    "Upload permission and upstream timeout verifiers tolerate normal target restart readiness delay.",
+    "File-lock, memory-growth, and upstream checks validate live semantic state rather than hidden configuration artifacts."
+  ],
+  "docker_cleanup": {"case_container_residue": false}
+}
