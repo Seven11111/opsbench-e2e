@@ -1,0 +1,3 @@
+{"tool": "service_repair", "input": {"stage": "", "action": "restore"}, "result": {"healthy": true, "action": "repair_output_route", "duration_sec": 0.0161}}
+{"tool": "health_check", "input": {}, "result": {"healthy": true, "status": {"http_status": 200}, "duration_sec": 0.0082}}
+{"tool": "metrics_query", "input": {"metric": "delivery"}, "result": {"healthy": false, "status": {"metric": "delivery", "error": "HTTP Error 404: Not Found"}, "duration_sec": 0.0009}}

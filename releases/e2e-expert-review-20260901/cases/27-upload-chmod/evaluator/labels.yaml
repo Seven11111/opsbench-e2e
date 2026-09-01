@@ -1,0 +1,3 @@
+primary: fault_fix
+secondary:
+  - root_cause

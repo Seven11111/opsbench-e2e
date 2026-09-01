@@ -1,0 +1,133 @@
+{
+  "passed": true,
+  "error": "",
+  "semantic_assertions": {
+    "operation_ok": true,
+    "service_healthy": true,
+    "metrics_observed": true,
+    "downstream_probe": true,
+    "delivery_observed": true,
+    "sink_observed": true
+  },
+  "steps": [
+    {
+      "tool": "service_control",
+      "input": {
+        "action": "restore"
+      },
+      "result": {
+        "healthy": true,
+        "action": "repair_output_route",
+        "sink_restored": true,
+        "output_reconnected": true,
+        "duration_sec": 0.0186
+      }
+    },
+    {
+      "tool": "service_status",
+      "input": {},
+      "result": {
+        "healthy": true,
+        "status": {
+          "http_status": 200
+        },
+        "duration_sec": 0.0094
+      }
+    },
+    {
+      "tool": "metrics_read",
+      "input": {
+        "metric": "delivery"
+      },
+      "result": {
+        "healthy": false,
+        "status": {
+          "metric": "delivery",
+          "error": "HTTP Error 404: Not Found"
+        },
+        "duration_sec": 0.0087
+      }
+    },
+    {
+      "tool": "metrics_read",
+      "input": {
+        "metric": "delivery"
+      },
+      "result": {
+        "healthy": true,
+        "status": {
+          "metric": "delivery",
+          "body": "{\"input\":{\"http.0\":{\"records\":0,\"bytes\":0},\"storage_backlog.1\":{\"records\":0,\"bytes\":0}},\"filter\":{},\"output\":{\"forward.0\":{\"proc_records\":0,\"proc_bytes\":0,\"errors\":0,\"retries\":0,\"retries_failed\":0,\"dropped_records\":0,\"retried_records\":0}}}"
+        },
+        "duration_sec": 0.0086
+      }
+    },
+    {
+      "tool": "command_run",
+      "input": {
+        "command": "curl --noproxy '*' -sS --max-time 5 -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -d '{\"message\":\"opsbench-public-probe\"}' http://fluent-bit:9880/"
+      },
+      "result": {
+        "returncode": 0,
+        "stdout": "201",
+        "stderr": "",
+        "duration_sec": 0.0191
+      }
+    },
+    {
+      "tool": "metrics_read",
+      "input": {
+        "metric": "delivery"
+      },
+      "result": {
+        "healthy": true,
+        "status": {
+          "metric": "delivery",
+          "body": "{\"input\":{\"http.0\":{\"records\":0,\"bytes\":0},\"storage_backlog.1\":{\"records\":0,\"bytes\":0}},\"filter\":{},\"output\":{\"forward.0\":{\"proc_records\":0,\"proc_bytes\":0,\"errors\":0,\"retries\":0,\"retries_failed\":0,\"dropped_records\":0,\"retried_records\":0}}}"
+        },
+        "duration_sec": 0.0132
+      }
+    },
+    {
+      "tool": "metrics_read",
+      "input": {
+        "metric": "delivery"
+      },
+      "result": {
+        "healthy": true,
+        "status": {
+          "metric": "delivery",
+          "body": "{\"input\":{\"http.0\":{\"records\":1,\"bytes\":56},\"storage_backlog.1\":{\"records\":0,\"bytes\":0}},\"filter\":{},\"output\":{\"forward.0\":{\"proc_records\":0,\"proc_bytes\":0,\"errors\":0,\"retries\":0,\"retries_failed\":0,\"dropped_records\":0,\"retried_records\":0}}}"
+        },
+        "duration_sec": 0.0093
+      }
+    },
+    {
+      "tool": "metrics_read",
+      "input": {
+        "metric": "delivery"
+      },
+      "result": {
+        "healthy": true,
+        "status": {
+          "metric": "delivery",
+          "body": "{\"input\":{\"http.0\":{\"records\":1,\"bytes\":56},\"storage_backlog.1\":{\"records\":0,\"bytes\":0}},\"filter\":{},\"output\":{\"forward.0\":{\"proc_records\":1,\"proc_bytes\":56,\"errors\":0,\"retries\":0,\"retries_failed\":0,\"dropped_records\":0,\"retried_records\":0}}}"
+        },
+        "duration_sec": 0.0094
+      }
+    },
+    {
+      "tool": "command_run",
+      "input": {
+        "command": "curl --noproxy '*' -sS --max-time 5 http://sink:19880/health"
+      },
+      "result": {
+        "returncode": 0,
+        "stdout": "{\"mode\": \"healthy\", \"delivered\": 4}",
+        "stderr": "",
+        "duration_sec": 0.0162
+      }
+    }
+  ],
+  "oracle_version": "e2e-public-tool-oracle-v1"
+}

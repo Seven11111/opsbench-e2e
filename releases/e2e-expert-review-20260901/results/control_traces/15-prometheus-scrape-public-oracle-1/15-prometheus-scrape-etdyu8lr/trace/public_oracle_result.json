@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "error": "",
+  "semantic_assertions": {
+    "operation_ok": true,
+    "service_ready": true,
+    "metrics_observed": true
+  },
+  "steps": [
+    {
+      "tool": "service_control",
+      "input": {
+        "action": "restore"
+      },
+      "result": {
+        "healthy": true,
+        "action": "repair_scrape_target",
+        "duration_sec": 1.0151
+      }
+    },
+    {
+      "tool": "service_status",
+      "input": {},
+      "result": {
+        "healthy": true,
+        "status": {
+          "http_status": 200
+        },
+        "duration_sec": 0.0095
+      }
+    },
+    {
+      "tool": "metrics_read",
+      "input": {
+        "metric": "target_health"
+      },
+      "result": {
+        "healthy": true,
+        "status": {
+          "metric": "target_health",
+          "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"up\",\"instance\":\"exporter:19100\",\"job\":\"opsbench-target\"},\"value\":[1788247568.360,\"1\"]},{\"metric\":{\"__name__\":\"up\",\"instance\":\"missing-exporter:19999\",\"job\":\"opsbench-target\"},\"value\":[1788247568.360,\"0\"]}]}}"
+        },
+        "duration_sec": 0.0014
+      }
+    }
+  ],
+  "oracle_version": "e2e-public-tool-oracle-v1"
+}

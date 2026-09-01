@@ -1,0 +1,5 @@
+{
+  "oracle": "python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d.update(growth_enabled=False, repair_mode='persistent'); open(p,'w').write(json.dumps(d))\"",
+  "wrong_fix": "python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d['repair_mode']='wrong-layer'; open(p,'w').write(json.dumps(d))\"",
+  "partial_fix": "python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d.update(memory_limit_bytes=64*1024*1024, repair_mode='temporary'); open(p,'w').write(json.dumps(d))\""
+}

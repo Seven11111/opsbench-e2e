@@ -1,0 +1,48 @@
+{
+  "passed": false,
+  "error": "public output restoration or health/metrics observation failed",
+  "semantic_assertions": {
+    "operation_ok": true,
+    "service_healthy": true,
+    "metrics_observed": false
+  },
+  "steps": [
+    {
+      "tool": "service_control",
+      "input": {
+        "action": "restore"
+      },
+      "result": {
+        "healthy": true,
+        "action": "repair_output_route",
+        "duration_sec": 0.0117
+      }
+    },
+    {
+      "tool": "service_status",
+      "input": {},
+      "result": {
+        "healthy": true,
+        "status": {
+          "http_status": 200
+        },
+        "duration_sec": 0.0089
+      }
+    },
+    {
+      "tool": "metrics_read",
+      "input": {
+        "metric": "delivery"
+      },
+      "result": {
+        "healthy": false,
+        "status": {
+          "metric": "delivery",
+          "error": "HTTP Error 404: Not Found"
+        },
+        "duration_sec": 0.001
+      }
+    }
+  ],
+  "oracle_version": "e2e-public-tool-oracle-v1"
+}

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "error": "",
+  "semantic_assertions": {
+    "bounded_repair_executed": true,
+    "service_healthy": true
+  },
+  "steps": [
+    {
+      "tool": "command_run",
+      "input": {
+        "command": "chmod 0770 /data/uploads"
+      },
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "duration_sec": 0.0067
+      }
+    },
+    {
+      "tool": "service_status",
+      "input": {},
+      "result": {
+        "healthy": true,
+        "status": {
+          "http_status": 200,
+          "url": "http://127.0.0.1:8080/health"
+        },
+        "duration_sec": 0.0121
+      }
+    }
+  ],
+  "oracle_version": "e2e-public-tool-oracle-v1"
+}

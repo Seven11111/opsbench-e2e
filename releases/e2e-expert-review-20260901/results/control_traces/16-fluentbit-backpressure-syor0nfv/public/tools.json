@@ -1,0 +1,70 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tools": [
+    {
+      "name": "command_run",
+      "description": "Run a bounded diagnostic or maintenance command inside the declared runtime.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "command"
+        ]
+      }
+    },
+    {
+      "name": "service_status",
+      "description": "Read the live service or database health signal.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "metrics_read",
+      "description": "Read a bounded live resource metric for diagnosis.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "metric": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "metric"
+        ]
+      }
+    },
+    {
+      "name": "service_control",
+      "description": "Apply one bounded change selected from live diagnostic evidence. Preserve the service contract and do not bypass validation.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "enum": [
+              "prepare",
+              "apply"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "description": "A bounded operation label inferred from the observed live state."
+          }
+        },
+        "required": []
+      }
+    }
+  ],
+  "constraints": [
+    "Do not read case root, evaluator files, hidden labels, scenario files, host credentials, or Docker sockets.",
+    "Tool calls and outputs are recorded in the writable trace directory."
+  ]
+}

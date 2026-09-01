@@ -1,0 +1,5 @@
+{
+  "passed": false,
+  "mode": "public_oracle",
+  "error": "public output restoration or health/metrics observation failed"
+}

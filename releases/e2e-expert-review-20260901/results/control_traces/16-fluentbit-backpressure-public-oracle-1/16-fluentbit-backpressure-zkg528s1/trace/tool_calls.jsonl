@@ -1,0 +1,3 @@
+{"tool": "service_repair", "input": {"stage": "", "action": "restore"}, "result": {"healthy": true, "action": "repair_output_route", "duration_sec": 0.0108}}
+{"tool": "health_check", "input": {}, "result": {"healthy": true, "status": {"http_status": 200}, "duration_sec": 0.0078}}
+{"tool": "metrics_query", "input": {"metric": "delivery"}, "result": {"healthy": true, "status": {"metric": "delivery", "body": "{\"input\":{\"http.0\":{\"records\":1,\"bytes\":43},\"storage_backlog.1\":{\"records\":0,\"bytes\":0}},\"filter\":{},\"output\":{\"forward.0\":{\"proc_records\":0,\"proc_bytes\":0,\"errors\":0,\"retries\":1,\"retries_failed\":0,\"dropped_records\":0,\"retried_records\":1}}}"}, "duration_sec": 0.008}}

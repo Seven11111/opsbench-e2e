@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "error": "",
+  "semantic_assertions": {
+    "bounded_repair_executed": true,
+    "service_healthy": true
+  },
+  "steps": [
+    {
+      "tool": "command_run",
+      "input": {
+        "command": "python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d.update(lock_enabled=False, repair_mode='persistent'); open(p,'w').write(json.dumps(d))\""
+      },
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "duration_sec": 0.0759
+      }
+    },
+    {
+      "tool": "service_status",
+      "input": {},
+      "result": {
+        "healthy": true,
+        "status": {
+          "http_status": 200,
+          "url": "http://127.0.0.1:8080/health"
+        },
+        "duration_sec": 0.0112
+      }
+    }
+  ],
+  "oracle_version": "e2e-public-tool-oracle-v1"
+}
