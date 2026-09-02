@@ -1,0 +1,312 @@
+{
+  "case_id": "tls-hostname-mismatch-020",
+  "implementation": {
+    "strategy": "tls_hostname"
+  },
+  "dynamic_spec": {
+    "id": "dynamic_tls_hostname_mismatch_v1_031011",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "tls_service",
+        "component_id": "tls-http-service",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "target": "tls_service",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "TLS connections to the HTTP service fail with an SSL error. Clients attempting to establish a secure connection receive an exception indicating certificate verification failure, and the handshake is aborted.",
+      "impact": "The service is unreachable over TLS, preventing any secure communication.",
+      "objective": "Restore the ability to establish TLS connections so that clients can securely communicate with the service.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "business_check",
+      "diagnose",
+      "health_check",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "tls_hostname_mismatch_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.25
+      },
+      {
+        "check_id": "tls_hostname",
+        "weight": 0.25
+      },
+      {
+        "check_id": "certificate_chain",
+        "weight": 0.25
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.25
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op",
+        "expected": "fail"
+      },
+      {
+        "scenario": "restart_only",
+        "expected": "fail"
+      },
+      {
+        "scenario": "wrong_layer_fix",
+        "expected": "fail"
+      },
+      {
+        "scenario": "symptom_bypass",
+        "expected": "fail"
+      },
+      {
+        "scenario": "insecure_fix",
+        "expected": "fail"
+      },
+      {
+        "scenario": "partial_fix",
+        "expected": "fail"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 10,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 2,
+        "verification_complexity": 2
+      },
+      "rationale": [
+        "The endpoint is reachable and the certificate chain is trusted, but the identity is wrong.",
+        "The agent must inspect SAN/hostname evidence rather than disabling verification.",
+        "Verification uses a normal validating client after certificate reload and restart."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "hard",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 2,
+        "verification_complexity": 2
+      },
+      "causal_depth": 2,
+      "state_layers": [
+        "base_config",
+        "certificate_store",
+        "runtime_process"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "tls_chain",
+        "effective_config",
+        "process_tree"
+      ],
+      "persistence_id": "certificate_reload",
+      "distractor_ids": [
+        "healthy_process",
+        "valid_wrong_certificate",
+        "listener_is_reachable_locally"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "security_preserved",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "insecure_tls",
+        "restart_only",
+        "direct_edit_generated_config"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "tls_hostname",
+        "certificate_chain",
+        "persistence"
+      ],
+      "rationale": [
+        "The endpoint is reachable and the certificate chain is trusted, but the identity is wrong.",
+        "The agent must inspect SAN/hostname evidence rather than disabling verification.",
+        "Verification uses a normal validating client after certificate reload and restart."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 10,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The endpoint is reachable and the certificate chain is trusted, but the identity is wrong.",
+          "The agent must inspect SAN/hostname evidence rather than disabling verification.",
+          "Verification uses a normal validating client after certificate reload and restart."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "doc-docs-python-org-3-library-ssl.html-012535#claim_002"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "repair",
+        "ref": "doc-docs-python-org-3-library-ssl.html-012535#heuristic_operational_499"
+      },
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-docs-python-org-3-library-ssl.html-012535#claim_001"
+      }
+    ],
+    "scenario_seed": 31011,
+    "technology_stack": [
+      "TLS",
+      "HTTP",
+      "OpenSSL"
+    ],
+    "domain": "tls",
+    "fault_type": "certificate_identity",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456",
+    "source": {
+      "primitive_status": "demo_validated",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The endpoint is reachable and the certificate chain is trusted, but the identity is wrong.",
+          "The agent must inspect SAN/hostname evidence rather than disabling verification.",
+          "Verification uses a normal validating client after certificate reload and restart."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "hard",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "causal_depth": 2,
+        "state_layers": [
+          "base_config",
+          "certificate_store",
+          "runtime_process"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "tls_chain",
+          "effective_config",
+          "process_tree"
+        ],
+        "persistence_id": "certificate_reload",
+        "distractor_ids": [
+          "healthy_process",
+          "valid_wrong_certificate",
+          "listener_is_reachable_locally"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "security_preserved",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "insecure_tls",
+          "restart_only",
+          "direct_edit_generated_config"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "tls_hostname",
+          "certificate_chain",
+          "persistence"
+        ],
+        "rationale": [
+          "The endpoint is reachable and the certificate chain is trusted, but the identity is wrong.",
+          "The agent must inspect SAN/hostname evidence rather than disabling verification.",
+          "Verification uses a normal validating client after certificate reload and restart."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 10,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 2,
+            "repair_depth": 2,
+            "verification_complexity": 2
+          },
+          "rationale": [
+            "The endpoint is reachable and the certificate chain is trusted, but the identity is wrong.",
+            "The agent must inspect SAN/hostname evidence rather than disabling verification.",
+            "Verification uses a normal validating client after certificate reload and restart."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "tls_hostname_mismatch_v1"
+}

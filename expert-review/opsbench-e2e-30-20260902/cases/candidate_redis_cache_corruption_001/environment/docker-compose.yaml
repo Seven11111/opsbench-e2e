@@ -1,0 +1,23 @@
+services:
+  redis:
+    image: redis:7.2-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/service.py"]
+    volumes:
+      - ./runtime/state.json:/runtime/state.json
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_HEALTH_MODE: service
+      OPSBENCH_HEALTH_URL: http://127.0.0.1:18087/health
+    depends_on: [redis]
+    ports: ["18087:18087"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]

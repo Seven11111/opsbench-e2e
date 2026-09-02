@@ -1,0 +1,5 @@
+{
+  "oracle": "rm -rf /data/inodes",
+  "wrong_fix": "rm -f /data/inodes/f0",
+  "partial_fix": "find /data/inodes -type f | head -n 40 | xargs -r rm -f"
+}

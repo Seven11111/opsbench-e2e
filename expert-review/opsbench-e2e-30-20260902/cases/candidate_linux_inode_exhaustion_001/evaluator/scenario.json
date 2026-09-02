@@ -1,0 +1,9 @@
+{
+  "template_id": "linux_inode_exhaustion_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "inode_exhaustion",
+    "minimum_free_inodes": 16,
+    "repair_mode": "baseline"
+  }
+}

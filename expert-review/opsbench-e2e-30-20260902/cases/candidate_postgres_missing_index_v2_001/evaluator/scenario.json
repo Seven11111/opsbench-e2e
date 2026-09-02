@@ -1,0 +1,4 @@
+{
+  "template_id": "postgres_missing_index_v2",
+  "query": "SELECT id, customer_id, payload FROM orders WHERE customer_id = 4242 ORDER BY id LIMIT 50"
+}

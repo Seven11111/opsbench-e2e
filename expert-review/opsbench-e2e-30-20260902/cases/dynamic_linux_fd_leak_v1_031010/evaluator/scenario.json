@@ -1,0 +1,321 @@
+{
+  "case_id": "linux-fd-exhaustion-004",
+  "implementation": {
+    "strategy": "fd_leak"
+  },
+  "dynamic_spec": {
+    "id": "dynamic_linux_fd_leak_v1_031010",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "curated_linux-fd-curated",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "linux_worker",
+        "component_id": "linux-worker",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "linux_fd_leak_v1",
+      "target": "linux_worker",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "The application running on the Linux worker process is unable to open new files or network connections, returning errors such as 'Too many open files'.",
+      "impact": "Users are unable to upload files or establish new connections, causing service degradation.",
+      "objective": "Restore the application's ability to open new files and connections without restarting the process.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "business_check",
+      "diagnose",
+      "health_check",
+      "metrics_query",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "linux_fd_leak_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.25
+      },
+      {
+        "check_id": "fd_stability",
+        "weight": 0.25
+      },
+      {
+        "check_id": "resource_headroom",
+        "weight": 0.25
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.25
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op",
+        "expected": "fail",
+        "description": "No action taken; the symptom persists."
+      },
+      {
+        "scenario": "restart_only",
+        "expected": "fail",
+        "description": "Restart the service; temporary relief but root cause not addressed."
+      },
+      {
+        "scenario": "wrong_layer_fix",
+        "expected": "fail",
+        "description": "Increase ulimit instead of closing leaked file descriptors."
+      },
+      {
+        "scenario": "symptom_bypass",
+        "expected": "fail",
+        "description": "Mask the error message without reducing open file count."
+      },
+      {
+        "scenario": "one_shot_fix",
+        "expected": "fail",
+        "description": "Close only a subset of leaked file descriptors, leaving others."
+      },
+      {
+        "scenario": "partial_fix",
+        "expected": "fail",
+        "description": "Close only some of the leaked file descriptors, not all."
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 10,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 2,
+        "verification_complexity": 2
+      },
+      "rationale": [
+        "The user operation initially works while repeated requests consume a bounded descriptor budget.",
+        "The agent must correlate a growing FD table with the live request path.",
+        "Verification samples repeated requests and requires descriptor stability after recovery."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "hard",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 2,
+        "verification_complexity": 2
+      },
+      "causal_depth": 2,
+      "state_layers": [
+        "base_config",
+        "runtime_process",
+        "filesystem_state"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "fd_table",
+        "resource_metric",
+        "process_tree"
+      ],
+      "persistence_id": "process_lifecycle",
+      "distractor_ids": [
+        "healthy_process",
+        "unrelated_latency"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "slo_preserved",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "restart_only",
+        "kill_one_process",
+        "increase_timeout_only"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "fd_stability",
+        "resource_headroom",
+        "persistence"
+      ],
+      "rationale": [
+        "The user operation initially works while repeated requests consume a bounded descriptor budget.",
+        "The agent must correlate a growing FD table with the live request path.",
+        "Verification samples repeated requests and requires descriptor stability after recovery."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 10,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The user operation initially works while repeated requests consume a bounded descriptor budget.",
+          "The agent must correlate a growing FD table with the live request path.",
+          "Verification samples repeated requests and requires descriptor stability after recovery."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "doc-docs-kernel-org-filesystems-proc-html-f6093e4f07cc#symptom_curated_001"
+      },
+      {
+        "field_path": "public_task.impact",
+        "claim_type": "symptom",
+        "ref": "doc-docs-kernel-org-filesystems-proc-html-f6093e4f07cc#symptom_curated_001"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "symptom",
+        "ref": "doc-docs-kernel-org-filesystems-proc-html-f6093e4f07cc#symptom_curated_001"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-docs-kernel-org-filesystems-proc-html-f6093e4f07cc#verification_curated_001"
+      }
+    ],
+    "scenario_seed": 31010,
+    "technology_stack": [
+      "Linux",
+      "Python"
+    ],
+    "domain": "linux",
+    "fault_type": "resource_leak",
+    "candidate_group_id": "curated_linux-fd-curated_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456",
+    "source": {
+      "primitive_status": "demo_validated",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The user operation initially works while repeated requests consume a bounded descriptor budget.",
+          "The agent must correlate a growing FD table with the live request path.",
+          "Verification samples repeated requests and requires descriptor stability after recovery."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "hard",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "causal_depth": 2,
+        "state_layers": [
+          "base_config",
+          "runtime_process",
+          "filesystem_state"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "fd_table",
+          "resource_metric",
+          "process_tree"
+        ],
+        "persistence_id": "process_lifecycle",
+        "distractor_ids": [
+          "healthy_process",
+          "unrelated_latency"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "slo_preserved",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "restart_only",
+          "kill_one_process",
+          "increase_timeout_only"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "fd_stability",
+          "resource_headroom",
+          "persistence"
+        ],
+        "rationale": [
+          "The user operation initially works while repeated requests consume a bounded descriptor budget.",
+          "The agent must correlate a growing FD table with the live request path.",
+          "Verification samples repeated requests and requires descriptor stability after recovery."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 10,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 2,
+            "repair_depth": 2,
+            "verification_complexity": 2
+          },
+          "rationale": [
+            "The user operation initially works while repeated requests consume a bounded descriptor budget.",
+            "The agent must correlate a growing FD table with the live request path.",
+            "Verification samples repeated requests and requires descriptor stability after recovery."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "linux_fd_leak_v1"
+}

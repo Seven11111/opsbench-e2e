@@ -1,0 +1,34 @@
+services:
+  target:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: opsbench-e2e-linux_disk_full_v1
+    working_dir: /runtime
+    command: ["python", "/opt/opsbench/service.py"]
+    user: "0:0"
+    volumes:
+      - ./runtime/config.json:/var/lib/opsbench/internal/config.json
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_REQUEST_TIMEOUT: ${OPSBENCH_REQUEST_TIMEOUT:-300}
+      OPSBENCH_MAX_RETRIES: ${OPSBENCH_MAX_RETRIES:-2}
+      OPSBENCH_TEMPLATE_ID: linux_disk_full_v1
+      OPSBENCH_HEALTH_MODE: service
+      OPSBENCH_LIGHTWEIGHT_TEMPLATE: linux_disk_full_v1
+      OPSBENCH_SERVICE_REPAIR_MODE: linux_disk_full_v1
+    tmpfs:
+      - /data:size=8m,uid=10001,gid=10001,mode=0770
+    cpus: "1.0"
+    mem_limit: 384m
+    cap_drop: [ALL]
+    # The target process is trusted runtime code.  These narrowly scoped
+    # capabilities let the service-control endpoint restore ownership and
+    # mode on its own application data without exposing host privileges.
+    cap_add: [CHOWN, FOWNER, DAC_OVERRIDE]
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

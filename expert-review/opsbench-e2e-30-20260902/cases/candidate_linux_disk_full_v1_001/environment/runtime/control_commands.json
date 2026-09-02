@@ -1,0 +1,5 @@
+{
+  "oracle": "rm -f /data/filler",
+  "wrong_fix": "rm -f /data/missing-filler",
+  "partial_fix": "true"
+}

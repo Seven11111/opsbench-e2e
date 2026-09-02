@@ -1,0 +1,476 @@
+{
+  "schema_version": "opsbench-e2e-expert-review-bundle-v1",
+  "title": "30 newly generated Docker-gated E2E cases",
+  "created_at": "2026-09-02T06:09:17.597263+00:00",
+  "case_count": 30,
+  "excluded_existing_release_cases": 6,
+  "source_runs": [
+    {
+      "label": "new-10-20260902",
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master"
+    },
+    {
+      "label": "new-20-20260901",
+      "path": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4"
+    }
+  ],
+  "checks": {
+    "unique_case_ids": true,
+    "unique_case_digests": true,
+    "all_runtime_gates_passed": true,
+    "all_available_public_tool_oracles_passed": true,
+    "all_published_from_release_pool": true
+  },
+  "cases": [
+    {
+      "id": "candidate_http_dependency_timeout_001",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "case_digest": "d1aec986df1fc88a8a2362552664787e1475cc693fca6b0b5fc2a2f55110ef1f",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/candidate_http_dependency_timeout_001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "candidate_linux_disk_full_v1_001",
+      "primitive_id": "linux_disk_full_v1",
+      "case_digest": "19772f8a2b66113526ba8c806f274e2c31a6d64d15c983ac5bc1aa7233765f64",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/candidate_linux_disk_full_v1_001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "candidate_linux_inode_exhaustion_001",
+      "primitive_id": "linux_inode_exhaustion_v1",
+      "case_digest": "1579f8e3e6c33191c066efaa1d450f64eed7a6f1f92156670bda76600287eafc",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/candidate_linux_inode_exhaustion_001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "candidate_postgres_missing_index_v2_001",
+      "primitive_id": "postgres_missing_index_v2",
+      "case_digest": "39f9e9cf58f4cef0e09d4c8d0f2dee02e7677bbcde4464c489069c56cd3a3c53",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/candidate_postgres_missing_index_v2_001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "candidate_rabbitmq_resource_alarm_v1_001",
+      "primitive_id": "rabbitmq_resource_alarm_v1",
+      "case_digest": "220735486245670720dfbab5d07420baa49c20e2fe92e981c337e782bed90a48",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/candidate_rabbitmq_resource_alarm_v1_001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "candidate_redis_cache_corruption_001",
+      "primitive_id": "redis_cache_corruption_v1",
+      "case_digest": "b73911aa33f96024881a4a76282b5ca2f52f1e4060c09a82a9c8d89c0878348f",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/candidate_redis_cache_corruption_001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": null,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "candidate_tls_hostname_mismatch_v1_001",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "case_digest": "4e7bd9297e4019bfa4125915dadd2c6ba8417af082f6796c8ecb17b412faa828",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/candidate_tls_hostname_mismatch_v1_001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000001",
+      "primitive_id": "app_config_precedence_v1",
+      "case_digest": "7fbda86a0fa0c10015b33880526e20020af91db5a68c8dd307c5ab5ade4421b0",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_app_config_precedence_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000002",
+      "primitive_id": "app_config_precedence_v1",
+      "case_digest": "c8ce0e56965d637f13d3df4e3f5a0d0dc0e5d545030ffdbe6e135717782ee684",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_app_config_precedence_v1_000002",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_031002",
+      "primitive_id": "app_config_precedence_v1",
+      "case_digest": "944f7aefbb2338b16e50afdb59b8d15c4552780c9bf555ec08357729319b41f7",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_app_config_precedence_v1_031002",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_app_stale_pid_v1_000001",
+      "primitive_id": "app_stale_pid_v1",
+      "case_digest": "d001691668365b11c4d29f360ecae27c81108e60da6fac80c8d4cfaca2ad54cd",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_app_stale_pid_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_app_stale_pid_v1_031003",
+      "primitive_id": "app_stale_pid_v1",
+      "case_digest": "97bec1b0faa7f4f62b6208d407aff3afedad42162c5ba9a3287dd92f2d931a79",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_app_stale_pid_v1_031003",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_http_dependency_dns_poison_v1_031015",
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "case_digest": "76ce02b2a096d5971f530f53f353f1d2a32c6281d536552e37749861dffc4e77",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_http_dependency_dns_poison_v1_031015",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_http_dependency_port_drift_v1_031005",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "case_digest": "3396ac600670a9e6cd4f2fedab18167f900bd127ed031a3e22362361130cd10b",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_http_dependency_port_drift_v1_031005",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_http_dependency_timeout_slo_v1_031006",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "case_digest": "169ccc7501c174ea7510985db2a798f249e433e24a80cd3b131acb60cd1efa7a",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_http_dependency_timeout_slo_v1_031006",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+      "primitive_id": "http_retry_circuit_breaker_v1",
+      "case_digest": "33c9262bbfe676688dddb806cf7dd09570d0b6fdec3f0d901701e8754eab66da",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_http_retry_circuit_breaker_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": null,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_http_retry_circuit_breaker_v1_031012",
+      "primitive_id": "http_retry_circuit_breaker_v1",
+      "case_digest": "776f7d01ad2d4ad8520fc1adbcbd569948e2aacf58784a06e3045ee0d8fce743",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_http_retry_circuit_breaker_v1_031012",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": null,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_kafka_consumer_lag_v1_000001",
+      "primitive_id": "kafka_consumer_lag_v1",
+      "case_digest": "e25896ca8d2cfd2a5ffecab9568262033588b75da9c83c8998de5a883c336cdc",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_kafka_consumer_lag_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": null,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_kafka_consumer_lag_v1_031008",
+      "primitive_id": "kafka_consumer_lag_v1",
+      "case_digest": "9db799273dc184df0bdd507e9e8e1a93e9f0881e99bc8e6fa5d1be866ea3a737",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_kafka_consumer_lag_v1_031008",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": null,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_000001",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "case_digest": "6fdadb3af7a6098e725e527754c8e136fad021e211492bbe72b9f418e4a0aa47",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_linux_cpu_runaway_v2_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_031009",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "case_digest": "e5fa13665831d8f4f05cbabc1fa4aba4111bf9fa6487ac02193ed0ce981d4478",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_linux_cpu_runaway_v2_031009",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_linux_fd_leak_v1_000001",
+      "primitive_id": "linux_fd_leak_v1",
+      "case_digest": "435c7476d0d55f91de0d09cca31e20b9f5df77f1fd8d714138135206518f5803",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_linux_fd_leak_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_linux_fd_leak_v1_031010",
+      "primitive_id": "linux_fd_leak_v1",
+      "case_digest": "974da86950bb33077ace0e7d5bb66fc1ab899e4581b8a483e8517713488e5249",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_linux_fd_leak_v1_031010",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_linux_temp_permission_v1_000001",
+      "primitive_id": "linux_temp_permission_v1",
+      "case_digest": "496028c86312fab025cf1ffb98a4957aeebc4941e434e3042d4c697e9040ad1c",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_linux_temp_permission_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_nginx_bind_conflict_v1_000001",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "case_digest": "8b5c9172e76b9557b9dbb94c56849f8e748885fe8cfbd9fd89ea407791b997eb",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_nginx_bind_conflict_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "primitive_id": "postgres_connection_pool_exhaustion_v1",
+      "case_digest": "625e0aa8da1b8f4554fe8782d9d7c32914b82e437b2e051499bd618856953c51",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": null,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_postgres_lock_contention_v1_000001",
+      "primitive_id": "postgres_lock_contention_v1",
+      "case_digest": "3ab22a2c5bd05ec0d4fc09e54b3ff4a4b8c57efb8e1b9e3a0cd169b1585cb0fa",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/dynamic_postgres_lock_contention_v1_000001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": null,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "dynamic_tls_hostname_mismatch_v1_031011",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "case_digest": "aa86b75e04c9d249258e06a54505a1309171d0592df1d007106837caa43607ad",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "review_case_path": "cases/dynamic_tls_hostname_mismatch_v1_031011",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "http_dependency_dns_poison_v1_candidate_1",
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "case_digest": "55b6a9585ea4dc838756b16d4f1e4fc451a0c9000217c9a1fbc6e684b0c4c883",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/http_dependency_dns_poison_v1_candidate_1",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    },
+    {
+      "id": "http_dependency_port_drift_v1_candidate_001",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "case_digest": "54705f85209355138cd5bcc5224e596d05d1568c5ac5623e8fafc958e3805043",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "review_case_path": "cases/http_dependency_port_drift_v1_candidate_001",
+      "runtime_gate": {
+        "passed": true,
+        "gate_passed": true,
+        "public_tool_oracle_passed": true,
+        "published": true,
+        "gate_version": "e2e-runtime-gate-v1"
+      }
+    }
+  ]
+}
