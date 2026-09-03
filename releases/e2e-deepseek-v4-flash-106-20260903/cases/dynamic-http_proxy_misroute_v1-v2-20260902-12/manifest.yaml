@@ -1,0 +1,220 @@
+id: dynamic-http_proxy_misroute_v1-v2-20260902-12
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: proxy_misroute
+domain: network
+technology_stack:
+- HTTP
+- Proxy
+- Python
+template_id: http_proxy_misroute_v1
+fault_primitive_id: http_proxy_misroute_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: experimental
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 7
+  rubric_version: e2e-diverse-v1
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+capability_profile:
+  capability_profile_id: effective_proxy_route
+  mechanism_id: effective_proxy_route
+  resource_class: network
+  observability_channels:
+  - effective proxy environment and request route
+  repair_surface: client_proxy_configuration
+  persistence_contract: The repaired state remains effective after service restart.
+  variant: v2
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/business
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - command_run
+  - service_status
+  - business_probe
+  - signal_view
+  - metrics_read
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - mechanism_signal_absent
+  - repair_invariant
+  - persistence
+  semantic_state:
+  - effective proxy route and dependency reachability
+  public_oracle: http_proxy_misroute_v1
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - profile.json
+    - fault.json
+    - status.json
+    - service.py
+    - /opsbench/control
+    injection_markers:
+    - mode
+    - injected
+    - check_injected
+    verifier_markers:
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_signal_terms:
+    - service
+    - health
+  public_success_signals: &id001
+  - The declared business operation returns HTTP 200.
+  - The live diagnostic signal is absent after repair.
+  - The repair remains effective after the service lifecycle is checked again.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id001
+    available_tools:
+    - command_run
+    - service_status
+    - business_probe
+    - signal_view
+    - metrics_read
+    - service_control
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The declared business operation returns HTTP 200.
+    - check_id: mechanism_signal_absent
+      public_signal: The live diagnostic signal is absent after repair.
+    - check_id: repair_invariant
+      public_signal: The repair remains effective after the service lifecycle is checked
+        again.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: eb-crawled-bfbc9da219984b09b095
+  evidence_refs:
+  - ref: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61#http_proxy_misroute_v1-1-fault
+    source_url: https://www.rfc-editor.org/rfc/rfc9110.html
+    document_id: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61
+    content_hash: 326c6133f39d6aa6eb4ac4b10aae2c52e968a9452810564016b676a5e9579890
+    section_path: crawler-text-offset:5097-5457
+    claim_type: fault
+    retrieved_at: '2026-09-02T09:18:34.998243+00:00'
+  - ref: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61#http_proxy_misroute_v1-2-observable
+    source_url: https://www.rfc-editor.org/rfc/rfc9110.html
+    document_id: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61
+    content_hash: 326c6133f39d6aa6eb4ac4b10aae2c52e968a9452810564016b676a5e9579890
+    section_path: crawler-text-offset:14536-14896
+    claim_type: observable
+    retrieved_at: '2026-09-02T09:18:34.998243+00:00'
+  - ref: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61#http_proxy_misroute_v1-3-root_cause
+    source_url: https://www.rfc-editor.org/rfc/rfc9110.html
+    document_id: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61
+    content_hash: 326c6133f39d6aa6eb4ac4b10aae2c52e968a9452810564016b676a5e9579890
+    section_path: crawler-text-offset:5144-5504
+    claim_type: root_cause
+    retrieved_at: '2026-09-02T09:18:34.998243+00:00'
+  - ref: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61#http_proxy_misroute_v1-4-repair
+    source_url: https://www.rfc-editor.org/rfc/rfc9110.html
+    document_id: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61
+    content_hash: 326c6133f39d6aa6eb4ac4b10aae2c52e968a9452810564016b676a5e9579890
+    section_path: crawler-text-offset:5097-5457
+    claim_type: repair
+    retrieved_at: '2026-09-02T09:18:34.998243+00:00'
+  - ref: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61#http_proxy_misroute_v1-5-persistence
+    source_url: https://www.rfc-editor.org/rfc/rfc9110.html
+    document_id: doc-www-rfc-editor-org-rfc-rfc9110.html-326c61
+    content_hash: 326c6133f39d6aa6eb4ac4b10aae2c52e968a9452810564016b676a5e9579890
+    section_path: crawler-text-offset:14536-14896
+    claim_type: persistence
+    retrieved_at: '2026-09-02T09:18:34.998243+00:00'
+  candidate_group_id: diverse-20260902-http_proxy_misroute_v1-v2
+  generation_strategy: dynamic_official_evidence
+  experience_version: e2e-diverse-v1
+  experience_digest: 9b2593aa75c7594281f38ddd2c5a1fddfc71dc2936836d4d281c95c73e4ed531
+  scenario_seed: 20260914
+  novelty_fingerprint: 65eda35078a8e744da5d6ee2e4887d73afa1d73b8a94eebc1f69efae46577f15
+  capability_variant: v2
+  scenario_spec:
+    primitive_id: http_proxy_misroute_v1
+    variant: v2
+    mechanism_id: effective_proxy_route
+  evidence_status: crawled_official_snapshot
+  crawler_mode: http_only
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: 2f0ffaa45a49d52cbaf7aa92cdd786ca624743d9f0441e3607cde430504788fa
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-70-diverse-20260902\retry-8

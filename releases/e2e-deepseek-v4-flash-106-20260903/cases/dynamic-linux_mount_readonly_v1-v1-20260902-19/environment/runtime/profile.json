@@ -1,0 +1,13 @@
+{
+  "domain": "linux",
+  "fault_type": "readonly_mount",
+  "technology": [
+    "Linux",
+    "Filesystem"
+  ],
+  "mechanism": "filesystem_write_protection",
+  "resource": "filesystem",
+  "signal": "mount_writeability",
+  "observability": "mount flags and a bounded write probe",
+  "repair": "mount_or_filesystem_policy"
+}

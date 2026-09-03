@@ -1,0 +1,32 @@
+services:
+  target:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: opsbench-e2e-nginx_bind_conflict_v1
+    working_dir: /runtime
+    command: ["python", "/opt/opsbench/service.py"]
+    user: "10001:10001"
+    volumes:
+      - ./runtime/fault.json:/runtime/fault.json
+      - ./runtime/fault_progress.json:/runtime/fault_progress.json
+      - ./runtime/nginx.conf:/runtime/nginx.conf
+      - ./runtime/status.json:/runtime/status.json
+      - ./runtime/nginx-error.log:/runtime/nginx-error.log
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_REQUEST_TIMEOUT: ${OPSBENCH_REQUEST_TIMEOUT:-300}
+      OPSBENCH_MAX_RETRIES: ${OPSBENCH_MAX_RETRIES:-2}
+      OPSBENCH_TEMPLATE_ID: nginx_bind_conflict_v1
+      OPSBENCH_HEALTH_MODE: status
+    ports:
+      - "18080:18080"
+    cpus: "1.0"
+    mem_limit: 384m
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

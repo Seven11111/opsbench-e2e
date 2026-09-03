@@ -1,0 +1,26 @@
+{
+  "template_id": "linux_deleted_open_file_v1",
+  "primitive_id": "linux_deleted_open_file_v1",
+  "capability_profile": {
+    "domain": "linux",
+    "fault_type": "deleted_open_file",
+    "technology": [
+      "Linux",
+      "procfs",
+      "Python"
+    ],
+    "mechanism": "unlinked_inode_held_by_process",
+    "resource": "filesystem",
+    "signal": "deleted_fd_count",
+    "observability": "procfs deleted file descriptors and disk headroom",
+    "repair": "process_file_handles"
+  },
+  "capability_variant": "v2",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

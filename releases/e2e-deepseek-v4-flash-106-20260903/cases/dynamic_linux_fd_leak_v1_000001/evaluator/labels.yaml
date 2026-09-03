@@ -1,0 +1,5 @@
+primary: fault_fix
+secondary:
+- fault_detection
+- root_cause
+primitive: linux_fd_leak_v1

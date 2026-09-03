@@ -1,0 +1,5 @@
+{
+  "oracle": "curl -sS -X POST -H 'Content-Type: application/json' -d '{\"action\":\"restore\"}' http://127.0.0.1:8080/opsbench/control",
+  "wrong_fix": "curl -sS -X POST -H 'Content-Type: application/json' -d '{\"action\":\"raise_timeout_budget\"}' http://127.0.0.1:8080/opsbench/control",
+  "partial_fix": "true"
+}

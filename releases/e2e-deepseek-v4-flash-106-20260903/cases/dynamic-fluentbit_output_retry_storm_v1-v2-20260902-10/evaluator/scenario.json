@@ -1,0 +1,25 @@
+{
+  "template_id": "fluentbit_output_retry_storm_v1",
+  "primitive_id": "fluentbit_output_retry_storm_v1",
+  "capability_profile": {
+    "domain": "logging",
+    "fault_type": "output_retry_storm",
+    "technology": [
+      "Fluent Bit",
+      "Linux"
+    ],
+    "mechanism": "unreachable_output_retry_policy",
+    "resource": "logging",
+    "signal": "retry_rate",
+    "observability": "output retries, buffer depth and delivery rate",
+    "repair": "output_route_configuration"
+  },
+  "capability_variant": "v2",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

@@ -1,0 +1,14 @@
+{
+  "domain": "network",
+  "fault_type": "proxy_misroute",
+  "technology": [
+    "HTTP",
+    "Proxy",
+    "Python"
+  ],
+  "mechanism": "effective_proxy_route",
+  "resource": "network",
+  "signal": "proxy_route",
+  "observability": "effective proxy environment and request route",
+  "repair": "client_proxy_configuration"
+}

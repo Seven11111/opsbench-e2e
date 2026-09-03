@@ -1,0 +1,13 @@
+{
+  "domain": "network",
+  "fault_type": "conntrack_exhaustion",
+  "technology": [
+    "Linux",
+    "TCP"
+  ],
+  "mechanism": "stateful_connection_table_pressure",
+  "resource": "network",
+  "signal": "connection_headroom",
+  "observability": "socket counters and connection-table headroom",
+  "repair": "connection_lifecycle"
+}

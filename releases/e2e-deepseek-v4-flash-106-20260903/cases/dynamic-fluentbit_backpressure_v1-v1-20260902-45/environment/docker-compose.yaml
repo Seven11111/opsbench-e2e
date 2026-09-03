@@ -1,0 +1,39 @@
+services:
+  sink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "/runtime/sink.py"]
+    volumes:
+      - ./runtime:/runtime
+    ports: ["19980:19880"]
+  fluent-bit:
+    image: fluent/fluent-bit:3.2
+    command: ["/fluent-bit/bin/fluent-bit", "-c", "/fluent-bit/etc/fluent-bit.conf"]
+    volumes:
+      # Mount the directory rather than a single file.  On Docker Desktop for
+      # Windows, a read-only single-file bind mount can retain the original
+      # inode when the agent edits the shared runtime file.  The directory
+      # mount makes the repaired configuration visible to Fluent Bit before
+      # the hot reload and keeps the agent/verifier observation contract
+      # deterministic.
+      - ./runtime:/fluent-bit/etc:ro
+    ports: ["19202:2020", "19880:9880"]
+    depends_on: [sink]
+  agent-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_HEALTH_MODE: url
+      OPSBENCH_HEALTH_URL: http://fluent-bit:2020/api/v1/health
+      OPSBENCH_METRICS_URL: http://fluent-bit:2020/api/v1/metrics
+    depends_on: [fluent-bit]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]

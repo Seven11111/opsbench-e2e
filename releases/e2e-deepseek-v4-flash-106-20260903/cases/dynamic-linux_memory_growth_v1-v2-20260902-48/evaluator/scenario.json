@@ -1,0 +1,10 @@
+{
+  "template_id": "linux_memory_growth_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "memory_growth",
+    "growth_enabled": false,
+    "memory_limit_bytes": 16777216,
+    "repair_mode": "baseline"
+  }
+}

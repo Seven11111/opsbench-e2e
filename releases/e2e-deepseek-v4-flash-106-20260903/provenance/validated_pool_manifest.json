@@ -1,0 +1,1073 @@
+{
+  "pool_version": "opsbench-e2e-validated-pool-v1",
+  "status": "evaluable_case_pool",
+  "case_count": 106,
+  "cases": [
+    {
+      "id": "01-file-lock",
+      "source_release": "e2e-expert-review-20260901",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_file_lock_v1",
+      "case_digest": "636c4368f4623d2632dda31c16075d40abc59d2723e74f450b5c2036dacb076a",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\01-file-lock"
+    },
+    {
+      "id": "15-prometheus-scrape",
+      "source_release": "e2e-expert-review-20260901",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "prometheus_scrape_target_v1",
+      "case_digest": "d2c5632bd16f65020603bb3e25ef84282cba6217566496fa20b3a0607ca967b3",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\15-prometheus-scrape"
+    },
+    {
+      "id": "16-fluentbit-backpressure",
+      "source_release": "e2e-expert-review-20260901",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "fluentbit_backpressure_v1",
+      "case_digest": "f5e96c1c9133b9435c337c5215b12f8418a302bc97987f70b9f6ba39bd4b0261",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\16-fluentbit-backpressure"
+    },
+    {
+      "id": "19-memory-growth",
+      "source_release": "e2e-expert-review-20260901",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_memory_growth_v1",
+      "case_digest": "118c564748bbb77f51f7be5cc9962945277619e63a8423a05c7c5a06bd07f269",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\19-memory-growth"
+    },
+    {
+      "id": "23-upstream-timeout",
+      "source_release": "e2e-expert-review-20260901",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_upstream_timeout_v1",
+      "case_digest": "93fae1dc3cc555db32cbd766e110c7f1c12888288a28416e246c7277fd930188",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\23-upstream-timeout"
+    },
+    {
+      "id": "27-upload-chmod",
+      "source_release": "e2e-expert-review-20260901",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_upload_permission_v1",
+      "case_digest": "fa5b6ac07ef3a45e40d8c20a3cad0eb4942cd3b4cd8633a0fea2b79b99feb739",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\27-upload-chmod"
+    },
+    {
+      "id": "candidate_http_dependency_timeout_001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "case_digest": "d1aec986df1fc88a8a2362552664787e1475cc693fca6b0b5fc2a2f55110ef1f",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_http_dependency_timeout_001"
+    },
+    {
+      "id": "candidate_linux_disk_full_v1_001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_disk_full_v1",
+      "case_digest": "19772f8a2b66113526ba8c806f274e2c31a6d64d15c983ac5bc1aa7233765f64",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_linux_disk_full_v1_001"
+    },
+    {
+      "id": "candidate_linux_inode_exhaustion_001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_inode_exhaustion_v1",
+      "case_digest": "1579f8e3e6c33191c066efaa1d450f64eed7a6f1f92156670bda76600287eafc",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_linux_inode_exhaustion_001"
+    },
+    {
+      "id": "candidate_postgres_missing_index_v2_001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_missing_index_v2",
+      "case_digest": "39f9e9cf58f4cef0e09d4c8d0f2dee02e7677bbcde4464c489069c56cd3a3c53",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_postgres_missing_index_v2_001"
+    },
+    {
+      "id": "candidate_tls_hostname_mismatch_v1_001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "case_digest": "4e7bd9297e4019bfa4125915dadd2c6ba8417af082f6796c8ecb17b412faa828",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_tls_hostname_mismatch_v1_001"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_config_precedence_v1",
+      "case_digest": "7fbda86a0fa0c10015b33880526e20020af91db5a68c8dd307c5ab5ade4421b0",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_config_precedence_v1_000001"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000002",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_config_precedence_v1",
+      "case_digest": "c8ce0e56965d637f13d3df4e3f5a0d0dc0e5d545030ffdbe6e135717782ee684",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_config_precedence_v1_000002"
+    },
+    {
+      "id": "dynamic_app_stale_pid_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_stale_pid_v1",
+      "case_digest": "d001691668365b11c4d29f360ecae27c81108e60da6fac80c8d4cfaca2ad54cd",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_stale_pid_v1_000001"
+    },
+    {
+      "id": "dynamic_linux_temp_permission_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_temp_permission_v1",
+      "case_digest": "496028c86312fab025cf1ffb98a4957aeebc4941e434e3042d4c697e9040ad1c",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_temp_permission_v1_000001"
+    },
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "case_digest": "6fdadb3af7a6098e725e527754c8e136fad021e211492bbe72b9f418e4a0aa47",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_cpu_runaway_v2_000001"
+    },
+    {
+      "id": "dynamic_nginx_bind_conflict_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "case_digest": "8b5c9172e76b9557b9dbb94c56849f8e748885fe8cfbd9fd89ea407791b997eb",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_nginx_bind_conflict_v1_000001"
+    },
+    {
+      "id": "dynamic_linux_fd_leak_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_fd_leak_v1",
+      "case_digest": "435c7476d0d55f91de0d09cca31e20b9f5df77f1fd8d714138135206518f5803",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_fd_leak_v1_000001"
+    },
+    {
+      "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_retry_circuit_breaker_v1",
+      "case_digest": "33c9262bbfe676688dddb806cf7dd09570d0b6fdec3f0d901701e8754eab66da",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_retry_circuit_breaker_v1_000001"
+    },
+    {
+      "id": "candidate_redis_cache_corruption_001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "redis_cache_corruption_v1",
+      "case_digest": "b73911aa33f96024881a4a76282b5ca2f52f1e4060c09a82a9c8d89c0878348f",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_redis_cache_corruption_001"
+    },
+    {
+      "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_connection_pool_exhaustion_v1",
+      "case_digest": "625e0aa8da1b8f4554fe8782d9d7c32914b82e437b2e051499bd618856953c51",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_postgres_connection_pool_exhaustion_v1_000001"
+    },
+    {
+      "id": "dynamic_postgres_lock_contention_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_lock_contention_v1",
+      "case_digest": "3ab22a2c5bd05ec0d4fc09e54b3ff4a4b8c57efb8e1b9e3a0cd169b1585cb0fa",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_postgres_lock_contention_v1_000001"
+    },
+    {
+      "id": "dynamic_kafka_consumer_lag_v1_000001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "kafka_consumer_lag_v1",
+      "case_digest": "e25896ca8d2cfd2a5ffecab9568262033588b75da9c83c8998de5a883c336cdc",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_kafka_consumer_lag_v1_000001"
+    },
+    {
+      "id": "http_dependency_dns_poison_v1_candidate_1",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "case_digest": "55b6a9585ea4dc838756b16d4f1e4fc451a0c9000217c9a1fbc6e684b0c4c883",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\http_dependency_dns_poison_v1_candidate_1"
+    },
+    {
+      "id": "http_dependency_port_drift_v1_candidate_001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "case_digest": "54705f85209355138cd5bcc5224e596d05d1568c5ac5623e8fafc958e3805043",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\http_dependency_port_drift_v1_candidate_001"
+    },
+    {
+      "id": "candidate_rabbitmq_resource_alarm_v1_001",
+      "source_release": "master-v4",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-20-20260901\\master-v4",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "rabbitmq_resource_alarm_v1",
+      "case_digest": "220735486245670720dfbab5d07420baa49c20e2fe92e981c337e782bed90a48",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_rabbitmq_resource_alarm_v1_001"
+    },
+    {
+      "id": "dynamic_app_stale_pid_v1_031003",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_stale_pid_v1",
+      "case_digest": "97bec1b0faa7f4f62b6208d407aff3afedad42162c5ba9a3287dd92f2d931a79",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_stale_pid_v1_031003"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_031002",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_config_precedence_v1",
+      "case_digest": "944f7aefbb2338b16e50afdb59b8d15c4552780c9bf555ec08357729319b41f7",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_config_precedence_v1_031002"
+    },
+    {
+      "id": "dynamic_http_dependency_dns_poison_v1_031015",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "case_digest": "76ce02b2a096d5971f530f53f353f1d2a32c6281d536552e37749861dffc4e77",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_dependency_dns_poison_v1_031015"
+    },
+    {
+      "id": "dynamic_http_retry_circuit_breaker_v1_031012",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_retry_circuit_breaker_v1",
+      "case_digest": "776f7d01ad2d4ad8520fc1adbcbd569948e2aacf58784a06e3045ee0d8fce743",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_retry_circuit_breaker_v1_031012"
+    },
+    {
+      "id": "dynamic_http_dependency_port_drift_v1_031005",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "case_digest": "3396ac600670a9e6cd4f2fedab18167f900bd127ed031a3e22362361130cd10b",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_dependency_port_drift_v1_031005"
+    },
+    {
+      "id": "dynamic_http_dependency_timeout_slo_v1_031006",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "case_digest": "169ccc7501c174ea7510985db2a798f249e433e24a80cd3b131acb60cd1efa7a",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_dependency_timeout_slo_v1_031006"
+    },
+    {
+      "id": "dynamic_kafka_consumer_lag_v1_031008",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "kafka_consumer_lag_v1",
+      "case_digest": "9db799273dc184df0bdd507e9e8e1a93e9f0881e99bc8e6fa5d1be866ea3a737",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_kafka_consumer_lag_v1_031008"
+    },
+    {
+      "id": "dynamic_tls_hostname_mismatch_v1_031011",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "case_digest": "aa86b75e04c9d249258e06a54505a1309171d0592df1d007106837caa43607ad",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_tls_hostname_mismatch_v1_031011"
+    },
+    {
+      "id": "dynamic_linux_fd_leak_v1_031010",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_fd_leak_v1",
+      "case_digest": "974da86950bb33077ace0e7d5bb66fc1ab899e4581b8a483e8517713488e5249",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_fd_leak_v1_031010"
+    },
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_031009",
+      "source_release": "master",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-10-20260902\\master",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "case_digest": "e5fa13665831d8f4f05cbabc1fa4aba4111bf9fa6487ac02193ed0ce981d4478",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_cpu_runaway_v2_031009"
+    },
+    {
+      "id": "dynamic-app_config_precedence_v1-v1-20260902-65",
+      "source_release": "retry-7",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-7",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_config_precedence_v1",
+      "case_digest": "e3d2ac85241ed98fef09381e79047375c6fb33a3ad3e83cc0b37cd01308064fe",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-app_config_precedence_v1-v1-20260902-65"
+    },
+    {
+      "id": "dynamic-app_config_precedence_v1-v2-20260902-66",
+      "source_release": "retry-7",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-7",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_config_precedence_v1",
+      "case_digest": "e189a9c7f4536a3ff39f2bf747a437fee3bb9fb667e8cd4a2ae7793877ea3232",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-app_config_precedence_v1-v2-20260902-66"
+    },
+    {
+      "id": "dynamic-app_stale_pid_v1-v1-20260902-67",
+      "source_release": "retry-7",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-7",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_stale_pid_v1",
+      "case_digest": "76f45cac6535648e6c8a2384b17b3889363b71e87152583285fd8e1e7b33dfb6",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-app_stale_pid_v1-v1-20260902-67"
+    },
+    {
+      "id": "dynamic-app_stale_pid_v1-v2-20260902-68",
+      "source_release": "retry-7",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-7",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "app_stale_pid_v1",
+      "case_digest": "fa4400aeaccf3da4f317abc52045136f7771d7cbda08d1594af555520421b568",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-app_stale_pid_v1-v2-20260902-68"
+    },
+    {
+      "id": "dynamic-container_healthcheck_mismatch_v1-v1-20260902-01",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "container_healthcheck_mismatch_v1",
+      "case_digest": "9b12cbe16f9f68eb8ed7920eb9761667a0514d246d08fdba1b829873323ddc5e",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_healthcheck_mismatch_v1-v1-20260902-01"
+    },
+    {
+      "id": "dynamic-container_healthcheck_mismatch_v1-v2-20260902-02",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "container_healthcheck_mismatch_v1",
+      "case_digest": "a17d8695f2198e902ca8431f401ac7a9368958218918d285e16ec1236cde4276",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_healthcheck_mismatch_v1-v2-20260902-02"
+    },
+    {
+      "id": "dynamic-container_mount_permission_v1-v2-20260902-04",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "container_mount_permission_v1",
+      "case_digest": "d29529e08f92fad02738aa7dd2db97ef54da7024900867ec8d93fd02f888ba4e",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_mount_permission_v1-v2-20260902-04"
+    },
+    {
+      "id": "dynamic-container_mount_permission_v1-v1-20260902-03",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "container_mount_permission_v1",
+      "case_digest": "2249a766623b03c550214af9d21ad32dc3c70cead13472488ab2c3387572c165",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_mount_permission_v1-v1-20260902-03"
+    },
+    {
+      "id": "dynamic-container_pid_limit_v1-v1-20260902-05",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "container_pid_limit_v1",
+      "case_digest": "2d4ad61d37df841c9f31849e3278de988cf7c5517a30b9acc5ca2112a19ab828",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_pid_limit_v1-v1-20260902-05"
+    },
+    {
+      "id": "dynamic-container_pid_limit_v1-v2-20260902-06",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "container_pid_limit_v1",
+      "case_digest": "116d3a51d5c24c6fe7d7a167f3e4aaabcb5883af39e218f3649f47ebe8594918",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_pid_limit_v1-v2-20260902-06"
+    },
+    {
+      "id": "dynamic-container_readonly_rootfs_v1-v1-20260902-07",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "container_readonly_rootfs_v1",
+      "case_digest": "621b70a17d0c3c56540d9429b3ce7bd42969639485cf2f333ab63dfb9857a78d",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_readonly_rootfs_v1-v1-20260902-07"
+    },
+    {
+      "id": "dynamic-fluentbit_output_retry_storm_v1-v1-20260902-09",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "fluentbit_output_retry_storm_v1",
+      "case_digest": "17f8c65a6c242f43ef4147df149868570d24b14c0859ef849ca8d3753971783a",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-fluentbit_output_retry_storm_v1-v1-20260902-09"
+    },
+    {
+      "id": "dynamic-container_readonly_rootfs_v1-v2-20260902-08",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "container_readonly_rootfs_v1",
+      "case_digest": "9368a7f6943b72efea34136b859b5112c602530b65e168eccaf7e04cc4c643f2",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_readonly_rootfs_v1-v2-20260902-08"
+    },
+    {
+      "id": "dynamic-fluentbit_backpressure_v1-v1-20260902-45",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "fluentbit_backpressure_v1",
+      "case_digest": "64226b803ce2555082e07e5c07aa23bb1dae7ee702a2d629b55db18fdb038bb0",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-fluentbit_backpressure_v1-v1-20260902-45"
+    },
+    {
+      "id": "dynamic-fluentbit_output_retry_storm_v1-v2-20260902-10",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "fluentbit_output_retry_storm_v1",
+      "case_digest": "4c8068c6122d783e2b33328787d90366a58012d6510b3c59a258b491e7f96896",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-fluentbit_output_retry_storm_v1-v2-20260902-10"
+    },
+    {
+      "id": "dynamic-fluentbit_backpressure_v1-v2-20260902-46",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "fluentbit_backpressure_v1",
+      "case_digest": "d0c4de26554c90fb1dc72551beb1601dc447d439d5e1cf103ed2a347e82ab072",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-fluentbit_backpressure_v1-v2-20260902-46"
+    },
+    {
+      "id": "dynamic-http_dependency_port_drift_v1-v1-20260902-69",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "case_digest": "8c793c1489b43ca9a8dd0b81a21f84803d3c585a858b6ff3e221a5e0042e17d0",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_dependency_port_drift_v1-v1-20260902-69"
+    },
+    {
+      "id": "dynamic-http_dependency_port_drift_v1-v2-20260902-70",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "case_digest": "d98ef1280dffb85c931aa61841a0779fcb04a55ceadde70f154aaf3e32c85ca9",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_dependency_port_drift_v1-v2-20260902-70"
+    },
+    {
+      "id": "dynamic-http_proxy_misroute_v1-v1-20260902-11",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_proxy_misroute_v1",
+      "case_digest": "e6c000fbf45f9d1f67740c1f2a8f967d2ae91d55c9998420307d0a1cdb6980e5",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_proxy_misroute_v1-v1-20260902-11"
+    },
+    {
+      "id": "dynamic-http_proxy_misroute_v1-v2-20260902-12",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_proxy_misroute_v1",
+      "case_digest": "2f0ffaa45a49d52cbaf7aa92cdd786ca624743d9f0441e3607cde430504788fa",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_proxy_misroute_v1-v2-20260902-12"
+    },
+    {
+      "id": "dynamic-http_upstream_timeout_v1-v1-20260902-49",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_upstream_timeout_v1",
+      "case_digest": "d4fe28206b9b46da917be45b7c9df66e64bfcc4ee09ea13c01c3df33d491ebb2",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_upstream_timeout_v1-v1-20260902-49"
+    },
+    {
+      "id": "dynamic-http_upstream_timeout_v1-v2-20260902-50",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "http_upstream_timeout_v1",
+      "case_digest": "3ca876b6f39a9697bcf11a361ecb4a2bf6cf0af6980f1c11791685dcddf52d54",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_upstream_timeout_v1-v2-20260902-50"
+    },
+    {
+      "id": "dynamic-kafka_poison_message_v1-v2-20260902-14",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "kafka_poison_message_v1",
+      "case_digest": "d24391db5b511cc6653fc020939b239d3395677018be935e4ac912c2e1fa7649",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-kafka_poison_message_v1-v2-20260902-14"
+    },
+    {
+      "id": "dynamic-linux_deleted_open_file_v1-v1-20260902-17",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_deleted_open_file_v1",
+      "case_digest": "d8bc2ebddaae5a3277e4eec0c7b0fa78852e1a07c6ed21e2e4e29d9ddef420c4",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_deleted_open_file_v1-v1-20260902-17"
+    },
+    {
+      "id": "dynamic-linux_disk_full_v1-v1-20260902-53",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_disk_full_v1",
+      "case_digest": "85158c80453435a4963231d653023c7d4bb6782482e3f4bc938158c695318c45",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_disk_full_v1-v1-20260902-53"
+    },
+    {
+      "id": "dynamic-linux_deleted_open_file_v1-v2-20260902-18",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_deleted_open_file_v1",
+      "case_digest": "fc52cbfab58912fadfe6e010f3c9501a1bcdbf9219c7a9426df6664857a3ee91",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_deleted_open_file_v1-v2-20260902-18"
+    },
+    {
+      "id": "dynamic-linux_disk_full_v1-v2-20260902-54",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_disk_full_v1",
+      "case_digest": "a5040fbb88b7d8843ac55c53220ab4824c49f52ecd5235e56a8b2e52f95997b0",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_disk_full_v1-v2-20260902-54"
+    },
+    {
+      "id": "dynamic-kafka_poison_message_v1-v1-20260902-13",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "kafka_poison_message_v1",
+      "case_digest": "6f709b030efda6d124f2cc4c829b991f32c9d2347bb5523d27fd828255440ee5",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-kafka_poison_message_v1-v1-20260902-13"
+    },
+    {
+      "id": "dynamic-linux_inode_exhaustion_v1-v1-20260902-55",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_inode_exhaustion_v1",
+      "case_digest": "0ac3d7ddc4ad4617aa43009b42d6cd93a4f6c597fb7db31018f1565dabdb8ec8",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_inode_exhaustion_v1-v1-20260902-55"
+    },
+    {
+      "id": "dynamic-linux_inode_exhaustion_v1-v2-20260902-56",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_inode_exhaustion_v1",
+      "case_digest": "f2393ff0519757051acd9cab8c102c11d84a633d860f7eb283ec2843b9a94e2c",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_inode_exhaustion_v1-v2-20260902-56"
+    },
+    {
+      "id": "dynamic-linux_memory_growth_v1-v1-20260902-47",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_memory_growth_v1",
+      "case_digest": "b968dac0c88a59f45aae0b1cc52d4098a9350310402f00b0fc68475246fb94f5",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_memory_growth_v1-v1-20260902-47"
+    },
+    {
+      "id": "dynamic-linux_memory_growth_v1-v2-20260902-48",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_memory_growth_v1",
+      "case_digest": "8d7dd3786e6b751579b57199e7ced818d19965f602a29bdf00c4259517f88df1",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_memory_growth_v1-v2-20260902-48"
+    },
+    {
+      "id": "dynamic-linux_mount_readonly_v1-v2-20260902-20",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_mount_readonly_v1",
+      "case_digest": "6a9f1a9e5a16d1aa5799e8bfc8ded6f73b1431714f977f6de9076d0e6c24b3ab",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_mount_readonly_v1-v2-20260902-20"
+    },
+    {
+      "id": "dynamic-linux_oom_killer_v1-v1-20260902-21",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_oom_killer_v1",
+      "case_digest": "7f57cbfe862949b592a56e2596faa676bfe498df0716d5e4ee9b4b0c18a72910",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_oom_killer_v1-v1-20260902-21"
+    },
+    {
+      "id": "dynamic-linux_temp_permission_v1-v1-20260902-61",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_temp_permission_v1",
+      "case_digest": "22d451875b5ddc689bd58cd4debb75a84e7b99fe4cd27fa67f0de61bf200c5e1",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_temp_permission_v1-v1-20260902-61"
+    },
+    {
+      "id": "dynamic-linux_oom_killer_v1-v2-20260902-22",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_oom_killer_v1",
+      "case_digest": "a2dd8c88fed283a4c4b7fd5fa8b09ae1c934e8129d419901e34c40d49796e42f",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_oom_killer_v1-v2-20260902-22"
+    },
+    {
+      "id": "dynamic-linux_temp_permission_v1-v2-20260902-62",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_temp_permission_v1",
+      "case_digest": "039bddc0c23eefc68f141690bde3b38f3a31eed10d9a7c659e230702f0c3613b",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_temp_permission_v1-v2-20260902-62"
+    },
+    {
+      "id": "dynamic-linux_upload_permission_v1-v1-20260902-51",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_upload_permission_v1",
+      "case_digest": "bcbff505564c7e24917d976a32be92402a6e8fb3dd0741f4f8e29e5ba9d54057",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_upload_permission_v1-v1-20260902-51"
+    },
+    {
+      "id": "dynamic-nginx_bind_conflict_v1-v1-20260902-63",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "case_digest": "a9e248c08a63b4fadb5e47aeeda0133f091d37677f8656f2cba3b5eb9ef88cbc",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-nginx_bind_conflict_v1-v1-20260902-63"
+    },
+    {
+      "id": "dynamic-nginx_bind_conflict_v1-v2-20260902-64",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "case_digest": "9c9116a7dd421c7e2a93ff16fd3221d9cd0f9e84ef0f7a72cbd34b6c4c9bfa28",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-nginx_bind_conflict_v1-v2-20260902-64"
+    },
+    {
+      "id": "dynamic-linux_upload_permission_v1-v2-20260902-52",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_upload_permission_v1",
+      "case_digest": "559dd9d8e3b76afb5da2632abce0483d696cf04fa72cec2a0ae8abcc1b4dfc33",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_upload_permission_v1-v2-20260902-52"
+    },
+    {
+      "id": "dynamic-postgres_idle_transaction_v1-v1-20260902-23",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_idle_transaction_v1",
+      "case_digest": "b1cf835433405f20bd87463975611db8ab6dacc2503c4588613d67b8f1f1aba7",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_idle_transaction_v1-v1-20260902-23"
+    },
+    {
+      "id": "dynamic-postgres_idle_transaction_v1-v2-20260902-24",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_idle_transaction_v1",
+      "case_digest": "41ea7e21bd098681636d6570e21df275184f8352cad1bfd345a777c9d5b9c290",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_idle_transaction_v1-v2-20260902-24"
+    },
+    {
+      "id": "dynamic-postgres_missing_index_v2-v1-20260902-57",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_missing_index_v2",
+      "case_digest": "2f91691cf3c3429df8b054af4170f46f87fad73ad6516ba0156522bbef00e389",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_missing_index_v2-v1-20260902-57"
+    },
+    {
+      "id": "dynamic-postgres_readonly_replica_v1-v1-20260902-25",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_readonly_replica_v1",
+      "case_digest": "bde2874e5d076d3df0a97e2940e14532999b169cdec0292c80de5b4727dae07a",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_readonly_replica_v1-v1-20260902-25"
+    },
+    {
+      "id": "dynamic-postgres_missing_index_v2-v2-20260902-58",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_missing_index_v2",
+      "case_digest": "266ce3781f32006ada1e258fe0b943017205292dc3fc3c79d5b343beed986ec6",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_missing_index_v2-v2-20260902-58"
+    },
+    {
+      "id": "dynamic-postgres_readonly_replica_v1-v2-20260902-26",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_readonly_replica_v1",
+      "case_digest": "b4564da117d67f43f12f2ca9938aa160b55d231ef0ec9a7290bfd4ff0604856f",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_readonly_replica_v1-v2-20260902-26"
+    },
+    {
+      "id": "dynamic-postgres_replication_lag_v1-v1-20260902-27",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_replication_lag_v1",
+      "case_digest": "63c2aa0a77ddcbfbbea1703770a049bffab6e9918b38c2dbb5dbe58ab1dae2b7",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_replication_lag_v1-v1-20260902-27"
+    },
+    {
+      "id": "dynamic-postgres_replication_lag_v1-v2-20260902-28",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "postgres_replication_lag_v1",
+      "case_digest": "d0af782020e43c34c5732a93cf87a60698e084236098046a82fb9eb4eff9fa55",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_replication_lag_v1-v2-20260902-28"
+    },
+    {
+      "id": "dynamic-process_supervisor_restart_loop_v1-v1-20260902-29",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "process_supervisor_restart_loop_v1",
+      "case_digest": "eb16a8f623c4825baf565ab9f6e0acdf389405bb4e44c1f2576cdf4812043ea9",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-process_supervisor_restart_loop_v1-v1-20260902-29"
+    },
+    {
+      "id": "dynamic-process_supervisor_restart_loop_v1-v2-20260902-30",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "process_supervisor_restart_loop_v1",
+      "case_digest": "3de3281585b2e1910d9b53d0f748ed4b510ae23f643384a4e5ef2477161c5127",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-process_supervisor_restart_loop_v1-v2-20260902-30"
+    },
+    {
+      "id": "dynamic-prometheus_alert_rule_mismatch_v1-v1-20260902-31",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "prometheus_alert_rule_mismatch_v1",
+      "case_digest": "b87c7210693c6fffd7c15855aa6d04ccb055ee36fa959f5712a2fa5bfed3cb5a",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-prometheus_alert_rule_mismatch_v1-v1-20260902-31"
+    },
+    {
+      "id": "dynamic-prometheus_alert_rule_mismatch_v1-v2-20260902-32",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "prometheus_alert_rule_mismatch_v1",
+      "case_digest": "76cdc46fc4bfe7b6007f340d875eb3a46f14dec6c9c0f47938d9ec6919ae71b1",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-prometheus_alert_rule_mismatch_v1-v2-20260902-32"
+    },
+    {
+      "id": "dynamic-prometheus_scrape_target_v1-v1-20260902-43",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "prometheus_scrape_target_v1",
+      "case_digest": "ee5d553f58be6d3c93feef65b731bb99204e2ee4044e94e1c7d8ddcea6b584b2",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-prometheus_scrape_target_v1-v1-20260902-43"
+    },
+    {
+      "id": "dynamic-rabbitmq_dead_letter_buildup_v1-v1-20260902-33",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "rabbitmq_dead_letter_buildup_v1",
+      "case_digest": "d01388b974bd9bcd964f652ed2c0c6363373121294f4afd426db305122094a04",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-rabbitmq_dead_letter_buildup_v1-v1-20260902-33"
+    },
+    {
+      "id": "dynamic-prometheus_scrape_target_v1-v2-20260902-44",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "prometheus_scrape_target_v1",
+      "case_digest": "208e6c2af4568f8c45943979c6264c32efceaf55c5ff15415d8ac899f88ba646",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-prometheus_scrape_target_v1-v2-20260902-44"
+    },
+    {
+      "id": "dynamic-rabbitmq_dead_letter_buildup_v1-v2-20260902-34",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "rabbitmq_dead_letter_buildup_v1",
+      "case_digest": "116a073d588f2c5063a3685fa46fb603ba0b1a1b921c85c8b7b5d87c42df20ea",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-rabbitmq_dead_letter_buildup_v1-v2-20260902-34"
+    },
+    {
+      "id": "dynamic-rabbitmq_resource_alarm_v1-v1-20260902-59",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "rabbitmq_resource_alarm_v1",
+      "case_digest": "8b938c7a1bbe8ad1ee9f92b050a4f39446e296520a709c8bf1bebf46c5553add",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-rabbitmq_resource_alarm_v1-v1-20260902-59"
+    },
+    {
+      "id": "dynamic-redis_cache_stampede_v1-v1-20260902-35",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "redis_cache_stampede_v1",
+      "case_digest": "9ad887f93f0846aee84226f10a68c573ac1af0099d2b278f62e700282d7c5f45",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-redis_cache_stampede_v1-v1-20260902-35"
+    },
+    {
+      "id": "dynamic-rabbitmq_resource_alarm_v1-v2-20260902-60",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "rabbitmq_resource_alarm_v1",
+      "case_digest": "2a395eede6339f03238c671584ca62775fdcd85291c08e7375f2d4bf6d832212",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-rabbitmq_resource_alarm_v1-v2-20260902-60"
+    },
+    {
+      "id": "dynamic-redis_cache_stampede_v1-v2-20260902-36",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "redis_cache_stampede_v1",
+      "case_digest": "660e213c0a8cc209248380e458f1d683168c974c1cac92ccc05dd599021a2996",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-redis_cache_stampede_v1-v2-20260902-36"
+    },
+    {
+      "id": "dynamic-tls_certificate_expiry_v1-v1-20260902-37",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "tls_certificate_expiry_v1",
+      "case_digest": "eb39e9be24c182da9934f78a24782e5fb7d446a569f9dd6b3d72b4d7d934aa3d",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-tls_certificate_expiry_v1-v1-20260902-37"
+    },
+    {
+      "id": "dynamic-tls_mtls_client_auth_v1-v1-20260902-39",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "tls_mtls_client_auth_v1",
+      "case_digest": "2b0c062e941ecc7cf711d2dffc417cc4f5caf7b1196b4441968f4350eb5a6492",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-tls_mtls_client_auth_v1-v1-20260902-39"
+    },
+    {
+      "id": "dynamic-tls_certificate_expiry_v1-v2-20260902-38",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "tls_certificate_expiry_v1",
+      "case_digest": "aa21de0c24cfbeea8a506c14a4001c8a89b8a9df7766821d155dac2e9fcd58ff",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-tls_certificate_expiry_v1-v2-20260902-38"
+    },
+    {
+      "id": "dynamic-tls_mtls_client_auth_v1-v2-20260902-40",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "tls_mtls_client_auth_v1",
+      "case_digest": "71409558e1cc58ea67f5e16350abbc3897fd8b55fc94e2acf2cbb32e0c24baff",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-tls_mtls_client_auth_v1-v2-20260902-40"
+    },
+    {
+      "id": "dynamic-linux_conntrack_exhaustion_v1-v1-20260902-15",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_conntrack_exhaustion_v1",
+      "case_digest": "d57b0762aa678c1f25f06455aa8d06ff7b5c4732282bf98ff9d461e6b6883383",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_conntrack_exhaustion_v1-v1-20260902-15"
+    },
+    {
+      "id": "dynamic-linux_file_lock_v1-v1-20260902-41",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_file_lock_v1",
+      "case_digest": "25895bc15d436f91375c7ebaa0e71b6ad421ee34be9761cc2119b705fbfce393",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_file_lock_v1-v1-20260902-41"
+    },
+    {
+      "id": "dynamic-linux_conntrack_exhaustion_v1-v2-20260902-16",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_conntrack_exhaustion_v1",
+      "case_digest": "8d22adf18b38b7c1f5b016113fb875c831db2b20902eefb5f7ed53b1319e891c",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_conntrack_exhaustion_v1-v2-20260902-16"
+    },
+    {
+      "id": "dynamic-linux_file_lock_v1-v2-20260902-42",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_file_lock_v1",
+      "case_digest": "845b2d414b69a7809324f23007266cafbda453f6d2d0ba585ecaea3d2db8427d",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_file_lock_v1-v2-20260902-42"
+    },
+    {
+      "id": "dynamic-linux_mount_readonly_v1-v1-20260902-19",
+      "source_release": "retry-8",
+      "source_run": "E:\\codes\\opsbench-factory\\runs\\e2e\\new-70-diverse-20260902\\retry-8",
+      "case_status": "evaluable",
+      "candidate_status": "candidate",
+      "primitive_id": "linux_mount_readonly_v1",
+      "case_digest": "7436c9b4c1ef6e1db685ef3e92a2792b45aac5bb35c80e00338bdbaaf3fc525d",
+      "release_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_mount_readonly_v1-v1-20260902-19"
+    }
+  ],
+  "legacy_demo": [
+    "legacy-demo/dynamic_linux_cpu_runaway_v2_000003",
+    "legacy-demo/dynamic_nginx_bind_conflict_v1_000001",
+    "legacy-demo/dynamic_postgres_missing_index_v2_000001"
+  ],
+  "policy": {
+    "static_validation_required": true,
+    "runtime_gate_required": true,
+    "cleanup_required": true,
+    "overwrite_existing_cases": false
+  },
+  "updated_at": "2026-09-02T13:15:05.186229+00:00"
+}

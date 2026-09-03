@@ -1,0 +1,25 @@
+{
+  "template_id": "process_supervisor_restart_loop_v1",
+  "primitive_id": "process_supervisor_restart_loop_v1",
+  "capability_profile": {
+    "domain": "process_lifecycle",
+    "fault_type": "restart_loop",
+    "technology": [
+      "Linux",
+      "Python"
+    ],
+    "mechanism": "supervisor_restart_policy",
+    "resource": "process",
+    "signal": "restart_rate",
+    "observability": "child state and restart counter",
+    "repair": "supervisor_policy"
+  },
+  "capability_variant": "v2",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

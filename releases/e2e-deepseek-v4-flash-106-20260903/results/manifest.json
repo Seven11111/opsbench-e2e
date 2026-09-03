@@ -1,0 +1,2461 @@
+{
+  "manifest_version": "opsbench-e2e-manifest-v1",
+  "family": "e2e",
+  "case_root": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases",
+  "sample_size": 106,
+  "sample_seed": 42,
+  "filters": {
+    "task_labels": [],
+    "template_id": null,
+    "domain": null,
+    "fault_type": null
+  },
+  "items": [
+    {
+      "id": "candidate_http_dependency_timeout_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_http_dependency_timeout_001",
+      "case_digest": "2f660dc750bcafd76640903219e99dd55b371f3bef42a3e361e3966a5cfa05d7",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause",
+        "performance_tuning"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "distributed_system",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_dependency_timeout_slo_v1",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 6,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_linux_disk_full_v1_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_linux_disk_full_v1_001",
+      "case_digest": "b4be79ce784722c2bf53580847aa44139a9063b2727468c4a308ca37b1eac9cf",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "disk_exhaustion",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Filesystem"
+      ],
+      "template_id": "linux_disk_full_v1",
+      "primitive_id": "linux_disk_full_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_linux_file_lock_v1_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\01-file-lock",
+      "case_digest": "636c4368f4623d2632dda31c16075d40abc59d2723e74f450b5c2036dacb076a",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "file_lock",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python",
+        "Filesystem"
+      ],
+      "template_id": "linux_file_lock_v1",
+      "primitive_id": "linux_file_lock_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_linux_inode_exhaustion_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_linux_inode_exhaustion_001",
+      "case_digest": "ad4116eba12f32fafa6540d6a269ac9226c2e0c3d5f3cae42d8b25f1acac8172",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "inode_exhaustion",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Filesystem"
+      ],
+      "template_id": "linux_inode_exhaustion_v1",
+      "primitive_id": "linux_inode_exhaustion_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_linux_upload_permission_v1_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\27-upload-chmod",
+      "case_digest": "fa5b6ac07ef3a45e40d8c20a3cad0eb4942cd3b4cd8633a0fea2b79b99feb739",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "root_cause"
+      ],
+      "fault_type": "permission_error",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Filesystem",
+        "HTTP"
+      ],
+      "template_id": "linux_upload_permission_v1",
+      "primitive_id": "linux_upload_permission_v1",
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "target_difficulty": "easy",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_postgres_missing_index_v2_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_postgres_missing_index_v2_001",
+      "case_digest": "25f51d661897de7964d0697ae1442dec290538757f476b0032dbe8972a07b4b8",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL"
+      ],
+      "template_id": "postgres_missing_index_v2",
+      "primitive_id": "postgres_missing_index_v2",
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_prometheus_file_sd_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\15-prometheus-scrape",
+      "case_digest": "d2c5632bd16f65020603bb3e25ef84282cba6217566496fa20b3a0607ca967b3",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_error",
+      "domain": "observability",
+      "technology_stack": [
+        "Prometheus",
+        "HTTP"
+      ],
+      "template_id": "prometheus_scrape_target_v1",
+      "primitive_id": "prometheus_scrape_target_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_rabbitmq_resource_alarm_v1_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_rabbitmq_resource_alarm_v1_001",
+      "case_digest": "c75d3b7d6de3c045e6ffd2497703003d302044461710a9b81ce065214bf2820d",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_saturation",
+      "domain": "messaging",
+      "technology_stack": [
+        "RabbitMQ"
+      ],
+      "template_id": "rabbitmq_resource_alarm_v1",
+      "primitive_id": "rabbitmq_resource_alarm_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 6,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_redis_cache_corruption_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_redis_cache_corruption_001",
+      "case_digest": "3d817922b44cf4c42c798e5d6319eb44a3651e5c15e31fb120e9f105e9661649",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "cache_corruption",
+      "domain": "cache",
+      "technology_stack": [
+        "Redis",
+        "Python"
+      ],
+      "template_id": "redis_cache_corruption_v1",
+      "primitive_id": "redis_cache_corruption_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "candidate_tls_hostname_mismatch_v1_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\candidate_tls_hostname_mismatch_v1_001",
+      "case_digest": "013c1dca0429e7bca321159ebc4ae74c2545f62c31058723f6ef91bf148a47be",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "certificate_identity",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_hostname_mismatch_v1",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-app_config_precedence_v1-v1-20260902-65",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-app_config_precedence_v1-v1-20260902-65",
+      "case_digest": "79607e54eab46dce14ddfa0090436b6509f9e5e97df7267b9836d499e8c1193e",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "app_config_precedence_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "app_config_precedence_v1"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-app_config_precedence_v1-v2-20260902-66",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-app_config_precedence_v1-v2-20260902-66",
+      "case_digest": "f4b0184c0cbd9696bdd3329ab4e0fd399ee2ea313c717dd0226d2aff513db5e1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "app_config_precedence_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "app_config_precedence_v1"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-app_stale_pid_v1-v1-20260902-67",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-app_stale_pid_v1-v1-20260902-67",
+      "case_digest": "c38267c18f457c16de9a3f44424d3e138d5ff3ae041bdee83b0ed5bd8c42f0a8",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "app_stale_pid_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "app_stale_pid_v1"
+      ],
+      "template_id": "app_stale_pid_v1",
+      "primitive_id": "app_stale_pid_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-app_stale_pid_v1-v2-20260902-68",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-app_stale_pid_v1-v2-20260902-68",
+      "case_digest": "a7fc85a64800f434c3c34d2e262c0b3e8a35e58c0e37dd364b37148deeb95877",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "app_stale_pid_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "app_stale_pid_v1"
+      ],
+      "template_id": "app_stale_pid_v1",
+      "primitive_id": "app_stale_pid_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-container_healthcheck_mismatch_v1-v1-20260902-01",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_healthcheck_mismatch_v1-v1-20260902-01",
+      "case_digest": "cd1c5fb78456f6d2e3e5bb6361551970d69dfd8f6b5ea0fcf61cf8bb73f81172",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "healthcheck_mismatch",
+      "domain": "container_runtime",
+      "technology_stack": [
+        "Docker",
+        "Compose",
+        "HTTP"
+      ],
+      "template_id": "container_healthcheck_mismatch_v1",
+      "primitive_id": "container_healthcheck_mismatch_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-container_healthcheck_mismatch_v1-v2-20260902-02",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_healthcheck_mismatch_v1-v2-20260902-02",
+      "case_digest": "a93cc6493f2e39e31b51019062503a44f758f7d005e387eb691db55f16d2fb9e",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "healthcheck_mismatch",
+      "domain": "container_runtime",
+      "technology_stack": [
+        "Docker",
+        "Compose",
+        "HTTP"
+      ],
+      "template_id": "container_healthcheck_mismatch_v1",
+      "primitive_id": "container_healthcheck_mismatch_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-container_mount_permission_v1-v1-20260902-03",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_mount_permission_v1-v1-20260902-03",
+      "case_digest": "252cc2684dfcf93640abddcca615e14604fffb614354a3277f6237805df29102",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "mount_permission",
+      "domain": "container_runtime",
+      "technology_stack": [
+        "Docker",
+        "Compose",
+        "Filesystem"
+      ],
+      "template_id": "container_mount_permission_v1",
+      "primitive_id": "container_mount_permission_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-container_mount_permission_v1-v2-20260902-04",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_mount_permission_v1-v2-20260902-04",
+      "case_digest": "9d14f0e612c9540c17f7e167899551aa9ed57d74a6c860138478ee69e21c0f29",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "mount_permission",
+      "domain": "container_runtime",
+      "technology_stack": [
+        "Docker",
+        "Compose",
+        "Filesystem"
+      ],
+      "template_id": "container_mount_permission_v1",
+      "primitive_id": "container_mount_permission_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-container_pid_limit_v1-v1-20260902-05",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_pid_limit_v1-v1-20260902-05",
+      "case_digest": "2d9f2ef1092c920c705659e4f9daf9490b90e3f0f3de1495b1f9eafea1418722",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "pid_limit",
+      "domain": "container_runtime",
+      "technology_stack": [
+        "Docker",
+        "Compose",
+        "Linux"
+      ],
+      "template_id": "container_pid_limit_v1",
+      "primitive_id": "container_pid_limit_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-container_pid_limit_v1-v2-20260902-06",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_pid_limit_v1-v2-20260902-06",
+      "case_digest": "67b97f944a466d2c83f3c849d50ba8e955ed4ded90cc7ab98fa7c355dace23e2",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "pid_limit",
+      "domain": "container_runtime",
+      "technology_stack": [
+        "Docker",
+        "Compose",
+        "Linux"
+      ],
+      "template_id": "container_pid_limit_v1",
+      "primitive_id": "container_pid_limit_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-container_readonly_rootfs_v1-v1-20260902-07",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_readonly_rootfs_v1-v1-20260902-07",
+      "case_digest": "f3a1da95f52102464f230b99aff8b852b72df25442877e6657b686b8cc3164dc",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "readonly_rootfs",
+      "domain": "container_runtime",
+      "technology_stack": [
+        "Docker",
+        "Compose",
+        "Filesystem"
+      ],
+      "template_id": "container_readonly_rootfs_v1",
+      "primitive_id": "container_readonly_rootfs_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-container_readonly_rootfs_v1-v2-20260902-08",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-container_readonly_rootfs_v1-v2-20260902-08",
+      "case_digest": "d436cdcf7b61076eabd1cb70269857439a7b9ad4edb76b3c99675d473e053ddd",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "readonly_rootfs",
+      "domain": "container_runtime",
+      "technology_stack": [
+        "Docker",
+        "Compose",
+        "Filesystem"
+      ],
+      "template_id": "container_readonly_rootfs_v1",
+      "primitive_id": "container_readonly_rootfs_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-fluentbit_backpressure_v1-v1-20260902-45",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-fluentbit_backpressure_v1-v1-20260902-45",
+      "case_digest": "ee8ee0e49338a10471f8e36b3605756e88527c74a248ff05a0e863ca843152e5",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "fluentbit_backpressure_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "fluentbit_backpressure_v1"
+      ],
+      "template_id": "fluentbit_backpressure_v1",
+      "primitive_id": "fluentbit_backpressure_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-fluentbit_backpressure_v1-v2-20260902-46",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-fluentbit_backpressure_v1-v2-20260902-46",
+      "case_digest": "0bf8d7320f4adab35ebdff2fc29b3ab1bf58c12884c3a54e7b6893762383a1bc",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "fluentbit_backpressure_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "fluentbit_backpressure_v1"
+      ],
+      "template_id": "fluentbit_backpressure_v1",
+      "primitive_id": "fluentbit_backpressure_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-fluentbit_output_retry_storm_v1-v1-20260902-09",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-fluentbit_output_retry_storm_v1-v1-20260902-09",
+      "case_digest": "2fb16ac14b32291e487dec4b99f090f9cd0ba5c876b8c6427b8256c0903de3b9",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "output_retry_storm",
+      "domain": "logging",
+      "technology_stack": [
+        "Fluent Bit",
+        "Linux"
+      ],
+      "template_id": "fluentbit_output_retry_storm_v1",
+      "primitive_id": "fluentbit_output_retry_storm_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-fluentbit_output_retry_storm_v1-v2-20260902-10",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-fluentbit_output_retry_storm_v1-v2-20260902-10",
+      "case_digest": "8df9a2098648e19d1642f6089a8469002bea57940cf7a699f0868116f43af67e",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "output_retry_storm",
+      "domain": "logging",
+      "technology_stack": [
+        "Fluent Bit",
+        "Linux"
+      ],
+      "template_id": "fluentbit_output_retry_storm_v1",
+      "primitive_id": "fluentbit_output_retry_storm_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-http_dependency_port_drift_v1-v1-20260902-69",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_dependency_port_drift_v1-v1-20260902-69",
+      "case_digest": "ca1042859d806ec84c126e95b066c8df779da3e73fac28aa4957789b2374424f",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "http_dependency_port_drift_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "http_dependency_port_drift_v1"
+      ],
+      "template_id": "http_dependency_port_drift_v1",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-http_dependency_port_drift_v1-v2-20260902-70",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_dependency_port_drift_v1-v2-20260902-70",
+      "case_digest": "4d8ce965442c15c0afd18fdce910ee67c3277a68f57b59ed329892819c6e5eb9",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "http_dependency_port_drift_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "http_dependency_port_drift_v1"
+      ],
+      "template_id": "http_dependency_port_drift_v1",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-http_proxy_misroute_v1-v1-20260902-11",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_proxy_misroute_v1-v1-20260902-11",
+      "case_digest": "30f971784a80a2f70291743d212781cf73d761a2f97388884ff1656841a41d19",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "proxy_misroute",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "Proxy",
+        "Python"
+      ],
+      "template_id": "http_proxy_misroute_v1",
+      "primitive_id": "http_proxy_misroute_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-http_proxy_misroute_v1-v2-20260902-12",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_proxy_misroute_v1-v2-20260902-12",
+      "case_digest": "e0e6912cd00c46ff6f599293e2f997cd2b7ea03d2ef0f1847539767195be0023",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "proxy_misroute",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "Proxy",
+        "Python"
+      ],
+      "template_id": "http_proxy_misroute_v1",
+      "primitive_id": "http_proxy_misroute_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-http_upstream_timeout_v1-v1-20260902-49",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_upstream_timeout_v1-v1-20260902-49",
+      "case_digest": "b21d8f0e259e58bae3d991e7bb6ed91b116f759a5c3799181d8515d2ec4db8bc",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "http_upstream_timeout_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "http_upstream_timeout_v1"
+      ],
+      "template_id": "http_upstream_timeout_v1",
+      "primitive_id": "http_upstream_timeout_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-http_upstream_timeout_v1-v2-20260902-50",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-http_upstream_timeout_v1-v2-20260902-50",
+      "case_digest": "8d47c04d29d4917d6a9649868b365cef9c45bb58d30fd50f9b40ad09c14859c2",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "http_upstream_timeout_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "http_upstream_timeout_v1"
+      ],
+      "template_id": "http_upstream_timeout_v1",
+      "primitive_id": "http_upstream_timeout_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-kafka_poison_message_v1-v1-20260902-13",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-kafka_poison_message_v1-v1-20260902-13",
+      "case_digest": "bdb1a55284db845618b2af438a0ebfa512048c9d111c7e81b583e6b42624ac3b",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "poison_message",
+      "domain": "messaging",
+      "technology_stack": [
+        "Kafka",
+        "Python"
+      ],
+      "template_id": "kafka_poison_message_v1",
+      "primitive_id": "kafka_poison_message_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-kafka_poison_message_v1-v2-20260902-14",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-kafka_poison_message_v1-v2-20260902-14",
+      "case_digest": "6538405afe6151008ca152312ac00f067d482b81c45f9481b7e13fd24a5e57f7",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "poison_message",
+      "domain": "messaging",
+      "technology_stack": [
+        "Kafka",
+        "Python"
+      ],
+      "template_id": "kafka_poison_message_v1",
+      "primitive_id": "kafka_poison_message_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_conntrack_exhaustion_v1-v1-20260902-15",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_conntrack_exhaustion_v1-v1-20260902-15",
+      "case_digest": "49e5d0ff85a8894816cb173fef289760e62c99c07e5e49b625471b00942334a1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "conntrack_exhaustion",
+      "domain": "network",
+      "technology_stack": [
+        "Linux",
+        "TCP"
+      ],
+      "template_id": "linux_conntrack_exhaustion_v1",
+      "primitive_id": "linux_conntrack_exhaustion_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_conntrack_exhaustion_v1-v2-20260902-16",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_conntrack_exhaustion_v1-v2-20260902-16",
+      "case_digest": "9644d5026ef2662d87e234871d749aa2030d89861a80582d60f01393e3d39222",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "conntrack_exhaustion",
+      "domain": "network",
+      "technology_stack": [
+        "Linux",
+        "TCP"
+      ],
+      "template_id": "linux_conntrack_exhaustion_v1",
+      "primitive_id": "linux_conntrack_exhaustion_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_deleted_open_file_v1-v1-20260902-17",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_deleted_open_file_v1-v1-20260902-17",
+      "case_digest": "c69cb7318a63ef8d2d073543cd3dd395e7ddaa0b49ef80a7af36c6181da80570",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "deleted_open_file",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "procfs",
+        "Python"
+      ],
+      "template_id": "linux_deleted_open_file_v1",
+      "primitive_id": "linux_deleted_open_file_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_deleted_open_file_v1-v2-20260902-18",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_deleted_open_file_v1-v2-20260902-18",
+      "case_digest": "6bd4dc89eca56f50b0a4b1b26d9070bd93096704114c34fb1cc80b76a8aeab67",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "deleted_open_file",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "procfs",
+        "Python"
+      ],
+      "template_id": "linux_deleted_open_file_v1",
+      "primitive_id": "linux_deleted_open_file_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_disk_full_v1-v1-20260902-53",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_disk_full_v1-v1-20260902-53",
+      "case_digest": "a80fa6d29fe69eedcfffe47a8bb14e079987e9a1aa1230e7b805dc320f8e350f",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_disk_full_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_disk_full_v1"
+      ],
+      "template_id": "linux_disk_full_v1",
+      "primitive_id": "linux_disk_full_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_disk_full_v1-v2-20260902-54",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_disk_full_v1-v2-20260902-54",
+      "case_digest": "2f8f10a4373855ace6e4e363b6c5b9695a77d79e27f5c8bdfd6a230d7ae968e8",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_disk_full_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_disk_full_v1"
+      ],
+      "template_id": "linux_disk_full_v1",
+      "primitive_id": "linux_disk_full_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_file_lock_v1-v1-20260902-41",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_file_lock_v1-v1-20260902-41",
+      "case_digest": "d2e5d4c1aaaf370f74152bdb8bb5a70b243946efebd74e71a3dd28488cd9665c",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_file_lock_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_file_lock_v1"
+      ],
+      "template_id": "linux_file_lock_v1",
+      "primitive_id": "linux_file_lock_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_file_lock_v1-v2-20260902-42",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_file_lock_v1-v2-20260902-42",
+      "case_digest": "8ea5738ea21eec360dcefa89ac5749b5b0454e9c8166fc6bd32d96670ad21fba",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_file_lock_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_file_lock_v1"
+      ],
+      "template_id": "linux_file_lock_v1",
+      "primitive_id": "linux_file_lock_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_inode_exhaustion_v1-v1-20260902-55",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_inode_exhaustion_v1-v1-20260902-55",
+      "case_digest": "d86cd8f7e338ab78e834c331fba97ce498755e07119e9e74b510657260ef7401",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_inode_exhaustion_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_inode_exhaustion_v1"
+      ],
+      "template_id": "linux_inode_exhaustion_v1",
+      "primitive_id": "linux_inode_exhaustion_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_inode_exhaustion_v1-v2-20260902-56",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_inode_exhaustion_v1-v2-20260902-56",
+      "case_digest": "12da8a54eb20ae6abb792ddc1be706d683c47ec4cbb37c3b36167055a122d5e7",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_inode_exhaustion_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_inode_exhaustion_v1"
+      ],
+      "template_id": "linux_inode_exhaustion_v1",
+      "primitive_id": "linux_inode_exhaustion_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_memory_growth_v1-v1-20260902-47",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_memory_growth_v1-v1-20260902-47",
+      "case_digest": "9bf801d09fd6669173c9e0e66bc9837b4be92c30a6eac6b3adebd38b020e7620",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_memory_growth_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_memory_growth_v1"
+      ],
+      "template_id": "linux_memory_growth_v1",
+      "primitive_id": "linux_memory_growth_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_memory_growth_v1-v2-20260902-48",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_memory_growth_v1-v2-20260902-48",
+      "case_digest": "86568482237c8c45f2116e8a49e1c301abccf8739c94037d93f7239f34979887",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_memory_growth_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_memory_growth_v1"
+      ],
+      "template_id": "linux_memory_growth_v1",
+      "primitive_id": "linux_memory_growth_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_mount_readonly_v1-v1-20260902-19",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_mount_readonly_v1-v1-20260902-19",
+      "case_digest": "5d168f28655b32b2b8fb94532748c35a2f0159b377850467d21e2775e2a9ddd2",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "readonly_mount",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Filesystem"
+      ],
+      "template_id": "linux_mount_readonly_v1",
+      "primitive_id": "linux_mount_readonly_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_mount_readonly_v1-v2-20260902-20",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_mount_readonly_v1-v2-20260902-20",
+      "case_digest": "4293caa9eeb1b513b388ac0463d607008b783294bea8939d79f49e0c3ec92353",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "readonly_mount",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Filesystem"
+      ],
+      "template_id": "linux_mount_readonly_v1",
+      "primitive_id": "linux_mount_readonly_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_oom_killer_v1-v1-20260902-21",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_oom_killer_v1-v1-20260902-21",
+      "case_digest": "fc78f7e529d37909dedabc80efcbe373ea88dd789ebdb74a239fe09a0e3f0508",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "oom_pressure",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "cgroup",
+        "Python"
+      ],
+      "template_id": "linux_oom_killer_v1",
+      "primitive_id": "linux_oom_killer_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_oom_killer_v1-v2-20260902-22",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_oom_killer_v1-v2-20260902-22",
+      "case_digest": "4dd7299e48363d6c10acdc339c0752da42772ebcdd716913dbda9e70176d166d",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "oom_pressure",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "cgroup",
+        "Python"
+      ],
+      "template_id": "linux_oom_killer_v1",
+      "primitive_id": "linux_oom_killer_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_temp_permission_v1-v1-20260902-61",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_temp_permission_v1-v1-20260902-61",
+      "case_digest": "666c0bf3317b936babe3f3b14732493ee9b63310c706ff1c8d61acf2898ea6d2",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_temp_permission_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_temp_permission_v1"
+      ],
+      "template_id": "linux_temp_permission_v1",
+      "primitive_id": "linux_temp_permission_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_temp_permission_v1-v2-20260902-62",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_temp_permission_v1-v2-20260902-62",
+      "case_digest": "306bc283b80a09deac990e26d51094eb2db2dd57629155ffdd259aa6390505d4",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_temp_permission_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_temp_permission_v1"
+      ],
+      "template_id": "linux_temp_permission_v1",
+      "primitive_id": "linux_temp_permission_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_upload_permission_v1-v1-20260902-51",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_upload_permission_v1-v1-20260902-51",
+      "case_digest": "f693dc41f40fa2ec194af887ea77a0a4e2ac8167bf3cc979e6a959c954b1bd28",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_upload_permission_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_upload_permission_v1"
+      ],
+      "template_id": "linux_upload_permission_v1",
+      "primitive_id": "linux_upload_permission_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-linux_upload_permission_v1-v2-20260902-52",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-linux_upload_permission_v1-v2-20260902-52",
+      "case_digest": "012d6f31aa0396e2d625c5d681185b8c2396a7660036e42d8b33afe5f705cd29",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "linux_upload_permission_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "linux_upload_permission_v1"
+      ],
+      "template_id": "linux_upload_permission_v1",
+      "primitive_id": "linux_upload_permission_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-nginx_bind_conflict_v1-v1-20260902-63",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-nginx_bind_conflict_v1-v1-20260902-63",
+      "case_digest": "0e847ec07ca3ab55ad6895458d2b4ace32cd27299ed746ef6e296624ad9b0b86",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "nginx_bind_conflict_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "nginx_bind_conflict_v1"
+      ],
+      "template_id": "nginx_bind_conflict_v1",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-nginx_bind_conflict_v1-v2-20260902-64",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-nginx_bind_conflict_v1-v2-20260902-64",
+      "case_digest": "6b4248581f541c54ffdc1a577fb693d26685e9fae5ec402b8173b773169ce213",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "nginx_bind_conflict_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "nginx_bind_conflict_v1"
+      ],
+      "template_id": "nginx_bind_conflict_v1",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-postgres_idle_transaction_v1-v1-20260902-23",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_idle_transaction_v1-v1-20260902-23",
+      "case_digest": "25acdcf90b3555690e59458016195474024d9937cfa6cffe3e9566b80562314a",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "idle_transaction",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL",
+        "SQL"
+      ],
+      "template_id": "postgres_idle_transaction_v1",
+      "primitive_id": "postgres_idle_transaction_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-postgres_idle_transaction_v1-v2-20260902-24",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_idle_transaction_v1-v2-20260902-24",
+      "case_digest": "21aeb0092eaa4dedfb914201efb896662f78ab931527fdfcd4fd8cc2394cbc91",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "idle_transaction",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL",
+        "SQL"
+      ],
+      "template_id": "postgres_idle_transaction_v1",
+      "primitive_id": "postgres_idle_transaction_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-postgres_missing_index_v2-v1-20260902-57",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_missing_index_v2-v1-20260902-57",
+      "case_digest": "a886efffd1600e595c567a37c4427ad60eb264854ab502ed7d429f468190c75a",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "postgres_missing_index_v2",
+      "domain": "existing",
+      "technology_stack": [
+        "postgres_missing_index_v2"
+      ],
+      "template_id": "postgres_missing_index_v2",
+      "primitive_id": "postgres_missing_index_v2",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-postgres_missing_index_v2-v2-20260902-58",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_missing_index_v2-v2-20260902-58",
+      "case_digest": "baa5a1149ea42e5830b075903bf0f56eb99469b4203035a97f7373e0277fd3da",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "postgres_missing_index_v2",
+      "domain": "existing",
+      "technology_stack": [
+        "postgres_missing_index_v2"
+      ],
+      "template_id": "postgres_missing_index_v2",
+      "primitive_id": "postgres_missing_index_v2",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-postgres_readonly_replica_v1-v1-20260902-25",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_readonly_replica_v1-v1-20260902-25",
+      "case_digest": "a889dfac8028d9cebf8ae7edc458021e9e6badf3e57bca86773c9290a5c51158",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "readonly_replica",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL",
+        "SQL"
+      ],
+      "template_id": "postgres_readonly_replica_v1",
+      "primitive_id": "postgres_readonly_replica_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-postgres_readonly_replica_v1-v2-20260902-26",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_readonly_replica_v1-v2-20260902-26",
+      "case_digest": "a6b1e0e0a3a8b988dc1fa12e3682a4726cfd72e2aad16ecb14aa32b8d5edb1a0",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "readonly_replica",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL",
+        "SQL"
+      ],
+      "template_id": "postgres_readonly_replica_v1",
+      "primitive_id": "postgres_readonly_replica_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-postgres_replication_lag_v1-v1-20260902-27",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_replication_lag_v1-v1-20260902-27",
+      "case_digest": "7a053f64a99b9ee5106df978a9a034a5cb6c0a2b73a3a3c3c76efee638105bb4",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "replication_lag",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL",
+        "Replication"
+      ],
+      "template_id": "postgres_replication_lag_v1",
+      "primitive_id": "postgres_replication_lag_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-postgres_replication_lag_v1-v2-20260902-28",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-postgres_replication_lag_v1-v2-20260902-28",
+      "case_digest": "67c9a324eb551c8ce90531bb304954edb8d2424129cd805d65d0fa97512dfd31",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "replication_lag",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL",
+        "Replication"
+      ],
+      "template_id": "postgres_replication_lag_v1",
+      "primitive_id": "postgres_replication_lag_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-process_supervisor_restart_loop_v1-v1-20260902-29",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-process_supervisor_restart_loop_v1-v1-20260902-29",
+      "case_digest": "5d312ecddad368a41cc79209826ec0b1745ae8970e3d7519573ce1e1c4955c4b",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "restart_loop",
+      "domain": "process_lifecycle",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "process_supervisor_restart_loop_v1",
+      "primitive_id": "process_supervisor_restart_loop_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-process_supervisor_restart_loop_v1-v2-20260902-30",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-process_supervisor_restart_loop_v1-v2-20260902-30",
+      "case_digest": "8856e75ff45da27bc382d03c84a969fb643fad18836636afa43b99ee3989c3f9",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "restart_loop",
+      "domain": "process_lifecycle",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "process_supervisor_restart_loop_v1",
+      "primitive_id": "process_supervisor_restart_loop_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-prometheus_alert_rule_mismatch_v1-v1-20260902-31",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-prometheus_alert_rule_mismatch_v1-v1-20260902-31",
+      "case_digest": "af92e96eed5a5d01d0ac13e7689d1799621cf9b0040f325fd6149342db05f9e9",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "alert_rule_mismatch",
+      "domain": "observability",
+      "technology_stack": [
+        "Prometheus",
+        "PromQL"
+      ],
+      "template_id": "prometheus_alert_rule_mismatch_v1",
+      "primitive_id": "prometheus_alert_rule_mismatch_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-prometheus_alert_rule_mismatch_v1-v2-20260902-32",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-prometheus_alert_rule_mismatch_v1-v2-20260902-32",
+      "case_digest": "d0c2f5eff154945669f8155e1e50be77c539c5c64c01bd6b6bc3b7e4b6fde084",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "alert_rule_mismatch",
+      "domain": "observability",
+      "technology_stack": [
+        "Prometheus",
+        "PromQL"
+      ],
+      "template_id": "prometheus_alert_rule_mismatch_v1",
+      "primitive_id": "prometheus_alert_rule_mismatch_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-prometheus_scrape_target_v1-v1-20260902-43",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-prometheus_scrape_target_v1-v1-20260902-43",
+      "case_digest": "b4e158da40929ad52ef9c44d64d1d603fe22ac16a883e2ffef22233c534765b4",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "prometheus_scrape_target_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "prometheus_scrape_target_v1"
+      ],
+      "template_id": "prometheus_scrape_target_v1",
+      "primitive_id": "prometheus_scrape_target_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-prometheus_scrape_target_v1-v2-20260902-44",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-prometheus_scrape_target_v1-v2-20260902-44",
+      "case_digest": "a42e14fb0c7b6afcfd1b59848293ddba9a3577d56c8936f6e41c3673fe11ab21",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "prometheus_scrape_target_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "prometheus_scrape_target_v1"
+      ],
+      "template_id": "prometheus_scrape_target_v1",
+      "primitive_id": "prometheus_scrape_target_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-rabbitmq_dead_letter_buildup_v1-v1-20260902-33",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-rabbitmq_dead_letter_buildup_v1-v1-20260902-33",
+      "case_digest": "95604e892a495f69491ce5419893728dc995dfb07290008f2ca74562504cd2ee",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "dead_letter_buildup",
+      "domain": "messaging",
+      "technology_stack": [
+        "RabbitMQ",
+        "AMQP"
+      ],
+      "template_id": "rabbitmq_dead_letter_buildup_v1",
+      "primitive_id": "rabbitmq_dead_letter_buildup_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-rabbitmq_dead_letter_buildup_v1-v2-20260902-34",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-rabbitmq_dead_letter_buildup_v1-v2-20260902-34",
+      "case_digest": "54161c474151c4f4ac96bdea844935ff4b8b383902b040a7bfddc61945218313",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "dead_letter_buildup",
+      "domain": "messaging",
+      "technology_stack": [
+        "RabbitMQ",
+        "AMQP"
+      ],
+      "template_id": "rabbitmq_dead_letter_buildup_v1",
+      "primitive_id": "rabbitmq_dead_letter_buildup_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-rabbitmq_resource_alarm_v1-v1-20260902-59",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-rabbitmq_resource_alarm_v1-v1-20260902-59",
+      "case_digest": "c8068998ea09ae0fc8602144bcfdc97c24f681436ff299512c55ccf59a9def0e",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "rabbitmq_resource_alarm_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "rabbitmq_resource_alarm_v1"
+      ],
+      "template_id": "rabbitmq_resource_alarm_v1",
+      "primitive_id": "rabbitmq_resource_alarm_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-rabbitmq_resource_alarm_v1-v2-20260902-60",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-rabbitmq_resource_alarm_v1-v2-20260902-60",
+      "case_digest": "73035c7adc314ced34d0f33741484a0beb7b258ba665eccd047abdc6cd37b314",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "rabbitmq_resource_alarm_v1",
+      "domain": "existing",
+      "technology_stack": [
+        "rabbitmq_resource_alarm_v1"
+      ],
+      "template_id": "rabbitmq_resource_alarm_v1",
+      "primitive_id": "rabbitmq_resource_alarm_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-redis_cache_stampede_v1-v1-20260902-35",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-redis_cache_stampede_v1-v1-20260902-35",
+      "case_digest": "88e905e2b555ee29ffccac0271f880328f797ca770b0e97894f03998a243c506",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "cache_stampede",
+      "domain": "cache",
+      "technology_stack": [
+        "Redis",
+        "HTTP",
+        "Python"
+      ],
+      "template_id": "redis_cache_stampede_v1",
+      "primitive_id": "redis_cache_stampede_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-redis_cache_stampede_v1-v2-20260902-36",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-redis_cache_stampede_v1-v2-20260902-36",
+      "case_digest": "7ff70cde4e6d8dc32658caa834dc5260a82ca898cb6605737f8e18c54481a27a",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "cache_stampede",
+      "domain": "cache",
+      "technology_stack": [
+        "Redis",
+        "HTTP",
+        "Python"
+      ],
+      "template_id": "redis_cache_stampede_v1",
+      "primitive_id": "redis_cache_stampede_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-tls_certificate_expiry_v1-v1-20260902-37",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-tls_certificate_expiry_v1-v1-20260902-37",
+      "case_digest": "203413a199525a4f6b1616fbb6ad6c3f1bf508ecee33e97bdb48dd6a15505611",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "certificate_expiry",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_certificate_expiry_v1",
+      "primitive_id": "tls_certificate_expiry_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-tls_certificate_expiry_v1-v2-20260902-38",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-tls_certificate_expiry_v1-v2-20260902-38",
+      "case_digest": "b460f78545141ede298fe05f31ad273a2a289c4730a1af2b4cdd66ccc60b06d5",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "certificate_expiry",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_certificate_expiry_v1",
+      "primitive_id": "tls_certificate_expiry_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-tls_mtls_client_auth_v1-v1-20260902-39",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-tls_mtls_client_auth_v1-v1-20260902-39",
+      "case_digest": "889bad38f91d7840096a66d8ba932fc5e18bfd1789776b46bf56ea4a2c1f586d",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "mtls_client_auth",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_mtls_client_auth_v1",
+      "primitive_id": "tls_mtls_client_auth_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic-tls_mtls_client_auth_v1-v2-20260902-40",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic-tls_mtls_client_auth_v1-v2-20260902-40",
+      "case_digest": "b35b5f3dadebcdb06b62316955330c8b6c9d431a292aad63f7f9abae8d89e0c4",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "mtls_client_auth",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_mtls_client_auth_v1",
+      "primitive_id": "tls_mtls_client_auth_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 7,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_config_precedence_v1_000001",
+      "case_digest": "b56d7d3dc8c618d03d0cbf8a6cfac62f082df20fdc60a7f129f2fdbcf29f904c",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_000002",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_config_precedence_v1_000002",
+      "case_digest": "d7560f7e44cee8f44ac29dbeb95b0763abf99cf3f22e6bf724afd2c5954df947",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_config_precedence_v1_031002",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_config_precedence_v1_031002",
+      "case_digest": "cbebe1c2e105ff6920f690ba86aaa889041dd175eb11a430cf4efee200dbcf0d",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "configuration_precedence",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "app_config_precedence_v1",
+      "primitive_id": "app_config_precedence_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_stale_pid_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_stale_pid_v1_000001",
+      "case_digest": "75017db1ecba900d68cae01f56ff55962a584408db3d1039d957749e80165520",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "stale_runtime_state",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Linux",
+        "Python"
+      ],
+      "template_id": "app_stale_pid_v1",
+      "primitive_id": "app_stale_pid_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_app_stale_pid_v1_031003",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_app_stale_pid_v1_031003",
+      "case_digest": "4ce3e8c81805bf7312dbe6a5ac0dfdb0043a43ca7d096473db1843ebdcff3989",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "stale_runtime_state",
+      "domain": "configuration",
+      "technology_stack": [
+        "HTTP",
+        "Linux",
+        "Python"
+      ],
+      "template_id": "app_stale_pid_v1",
+      "primitive_id": "app_stale_pid_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_http_dependency_dns_poison_v1_031015",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_dependency_dns_poison_v1_031015",
+      "case_digest": "9a3db2ff483efd718d2fbf6591b7e794de602a622f9e087746f1e64808e0587a",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "name_resolution",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "DNS",
+        "Linux"
+      ],
+      "template_id": "http_dependency_dns_poison_v1",
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_http_dependency_port_drift_v1_031005",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_dependency_port_drift_v1_031005",
+      "case_digest": "d35f92506b63dcbc74f3fd4d99d06e10cca49adac62fd39c182c67758becad2d",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "dependency_configuration",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_dependency_port_drift_v1",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_http_dependency_timeout_slo_v1_031006",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_dependency_timeout_slo_v1_031006",
+      "case_digest": "d6a1d421ca1b603ad8effcb9626f9df6074a795af0a5499b8ac02c504b6cebc1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause",
+        "performance_tuning"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "distributed_system",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_dependency_timeout_slo_v1",
+      "primitive_id": "http_dependency_timeout_slo_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 6,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_http_retry_circuit_breaker_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_retry_circuit_breaker_v1_000001",
+      "case_digest": "1915cf0109d11ae2efe9acd280a4b84e96c4516e4ac1c951bda78b82e01f9b15",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "retry_circuit_breaker",
+      "domain": "distributed_system",
+      "technology_stack": [
+        "HTTP",
+        "Python"
+      ],
+      "template_id": "http_retry_circuit_breaker_v1",
+      "primitive_id": "http_retry_circuit_breaker_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_http_retry_circuit_breaker_v1_031012",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_http_retry_circuit_breaker_v1_031012",
+      "case_digest": "b84599833d6d00f7e9d82198c6d1cc41ecbdd6d5f09ef197bcee5d88672ca79f",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "retry_circuit_breaker",
+      "domain": "distributed_system",
+      "technology_stack": [
+        "HTTP",
+        "Python"
+      ],
+      "template_id": "http_retry_circuit_breaker_v1",
+      "primitive_id": "http_retry_circuit_breaker_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_http_upstream_timeout_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\23-upstream-timeout",
+      "case_digest": "93fae1dc3cc555db32cbd766e110c7f1c12888288a28416e246c7277fd930188",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "latency_regression",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_upstream_timeout_v1",
+      "primitive_id": "http_upstream_timeout_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_kafka_consumer_lag_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_kafka_consumer_lag_v1_000001",
+      "case_digest": "7618e19790a6aee726a6101f9c5e9cd51e461e1b4a0f4c38615eb460341f3676",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "consumer_lag",
+      "domain": "messaging",
+      "technology_stack": [
+        "Kafka",
+        "Python"
+      ],
+      "template_id": "kafka_consumer_lag_v1",
+      "primitive_id": "kafka_consumer_lag_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_kafka_consumer_lag_v1_031008",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_kafka_consumer_lag_v1_031008",
+      "case_digest": "9a1b6a3ac19a7d867491adacdac7bf139801cbaf73d96df7e11508211bacb854",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "consumer_lag",
+      "domain": "messaging",
+      "technology_stack": [
+        "Kafka",
+        "Python"
+      ],
+      "template_id": "kafka_consumer_lag_v1",
+      "primitive_id": "kafka_consumer_lag_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_cpu_runaway_v2_000001",
+      "case_digest": "9fbd948b019bedb692a3c74e256e3348ecc1a435f5fce43ad51620f9c26487f0",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "linux_cpu_runaway_v2",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_linux_cpu_runaway_v2_031009",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_cpu_runaway_v2_031009",
+      "case_digest": "fcf2e8fb0c6b916b7dd7da98d81f2b890c2e116f27a82ae853f59e8b6c4a0c71",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "performance_regression",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "linux_cpu_runaway_v2",
+      "primitive_id": "linux_cpu_runaway_v2",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_linux_fd_leak_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_fd_leak_v1_000001",
+      "case_digest": "c663303f02c9f2f61266c45d4b36c655b5c201f154520f31834c904968401cac",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_leak",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "linux_fd_leak_v1",
+      "primitive_id": "linux_fd_leak_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_linux_fd_leak_v1_031010",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_fd_leak_v1_031010",
+      "case_digest": "e2b304e6803a850526be6b84f294257280a7c9b60cf001263c673bffdba4bd8b",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_leak",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "linux_fd_leak_v1",
+      "primitive_id": "linux_fd_leak_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_linux_memory_growth_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\19-memory-growth",
+      "case_digest": "118c564748bbb77f51f7be5cc9962945277619e63a8423a05c7c5a06bd07f269",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "memory_exhaustion",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Python"
+      ],
+      "template_id": "linux_memory_growth_v1",
+      "primitive_id": "linux_memory_growth_v1",
+      "difficulty_profile": "medium",
+      "difficulty_score": 5,
+      "target_difficulty": "medium",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_linux_temp_permission_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_linux_temp_permission_v1_000001",
+      "case_digest": "12eb02385f770ea2abc4c00365ee5b595191cf77171cd18f7bc2594d4db676c1",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "permission_error",
+      "domain": "linux",
+      "technology_stack": [
+        "Linux",
+        "Filesystem",
+        "HTTP"
+      ],
+      "template_id": "linux_temp_permission_v1",
+      "primitive_id": "linux_temp_permission_v1",
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "target_difficulty": "easy",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_nginx_bind_conflict_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_nginx_bind_conflict_v1_000001",
+      "case_digest": "8670b41d628c67dddc97df169771d631747cb6c0b51b6d02d4aa737895fa6a6f",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_conflict",
+      "domain": "http",
+      "technology_stack": [
+        "Nginx",
+        "HTTP"
+      ],
+      "template_id": "nginx_bind_conflict_v1",
+      "primitive_id": "nginx_bind_conflict_v1",
+      "difficulty_profile": "easy",
+      "difficulty_score": 3,
+      "target_difficulty": "easy",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_postgres_connection_pool_exhaustion_v1_000001",
+      "case_digest": "3dedc34c725b6583be4f92473224874ab8fa97001f3d1d1bed5249ad2c9c52a6",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "connection_pool_exhaustion",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL",
+        "Python"
+      ],
+      "template_id": "postgres_connection_pool_exhaustion_v1",
+      "primitive_id": "postgres_connection_pool_exhaustion_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_postgres_lock_contention_v1_000001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_postgres_lock_contention_v1_000001",
+      "case_digest": "6be17659e39106ba316e13a4d8a648a54f910155132cbd4c922df9a5112ba097",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "lock_contention",
+      "domain": "database",
+      "technology_stack": [
+        "PostgreSQL",
+        "Python"
+      ],
+      "template_id": "postgres_lock_contention_v1",
+      "primitive_id": "postgres_lock_contention_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 8,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "dynamic_tls_hostname_mismatch_v1_031011",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\dynamic_tls_hostname_mismatch_v1_031011",
+      "case_digest": "0328331f5d1acde6e59b6ad976f25aee74e083b7c833d65c2164198a63dc1edd",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "certificate_identity",
+      "domain": "tls",
+      "technology_stack": [
+        "TLS",
+        "HTTP",
+        "OpenSSL"
+      ],
+      "template_id": "tls_hostname_mismatch_v1",
+      "primitive_id": "tls_hostname_mismatch_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "fluentbit_backpressure_v1_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\16-fluentbit-backpressure",
+      "case_digest": "f5e96c1c9133b9435c337c5215b12f8418a302bc97987f70b9f6ba39bd4b0261",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "resource_saturation",
+      "domain": "logging",
+      "technology_stack": [
+        "Fluent Bit",
+        "Linux"
+      ],
+      "template_id": "fluentbit_backpressure_v1",
+      "primitive_id": "fluentbit_backpressure_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "http_dependency_dns_poison_v1_candidate_1",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\http_dependency_dns_poison_v1_candidate_1",
+      "case_digest": "8874ed3cf56bfde34c69c663cdc11aa3ab67e9eab2d15c4cdf0c7c77a504e48b",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "name_resolution",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "DNS",
+        "Linux"
+      ],
+      "template_id": "http_dependency_dns_poison_v1",
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 9,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    },
+    {
+      "id": "http_dependency_port_drift_v1_candidate_001",
+      "case_path": "E:\\codes\\opsbench-factory\\releases\\e2e-validated\\cases\\http_dependency_port_drift_v1_candidate_001",
+      "case_digest": "e74d86bee935ef474a81da823105d285560c97247300c8bd9b822f6131e84076",
+      "primary_task_label": "fault_fix",
+      "secondary_task_labels": [
+        "fault_detection",
+        "root_cause"
+      ],
+      "fault_type": "dependency_configuration",
+      "domain": "network",
+      "technology_stack": [
+        "HTTP",
+        "Python",
+        "Linux"
+      ],
+      "template_id": "http_dependency_port_drift_v1",
+      "primitive_id": "http_dependency_port_drift_v1",
+      "difficulty_profile": "hard",
+      "difficulty_score": 10,
+      "target_difficulty": "hard",
+      "empirical_status": "not_calibrated",
+      "case_status": "evaluable"
+    }
+  ],
+  "total_available": 106,
+  "total": 106
+}

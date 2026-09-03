@@ -1,0 +1,8 @@
+{
+  "mode": "baseline",
+  "circuit": "closed",
+  "base_dependency": "downstream",
+  "override_dependency": "downstream",
+  "repair_epoch": 1,
+  "fault_injected": true
+}

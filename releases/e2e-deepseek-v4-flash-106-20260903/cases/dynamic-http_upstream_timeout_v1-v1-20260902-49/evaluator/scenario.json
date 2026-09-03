@@ -1,0 +1,10 @@
+{
+  "template_id": "http_upstream_timeout_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "upstream_timeout",
+    "delay_ms": 20,
+    "timeout_ms": 500,
+    "repair_mode": "baseline"
+  }
+}

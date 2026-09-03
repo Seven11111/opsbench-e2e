@@ -1,0 +1,32 @@
+services:
+  downstream:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/downstream.py"]
+    volumes:
+      - ./runtime/state.json:/runtime/state.json
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:18090/data', timeout=1)"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/service.py"]
+    volumes:
+          - ./runtime/state.json:/runtime/state.json
+          - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+          - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_HEALTH_MODE: service
+      OPSBENCH_HEALTH_URL: http://127.0.0.1:18089/health
+    depends_on:
+      downstream:
+        condition: service_healthy
+    ports: ["18089:18089"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:18089/health', timeout=1)"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]

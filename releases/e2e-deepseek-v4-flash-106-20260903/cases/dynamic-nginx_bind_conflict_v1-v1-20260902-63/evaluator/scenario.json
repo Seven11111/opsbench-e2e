@@ -1,0 +1,4 @@
+{
+  "template_id": "nginx_bind_conflict_v1",
+  "health_port": 18080
+}

@@ -1,0 +1,5 @@
+{
+  "oracle": "curl -sS -X POST -H 'Content-Type: application/json' -d '{\"action\":\"restore\"}' http://127.0.0.1:8080/opsbench/control",
+  "wrong_fix": "chmod 0555 /data/uploads",
+  "partial_fix": "chmod 0777 /data/uploads"
+}

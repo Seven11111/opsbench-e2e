@@ -1,0 +1,219 @@
+id: dynamic-process_supervisor_restart_loop_v1-v1-20260902-29
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: restart_loop
+domain: process_lifecycle
+technology_stack:
+- Linux
+- Python
+template_id: process_supervisor_restart_loop_v1
+fault_primitive_id: process_supervisor_restart_loop_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: experimental
+difficulty_profile: medium
+difficulty_assessment:
+  profile: medium
+  score: 5
+  rubric_version: e2e-diverse-v1
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+capability_profile:
+  capability_profile_id: supervisor_restart_policy
+  mechanism_id: supervisor_restart_policy
+  resource_class: process
+  observability_channels:
+  - child state and restart counter
+  repair_surface: supervisor_policy
+  persistence_contract: The repaired state remains effective after service restart.
+  variant: v1
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/business
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - command_run
+  - service_status
+  - business_probe
+  - signal_view
+  - metrics_read
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - mechanism_signal_absent
+  - repair_invariant
+  - persistence
+  semantic_state:
+  - child restart rate and supervisor state
+  public_oracle: process_supervisor_restart_loop_v1
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - profile.json
+    - fault.json
+    - status.json
+    - service.py
+    - /opsbench/control
+    injection_markers:
+    - mode
+    - injected
+    - check_injected
+    verifier_markers:
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_signal_terms:
+    - service
+    - health
+  public_success_signals: &id001
+  - The declared business operation returns HTTP 200.
+  - The live diagnostic signal is absent after repair.
+  - The repair remains effective after the service lifecycle is checked again.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id001
+    available_tools:
+    - command_run
+    - service_status
+    - business_probe
+    - signal_view
+    - metrics_read
+    - service_control
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The declared business operation returns HTTP 200.
+    - check_id: mechanism_signal_absent
+      public_signal: The live diagnostic signal is absent after repair.
+    - check_id: repair_invariant
+      public_signal: The repair remains effective after the service lifecycle is checked
+        again.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: eb-crawled-96ad7c39f6db3c8f2b66
+  evidence_refs:
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#process_supervisor_restart_loop_v1-1-fault
+    source_url: https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
+    document_id: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7
+    content_hash: 1c67b7bb3aeaa1098d23c3eff3e9dd64babf0b433d64d7789c4eb6d48b21f367
+    section_path: crawler-text-offset:15271-15631
+    claim_type: fault
+    retrieved_at: '2026-09-02T09:18:34.878557+00:00'
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#process_supervisor_restart_loop_v1-2-observable
+    source_url: https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
+    document_id: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7
+    content_hash: 1c67b7bb3aeaa1098d23c3eff3e9dd64babf0b433d64d7789c4eb6d48b21f367
+    section_path: crawler-text-offset:6018-6378
+    claim_type: observable
+    retrieved_at: '2026-09-02T09:18:34.878557+00:00'
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#process_supervisor_restart_loop_v1-3-root_cause
+    source_url: https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
+    document_id: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7
+    content_hash: 1c67b7bb3aeaa1098d23c3eff3e9dd64babf0b433d64d7789c4eb6d48b21f367
+    section_path: crawler-text-offset:27261-27621
+    claim_type: root_cause
+    retrieved_at: '2026-09-02T09:18:34.878557+00:00'
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#process_supervisor_restart_loop_v1-4-repair
+    source_url: https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
+    document_id: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7
+    content_hash: 1c67b7bb3aeaa1098d23c3eff3e9dd64babf0b433d64d7789c4eb6d48b21f367
+    section_path: crawler-text-offset:15271-15631
+    claim_type: repair
+    retrieved_at: '2026-09-02T09:18:34.878557+00:00'
+  - ref: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7#process_supervisor_restart_loop_v1-5-persistence
+    source_url: https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
+    document_id: doc-www-freedesktop-org-software-systemd-man-latest-systemd.serv-1c67b7
+    content_hash: 1c67b7bb3aeaa1098d23c3eff3e9dd64babf0b433d64d7789c4eb6d48b21f367
+    section_path: crawler-text-offset:6018-6378
+    claim_type: persistence
+    retrieved_at: '2026-09-02T09:18:34.878557+00:00'
+  candidate_group_id: diverse-20260902-process_supervisor_restart_loop_v1-v1
+  generation_strategy: dynamic_official_evidence
+  experience_version: e2e-diverse-v1
+  experience_digest: 9b2593aa75c7594281f38ddd2c5a1fddfc71dc2936836d4d281c95c73e4ed531
+  scenario_seed: 20260931
+  novelty_fingerprint: 758769d31ad9672b1e373a557ee495994e13bb78feb8982e1edb66a35ae8c645
+  capability_variant: v1
+  scenario_spec:
+    primitive_id: process_supervisor_restart_loop_v1
+    variant: v1
+    mechanism_id: supervisor_restart_policy
+  evidence_status: crawled_official_snapshot
+  crawler_mode: http_only
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: eb16a8f623c4825baf565ab9f6e0acdf389405bb4e44c1f2576cdf4812043ea9
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-70-diverse-20260902\retry-8

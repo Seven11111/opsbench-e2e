@@ -1,0 +1,9 @@
+{
+  "template_id": "linux_temp_permission_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "temp_permission",
+    "repair_mode": "baseline",
+    "fault_active": false
+  }
+}

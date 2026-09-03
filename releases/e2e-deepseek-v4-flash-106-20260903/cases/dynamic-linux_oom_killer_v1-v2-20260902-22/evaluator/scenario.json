@@ -1,0 +1,26 @@
+{
+  "template_id": "linux_oom_killer_v1",
+  "primitive_id": "linux_oom_killer_v1",
+  "capability_profile": {
+    "domain": "linux",
+    "fault_type": "oom_pressure",
+    "technology": [
+      "Linux",
+      "cgroup",
+      "Python"
+    ],
+    "mechanism": "cgroup_oom_event",
+    "resource": "memory",
+    "signal": "oom_events",
+    "observability": "cgroup.events and bounded memory headroom",
+    "repair": "worker_lifecycle"
+  },
+  "capability_variant": "v2",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

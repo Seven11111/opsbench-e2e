@@ -1,0 +1,26 @@
+{
+  "template_id": "container_pid_limit_v1",
+  "primitive_id": "container_pid_limit_v1",
+  "capability_profile": {
+    "domain": "container_runtime",
+    "fault_type": "pid_limit",
+    "technology": [
+      "Docker",
+      "Compose",
+      "Linux"
+    ],
+    "mechanism": "pids_cgroup_limit",
+    "resource": "process",
+    "signal": "pid_headroom",
+    "observability": "pids.current, pids.max and process creation",
+    "repair": "worker_process_budget"
+  },
+  "capability_variant": "v2",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

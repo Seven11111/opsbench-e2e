@@ -1,0 +1,237 @@
+id: dynamic-app_config_precedence_v1-v2-20260902-66
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: app_config_precedence_v1
+domain: existing
+technology_stack:
+- app_config_precedence_v1
+template_id: app_config_precedence_v1
+fault_primitive_id: app_config_precedence_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: demo_validated
+difficulty_profile: hard
+difficulty_assessment: &id001
+  profile: hard
+  score: 7
+  rubric_version: e2e-diverse-v1
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+capability_profile:
+  capability_profile_id: app.config.precedence
+  mechanism_id: configuration_source_precedence
+  resource_class: configuration
+  observability_channels:
+  - environment_override
+  - config_file
+  - effective_state
+  repair_surface: configuration_source_order
+  persistence_contract: the effective configuration remains correct after restart
+  variant: v2
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/health
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: eb-crawled-71a1c0dacb32197ec42a
+  evidence_refs:
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1#app_config_precedence_v1-1-fault
+    source_url: https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence
+    document_id: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1
+    content_hash: 0127b142d642e8099c8e7526bd0dde6393863c309906ac3f4ab67a8dfa98f31e
+    section_path: crawler-text-offset:0-260
+    claim_type: fault
+    retrieved_at: '2026-09-02T08:36:49.455224+00:00'
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1#app_config_precedence_v1-2-observable
+    source_url: https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence
+    document_id: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1
+    content_hash: 0127b142d642e8099c8e7526bd0dde6393863c309906ac3f4ab67a8dfa98f31e
+    section_path: crawler-text-offset:15584-15944
+    claim_type: observable
+    retrieved_at: '2026-09-02T08:36:49.455224+00:00'
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1#app_config_precedence_v1-3-root_cause
+    source_url: https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence
+    document_id: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1
+    content_hash: 0127b142d642e8099c8e7526bd0dde6393863c309906ac3f4ab67a8dfa98f31e
+    section_path: crawler-text-offset:0-282
+    claim_type: root_cause
+    retrieved_at: '2026-09-02T08:36:49.455224+00:00'
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1#app_config_precedence_v1-4-repair
+    source_url: https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence
+    document_id: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1
+    content_hash: 0127b142d642e8099c8e7526bd0dde6393863c309906ac3f4ab67a8dfa98f31e
+    section_path: crawler-text-offset:0-260
+    claim_type: repair
+    retrieved_at: '2026-09-02T08:36:49.455224+00:00'
+  - ref: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1#app_config_precedence_v1-5-persistence
+    source_url: https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence
+    document_id: doc-docs-docker-com-compose-how-tos-environment-variables-en-0127b1
+    content_hash: 0127b142d642e8099c8e7526bd0dde6393863c309906ac3f4ab67a8dfa98f31e
+    section_path: crawler-text-offset:15584-15944
+    claim_type: persistence
+    retrieved_at: '2026-09-02T08:36:49.455224+00:00'
+  candidate_group_id: diverse-20260902-app_config_precedence_v1-v2
+  generation_strategy: dynamic_official_evidence
+  experience_version: e2e-diverse-v1
+  experience_digest: 9b2593aa75c7594281f38ddd2c5a1fddfc71dc2936836d4d281c95c73e4ed531
+  scenario_seed: 20260968
+  novelty_fingerprint: ef60647ede3faf2cd87fea6d9b54693d8151866d2c6894c58811116f83fa2f1e
+  difficulty_assessment: *id001
+  scenario_spec:
+    primitive_id: app_config_precedence_v1
+    variant: v2
+    mechanism_id: app_config_precedence_v1
+  evidence_status: crawled_official_snapshot
+  crawler_mode: http_only
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - service_list
+  - business_probe
+  - config_sources
+  - config_read
+  - config_update
+  - service_manage
+  repair_operations:
+  - config_update:remove
+  - service_manage:restart
+  verifier_checks:
+  - business_operation
+  - effective_state
+  - reconciler_persistence
+  semantic_state:
+  - APP_PORT key presence
+  - effective listener behavior
+  public_oracle: app_config_precedence_v1
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - app.env
+    - APP_PORT
+    - config-reconciler.py
+    - listener_port
+    injection_markers:
+    - APP_PORT=8082
+    - environment_override
+    verifier_markers:
+    - expected_port
+    - overridden_port
+    task_signal_terms:
+    - effective
+    - health
+    - service
+  public_success_signals: &id002
+  - Restore the documented business operation using live state.
+  - Confirm that the underlying fault signal is gone, not merely hidden.
+  - Verify that the repair survives the applicable restart or reconciler boundary.
+  - Confirm the effective service behavior is healthy, not merely that one visible
+    setting changed.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id002
+    available_tools:
+    - service_list
+    - service_status
+    - business_probe
+    - config_sources
+    - config_read
+    - config_update
+    - service_manage
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - config_update:remove
+    - service_manage:restart
+    verifier_checks:
+    - business_operation
+    - effective_state
+    - reconciler_persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: Restore the documented business operation using live state.
+    - check_id: effective_state
+      public_signal: Confirm that the underlying fault signal is gone, not merely
+        hidden.
+    - check_id: reconciler_persistence
+      public_signal: Verify that the repair survives the applicable restart or reconciler
+        boundary.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+difficulty_contract: {}
+runtime_controls:
+- no_op
+- oracle
+- restart_only
+- wrong_layer_fix
+- symptom_bypass
+- partial_fix
+- repeat
+- cleanup
+agent_panel_status: not_calibrated
+tool_standard:
+  id: config-operations-v1
+  version: '1'
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: e189a9c7f4536a3ff39f2bf747a437fee3bb9fb667e8cd4a2ae7793877ea3232
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-70-diverse-20260902\retry-7

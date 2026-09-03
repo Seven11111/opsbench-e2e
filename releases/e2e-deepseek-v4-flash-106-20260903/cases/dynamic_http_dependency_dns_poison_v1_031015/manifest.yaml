@@ -1,0 +1,819 @@
+id: dynamic_http_dependency_dns_poison_v1_031015
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: name_resolution
+domain: network
+technology_stack:
+- HTTP
+- DNS
+- Linux
+template_id: http_dependency_dns_poison_v1
+fault_primitive_id: http_dependency_dns_poison_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: demo_validated
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 9
+  rubric_version: e2e-difficulty-v2
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 2
+    repair_depth: 1
+    verification_complexity: 2
+  rationale:
+  - The configured hostname is correct but effective name resolution points to a non-service
+    address.
+  - The agent must distinguish a live application failure from a control-plane or
+    process failure.
+  - Verification checks resolution, business traffic and persistence after restart.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/orders
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: http_dependency_dns_poison_v1#heading_005
+    claim_type: symptom
+    field_path: public_task.symptom
+  - ref: http_dependency_dns_poison_v1#heading_008
+    claim_type: verification
+    field_path: public_task.objective
+  - ref: http_dependency_dns_poison_v1#heading_008
+    claim_type: verification
+    field_path: success_checks[0]
+  - ref: http_dependency_dns_poison_v1#heading_008
+    claim_type: verification
+    field_path: success_checks[1]
+  - ref: http_dependency_dns_poison_v1#heading_007
+    claim_type: repair
+    field_path: negative_controls[1]
+  - ref: http_dependency_dns_poison_v1#heading_006
+    claim_type: root_cause
+    field_path: public_task.root_cause
+  candidate_group_id: dynamic_bundle_0001_group_001
+  generation_strategy: layered_state
+  experience_version: e2e-v1
+  experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+  scenario_seed: 31015
+  novelty_fingerprint: e27fa101931dfb46
+  difficulty_assessment:
+    profile: hard
+    score: 9
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 2
+      signal_indirection: 2
+      tool_breadth: 2
+      repair_depth: 1
+      verification_complexity: 2
+    rationale:
+    - The configured hostname is correct but effective name resolution points to a
+      non-service address.
+    - The agent must distinguish a live application failure from a control-plane or
+      process failure.
+    - Verification checks resolution, business traffic and persistence after restart.
+    empirical_status: not_calibrated
+  scenario_spec:
+    id: dynamic_http_dependency_dns_poison_v1_031015
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: http_dependency
+      component_id: http-dependency
+      version: ''
+      params: {}
+    fault:
+      primitive_id: http_dependency_dns_poison_v1
+      target: http_dependency
+      params:
+        override_host: catalog.internal
+        override_address: unreachable
+    public_task:
+      symptom: The catalog request fails when the application tries to fetch data
+        from its internal dependency. The dependency is known to be healthy but unreachable.
+      impact: Catalog functionality is unavailable, blocking downstream operations.
+      objective: Restore the ability to fetch catalog data successfully, so that the
+        catalog request returns HTTP 200 and the dependency can be resolved correctly.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - metrics_query
+    - service_repair
+    expected_actions:
+    - primitive_id: http_dependency_dns_poison_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.25
+    - check_id: dns_resolution
+      weight: 0.25
+    - check_id: service_contract
+      weight: 0.25
+    - check_id: persistence
+      weight: 0.25
+    negative_controls:
+    - scenario: no_op
+      expected: fail
+    - scenario: restart_only
+      expected: fail
+    - scenario: wrong_layer_fix
+      expected: fail
+    - scenario: symptom_bypass
+      expected: fail
+    - scenario: partial_fix
+      expected: fail
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 9
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 1
+        verification_complexity: 2
+      rationale:
+      - The configured hostname is correct but effective name resolution points to
+        a non-service address.
+      - The agent must distinguish a live application failure from a control-plane
+        or process failure.
+      - Verification checks resolution, business traffic and persistence after restart.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 1
+        verification_complexity: 2
+      causal_depth: 3
+      state_layers:
+      - base_config
+      - environment_override
+      - dependency_runtime
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - dns_resolution
+      - sockets
+      - effective_config
+      persistence_id: environment_precedence
+      distractor_ids:
+      - healthy_process
+      - caller_config_looks_correct
+      - listener_is_reachable_locally
+      repair_invariant_ids:
+      - business_operation
+      - service_contract
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - change_caller_contract
+      - restart_only
+      - ignore_schema_validation
+      verification_check_ids:
+      - business_operation
+      - dns_resolution
+      - service_contract
+      - persistence
+      rationale:
+      - The configured hostname is correct but effective name resolution points to
+        a non-service address.
+      - The agent must distinguish a live application failure from a control-plane
+        or process failure.
+      - Verification checks resolution, business traffic and persistence after restart.
+      schema_version: e2e-difficulty-contract-v1
+      score: 9
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 9
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 1
+          verification_complexity: 2
+        rationale:
+        - The configured hostname is correct but effective name resolution points
+          to a non-service address.
+        - The agent must distinguish a live application failure from a control-plane
+          or process failure.
+        - Verification checks resolution, business traffic and persistence after restart.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: http_dependency_dns_poison_v1#heading_005
+    - field_path: public_task.objective
+      claim_type: verification
+      ref: http_dependency_dns_poison_v1#heading_008
+    - field_path: success_checks[0]
+      claim_type: verification
+      ref: http_dependency_dns_poison_v1#heading_008
+    - field_path: success_checks[1]
+      claim_type: verification
+      ref: http_dependency_dns_poison_v1#heading_008
+    - field_path: negative_controls[1]
+      claim_type: repair
+      ref: http_dependency_dns_poison_v1#heading_007
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: http_dependency_dns_poison_v1#heading_006
+    scenario_seed: 31015
+    technology_stack:
+    - HTTP
+    - DNS
+    - Linux
+    domain: network
+    fault_type: name_resolution
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 9
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 1
+          verification_complexity: 2
+        rationale:
+        - The configured hostname is correct but effective name resolution points
+          to a non-service address.
+        - The agent must distinguish a live application failure from a control-plane
+          or process failure.
+        - Verification checks resolution, business traffic and persistence after restart.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 1
+          verification_complexity: 2
+        causal_depth: 3
+        state_layers:
+        - base_config
+        - environment_override
+        - dependency_runtime
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - dns_resolution
+        - sockets
+        - effective_config
+        persistence_id: environment_precedence
+        distractor_ids:
+        - healthy_process
+        - caller_config_looks_correct
+        - listener_is_reachable_locally
+        repair_invariant_ids:
+        - business_operation
+        - service_contract
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - change_caller_contract
+        - restart_only
+        - ignore_schema_validation
+        verification_check_ids:
+        - business_operation
+        - dns_resolution
+        - service_contract
+        - persistence
+        rationale:
+        - The configured hostname is correct but effective name resolution points
+          to a non-service address.
+        - The agent must distinguish a live application failure from a control-plane
+          or process failure.
+        - Verification checks resolution, business traffic and persistence after restart.
+        schema_version: e2e-difficulty-contract-v1
+        score: 9
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 9
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 2
+            repair_depth: 1
+            verification_complexity: 2
+          rationale:
+          - The configured hostname is correct but effective name resolution points
+            to a non-service address.
+          - The agent must distinguish a live application failure from a control-plane
+            or process failure.
+          - Verification checks resolution, business traffic and persistence after
+            restart.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  dynamic_spec:
+    id: dynamic_http_dependency_dns_poison_v1_031015
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: http_dependency
+      component_id: http-dependency
+      version: ''
+      params: {}
+    fault:
+      primitive_id: http_dependency_dns_poison_v1
+      target: http_dependency
+      params:
+        override_host: catalog.internal
+        override_address: unreachable
+    public_task:
+      symptom: The catalog request fails when the application tries to fetch data
+        from its internal dependency. The dependency is known to be healthy but unreachable.
+      impact: Catalog functionality is unavailable, blocking downstream operations.
+      objective: Restore the ability to fetch catalog data successfully, so that the
+        catalog request returns HTTP 200 and the dependency can be resolved correctly.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - metrics_query
+    - service_repair
+    expected_actions:
+    - primitive_id: http_dependency_dns_poison_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.25
+    - check_id: dns_resolution
+      weight: 0.25
+    - check_id: service_contract
+      weight: 0.25
+    - check_id: persistence
+      weight: 0.25
+    negative_controls:
+    - scenario: no_op
+      expected: fail
+    - scenario: restart_only
+      expected: fail
+    - scenario: wrong_layer_fix
+      expected: fail
+    - scenario: symptom_bypass
+      expected: fail
+    - scenario: partial_fix
+      expected: fail
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 9
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 1
+        verification_complexity: 2
+      rationale:
+      - The configured hostname is correct but effective name resolution points to
+        a non-service address.
+      - The agent must distinguish a live application failure from a control-plane
+        or process failure.
+      - Verification checks resolution, business traffic and persistence after restart.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 1
+        verification_complexity: 2
+      causal_depth: 3
+      state_layers:
+      - base_config
+      - environment_override
+      - dependency_runtime
+      - runtime_process
+      required_signal_ids:
+      - logs
+      - dns_resolution
+      - sockets
+      - effective_config
+      persistence_id: environment_precedence
+      distractor_ids:
+      - healthy_process
+      - caller_config_looks_correct
+      - listener_is_reachable_locally
+      repair_invariant_ids:
+      - business_operation
+      - service_contract
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - change_caller_contract
+      - restart_only
+      - ignore_schema_validation
+      verification_check_ids:
+      - business_operation
+      - dns_resolution
+      - service_contract
+      - persistence
+      rationale:
+      - The configured hostname is correct but effective name resolution points to
+        a non-service address.
+      - The agent must distinguish a live application failure from a control-plane
+        or process failure.
+      - Verification checks resolution, business traffic and persistence after restart.
+      schema_version: e2e-difficulty-contract-v1
+      score: 9
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 9
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 1
+          verification_complexity: 2
+        rationale:
+        - The configured hostname is correct but effective name resolution points
+          to a non-service address.
+        - The agent must distinguish a live application failure from a control-plane
+          or process failure.
+        - Verification checks resolution, business traffic and persistence after restart.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: http_dependency_dns_poison_v1#heading_005
+    - field_path: public_task.objective
+      claim_type: verification
+      ref: http_dependency_dns_poison_v1#heading_008
+    - field_path: success_checks[0]
+      claim_type: verification
+      ref: http_dependency_dns_poison_v1#heading_008
+    - field_path: success_checks[1]
+      claim_type: verification
+      ref: http_dependency_dns_poison_v1#heading_008
+    - field_path: negative_controls[1]
+      claim_type: repair
+      ref: http_dependency_dns_poison_v1#heading_007
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: http_dependency_dns_poison_v1#heading_006
+    scenario_seed: 31015
+    technology_stack:
+    - HTTP
+    - DNS
+    - Linux
+    domain: network
+    fault_type: name_resolution
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 9
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 1
+          verification_complexity: 2
+        rationale:
+        - The configured hostname is correct but effective name resolution points
+          to a non-service address.
+        - The agent must distinguish a live application failure from a control-plane
+          or process failure.
+        - Verification checks resolution, business traffic and persistence after restart.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 1
+          verification_complexity: 2
+        causal_depth: 3
+        state_layers:
+        - base_config
+        - environment_override
+        - dependency_runtime
+        - runtime_process
+        required_signal_ids:
+        - logs
+        - dns_resolution
+        - sockets
+        - effective_config
+        persistence_id: environment_precedence
+        distractor_ids:
+        - healthy_process
+        - caller_config_looks_correct
+        - listener_is_reachable_locally
+        repair_invariant_ids:
+        - business_operation
+        - service_contract
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - change_caller_contract
+        - restart_only
+        - ignore_schema_validation
+        verification_check_ids:
+        - business_operation
+        - dns_resolution
+        - service_contract
+        - persistence
+        rationale:
+        - The configured hostname is correct but effective name resolution points
+          to a non-service address.
+        - The agent must distinguish a live application failure from a control-plane
+          or process failure.
+        - Verification checks resolution, business traffic and persistence after restart.
+        schema_version: e2e-difficulty-contract-v1
+        score: 9
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 9
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 2
+            repair_depth: 1
+            verification_complexity: 2
+          rationale:
+          - The configured hostname is correct but effective name resolution points
+            to a non-service address.
+          - The agent must distinguish a live application failure from a control-plane
+            or process failure.
+          - Verification checks resolution, business traffic and persistence after
+            restart.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  bundle_id: dynamic_bundle_0001
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - service_list
+  - business_probe
+  - dependency_list
+  - dependency_probe
+  - config_sources
+  - config_read
+  - config_update
+  - service_manage
+  repair_operations:
+  - config_update:set
+  - service_manage:restart
+  verifier_checks:
+  - business_operation
+  - dns_resolution
+  - service_contract
+  - persistence
+  semantic_state:
+  - effective DNS resolution
+  - service contract
+  public_oracle: http_dependency_dns_poison_v1
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - dependency.json
+    - dependency_host
+    - /orders
+    injection_markers:
+    - 192.0.2.77
+    - iptables
+    verifier_markers:
+    - configured_host
+    - resolved_host
+  public_success_signals: &id001
+  - Restore the documented business operation using live state.
+  - Confirm that the underlying fault signal is gone, not merely hidden.
+  - Verify that the repair survives the applicable restart or reconciler boundary.
+  - Confirm the service reaches its documented dependency by the expected service
+    name.
+  - Confirm the dependency service contract remains valid after the lifecycle boundary.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id001
+    available_tools:
+    - service_list
+    - service_status
+    - business_probe
+    - dependency_list
+    - dependency_probe
+    - slo_read
+    - config_sources
+    - config_read
+    - config_update
+    - service_manage
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - config_update:set
+    - service_manage:restart
+    verifier_checks:
+    - business_operation
+    - dns_resolution
+    - service_contract
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: Restore the documented business operation using live state.
+    - check_id: dns_resolution
+      public_signal: Confirm that the underlying fault signal is gone, not merely
+        hidden.
+    - check_id: service_contract
+      public_signal: Verify that the repair survives the applicable restart or reconciler
+        boundary.
+    - check_id: persistence
+      public_signal: Confirm the service reaches its documented dependency by the
+        expected service name.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+difficulty_contract:
+  target_profile: hard
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 2
+    repair_depth: 1
+    verification_complexity: 2
+  causal_depth: 3
+  state_layers:
+  - base_config
+  - environment_override
+  - dependency_runtime
+  - runtime_process
+  required_signal_ids:
+  - logs
+  - dns_resolution
+  - sockets
+  - effective_config
+  persistence_id: environment_precedence
+  distractor_ids:
+  - healthy_process
+  - caller_config_looks_correct
+  - listener_is_reachable_locally
+  repair_invariant_ids:
+  - business_operation
+  - service_contract
+  - repair_persists
+  - root_signal_absent
+  forbidden_shortcut_ids:
+  - change_caller_contract
+  - restart_only
+  - ignore_schema_validation
+  verification_check_ids:
+  - business_operation
+  - dns_resolution
+  - service_contract
+  - persistence
+  rationale:
+  - The configured hostname is correct but effective name resolution points to a non-service
+    address.
+  - The agent must distinguish a live application failure from a control-plane or
+    process failure.
+  - Verification checks resolution, business traffic and persistence after restart.
+  schema_version: e2e-difficulty-contract-v1
+  score: 9
+  rubric_version: e2e-difficulty-v2
+  difficulty_assessment:
+    profile: hard
+    score: 9
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 2
+      signal_indirection: 2
+      tool_breadth: 2
+      repair_depth: 1
+      verification_complexity: 2
+    rationale:
+    - The configured hostname is correct but effective name resolution points to a
+      non-service address.
+    - The agent must distinguish a live application failure from a control-plane or
+      process failure.
+    - Verification checks resolution, business traffic and persistence after restart.
+    empirical_status: not_calibrated
+  candidate_strategy: layered_state
+runtime_controls:
+- no_op
+- oracle
+- restart_only
+- wrong_layer_fix
+- symptom_bypass
+- partial_fix
+- repeat
+- cleanup
+agent_panel_status: not_calibrated
+tool_standard:
+  id: dependency-operations-v1
+  version: '1'
+compiler_version: opsbench-dynamic-compiler-v1
+scenario_spec_version: opsbench-e2e-scenario-v2
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: 76ce02b2a096d5971f530f53f353f1d2a32c6281d536552e37749861dffc4e77
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-10-20260902\master

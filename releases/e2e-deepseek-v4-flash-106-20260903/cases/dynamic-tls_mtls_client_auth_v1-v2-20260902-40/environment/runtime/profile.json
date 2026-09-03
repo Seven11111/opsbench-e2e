@@ -1,0 +1,14 @@
+{
+  "domain": "tls",
+  "fault_type": "mtls_client_auth",
+  "technology": [
+    "TLS",
+    "HTTP",
+    "OpenSSL"
+  ],
+  "mechanism": "client_certificate_authorization",
+  "resource": "security",
+  "signal": "client_authentication",
+  "observability": "TLS handshake, client certificate and server policy",
+  "repair": "trust_policy"
+}

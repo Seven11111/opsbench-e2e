@@ -1,0 +1,6 @@
+{
+  "case_id": "dynamic-app_stale_pid_v1-v1-20260902-67",
+  "implementation": {
+    "strategy": "stale_pid"
+  }
+}

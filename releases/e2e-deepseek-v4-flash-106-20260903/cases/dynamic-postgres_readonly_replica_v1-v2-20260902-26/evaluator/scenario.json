@@ -1,0 +1,25 @@
+{
+  "template_id": "postgres_readonly_replica_v1",
+  "primitive_id": "postgres_readonly_replica_v1",
+  "capability_profile": {
+    "domain": "database",
+    "fault_type": "readonly_replica",
+    "technology": [
+      "PostgreSQL",
+      "SQL"
+    ],
+    "mechanism": "read_only_target_routing",
+    "resource": "database",
+    "signal": "write_target",
+    "observability": "transaction error, target role and connection route",
+    "repair": "database_route"
+  },
+  "capability_variant": "v2",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

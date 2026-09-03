@@ -1,0 +1,311 @@
+{
+  "case_id": "http-dependency-port-013",
+  "implementation": {
+    "strategy": "dependency_port"
+  },
+  "dynamic_spec": {
+    "id": "dynamic_http_dependency_port_drift_v1_031005",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "curated_http-port-curated",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "http_dependency",
+        "component_id": "http-dependency",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "http_dependency_port_drift_v1",
+      "target": "http_dependency",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "A service cannot reach its dependency (e.g., a database) over the internal network. Containers are running and healthy. The dependency is accessible from outside the network via the host port, but internal service-to-service communication fails.",
+      "impact": "The service is unable to perform operations that depend on the dependency, leading to degraded functionality or errors.",
+      "objective": "Restore internal service-to-service communication so that the service can successfully connect to the dependency using the correct internal endpoint.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "business_check",
+      "diagnose",
+      "health_check",
+      "metrics_query",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "http_dependency_port_drift_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.25
+      },
+      {
+        "check_id": "provider_contract",
+        "weight": 0.25
+      },
+      {
+        "check_id": "effective_state",
+        "weight": 0.25
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.25
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "restart_only"
+      },
+      {
+        "scenario": "wrong_layer_fix"
+      },
+      {
+        "scenario": "symptom_bypass"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 10,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 2,
+        "verification_complexity": 2
+      },
+      "rationale": [
+        "The caller contract remains correct while an effective provider override changes the live listener.",
+        "The repair must target the provider layer and survive a process restart.",
+        "Verification checks both business recovery and preservation of the documented dependency contract."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "hard",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 2,
+        "verification_complexity": 2
+      },
+      "causal_depth": 3,
+      "state_layers": [
+        "base_config",
+        "environment_override",
+        "runtime_process",
+        "dependency_runtime"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "sockets",
+        "effective_config",
+        "process_tree"
+      ],
+      "persistence_id": "environment_precedence",
+      "distractor_ids": [
+        "healthy_process",
+        "stale_base_config",
+        "caller_config_looks_correct"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "service_contract",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "change_caller_contract",
+        "restart_only",
+        "direct_edit_generated_config"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "provider_contract",
+        "effective_state",
+        "persistence"
+      ],
+      "rationale": [
+        "The caller contract remains correct while an effective provider override changes the live listener.",
+        "The repair must target the provider layer and survive a process restart.",
+        "Verification checks both business recovery and preservation of the documented dependency contract."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 10,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The caller contract remains correct while an effective provider override changes the live listener.",
+          "The repair must target the provider layer and survive a process restart.",
+          "Verification checks both business recovery and preservation of the documented dependency contract."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "doc-docs-docker-com-compose-how-tos-networking-4f177980d559#symptom_curated_001"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "repair",
+        "ref": "doc-docs-docker-com-compose-how-tos-networking-4f177980d559#repair_curated_001"
+      },
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-docs-docker-com-compose-how-tos-networking-4f177980d559#root_cause_curated_001"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-docs-docker-com-compose-how-tos-networking-4f177980d559#verification_curated_001"
+      }
+    ],
+    "scenario_seed": 31005,
+    "technology_stack": [
+      "HTTP",
+      "Python",
+      "Linux"
+    ],
+    "domain": "network",
+    "fault_type": "dependency_configuration",
+    "candidate_group_id": "curated_http-port-curated_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456",
+    "source": {
+      "primitive_status": "demo_validated",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The caller contract remains correct while an effective provider override changes the live listener.",
+          "The repair must target the provider layer and survive a process restart.",
+          "Verification checks both business recovery and preservation of the documented dependency contract."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "hard",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 2,
+          "verification_complexity": 2
+        },
+        "causal_depth": 3,
+        "state_layers": [
+          "base_config",
+          "environment_override",
+          "runtime_process",
+          "dependency_runtime"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "sockets",
+          "effective_config",
+          "process_tree"
+        ],
+        "persistence_id": "environment_precedence",
+        "distractor_ids": [
+          "healthy_process",
+          "stale_base_config",
+          "caller_config_looks_correct"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "service_contract",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "change_caller_contract",
+          "restart_only",
+          "direct_edit_generated_config"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "provider_contract",
+          "effective_state",
+          "persistence"
+        ],
+        "rationale": [
+          "The caller contract remains correct while an effective provider override changes the live listener.",
+          "The repair must target the provider layer and survive a process restart.",
+          "Verification checks both business recovery and preservation of the documented dependency contract."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 10,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 10,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 2,
+            "repair_depth": 2,
+            "verification_complexity": 2
+          },
+          "rationale": [
+            "The caller contract remains correct while an effective provider override changes the live listener.",
+            "The repair must target the provider layer and survive a process restart.",
+            "Verification checks both business recovery and preservation of the documented dependency contract."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "http_dependency_port_drift_v1"
+}

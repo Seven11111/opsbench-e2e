@@ -1,0 +1,13 @@
+{
+  "domain": "database",
+  "fault_type": "readonly_replica",
+  "technology": [
+    "PostgreSQL",
+    "SQL"
+  ],
+  "mechanism": "read_only_target_routing",
+  "resource": "database",
+  "signal": "write_target",
+  "observability": "transaction error, target role and connection route",
+  "repair": "database_route"
+}

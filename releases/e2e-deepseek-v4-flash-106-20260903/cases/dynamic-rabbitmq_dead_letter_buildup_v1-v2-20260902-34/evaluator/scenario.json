@@ -1,0 +1,25 @@
+{
+  "template_id": "rabbitmq_dead_letter_buildup_v1",
+  "primitive_id": "rabbitmq_dead_letter_buildup_v1",
+  "capability_profile": {
+    "domain": "messaging",
+    "fault_type": "dead_letter_buildup",
+    "technology": [
+      "RabbitMQ",
+      "AMQP"
+    ],
+    "mechanism": "rejected_message_accumulation",
+    "resource": "messaging",
+    "signal": "dead_letter_depth",
+    "observability": "queue depth, dead-letter queue and consumer acknowledgements",
+    "repair": "consumer_rejection_policy"
+  },
+  "capability_variant": "v2",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

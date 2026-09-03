@@ -1,0 +1,25 @@
+{
+  "template_id": "linux_mount_readonly_v1",
+  "primitive_id": "linux_mount_readonly_v1",
+  "capability_profile": {
+    "domain": "linux",
+    "fault_type": "readonly_mount",
+    "technology": [
+      "Linux",
+      "Filesystem"
+    ],
+    "mechanism": "filesystem_write_protection",
+    "resource": "filesystem",
+    "signal": "mount_writeability",
+    "observability": "mount flags and a bounded write probe",
+    "repair": "mount_or_filesystem_policy"
+  },
+  "capability_variant": "v1",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

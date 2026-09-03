@@ -1,0 +1,14 @@
+{
+  "domain": "linux",
+  "fault_type": "deleted_open_file",
+  "technology": [
+    "Linux",
+    "procfs",
+    "Python"
+  ],
+  "mechanism": "unlinked_inode_held_by_process",
+  "resource": "filesystem",
+  "signal": "deleted_fd_count",
+  "observability": "procfs deleted file descriptors and disk headroom",
+  "repair": "process_file_handles"
+}

@@ -1,0 +1,5 @@
+{
+  "healthy": true,
+  "mode": "baseline",
+  "nginx_pid_alive": true
+}

@@ -1,0 +1,32 @@
+services:
+  exporter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "/runtime/exporter.py"]
+    volumes:
+      - ./runtime:/runtime
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--web.enable-lifecycle"]
+    volumes:
+      - ./runtime:/etc/prometheus:ro
+    ports: ["19090:9090"]
+    depends_on: [exporter]
+  agent-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_HEALTH_MODE: url
+      OPSBENCH_HEALTH_URL: http://prometheus:9090/-/ready
+      OPSBENCH_METRICS_URL: http://prometheus:9090/api/v1/query?query=up%7Bjob%3D%22opsbench-target%22%2Cinstance%3D%22exporter%3A19100%22%7D
+    depends_on: [prometheus]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]

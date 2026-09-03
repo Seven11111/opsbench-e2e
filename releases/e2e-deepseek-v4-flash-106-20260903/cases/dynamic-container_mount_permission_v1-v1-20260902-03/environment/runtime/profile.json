@@ -1,0 +1,14 @@
+{
+  "domain": "container_runtime",
+  "fault_type": "mount_permission",
+  "technology": [
+    "Docker",
+    "Compose",
+    "Filesystem"
+  ],
+  "mechanism": "bind_mount_identity_mismatch",
+  "resource": "container-storage",
+  "signal": "mount_permissions",
+  "observability": "mounted path UID/GID, mode and write probe",
+  "repair": "mounted_directory_identity"
+}

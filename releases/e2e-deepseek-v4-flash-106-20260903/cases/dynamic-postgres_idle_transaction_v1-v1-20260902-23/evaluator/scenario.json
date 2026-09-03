@@ -1,0 +1,25 @@
+{
+  "template_id": "postgres_idle_transaction_v1",
+  "primitive_id": "postgres_idle_transaction_v1",
+  "capability_profile": {
+    "domain": "database",
+    "fault_type": "idle_transaction",
+    "technology": [
+      "PostgreSQL",
+      "SQL"
+    ],
+    "mechanism": "idle_in_transaction_session",
+    "resource": "database",
+    "signal": "idle_transaction",
+    "observability": "pg_stat_activity, transaction age and locks",
+    "repair": "session_lifecycle"
+  },
+  "capability_variant": "v1",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

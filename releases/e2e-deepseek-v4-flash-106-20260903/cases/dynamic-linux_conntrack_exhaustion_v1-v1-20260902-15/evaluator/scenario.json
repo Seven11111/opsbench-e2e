@@ -1,0 +1,25 @@
+{
+  "template_id": "linux_conntrack_exhaustion_v1",
+  "primitive_id": "linux_conntrack_exhaustion_v1",
+  "capability_profile": {
+    "domain": "network",
+    "fault_type": "conntrack_exhaustion",
+    "technology": [
+      "Linux",
+      "TCP"
+    ],
+    "mechanism": "stateful_connection_table_pressure",
+    "resource": "network",
+    "signal": "connection_headroom",
+    "observability": "socket counters and connection-table headroom",
+    "repair": "connection_lifecycle"
+  },
+  "capability_variant": "v1",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

@@ -1,0 +1,9 @@
+{
+  "template_id": "linux_upload_permission_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "upload_permission",
+    "repair_mode": "baseline",
+    "fault_active": false
+  }
+}

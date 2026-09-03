@@ -1,0 +1,14 @@
+{
+  "domain": "cache",
+  "fault_type": "cache_stampede",
+  "technology": [
+    "Redis",
+    "HTTP",
+    "Python"
+  ],
+  "mechanism": "synchronized_cache_miss",
+  "resource": "cache",
+  "signal": "cache_hit_ratio",
+  "observability": "cache hits, origin requests and key TTL",
+  "repair": "cache_refresh_policy"
+}

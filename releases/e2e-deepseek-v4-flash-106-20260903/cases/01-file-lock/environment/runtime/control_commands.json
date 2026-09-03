@@ -1,0 +1,5 @@
+{
+  "oracle": "python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d.update(lock_enabled=False, repair_mode='persistent'); open(p,'w').write(json.dumps(d))\"",
+  "wrong_fix": "rm -f /data/other.lock",
+  "partial_fix": "pkill -f 'pathlib.*report.lock' || true"
+}

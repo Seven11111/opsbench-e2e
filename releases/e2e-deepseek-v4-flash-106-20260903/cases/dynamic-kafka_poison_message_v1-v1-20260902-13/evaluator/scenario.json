@@ -1,0 +1,25 @@
+{
+  "template_id": "kafka_poison_message_v1",
+  "primitive_id": "kafka_poison_message_v1",
+  "capability_profile": {
+    "domain": "messaging",
+    "fault_type": "poison_message",
+    "technology": [
+      "Kafka",
+      "Python"
+    ],
+    "mechanism": "non_retryable_record_blocking_offset",
+    "resource": "messaging",
+    "signal": "consumer_progress",
+    "observability": "consumer offset, lag and dead-letter state",
+    "repair": "consumer_offset_policy"
+  },
+  "capability_variant": "v1",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

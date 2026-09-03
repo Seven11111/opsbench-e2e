@@ -1,0 +1,5 @@
+{
+  "oracle": "curl -sS -X POST -H 'Content-Type: application/json' -d '{\"action\":\"restore\"}' http://127.0.0.1:8080/opsbench/control",
+  "wrong_fix": "rm -f /data/other.lock",
+  "partial_fix": "pkill -f 'pathlib.*report.lock' || true"
+}

@@ -1,0 +1,4 @@
+from pathlib import Path
+
+root = Path(__file__).parents[1]
+(root / 'environment/runtime/sink.mode').write_text('fault\n', encoding='utf-8')

@@ -1,0 +1,39 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    hostname: rabbitmq
+    ports: ["15672:15672"]
+    volumes:
+      - ./runtime/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+    environment:
+      RABBITMQ_DEFAULT_USER: opsbench
+      RABBITMQ_DEFAULT_PASS: opsbench-local-only
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+    # The official broker entrypoint must switch from root to the rabbitmq
+    # user.  Dropping all capabilities/no-new-privileges prevents that
+    # startup transition on Docker Desktop, so keep the broker's image-level
+    # user boundary and harden the separate Agent runner instead.
+  agent-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_HEALTH_MODE: rabbitmq
+      OPSBENCH_RABBITMQ_URL: http://rabbitmq:15672
+      OPSBENCH_RABBITMQ_USER: opsbench
+      OPSBENCH_RABBITMQ_PASS: opsbench-local-only
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]

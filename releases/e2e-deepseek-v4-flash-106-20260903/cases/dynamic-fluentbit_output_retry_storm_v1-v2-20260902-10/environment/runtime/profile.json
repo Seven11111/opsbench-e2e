@@ -1,0 +1,13 @@
+{
+  "domain": "logging",
+  "fault_type": "output_retry_storm",
+  "technology": [
+    "Fluent Bit",
+    "Linux"
+  ],
+  "mechanism": "unreachable_output_retry_policy",
+  "resource": "logging",
+  "signal": "retry_rate",
+  "observability": "output retries, buffer depth and delivery rate",
+  "repair": "output_route_configuration"
+}

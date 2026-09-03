@@ -1,0 +1,9 @@
+{
+  "template_id": "linux_file_lock_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "file_lock",
+    "lock_enabled": false,
+    "repair_mode": "baseline"
+  }
+}

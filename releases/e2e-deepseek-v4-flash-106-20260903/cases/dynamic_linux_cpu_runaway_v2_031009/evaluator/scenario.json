@@ -1,0 +1,152 @@
+{
+  "template_id": "linux_cpu_runaway_v2",
+  "health_port": 18081,
+  "cpu_recovery_threshold": 20.0,
+  "dynamic_spec": {
+    "id": "dynamic_linux_cpu_runaway_v2_031009",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "model_smoke_linux_bundle",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "worker1",
+        "component_id": "linux-worker",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "linux_cpu_runaway_v2",
+      "target": "worker1",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "The CPU pressure stall indicator (PSI) shows that the 'some' avg10 value is consistently above 20% (threshold), indicating that tasks are frequently stalled on CPU. The service response time has increased by 3x.",
+      "impact": "Users experience slow response times and potential timeouts.",
+      "objective": "Reduce CPU pressure to below 10% 'some' avg10 and restore service response time to normal levels.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "metrics_query"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "linux_cpu_runaway_v2",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "cpu_sample",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "process_state",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "service_health",
+        "weight": 0.3333333333333333
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "wrong_fix"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "medium",
+    "difficulty_assessment": {
+      "profile": "medium",
+      "score": 5,
+      "rubric_version": "e2e-difficulty-v1",
+      "dimensions": {
+        "diagnostic_uncertainty": 1,
+        "signal_indirection": 1,
+        "tool_breadth": 1,
+        "repair_depth": 1,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "The symptom is resource pressure rather than an explicit configuration error.",
+        "The agent must correlate process evidence with a persistent worker setting.",
+        "Verification combines live CPU sampling, service health, and persistence."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {},
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "verification",
+        "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#psi-cpu"
+      },
+      {
+        "field_path": "public_task.impact",
+        "claim_type": "verification",
+        "ref": "doc-docs-kernel-org-next-accounting-psi.html-a34344#psi-cpu"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "repair",
+        "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#cgroup-control"
+      },
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-fd644c#cgroup-cpu"
+      }
+    ],
+    "scenario_seed": 31009,
+    "technology_stack": [
+      "Linux",
+      "Python"
+    ],
+    "domain": "linux",
+    "fault_type": "performance_regression",
+    "candidate_group_id": "model_smoke_linux_bundle_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456",
+    "source": {
+      "primitive_status": "demo_validated",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 5,
+        "rubric_version": "e2e-difficulty-v1",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The symptom is resource pressure rather than an explicit configuration error.",
+          "The agent must correlate process evidence with a persistent worker setting.",
+          "Verification combines live CPU sampling, service health, and persistence."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {}
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "linux_cpu_runaway_v2"
+}

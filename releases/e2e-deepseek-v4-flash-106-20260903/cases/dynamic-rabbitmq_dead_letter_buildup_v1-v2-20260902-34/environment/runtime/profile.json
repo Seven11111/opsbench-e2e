@@ -1,0 +1,13 @@
+{
+  "domain": "messaging",
+  "fault_type": "dead_letter_buildup",
+  "technology": [
+    "RabbitMQ",
+    "AMQP"
+  ],
+  "mechanism": "rejected_message_accumulation",
+  "resource": "messaging",
+  "signal": "dead_letter_depth",
+  "observability": "queue depth, dead-letter queue and consumer acknowledgements",
+  "repair": "consumer_rejection_policy"
+}

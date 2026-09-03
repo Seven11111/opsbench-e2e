@@ -1,0 +1,146 @@
+{
+  "template_id": "linux_memory_growth_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "memory_growth",
+    "growth_enabled": false,
+    "repair_mode": "baseline"
+  },
+  "dynamic_spec": {
+    "id": "dynamic_linux_memory_growth_v1_000001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "linux_worker",
+        "component_id": "linux-worker",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "linux_memory_growth_v1",
+      "target": "linux_worker",
+      "params": {}
+    },
+    "public_task": {
+      "symptom": "The worker health signal has become unreliable while the service is still reachable. Repeated live observations show the worker's memory usage growing and approaching its declared resource budget; the same workload should remain available while the resource signal is stabilized.",
+      "impact": "The worker may exhaust its memory headroom and the documented workflow cannot complete reliably. Preserve the service's HTTP and workload contract while resolving the resource pressure.",
+      "objective": "Diagnose the live memory signal, stop the abnormal growth at its source, and verify both business recovery and stable memory headroom after the observation boundary.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation.",
+        "Do not claim recovery from a single health response; inspect repeated resource observations."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "metrics_query"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "linux_memory_growth_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "memory_headroom",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "business_operation",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.3333333333333333
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op"
+      },
+      {
+        "scenario": "restart_only"
+      },
+      {
+        "scenario": "wrong_fix"
+      },
+      {
+        "scenario": "partial_fix"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "medium",
+    "difficulty_assessment": {
+      "profile": "medium",
+      "score": 5,
+      "rubric_version": "e2e-difficulty-v1",
+      "dimensions": {
+        "diagnostic_uncertainty": 1,
+        "signal_indirection": 1,
+        "tool_breadth": 1,
+        "repair_depth": 1,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "The agent must correlate live memory growth with a persistent worker setting."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {},
+    "evidence_links": [
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-571f37#heuristic_operational_002"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-docs-kernel-org-admin-guide-cgroup-v2.html-571f37#heuristic_operational_012"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "Linux",
+      "Python"
+    ],
+    "domain": "linux",
+    "fault_type": "memory_exhaustion",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "1912da5c4987e1bca0483771a61493df8d5d57d0f03fd9ca7ca75d63e959b49b",
+    "source": {
+      "primitive_status": "experimental",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 5,
+        "rubric_version": "e2e-difficulty-v1",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The agent must correlate live memory growth with a persistent worker setting."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {}
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "linux_memory_growth_v1"
+}

@@ -1,0 +1,25 @@
+{
+  "template_id": "postgres_replication_lag_v1",
+  "primitive_id": "postgres_replication_lag_v1",
+  "capability_profile": {
+    "domain": "database",
+    "fault_type": "replication_lag",
+    "technology": [
+      "PostgreSQL",
+      "Replication"
+    ],
+    "mechanism": "replica_apply_delay",
+    "resource": "database",
+    "signal": "replication_lag",
+    "observability": "write LSN, replay LSN and replica freshness",
+    "repair": "replica_apply_worker"
+  },
+  "capability_variant": "v2",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}
