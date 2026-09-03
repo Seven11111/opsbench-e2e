@@ -1,0 +1,166 @@
+{
+  "template_id": "linux_file_lock_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "file_lock",
+    "lock_enabled": false,
+    "repair_mode": "baseline"
+  },
+  "dynamic_spec": {
+    "id": "candidate_linux_file_lock_v1_001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "worker",
+        "component_id": "linux-worker",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "linux_file_lock_v1",
+      "target": "worker",
+      "params": {}
+    },
+    "public_task": {
+        "symptom": "The file-processing worker is repeatedly failing when it tries to obtain the report lock. The health endpoint and the file-processing operation are affected, and the problem may return after a short observation period even if the worker appears to recover briefly.",
+        "impact": "New reports remain unprocessed and the backlog grows. Preserve the existing file-processing and locking contract while restoring the operation.",
+        "objective": "Diagnose the live lock condition, restore reliable report processing, and verify that the repair remains effective after the declared observation boundary.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+          "Do not replace the service with a new implementation.",
+          "Do not treat killing one process or deleting one lock file as sufficient unless the live lock condition remains absent."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "metrics_query"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "linux_file_lock_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "lock_state",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "business_operation",
+        "weight": 0.3333333333333333
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.3333333333333333
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op",
+        "expected": "fail"
+      },
+      {
+        "scenario": "restart_only",
+        "expected": "fail"
+      },
+      {
+        "scenario": "wrong_fix",
+        "expected": "fail"
+      },
+      {
+        "scenario": "partial_fix",
+        "expected": "fail"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "medium",
+    "difficulty_assessment": {
+      "profile": "medium",
+      "score": 5,
+      "rubric_version": "e2e-difficulty-v1",
+      "dimensions": {
+        "diagnostic_uncertainty": 1,
+        "signal_indirection": 1,
+        "tool_breadth": 1,
+        "repair_depth": 1,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "The agent must identify a live lock holder and make the repair persist."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {},
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "doc-docs-python-org-3-library-fcntl.html-78f962#claim_001"
+      },
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "doc-docs-python-org-3-library-fcntl.html-78f962#claim_003"
+      },
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "root_cause",
+        "ref": "doc-docs-python-org-3-library-fcntl.html-78f962#heuristic_operational_057"
+      },
+      {
+        "field_path": "public_task.impact",
+        "claim_type": "impact",
+        "ref": "doc-docs-python-org-3-library-fcntl.html-78f962#claim_002"
+      },
+      {
+        "field_path": "public_task.verification",
+        "claim_type": "verification",
+        "ref": "doc-docs-python-org-3-library-fcntl.html-78f962#heuristic_operational_030"
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "Linux",
+      "Python",
+      "Filesystem"
+    ],
+    "domain": "linux",
+    "fault_type": "file_lock",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "1912da5c4987e1bca0483771a61493df8d5d57d0f03fd9ca7ca75d63e959b49b",
+    "source": {
+      "primitive_status": "experimental",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 5,
+        "rubric_version": "e2e-difficulty-v1",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The agent must identify a live lock holder and make the repair persist."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {}
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "linux_file_lock_v1"
+}

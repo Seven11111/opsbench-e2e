@@ -1,0 +1,305 @@
+id: candidate_postgres_missing_index_v2_001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: performance_regression
+domain: database
+technology_stack:
+- PostgreSQL
+template_id: postgres_missing_index_v2
+fault_primitive_id: postgres_missing_index_v2
+public_tool_policy: e2e-capability-name-v1
+runtime_status: demo_validated
+difficulty_profile: hard
+difficulty_assessment: &id001
+  profile: hard
+  score: 9
+  rubric_version: e2e-difficulty-v1
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 2
+    repair_depth: 2
+    verification_complexity: 1
+  rationale:
+  - The public symptom is query degradation and does not reveal the missing index.
+  - The agent must inspect a live query plan and distinguish a useful index from an
+    unrelated one.
+  - Verification checks data correctness, plan shape, index presence, and repeated
+    latency.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: agent-runner
+  agent_service: agent-runner
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: opsbench
+  business_check:
+    url: ''
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: dynamic_bundle_0001
+  evidence_refs:
+  - ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_011
+    claim_type: verification
+    field_path: public_task.symptom
+  - ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_016
+    claim_type: impact
+    field_path: public_task.impact
+  - ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_012
+    claim_type: verification
+    field_path: public_task.objective
+  - ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_013
+    claim_type: verification
+    field_path: public_task.objective
+  - ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_009
+    claim_type: repair
+    field_path: public_actionability.repair_operations
+  - ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_003
+    claim_type: root_cause
+    field_path: public_task.root_cause
+  candidate_group_id: dynamic_bundle_0001_group_001
+  generation_strategy: layered_state
+  experience_version: e2e-v1
+  experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+  scenario_seed: 1
+  novelty_fingerprint: 11461feaddf02516
+  difficulty_assessment: *id001
+  scenario_spec:
+    id: candidate_postgres_missing_index_v2_001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: dynamic_bundle_0001
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: postgres_db
+      component_id: postgres
+      version: ''
+      params: {}
+    fault:
+      primitive_id: postgres_missing_index_v2
+      target: postgres_db
+      params: {}
+    public_task:
+      symptom: A database query that is expected to use an index is instead performing
+        a sequential scan, causing significantly slower execution times. The query
+        plan, examined via EXPLAIN, shows a sequential scan even though an appropriate
+        index exists.
+      impact: Application response times degrade, and overall database performance
+        is reduced, potentially affecting user experience and system throughput.
+      objective: Improve query performance by making the database optimizer correctly
+        use the existing index, resulting in a faster query plan and lower latency.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - health_check
+    - sql_query
+    expected_actions:
+    - primitive_id: postgres_missing_index_v2
+      action: repair
+    success_checks:
+    - check_id: query_result
+      weight: 0.3333333333333333
+    - check_id: query_plan
+      weight: 0.3333333333333333
+    - check_id: query_latency
+      weight: 0.3333333333333333
+    negative_controls:
+    - scenario: no_op
+    - scenario: wrong_fix
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 9
+      rubric_version: e2e-difficulty-v1
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 1
+      rationale:
+      - The public symptom is query degradation and does not reveal the missing index.
+      - The agent must inspect a live query plan and distinguish a useful index from
+        an unrelated one.
+      - Verification checks data correctness, plan shape, index presence, and repeated
+        latency.
+      empirical_status: not_calibrated
+    difficulty_contract: {}
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: verification
+      ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_011
+    - field_path: public_task.impact
+      claim_type: impact
+      ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_016
+    - field_path: public_task.objective
+      claim_type: verification
+      ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_012
+    - field_path: public_task.objective
+      claim_type: verification
+      ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_013
+    - field_path: public_actionability.repair_operations
+      claim_type: repair
+      ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_009
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-www-postgresql-org-docs-current-indexes-examine.html-e303c6#claim_003
+    scenario_seed: 1
+    technology_stack:
+    - PostgreSQL
+    domain: database
+    fault_type: performance_regression
+    candidate_group_id: dynamic_bundle_0001_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 9
+        rubric_version: e2e-difficulty-v1
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 1
+        rationale:
+        - The public symptom is query degradation and does not reveal the missing
+          index.
+        - The agent must inspect a live query plan and distinguish a useful index
+          from an unrelated one.
+        - Verification checks data correctness, plan shape, index presence, and repeated
+          latency.
+        empirical_status: not_calibrated
+      difficulty_contract: {}
+    schema_version: opsbench-e2e-scenario-v2
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - command_run
+  - service_status
+  - database_query
+  repair_operations:
+  - command_run:bounded_state_change
+  verifier_checks:
+  - query_result
+  - query_plan
+  - query_latency
+  - index_presence
+  - service_health
+  - verifier_execution
+  semantic_state:
+  - query result
+  - query plan
+  - query latency
+  - index presence
+  public_oracle: postgres_missing_index_v2
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - init.sql
+    - orders
+    - customer_id
+    injection_markers:
+    - DROP INDEX
+    - ANALYZE
+    verifier_markers:
+    - query_plan
+    - index_presence
+    - query_latency
+  public_success_signals: &id002
+  - The customer lookup returns the expected rows.
+  - EXPLAIN shows an index-backed plan for the lookup.
+  - Repeated execution remains below the case latency threshold.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id002
+    available_tools:
+    - command_run
+    - service_status
+    - database_query
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - command_run:bounded_state_change
+    verifier_checks:
+    - query_result
+    - query_plan
+    - query_latency
+    - index_presence
+    - service_health
+    - verifier_execution
+    task_verifier_mapping:
+    - check_id: query_result
+      public_signal: The customer lookup returns the expected rows.
+    - check_id: query_plan
+      public_signal: EXPLAIN shows an index-backed plan for the lookup.
+    - check_id: query_latency
+      public_signal: Repeated execution remains below the case latency threshold.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: 39f9e9cf58f4cef0e09d4c8d0f2dee02e7677bbcde4464c489069c56cd3a3c53
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-20-20260901\master-v4

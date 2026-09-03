@@ -1,0 +1,10 @@
+{
+  "case_id": "http-upstream-timeout-016",
+  "implementation": {
+    "strategy": "dependency_timeout"
+  },
+  "public_contract": {
+    "request_latency_budget_ms": 600,
+    "latency_comparison": "strictly_below"
+  }
+}

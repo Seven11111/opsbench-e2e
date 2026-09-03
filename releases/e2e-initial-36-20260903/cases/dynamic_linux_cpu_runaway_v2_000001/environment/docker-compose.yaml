@@ -1,0 +1,28 @@
+services:
+  target:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: opsbench-e2e-linux_cpu_runaway_v2
+    working_dir: /runtime
+    command: ["python", "/opt/opsbench/service.py"]
+    volumes:
+      - ./runtime/worker.conf:/runtime/worker.conf
+      - ./runtime/status.json:/runtime/status.json
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_BASE_URL: ${OPSBENCH_BASE_URL:-https://api.deepseek.com}
+      OPSBENCH_AGENT_MODEL: ${OPSBENCH_AGENT_MODEL:-deepseek-v4-flash}
+      OPSBENCH_REQUEST_TIMEOUT: ${OPSBENCH_REQUEST_TIMEOUT:-300}
+      OPSBENCH_MAX_RETRIES: ${OPSBENCH_MAX_RETRIES:-2}
+      OPSBENCH_TEMPLATE_ID: linux_cpu_runaway_v2
+      OPSBENCH_HEALTH_MODE: status
+    ports:
+      - "18081:18081"
+    cpus: "1.0"
+    mem_limit: 384m
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

@@ -1,0 +1,792 @@
+id: dynamic_http_dependency_port_drift_v1_031005
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: dependency_configuration
+domain: network
+technology_stack:
+- HTTP
+- Python
+- Linux
+template_id: http_dependency_port_drift_v1
+fault_primitive_id: http_dependency_port_drift_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: demo_validated
+difficulty_profile: hard
+difficulty_assessment:
+  profile: hard
+  score: 10
+  rubric_version: e2e-difficulty-v2
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 2
+    repair_depth: 2
+    verification_complexity: 2
+  rationale:
+  - The caller contract remains correct while an effective provider override changes
+    the live listener.
+  - The repair must target the provider layer and survive a process restart.
+  - Verification checks both business recovery and preservation of the documented
+    dependency contract.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/orders
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: curated_http-port-curated
+  evidence_refs:
+  - ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#symptom_curated_001
+    claim_type: symptom
+    field_path: public_task.symptom
+  - ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#repair_curated_001
+    claim_type: repair
+    field_path: public_task.objective
+  - ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#root_cause_curated_001
+    claim_type: root_cause
+    field_path: public_task.root_cause
+  - ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#verification_curated_001
+    claim_type: verification
+    field_path: public_task.verification
+  candidate_group_id: curated_http-port-curated_group_001
+  generation_strategy: layered_state
+  experience_version: e2e-v1
+  experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+  scenario_seed: 31005
+  novelty_fingerprint: c573a9f334f0109c
+  difficulty_assessment:
+    profile: hard
+    score: 10
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 2
+      signal_indirection: 2
+      tool_breadth: 2
+      repair_depth: 2
+      verification_complexity: 2
+    rationale:
+    - The caller contract remains correct while an effective provider override changes
+      the live listener.
+    - The repair must target the provider layer and survive a process restart.
+    - Verification checks both business recovery and preservation of the documented
+      dependency contract.
+    empirical_status: not_calibrated
+  scenario_spec:
+    id: dynamic_http_dependency_port_drift_v1_031005
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: curated_http-port-curated
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: http_dependency
+      component_id: http-dependency
+      version: ''
+      params: {}
+    fault:
+      primitive_id: http_dependency_port_drift_v1
+      target: http_dependency
+      params: {}
+    public_task:
+      symptom: A service cannot reach its dependency (e.g., a database) over the internal
+        network. Containers are running and healthy. The dependency is accessible
+        from outside the network via the host port, but internal service-to-service
+        communication fails.
+      impact: The service is unable to perform operations that depend on the dependency,
+        leading to degraded functionality or errors.
+      objective: Restore internal service-to-service communication so that the service
+        can successfully connect to the dependency using the correct internal endpoint.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - metrics_query
+    - service_repair
+    expected_actions:
+    - primitive_id: http_dependency_port_drift_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.25
+    - check_id: provider_contract
+      weight: 0.25
+    - check_id: effective_state
+      weight: 0.25
+    - check_id: persistence
+      weight: 0.25
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_layer_fix
+    - scenario: symptom_bypass
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 2
+      rationale:
+      - The caller contract remains correct while an effective provider override changes
+        the live listener.
+      - The repair must target the provider layer and survive a process restart.
+      - Verification checks both business recovery and preservation of the documented
+        dependency contract.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 2
+      causal_depth: 3
+      state_layers:
+      - base_config
+      - environment_override
+      - runtime_process
+      - dependency_runtime
+      required_signal_ids:
+      - logs
+      - sockets
+      - effective_config
+      - process_tree
+      persistence_id: environment_precedence
+      distractor_ids:
+      - healthy_process
+      - stale_base_config
+      - caller_config_looks_correct
+      repair_invariant_ids:
+      - business_operation
+      - service_contract
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - change_caller_contract
+      - restart_only
+      - direct_edit_generated_config
+      verification_check_ids:
+      - business_operation
+      - provider_contract
+      - effective_state
+      - persistence
+      rationale:
+      - The caller contract remains correct while an effective provider override changes
+        the live listener.
+      - The repair must target the provider layer and survive a process restart.
+      - Verification checks both business recovery and preservation of the documented
+        dependency contract.
+      schema_version: e2e-difficulty-contract-v1
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        rationale:
+        - The caller contract remains correct while an effective provider override
+          changes the live listener.
+        - The repair must target the provider layer and survive a process restart.
+        - Verification checks both business recovery and preservation of the documented
+          dependency contract.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#symptom_curated_001
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#repair_curated_001
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#root_cause_curated_001
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#verification_curated_001
+    scenario_seed: 31005
+    technology_stack:
+    - HTTP
+    - Python
+    - Linux
+    domain: network
+    fault_type: dependency_configuration
+    candidate_group_id: curated_http-port-curated_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        rationale:
+        - The caller contract remains correct while an effective provider override
+          changes the live listener.
+        - The repair must target the provider layer and survive a process restart.
+        - Verification checks both business recovery and preservation of the documented
+          dependency contract.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        causal_depth: 3
+        state_layers:
+        - base_config
+        - environment_override
+        - runtime_process
+        - dependency_runtime
+        required_signal_ids:
+        - logs
+        - sockets
+        - effective_config
+        - process_tree
+        persistence_id: environment_precedence
+        distractor_ids:
+        - healthy_process
+        - stale_base_config
+        - caller_config_looks_correct
+        repair_invariant_ids:
+        - business_operation
+        - service_contract
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - change_caller_contract
+        - restart_only
+        - direct_edit_generated_config
+        verification_check_ids:
+        - business_operation
+        - provider_contract
+        - effective_state
+        - persistence
+        rationale:
+        - The caller contract remains correct while an effective provider override
+          changes the live listener.
+        - The repair must target the provider layer and survive a process restart.
+        - Verification checks both business recovery and preservation of the documented
+          dependency contract.
+        schema_version: e2e-difficulty-contract-v1
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 10
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 2
+            repair_depth: 2
+            verification_complexity: 2
+          rationale:
+          - The caller contract remains correct while an effective provider override
+            changes the live listener.
+          - The repair must target the provider layer and survive a process restart.
+          - Verification checks both business recovery and preservation of the documented
+            dependency contract.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  dynamic_spec:
+    id: dynamic_http_dependency_port_drift_v1_031005
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: curated_http-port-curated
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: http_dependency
+      component_id: http-dependency
+      version: ''
+      params: {}
+    fault:
+      primitive_id: http_dependency_port_drift_v1
+      target: http_dependency
+      params: {}
+    public_task:
+      symptom: A service cannot reach its dependency (e.g., a database) over the internal
+        network. Containers are running and healthy. The dependency is accessible
+        from outside the network via the host port, but internal service-to-service
+        communication fails.
+      impact: The service is unable to perform operations that depend on the dependency,
+        leading to degraded functionality or errors.
+      objective: Restore internal service-to-service communication so that the service
+        can successfully connect to the dependency using the correct internal endpoint.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - business_check
+    - diagnose
+    - health_check
+    - metrics_query
+    - service_repair
+    expected_actions:
+    - primitive_id: http_dependency_port_drift_v1
+      action: repair
+    success_checks:
+    - check_id: business_operation
+      weight: 0.25
+    - check_id: provider_contract
+      weight: 0.25
+    - check_id: effective_state
+      weight: 0.25
+    - check_id: persistence
+      weight: 0.25
+    negative_controls:
+    - scenario: no_op
+    - scenario: restart_only
+    - scenario: wrong_layer_fix
+    - scenario: symptom_bypass
+    - scenario: partial_fix
+    public_actionability: {}
+    difficulty_profile: hard
+    difficulty_assessment:
+      profile: hard
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 2
+      rationale:
+      - The caller contract remains correct while an effective provider override changes
+        the live listener.
+      - The repair must target the provider layer and survive a process restart.
+      - Verification checks both business recovery and preservation of the documented
+        dependency contract.
+      empirical_status: not_calibrated
+    difficulty_contract:
+      target_profile: hard
+      dimensions:
+        diagnostic_uncertainty: 2
+        signal_indirection: 2
+        tool_breadth: 2
+        repair_depth: 2
+        verification_complexity: 2
+      causal_depth: 3
+      state_layers:
+      - base_config
+      - environment_override
+      - runtime_process
+      - dependency_runtime
+      required_signal_ids:
+      - logs
+      - sockets
+      - effective_config
+      - process_tree
+      persistence_id: environment_precedence
+      distractor_ids:
+      - healthy_process
+      - stale_base_config
+      - caller_config_looks_correct
+      repair_invariant_ids:
+      - business_operation
+      - service_contract
+      - repair_persists
+      - root_signal_absent
+      forbidden_shortcut_ids:
+      - change_caller_contract
+      - restart_only
+      - direct_edit_generated_config
+      verification_check_ids:
+      - business_operation
+      - provider_contract
+      - effective_state
+      - persistence
+      rationale:
+      - The caller contract remains correct while an effective provider override changes
+        the live listener.
+      - The repair must target the provider layer and survive a process restart.
+      - Verification checks both business recovery and preservation of the documented
+        dependency contract.
+      schema_version: e2e-difficulty-contract-v1
+      score: 10
+      rubric_version: e2e-difficulty-v2
+      difficulty_assessment:
+        profile: hard
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        rationale:
+        - The caller contract remains correct while an effective provider override
+          changes the live listener.
+        - The repair must target the provider layer and survive a process restart.
+        - Verification checks both business recovery and preservation of the documented
+          dependency contract.
+        empirical_status: not_calibrated
+      candidate_strategy: layered_state
+    evidence_links:
+    - field_path: public_task.symptom
+      claim_type: symptom
+      ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#symptom_curated_001
+    - field_path: public_task.objective
+      claim_type: repair
+      ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#repair_curated_001
+    - field_path: public_task.root_cause
+      claim_type: root_cause
+      ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#root_cause_curated_001
+    - field_path: public_task.verification
+      claim_type: verification
+      ref: doc-docs-docker-com-compose-how-tos-networking-4f177980d559#verification_curated_001
+    scenario_seed: 31005
+    technology_stack:
+    - HTTP
+    - Python
+    - Linux
+    domain: network
+    fault_type: dependency_configuration
+    candidate_group_id: curated_http-port-curated_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+    source:
+      primitive_status: demo_validated
+      difficulty_assessment:
+        profile: hard
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        rationale:
+        - The caller contract remains correct while an effective provider override
+          changes the live listener.
+        - The repair must target the provider layer and survive a process restart.
+        - Verification checks both business recovery and preservation of the documented
+          dependency contract.
+        empirical_status: not_calibrated
+      difficulty_contract:
+        target_profile: hard
+        dimensions:
+          diagnostic_uncertainty: 2
+          signal_indirection: 2
+          tool_breadth: 2
+          repair_depth: 2
+          verification_complexity: 2
+        causal_depth: 3
+        state_layers:
+        - base_config
+        - environment_override
+        - runtime_process
+        - dependency_runtime
+        required_signal_ids:
+        - logs
+        - sockets
+        - effective_config
+        - process_tree
+        persistence_id: environment_precedence
+        distractor_ids:
+        - healthy_process
+        - stale_base_config
+        - caller_config_looks_correct
+        repair_invariant_ids:
+        - business_operation
+        - service_contract
+        - repair_persists
+        - root_signal_absent
+        forbidden_shortcut_ids:
+        - change_caller_contract
+        - restart_only
+        - direct_edit_generated_config
+        verification_check_ids:
+        - business_operation
+        - provider_contract
+        - effective_state
+        - persistence
+        rationale:
+        - The caller contract remains correct while an effective provider override
+          changes the live listener.
+        - The repair must target the provider layer and survive a process restart.
+        - Verification checks both business recovery and preservation of the documented
+          dependency contract.
+        schema_version: e2e-difficulty-contract-v1
+        score: 10
+        rubric_version: e2e-difficulty-v2
+        difficulty_assessment:
+          profile: hard
+          score: 10
+          rubric_version: e2e-difficulty-v2
+          dimensions:
+            diagnostic_uncertainty: 2
+            signal_indirection: 2
+            tool_breadth: 2
+            repair_depth: 2
+            verification_complexity: 2
+          rationale:
+          - The caller contract remains correct while an effective provider override
+            changes the live listener.
+          - The repair must target the provider layer and survive a process restart.
+          - Verification checks both business recovery and preservation of the documented
+            dependency contract.
+          empirical_status: not_calibrated
+        candidate_strategy: layered_state
+    schema_version: opsbench-e2e-scenario-v2
+  bundle_id: curated_http-port-curated
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - service_list
+  - business_probe
+  - dependency_list
+  - dependency_probe
+  - config_sources
+  - config_read
+  - config_update
+  - service_manage
+  repair_operations:
+  - config_update:set
+  - service_manage:restart
+  verifier_checks:
+  - business_operation
+  - provider_contract
+  - effective_state
+  - persistence
+  semantic_state:
+  - effective dependency port
+  - provider reachability
+  public_oracle: http_dependency_port_drift_v1
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - dependency.json
+    - dependency_port
+    - /orders
+    injection_markers:
+    - '9002'
+    - dependency_port
+    verifier_markers:
+    - configured_dependency_port
+    - drifted
+    - dependency_port_override
+  public_success_signals: &id001
+  - Restore the documented business operation using live state.
+  - Confirm that the underlying fault signal is gone, not merely hidden.
+  - Verify that the repair survives the applicable restart or reconciler boundary.
+  - Confirm the documented dependency remains reachable and its service contract is
+    preserved.
+  - Confirm the effective dependency state remains correct after the lifecycle boundary.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id001
+    available_tools:
+    - service_list
+    - service_status
+    - business_probe
+    - dependency_list
+    - dependency_probe
+    - slo_read
+    - config_sources
+    - config_read
+    - config_update
+    - service_manage
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - config_update:set
+    - service_manage:restart
+    verifier_checks:
+    - business_operation
+    - provider_contract
+    - effective_state
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: Restore the documented business operation using live state.
+    - check_id: provider_contract
+      public_signal: Confirm that the underlying fault signal is gone, not merely
+        hidden.
+    - check_id: effective_state
+      public_signal: Verify that the repair survives the applicable restart or reconciler
+        boundary.
+    - check_id: persistence
+      public_signal: Confirm the documented dependency remains reachable and its service
+        contract is preserved.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+difficulty_contract:
+  target_profile: hard
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 2
+    tool_breadth: 2
+    repair_depth: 2
+    verification_complexity: 2
+  causal_depth: 3
+  state_layers:
+  - base_config
+  - environment_override
+  - runtime_process
+  - dependency_runtime
+  required_signal_ids:
+  - logs
+  - sockets
+  - effective_config
+  - process_tree
+  persistence_id: environment_precedence
+  distractor_ids:
+  - healthy_process
+  - stale_base_config
+  - caller_config_looks_correct
+  repair_invariant_ids:
+  - business_operation
+  - service_contract
+  - repair_persists
+  - root_signal_absent
+  forbidden_shortcut_ids:
+  - change_caller_contract
+  - restart_only
+  - direct_edit_generated_config
+  verification_check_ids:
+  - business_operation
+  - provider_contract
+  - effective_state
+  - persistence
+  rationale:
+  - The caller contract remains correct while an effective provider override changes
+    the live listener.
+  - The repair must target the provider layer and survive a process restart.
+  - Verification checks both business recovery and preservation of the documented
+    dependency contract.
+  schema_version: e2e-difficulty-contract-v1
+  score: 10
+  rubric_version: e2e-difficulty-v2
+  difficulty_assessment:
+    profile: hard
+    score: 10
+    rubric_version: e2e-difficulty-v2
+    dimensions:
+      diagnostic_uncertainty: 2
+      signal_indirection: 2
+      tool_breadth: 2
+      repair_depth: 2
+      verification_complexity: 2
+    rationale:
+    - The caller contract remains correct while an effective provider override changes
+      the live listener.
+    - The repair must target the provider layer and survive a process restart.
+    - Verification checks both business recovery and preservation of the documented
+      dependency contract.
+    empirical_status: not_calibrated
+  candidate_strategy: layered_state
+runtime_controls:
+- no_op
+- oracle
+- restart_only
+- wrong_layer_fix
+- symptom_bypass
+- partial_fix
+- repeat
+- cleanup
+agent_panel_status: not_calibrated
+tool_standard:
+  id: dependency-operations-v1
+  version: '1'
+compiler_version: opsbench-dynamic-compiler-v1
+scenario_spec_version: opsbench-e2e-scenario-v2
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: 3396ac600670a9e6cd4f2fedab18167f900bd127ed031a3e22362361130cd10b
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-10-20260902\master

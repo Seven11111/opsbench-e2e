@@ -1,0 +1,267 @@
+id: candidate_linux_inode_exhaustion_001
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: inode_exhaustion
+domain: linux
+technology_stack:
+- Linux
+- Filesystem
+template_id: linux_inode_exhaustion_v1
+fault_primitive_id: linux_inode_exhaustion_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: experimental
+difficulty_profile: medium
+difficulty_assessment: &id001
+  profile: medium
+  score: 5
+  rubric_version: e2e-difficulty-v1
+  dimensions:
+    diagnostic_uncertainty: 1
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 1
+    verification_complexity: 1
+  rationale:
+  - The agent must inspect inode availability rather than only free byte capacity.
+  empirical_status: not_calibrated
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: opsbench
+  business_check:
+    url: ''
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: curated_linux-inode-curated
+  evidence_refs:
+  - ref: doc-www-gnu-org-software-coreutils-manual-html_node-df-i-550a26#verification_curated_001
+    claim_type: verification
+    field_path: success_checks[?check_id='free_inodes']
+  candidate_group_id: curated_linux-inode-curated_group_001
+  generation_strategy: layered_state
+  experience_version: e2e-v1
+  experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+  scenario_seed: 1
+  novelty_fingerprint: 50c57cf3f1dfe4b9
+  difficulty_assessment: *id001
+  scenario_spec:
+    id: candidate_linux_inode_exhaustion_001
+    generation_mode: dynamic
+    language: en
+    evidence_bundle_id: curated_linux-inode-curated
+    primary_task_label: fault_fix
+    secondary_task_labels:
+    - fault_detection
+    - root_cause
+    components:
+    - instance_id: data_filesystem
+      component_id: linux-filesystem
+      version: ''
+      params: {}
+    fault:
+      primitive_id: linux_inode_exhaustion_v1
+      target: data_filesystem
+      params: {}
+    public_task:
+      symptom: The filesystem is reporting high inode usage. Attempts to create new
+        files fail with 'No space left on device' even though disk space is available.
+      impact: Applications that rely on file creation are failing.
+      objective: Restore the filesystem to a state where new files can be created
+        successfully.
+      constraints:
+      - Use only the provided runtime tools.
+      - Do not replace the service with a new implementation.
+    allowed_tools:
+    - shell
+    - health_check
+    - metrics_query
+    expected_actions:
+    - primitive_id: linux_inode_exhaustion_v1
+      action: repair
+    success_checks:
+    - check_id: free_inodes
+      weight: 0.3333333333333333
+    - check_id: business_operation
+      weight: 0.3333333333333333
+    - check_id: persistence
+      weight: 0.3333333333333333
+    negative_controls:
+    - scenario: no_op
+      expected: fail
+    - scenario: restart_only
+      expected: fail
+    - scenario: wrong_fix
+      expected: fail
+    - scenario: partial_fix
+      expected: fail
+    public_actionability: {}
+    difficulty_profile: medium
+    difficulty_assessment:
+      profile: medium
+      score: 5
+      rubric_version: e2e-difficulty-v1
+      dimensions:
+        diagnostic_uncertainty: 1
+        signal_indirection: 1
+        tool_breadth: 1
+        repair_depth: 1
+        verification_complexity: 1
+      rationale:
+      - The agent must inspect inode availability rather than only free byte capacity.
+      empirical_status: not_calibrated
+    difficulty_contract: {}
+    evidence_links:
+    - field_path: success_checks[?check_id='free_inodes']
+      claim_type: verification
+      ref: doc-www-gnu-org-software-coreutils-manual-html_node-df-i-550a26#verification_curated_001
+    scenario_seed: 1
+    technology_stack:
+    - Linux
+    - Filesystem
+    domain: linux
+    fault_type: inode_exhaustion
+    candidate_group_id: curated_linux-inode-curated_group_001
+    generation_strategy: layered_state
+    experience_version: e2e-v1
+    experience_digest: 30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456
+    source:
+      primitive_status: experimental
+      difficulty_assessment:
+        profile: medium
+        score: 5
+        rubric_version: e2e-difficulty-v1
+        dimensions:
+          diagnostic_uncertainty: 1
+          signal_indirection: 1
+          tool_breadth: 1
+          repair_depth: 1
+          verification_complexity: 1
+        rationale:
+        - The agent must inspect inode availability rather than only free byte capacity.
+        empirical_status: not_calibrated
+      difficulty_contract: {}
+    schema_version: opsbench-e2e-scenario-v2
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - command_run
+  - service_status
+  - metrics_read
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - root_signal_absent
+  - repair_invariant
+  - persistence
+  semantic_state:
+  - filesystem inode availability
+  public_oracle: linux_inode_exhaustion_v1
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - free_inodes
+    - /data
+    injection_markers:
+    - inodes
+    - touch
+    verifier_markers:
+    - /data/inodes
+    - find
+  public_success_signals: &id002
+  - The live health endpoint returns HTTP 200.
+  - The business operation remains usable after the repair.
+  - The repair preserves the service contract and remains valid after observation.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id002
+    available_tools:
+    - command_run
+    - service_status
+    - metrics_read
+    - service_control
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - root_signal_absent
+    - repair_invariant
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The live health endpoint returns HTTP 200.
+    - check_id: root_signal_absent
+      public_signal: The business operation remains usable after the repair.
+    - check_id: repair_invariant
+      public_signal: The repair preserves the service contract and remains valid after
+        observation.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+runtime_controls:
+- no_op
+- oracle
+- wrong_fix
+- partial_fix
+- restart_only
+- repeat
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: 1579f8e3e6c33191c066efaa1d450f64eed7a6f1f92156670bda76600287eafc
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-20-20260901\master-v4

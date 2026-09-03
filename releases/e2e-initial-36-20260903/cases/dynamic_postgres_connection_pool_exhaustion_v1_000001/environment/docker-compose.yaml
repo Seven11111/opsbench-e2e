@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: opsbench
+      POSTGRES_PASSWORD: opsbench-local-only
+      POSTGRES_DB: app
+      POSTGRES_MAX_CONNECTIONS: 20
+    volumes:
+      - ./runtime/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opsbench -d app"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/service.py"]
+    volumes:
+      - ./runtime/state.json:/runtime/state.json
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      PGHOST: db
+      PGUSER: opsbench
+      PGPASSWORD: opsbench-local-only
+      PGDATABASE: app
+      OPSBENCH_HEALTH_MODE: service
+      OPSBENCH_HEALTH_URL: http://127.0.0.1:18086/health
+    depends_on:
+      db:
+        condition: service_healthy
+    ports: ["18086:18086"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]

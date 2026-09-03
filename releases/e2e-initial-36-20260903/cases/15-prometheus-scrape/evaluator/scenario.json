@@ -1,0 +1,296 @@
+{
+  "template_id": "prometheus_scrape_target_v1",
+  "dynamic_spec": {
+    "id": "candidate_prometheus_file_sd_001",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "prometheus_server",
+        "component_id": "prometheus",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "prometheus_scrape_target_v1",
+      "target": "prometheus_server",
+      "params": {}
+    },
+    "public_task": {
+    "symptom": "The Prometheus server is ready, but the configured application target is not being scraped successfully. The target's metrics are missing from Prometheus and the monitoring gap is affecting alerting.",
+    "impact": "Monitoring gaps and delayed alerting because one declared target is not producing its expected metrics.",
+    "objective": "Restore the declared scrape target and verify that live target metrics are collected again. Do not disable scraping or replace the exporter.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "health_check",
+      "metrics_query"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "prometheus_scrape_target_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "scrape_up",
+        "weight": 0.5
+      },
+      {
+        "check_id": "service_health",
+        "weight": 0.5
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op",
+        "expected": "fail",
+        "reason": "The symptom is persistent; no action leaves the failing state unchanged."
+      },
+      {
+        "scenario": "wrong_fix",
+        "expected": "fail",
+      "reason": "Changing an unrelated scrape setting does not restore the unavailable target."
+      },
+      {
+        "scenario": "partial_fix",
+        "expected": "fail",
+      "reason": "Changing only an unrelated target or reducing scrape frequency leaves the declared target unavailable."
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "medium",
+    "difficulty_assessment": {
+      "profile": "medium",
+      "score": 5,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 1,
+        "signal_indirection": 1,
+        "tool_breadth": 1,
+        "repair_depth": 1,
+        "verification_complexity": 1
+      },
+      "rationale": [
+        "The monitoring service is healthy while one declared target is not producing the expected signal.",
+        "The agent must distinguish a target configuration problem from a Prometheus process failure.",
+        "Verification checks the live scrape result and the effective configuration after reload."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "medium",
+      "dimensions": {
+        "diagnostic_uncertainty": 1,
+        "signal_indirection": 1,
+        "tool_breadth": 1,
+        "repair_depth": 1,
+        "verification_complexity": 1
+      },
+      "causal_depth": 2,
+      "state_layers": [
+        "base_config",
+        "environment_override",
+        "runtime_process"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "effective_config",
+        "dns_resolution",
+        "resource_metric"
+      ],
+      "persistence_id": "restart",
+      "distractor_ids": [
+        "healthy_process",
+        "listener_is_reachable_locally",
+        "unrelated_latency"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "service_contract",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "restart_only",
+        "change_caller_contract",
+        "disable_validation"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "effective_state",
+        "persistence"
+      ],
+      "rationale": [
+        "The monitoring service is healthy while one declared target is not producing the expected signal.",
+        "The agent must distinguish a target configuration problem from a Prometheus process failure.",
+        "Verification checks the live scrape result and the effective configuration after reload."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 5,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 5,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The monitoring service is healthy while one declared target is not producing the expected signal.",
+          "The agent must distinguish a target configuration problem from a Prometheus process failure.",
+          "Verification checks the live scrape result and the effective configuration after reload."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "doc-prometheus-io-docs-prometheus-latest-configuration-con-aeb362#claim_001",
+        "excerpt": "This may cause issues if the parent directory contains a large number of other files, as each of these files will be watched too, even though the events related to them are not relevant."
+      },
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "verification",
+        "ref": "doc-prometheus-io-docs-prometheus-latest-configuration-con-aeb362#claim_004",
+        "excerpt": "The `prometheus_sd_http_failures_total` counter metric tracks the number of refresh failures."
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "verification",
+        "ref": "doc-prometheus-io-docs-prometheus-latest-configuration-con-aeb362#heuristic_operational_017",
+        "excerpt": "Metric availability delays are more likely to occur when Prometheus is running as a remote write target, but can also occur when there's anomalies with scraping."
+      },
+      {
+        "field_path": "public_task.constraints",
+        "claim_type": "constraint",
+        "ref": "doc-prometheus-io-docs-prometheus-latest-configuration-con-aeb362#heuristic_operational_430",
+        "excerpt": "Cannot be set at the same time as basic_auth, authorization, oauth2, or azuread."
+      }
+    ],
+    "scenario_seed": 1,
+    "technology_stack": [
+      "Prometheus",
+      "HTTP"
+    ],
+    "domain": "observability",
+    "fault_type": "configuration_error",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "1912da5c4987e1bca0483771a61493df8d5d57d0f03fd9ca7ca75d63e959b49b",
+    "source": {
+      "primitive_status": "experimental",
+      "difficulty_assessment": {
+        "profile": "medium",
+        "score": 5,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 1
+        },
+        "rationale": [
+          "The monitoring service is healthy while one declared target is not producing the expected signal.",
+          "The agent must distinguish a target configuration problem from a Prometheus process failure.",
+          "Verification checks the live scrape result and the effective configuration after reload."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "medium",
+        "dimensions": {
+          "diagnostic_uncertainty": 1,
+          "signal_indirection": 1,
+          "tool_breadth": 1,
+          "repair_depth": 1,
+          "verification_complexity": 1
+        },
+        "causal_depth": 2,
+        "state_layers": [
+          "base_config",
+          "environment_override",
+          "runtime_process"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "effective_config",
+          "dns_resolution",
+          "resource_metric"
+        ],
+        "persistence_id": "restart",
+        "distractor_ids": [
+          "healthy_process",
+          "listener_is_reachable_locally",
+          "unrelated_latency"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "service_contract",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "restart_only",
+          "change_caller_contract",
+          "disable_validation"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "effective_state",
+          "persistence"
+        ],
+        "rationale": [
+          "The monitoring service is healthy while one declared target is not producing the expected signal.",
+          "The agent must distinguish a target configuration problem from a Prometheus process failure.",
+          "Verification checks the live scrape result and the effective configuration after reload."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 5,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "medium",
+          "score": 5,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 1,
+            "signal_indirection": 1,
+            "tool_breadth": 1,
+            "repair_depth": 1,
+            "verification_complexity": 1
+          },
+          "rationale": [
+            "The monitoring service is healthy while one declared target is not producing the expected signal.",
+            "The agent must distinguish a target configuration problem from a Prometheus process failure.",
+            "Verification checks the live scrape result and the effective configuration after reload."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "prometheus_scrape_target_v1"
+}

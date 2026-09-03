@@ -1,0 +1,6 @@
+2026/09/03 04:58:58 [notice] 741#741: using the "epoll" event method
+2026/09/03 04:58:58 [notice] 741#741: nginx/1.26.3
+2026/09/03 04:58:58 [notice] 741#741: OS: Linux 6.6.87.2-microsoft-standard-WSL2
+2026/09/03 04:58:58 [notice] 741#741: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2026/09/03 04:58:58 [notice] 742#742: start worker processes
+2026/09/03 04:58:58 [notice] 742#742: start worker process 743

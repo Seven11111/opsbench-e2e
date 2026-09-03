@@ -1,0 +1,52 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tools": [
+    {
+      "name": "command_run",
+      "description": "Run a bounded diagnostic or maintenance command inside the declared runtime.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "command"
+        ]
+      }
+    },
+    {
+      "name": "service_status",
+      "description": "Read the live service or database health signal.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "queue_inspect",
+      "description": "Inspect RabbitMQ alarms and bounded queue-flow signals.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "queue_control",
+      "description": "Request the case-declared safe message-system state change.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ],
+  "constraints": [
+    "Do not read case root, evaluator files, hidden labels, scenario files, host credentials, or Docker sockets.",
+    "Tool calls and outputs are recorded in the writable trace directory."
+  ]
+}
