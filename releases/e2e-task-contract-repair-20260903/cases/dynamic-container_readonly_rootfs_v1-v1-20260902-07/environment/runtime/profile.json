@@ -1,0 +1,14 @@
+{
+  "domain": "container_runtime",
+  "fault_type": "readonly_rootfs",
+  "technology": [
+    "Docker",
+    "Compose",
+    "Filesystem"
+  ],
+  "mechanism": "root_filesystem_write_policy",
+  "resource": "container",
+  "signal": "rootfs_policy",
+  "observability": "container read-only policy and approved write path",
+  "repair": "approved_write_path"
+}

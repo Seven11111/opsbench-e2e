@@ -1,0 +1,13 @@
+{
+  "domain": "database",
+  "fault_type": "idle_transaction",
+  "technology": [
+    "PostgreSQL",
+    "SQL"
+  ],
+  "mechanism": "idle_in_transaction_session",
+  "resource": "database",
+  "signal": "idle_transaction",
+  "observability": "pg_stat_activity, transaction age and locks",
+  "repair": "session_lifecycle"
+}

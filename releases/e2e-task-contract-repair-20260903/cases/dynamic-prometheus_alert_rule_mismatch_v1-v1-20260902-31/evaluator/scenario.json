@@ -1,0 +1,25 @@
+{
+  "template_id": "prometheus_alert_rule_mismatch_v1",
+  "primitive_id": "prometheus_alert_rule_mismatch_v1",
+  "capability_profile": {
+    "domain": "observability",
+    "fault_type": "alert_rule_mismatch",
+    "technology": [
+      "Prometheus",
+      "PromQL"
+    ],
+    "mechanism": "alert_expression_target_mismatch",
+    "resource": "observability",
+    "signal": "rule_evaluation",
+    "observability": "PromQL result, alert state and rule reload",
+    "repair": "alert_rule_configuration"
+  },
+  "capability_variant": "v1",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

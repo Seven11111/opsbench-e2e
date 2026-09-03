@@ -1,0 +1,14 @@
+{
+  "domain": "container_runtime",
+  "fault_type": "healthcheck_mismatch",
+  "technology": [
+    "Docker",
+    "Compose",
+    "HTTP"
+  ],
+  "mechanism": "healthcheck_probe_contract",
+  "resource": "container",
+  "signal": "healthcheck_contract",
+  "observability": "container health status and application endpoint",
+  "repair": "healthcheck_policy"
+}

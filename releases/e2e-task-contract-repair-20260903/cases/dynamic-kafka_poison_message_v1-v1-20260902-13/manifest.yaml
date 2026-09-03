@@ -1,0 +1,219 @@
+id: dynamic-kafka_poison_message_v1-v1-20260902-13
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: poison_message
+domain: messaging
+technology_stack:
+- Kafka
+- Python
+template_id: kafka_poison_message_v1
+fault_primitive_id: kafka_poison_message_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: experimental
+difficulty_profile: medium
+difficulty_assessment:
+  profile: medium
+  score: 5
+  rubric_version: e2e-diverse-v1
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+capability_profile:
+  capability_profile_id: non_retryable_record_blocking_offset
+  mechanism_id: non_retryable_record_blocking_offset
+  resource_class: messaging
+  observability_channels:
+  - consumer offset, lag and dead-letter state
+  repair_surface: consumer_offset_policy
+  persistence_contract: The repaired state remains effective after service restart.
+  variant: v1
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/business
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - command_run
+  - service_status
+  - business_probe
+  - signal_view
+  - metrics_read
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - mechanism_signal_absent
+  - repair_invariant
+  - persistence
+  semantic_state:
+  - consumer progress and poison offset state
+  public_oracle: kafka_poison_message_v1
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - profile.json
+    - fault.json
+    - status.json
+    - service.py
+    - /opsbench/control
+    injection_markers:
+    - mode
+    - injected
+    - check_injected
+    verifier_markers:
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_signal_terms:
+    - service
+    - health
+  public_success_signals: &id001
+  - The declared business operation returns HTTP 200.
+  - The live diagnostic signal is absent after repair.
+  - The repair remains effective after the service lifecycle is checked again.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id001
+    available_tools:
+    - command_run
+    - service_status
+    - business_probe
+    - signal_view
+    - metrics_read
+    - service_control
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The declared business operation returns HTTP 200.
+    - check_id: mechanism_signal_absent
+      public_signal: The live diagnostic signal is absent after repair.
+    - check_id: repair_invariant
+      public_signal: The repair remains effective after the service lifecycle is checked
+        again.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: eb-crawled-6ad27f2c42b27b2da2cc
+  evidence_refs:
+  - ref: doc-kafka-apache-org-documentation-dd859f#kafka_poison_message_v1-1-fault
+    source_url: https://kafka.apache.org/documentation
+    document_id: doc-kafka-apache-org-documentation-dd859f
+    content_hash: dd859f909d9e5093ace41fd8ea952ffb4fa7215001bda3eabc6d4c0150c0aa99
+    section_path: crawler-text-offset:0-260
+    claim_type: fault
+    retrieved_at: '2026-09-02T09:18:34.777108+00:00'
+  - ref: doc-kafka-apache-org-documentation-dd859f#kafka_poison_message_v1-2-observable
+    source_url: https://kafka.apache.org/documentation
+    document_id: doc-kafka-apache-org-documentation-dd859f
+    content_hash: dd859f909d9e5093ace41fd8ea952ffb4fa7215001bda3eabc6d4c0150c0aa99
+    section_path: crawler-text-offset:200-560
+    claim_type: observable
+    retrieved_at: '2026-09-02T09:18:34.777108+00:00'
+  - ref: doc-kafka-apache-org-documentation-dd859f#kafka_poison_message_v1-3-root_cause
+    source_url: https://kafka.apache.org/documentation
+    document_id: doc-kafka-apache-org-documentation-dd859f
+    content_hash: dd859f909d9e5093ace41fd8ea952ffb4fa7215001bda3eabc6d4c0150c0aa99
+    section_path: crawler-text-offset:500-860
+    claim_type: root_cause
+    retrieved_at: '2026-09-02T09:18:34.777108+00:00'
+  - ref: doc-kafka-apache-org-documentation-dd859f#kafka_poison_message_v1-4-repair
+    source_url: https://kafka.apache.org/documentation
+    document_id: doc-kafka-apache-org-documentation-dd859f
+    content_hash: dd859f909d9e5093ace41fd8ea952ffb4fa7215001bda3eabc6d4c0150c0aa99
+    section_path: crawler-text-offset:564-904
+    claim_type: repair
+    retrieved_at: '2026-09-02T09:18:34.777108+00:00'
+  - ref: doc-kafka-apache-org-documentation-dd859f#kafka_poison_message_v1-5-persistence
+    source_url: https://kafka.apache.org/documentation
+    document_id: doc-kafka-apache-org-documentation-dd859f
+    content_hash: dd859f909d9e5093ace41fd8ea952ffb4fa7215001bda3eabc6d4c0150c0aa99
+    section_path: crawler-text-offset:564-904
+    claim_type: persistence
+    retrieved_at: '2026-09-02T09:18:34.777108+00:00'
+  candidate_group_id: diverse-20260902-kafka_poison_message_v1-v1
+  generation_strategy: dynamic_official_evidence
+  experience_version: e2e-diverse-v1
+  experience_digest: 9b2593aa75c7594281f38ddd2c5a1fddfc71dc2936836d4d281c95c73e4ed531
+  scenario_seed: 20260915
+  novelty_fingerprint: d5eb257ab2c362b2fca1c08d2f7e80ceed247ab2d89362885d28eeaafc38b325
+  capability_variant: v1
+  scenario_spec:
+    primitive_id: kafka_poison_message_v1
+    variant: v1
+    mechanism_id: non_retryable_record_blocking_offset
+  evidence_status: crawled_official_snapshot
+  crawler_mode: http_only
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: 6f709b030efda6d124f2cc4c829b991f32c9d2347bb5523d27fd828255440ee5
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-70-diverse-20260902\retry-8
