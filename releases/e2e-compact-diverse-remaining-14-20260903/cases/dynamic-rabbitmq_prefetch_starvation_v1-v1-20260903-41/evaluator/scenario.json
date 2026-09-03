@@ -1,0 +1,20 @@
+{
+  "template_id": "rabbitmq_prefetch_starvation_v1",
+  "primitive_id": "rabbitmq_prefetch_starvation_v1",
+  "capability_profile": {
+    "domain": "messaging",
+    "fault_type": "prefetch_starvation",
+    "technology": [
+      "RabbitMQ",
+      "AMQP"
+    ],
+    "mechanism": "consumer_prefetch_imbalance",
+    "resource": "messaging",
+    "signal": "unacked_messages",
+    "observability": "consumer acknowledgements and queue flow",
+    "repair": "consumer_prefetch_policy",
+    "variant": "v1"
+  },
+  "capability_variant": "v1",
+  "control_expectations": {}
+}

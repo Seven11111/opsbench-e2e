@@ -1,0 +1,14 @@
+{
+  "domain": "observability",
+  "fault_type": "label_cardinality",
+  "technology": [
+    "Prometheus",
+    "PromQL"
+  ],
+  "mechanism": "unbounded_label_cardinality",
+  "resource": "observability",
+  "signal": "series_headroom",
+  "observability": "active series count and scrape health",
+  "repair": "label_cardinality_policy",
+  "variant": "v2"
+}

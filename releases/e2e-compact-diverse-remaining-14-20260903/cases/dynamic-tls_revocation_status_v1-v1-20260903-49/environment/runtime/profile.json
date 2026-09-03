@@ -1,0 +1,14 @@
+{
+  "domain": "tls",
+  "fault_type": "revocation_status_failure",
+  "technology": [
+    "TLS",
+    "OpenSSL"
+  ],
+  "mechanism": "certificate_revocation_status_gap",
+  "resource": "security",
+  "signal": "revocation_status",
+  "observability": "certificate status and verification result",
+  "repair": "revocation_policy",
+  "variant": "v1"
+}

@@ -1,0 +1,14 @@
+{
+  "domain": "tls",
+  "fault_type": "incomplete_certificate_chain",
+  "technology": [
+    "TLS",
+    "OpenSSL"
+  ],
+  "mechanism": "missing_intermediate_certificate",
+  "resource": "security",
+  "signal": "chain_depth",
+  "observability": "certificate chain verification and handshake result",
+  "repair": "certificate_chain_policy",
+  "variant": "v2"
+}

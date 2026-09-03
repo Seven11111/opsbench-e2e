@@ -1,0 +1,14 @@
+{
+  "domain": "database",
+  "fault_type": "wal_retention_pressure",
+  "technology": [
+    "PostgreSQL",
+    "WAL"
+  ],
+  "mechanism": "wal_retention_backlog",
+  "resource": "database",
+  "signal": "wal_retained_bytes",
+  "observability": "WAL retention and replica freshness",
+  "repair": "wal_retention_policy",
+  "variant": "v1"
+}

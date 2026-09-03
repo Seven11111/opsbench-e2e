@@ -1,0 +1,14 @@
+{
+  "domain": "tls",
+  "fault_type": "protocol_version_mismatch",
+  "technology": [
+    "TLS",
+    "OpenSSL"
+  ],
+  "mechanism": "tls_protocol_overlap_gap",
+  "resource": "security",
+  "signal": "protocol_overlap",
+  "observability": "negotiated protocol and handshake result",
+  "repair": "protocol_version_policy",
+  "variant": "v2"
+}

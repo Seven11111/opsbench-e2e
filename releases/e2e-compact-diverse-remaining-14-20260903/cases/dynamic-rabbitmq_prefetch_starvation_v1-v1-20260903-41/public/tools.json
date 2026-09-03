@@ -1,0 +1,106 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tool_standard": {
+    "id": "service-lifecycle-v1",
+    "version": "1"
+  },
+  "tools": [
+    {
+      "name": "service_list",
+      "description": "List managed services visible in the current runtime.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "service_status",
+      "description": "Read the live lifecycle state and health result of a discovered service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          }
+        },
+        "required": [
+          "service"
+        ]
+      }
+    },
+    {
+      "name": "signal_view",
+      "description": "Read bounded live process-identity and service signals for the current scenario.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "business_probe",
+      "description": "Check the declared public business operation for a discovered service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          }
+        },
+        "required": [
+          "service"
+        ]
+      }
+    },
+    {
+      "name": "service_manage",
+      "description": "Apply one lifecycle operation to a discovered service and return its result.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service identifier returned by service_list.",
+            "value_origin": {
+              "type": "tool_output",
+              "tool": "service_list",
+              "field": "services[].service_id"
+            }
+          },
+          "action": {
+            "type": "string",
+            "description": "Lifecycle operation to apply to the discovered service.",
+            "enum": [
+              "status",
+              "start",
+              "stop",
+              "restart"
+            ]
+          }
+        },
+        "required": [
+          "service",
+          "action"
+        ]
+      }
+    }
+  ],
+  "constraints": [
+    "Do not read case root, evaluator files, hidden labels, scenario files, host credentials, or Docker sockets.",
+    "Tool calls and outputs are recorded in the writable trace directory."
+  ]
+}

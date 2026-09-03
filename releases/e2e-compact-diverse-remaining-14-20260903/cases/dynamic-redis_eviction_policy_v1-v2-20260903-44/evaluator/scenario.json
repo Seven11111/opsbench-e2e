@@ -1,0 +1,19 @@
+{
+  "template_id": "redis_eviction_policy_v1",
+  "primitive_id": "redis_eviction_policy_v1",
+  "capability_profile": {
+    "domain": "cache",
+    "fault_type": "eviction_policy",
+    "technology": [
+      "Redis"
+    ],
+    "mechanism": "cache_eviction_policy_mismatch",
+    "resource": "cache",
+    "signal": "evicted_keys",
+    "observability": "eviction counters and cache hit ratio",
+    "repair": "cache_eviction_policy",
+    "variant": "v2"
+  },
+  "capability_variant": "v2",
+  "control_expectations": {}
+}

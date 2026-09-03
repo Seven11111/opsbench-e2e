@@ -1,0 +1,20 @@
+{
+  "template_id": "postgres_wal_retention_pressure_v1",
+  "primitive_id": "postgres_wal_retention_pressure_v1",
+  "capability_profile": {
+    "domain": "database",
+    "fault_type": "wal_retention_pressure",
+    "technology": [
+      "PostgreSQL",
+      "WAL"
+    ],
+    "mechanism": "wal_retention_backlog",
+    "resource": "database",
+    "signal": "wal_retained_bytes",
+    "observability": "WAL retention and replica freshness",
+    "repair": "wal_retention_policy",
+    "variant": "v1"
+  },
+  "capability_variant": "v1",
+  "control_expectations": {}
+}

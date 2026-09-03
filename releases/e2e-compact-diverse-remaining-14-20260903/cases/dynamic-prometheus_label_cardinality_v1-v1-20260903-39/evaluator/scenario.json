@@ -1,0 +1,20 @@
+{
+  "template_id": "prometheus_label_cardinality_v1",
+  "primitive_id": "prometheus_label_cardinality_v1",
+  "capability_profile": {
+    "domain": "observability",
+    "fault_type": "label_cardinality",
+    "technology": [
+      "Prometheus",
+      "PromQL"
+    ],
+    "mechanism": "unbounded_label_cardinality",
+    "resource": "observability",
+    "signal": "series_headroom",
+    "observability": "active series count and scrape health",
+    "repair": "label_cardinality_policy",
+    "variant": "v1"
+  },
+  "capability_variant": "v1",
+  "control_expectations": {}
+}

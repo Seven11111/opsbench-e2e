@@ -1,0 +1,14 @@
+{
+  "domain": "messaging",
+  "fault_type": "prefetch_starvation",
+  "technology": [
+    "RabbitMQ",
+    "AMQP"
+  ],
+  "mechanism": "consumer_prefetch_imbalance",
+  "resource": "messaging",
+  "signal": "unacked_messages",
+  "observability": "consumer acknowledgements and queue flow",
+  "repair": "consumer_prefetch_policy",
+  "variant": "v1"
+}

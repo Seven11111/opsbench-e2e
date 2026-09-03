@@ -1,0 +1,20 @@
+{
+  "template_id": "tls_revocation_status_v1",
+  "primitive_id": "tls_revocation_status_v1",
+  "capability_profile": {
+    "domain": "tls",
+    "fault_type": "revocation_status_failure",
+    "technology": [
+      "TLS",
+      "OpenSSL"
+    ],
+    "mechanism": "certificate_revocation_status_gap",
+    "resource": "security",
+    "signal": "revocation_status",
+    "observability": "certificate status and verification result",
+    "repair": "revocation_policy",
+    "variant": "v1"
+  },
+  "capability_variant": "v1",
+  "control_expectations": {}
+}

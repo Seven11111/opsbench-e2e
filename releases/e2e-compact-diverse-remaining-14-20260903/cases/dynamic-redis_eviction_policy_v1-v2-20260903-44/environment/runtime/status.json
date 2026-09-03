@@ -1,0 +1,1 @@
+{"fault_active": false, "healthy": true, "mechanism": "cache_eviction_policy_mismatch", "mechanism_signal": "evicted_keys", "mode": "baseline", "observability": "eviction counters and cache hit ratio", "repair_mode": "", "repair_surface": "cache_eviction_policy", "resource_class": "cache", "signal_reading": 0, "signal_value": 0, "updated_at": 1788442583.644974, "variant": "v2"}

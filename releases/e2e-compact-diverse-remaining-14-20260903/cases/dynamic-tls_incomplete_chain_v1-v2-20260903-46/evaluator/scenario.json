@@ -1,0 +1,20 @@
+{
+  "template_id": "tls_incomplete_chain_v1",
+  "primitive_id": "tls_incomplete_chain_v1",
+  "capability_profile": {
+    "domain": "tls",
+    "fault_type": "incomplete_certificate_chain",
+    "technology": [
+      "TLS",
+      "OpenSSL"
+    ],
+    "mechanism": "missing_intermediate_certificate",
+    "resource": "security",
+    "signal": "chain_depth",
+    "observability": "certificate chain verification and handshake result",
+    "repair": "certificate_chain_policy",
+    "variant": "v2"
+  },
+  "capability_variant": "v2",
+  "control_expectations": {}
+}

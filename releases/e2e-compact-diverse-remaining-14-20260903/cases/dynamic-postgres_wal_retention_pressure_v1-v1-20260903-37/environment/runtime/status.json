@@ -1,0 +1,1 @@
+{"fault_active": false, "healthy": true, "mechanism": "wal_retention_backlog", "mechanism_signal": "wal_retained_bytes", "mode": "baseline", "observability": "WAL retention and replica freshness", "repair_mode": "", "repair_surface": "wal_retention_policy", "resource_class": "database", "signal_reading": 0, "signal_value": 0, "updated_at": 1788442006.417574, "variant": "v1"}
