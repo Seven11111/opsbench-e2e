@@ -1,0 +1,5 @@
+primary: fault_fix
+secondary:
+- fault_detection
+- root_cause
+primitive: tls_hostname_mismatch_v1

@@ -1,0 +1,23 @@
+{
+  "template_id": "fidelity_tls_revocation_status_v1",
+  "primitive_id": "tls_revocation_status_v1",
+  "technology_fidelity": true,
+  "public_task": {
+    "title": "Certificate status is stale",
+    "observable_symptoms": [
+      "The service is reachable, but a trust client rejects the current certificate status."
+    ],
+    "success_criteria": [
+      "The HTTPS business operation returns HTTP 200.",
+      "The certificate passes the declared revocation check.",
+      "A secure TLS handshake completes after restart."
+    ]
+  },
+  "persistence_contract": {
+    "restart_services": [
+      "target"
+    ],
+    "readiness_command": "curl --noproxy '*' -fsS http://127.0.0.1:8080/health",
+    "probe": "certificate revocation status after target restart"
+  }
+}

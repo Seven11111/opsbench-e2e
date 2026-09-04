@@ -1,0 +1,23 @@
+{
+  "template_id": "fidelity_redis_eviction_policy_v1",
+  "primitive_id": "redis_eviction_policy_v1",
+  "technology_fidelity": true,
+  "public_task": {
+    "title": "Cache memory behavior changed",
+    "observable_symptoms": [
+      "The catalog operation returns HTTP 200, but Redis reports the wrong memory policy."
+    ],
+    "success_criteria": [
+      "The catalog operation returns HTTP 200.",
+      "Redis reports the healthy memory policy and stable eviction behavior.",
+      "The catalog operation remains healthy after restart."
+    ]
+  },
+  "persistence_contract": {
+    "restart_services": [
+      "redis"
+    ],
+    "readiness_command": "redis-cli -h redis ping",
+    "probe": "Redis policy and INFO evicted_keys stability after Redis restart"
+  }
+}

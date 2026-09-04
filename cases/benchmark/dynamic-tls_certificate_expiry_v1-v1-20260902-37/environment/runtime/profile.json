@@ -1,0 +1,14 @@
+{
+  "domain": "tls",
+  "fault_type": "certificate_expiry",
+  "technology": [
+    "TLS",
+    "HTTP",
+    "OpenSSL"
+  ],
+  "mechanism": "certificate_validity_window",
+  "resource": "security",
+  "signal": "certificate_validity",
+  "observability": "certificate dates and TLS verification result",
+  "repair": "certificate_rotation"
+}

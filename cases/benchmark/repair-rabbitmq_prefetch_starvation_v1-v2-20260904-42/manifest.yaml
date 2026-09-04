@@ -1,0 +1,204 @@
+id: repair-rabbitmq_prefetch_starvation_v1-v2-20260904-42
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: prefetch_starvation
+domain: messaging
+technology_stack:
+- RabbitMQ
+- AMQP
+template_id: fidelity_rabbitmq_prefetch_starvation_v1
+fault_primitive_id: rabbitmq_prefetch_starvation_v1
+mechanism_id: rabbitmq_prefetch_starvation_v1:real-object
+tool_standard:
+  id: technology-diagnostic-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: fidelity_repaired
+runtime_controls:
+- no_op
+- oracle
+- wrong_fix
+- partial_fix
+- restart_only
+- repeat
+difficulty_profile: medium
+difficulty_assessment: {}
+technology_fidelity:
+  profile_id: rabbitmq_prefetch_starvation_v1:technology-fidelity-v1
+  objects:
+  - rabbitmq:3.13-management
+  - AMQP consumer
+  - queue ready messages
+  technology: rabbitmq
+  protocol: real-upstream-service-or-stdlib-protocol
+  repair_surface: technology_object_configuration
+capability_profile:
+  capability_profile_id: rabbitmq_prefetch_starvation_v1:technology-object
+  mechanism_id: rabbitmq_prefetch_starvation_v1:real-object
+  resource_class: messaging
+  observability_channels: &id001
+  - The business operation returns HTTP 200.
+  - The declared queue backlog returns to its healthy range.
+  - Message delivery continues after restart.
+  repair_surface: technology_object_configuration
+  persistence_contract: The repaired state remains effective after service restart.
+  variant: v2
+persistence_contract: &id002
+  restart_services:
+  - rabbitmq
+  readiness_command: curl --noproxy '*' -fsS -u opsbench:opsbench-local-only http://rabbitmq:15672/api/queues/%2F/opsbench-prefetch
+    | grep -q '"consumers":[1-9]'
+  probe: queue backlog and consumer progress after RabbitMQ restart
+state_contract:
+  causal: true
+  observable_signals: *id001
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  control_service: control
+  verifier_service: verifier
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: opsbench
+  business_check:
+    url: http://127.0.0.1:8080/business
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 120
+  agent_sec: 180
+  verify_sec: 90
+  cleanup_sec: 60
+source:
+  evidence_bundle_id: eb-0f92de248f536e4259a2
+  evidence_refs:
+  - ref: official-http-653a4610b4ca415fc15a#rabbitmq_prefetch_starvation_v1-v2-root_cause-1
+    claim_type: root_cause
+  - ref: official-http-653a4610b4ca415fc15a#rabbitmq_prefetch_starvation_v1-v2-repair-2
+    claim_type: repair
+  candidate_group_id: fidelity-repair-rabbitmq_prefetch_starvation_v1-v2
+  generation_strategy: technology_fidelity_repair
+  experience_version: ''
+  experience_digest: ''
+  scenario_seed: 20261945
+  novelty_fingerprint: 48afee44d9e3d62b58b40fa6d60897df56587b6480f7fb520c33a25e5b3ee99e:fidelity-repair
+  replaces_case_id: dynamic-rabbitmq_prefetch_starvation_v1-v2-20260903-42
+  scenario_spec:
+    public_task: &id003
+      title: Queue progress has stalled
+      observable_symptoms:
+      - The queue is reachable, but ready messages remain while delivery progress
+        is low.
+      success_criteria: *id001
+    fault:
+      primitive_id: rabbitmq_prefetch_starvation_v1
+      mechanism_id: rabbitmq_prefetch_starvation_v1:real-object
+    observable_signals: *id001
+    repair:
+      operation: service_control:restore
+    persistence: *id002
+public_task: *id003
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: technology_object_and_public_signal
+  required_tools: &id004
+  - command_run
+  - service_status
+  - business_probe
+  - queue_inspect
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - queue_backlog
+  - consumer_progress
+  - persistence
+  semantic_state: *id001
+  public_oracle: fidelity_rabbitmq_prefetch_starvation_v1
+  public_success_signals: *id001
+  public_contract:
+    public_task_goal: Restore the live technology service and verify its protocol
+      or resource signal.
+    observable_signals: *id001
+    available_tools: *id004
+    public_invariants:
+    - Use only bounded runtime tools.
+    - Repair the live technology object.
+    - Verify recovery after restart.
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: technology-object-and-public-signal
+    runtime_markers:
+    - OPSBENCH_CONTROL_ROOT
+    - service.py
+    injection_markers:
+    - mode
+    verifier_markers:
+    - persistence
+    task_signal_terms:
+    - service
+    - healthy
+    - signal
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - queue_backlog
+    - consumer_progress
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The business operation returns HTTP 200.
+    - check_id: queue_backlog
+      public_signal: The declared queue backlog returns to its healthy range.
+    - check_id: consumer_progress
+      public_signal: Message delivery continues after restart.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: b540350454429e46aac03eeffe54557e835f70924265a737e4990ec600749610
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\repair-14-fidelity-20260904-v5

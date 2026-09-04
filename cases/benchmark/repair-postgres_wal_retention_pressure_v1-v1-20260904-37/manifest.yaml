@@ -1,0 +1,203 @@
+id: repair-postgres_wal_retention_pressure_v1-v1-20260904-37
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: wal_retention_pressure
+domain: database
+technology_stack:
+- PostgreSQL
+- WAL
+template_id: fidelity_postgres_wal_retention_pressure_v1
+fault_primitive_id: postgres_wal_retention_pressure_v1
+mechanism_id: postgres_wal_retention_pressure_v1:real-object
+tool_standard:
+  id: technology-diagnostic-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: fidelity_repaired
+runtime_controls:
+- no_op
+- oracle
+- wrong_fix
+- partial_fix
+- restart_only
+- repeat
+difficulty_profile: medium
+difficulty_assessment: {}
+technology_fidelity:
+  profile_id: postgres_wal_retention_pressure_v1:technology-fidelity-v1
+  objects:
+  - postgres:16-alpine
+  - pg_replication_slots
+  - pg_wal_lsn_diff
+  technology: postgres
+  protocol: real-upstream-service-or-stdlib-protocol
+  repair_surface: technology_object_configuration
+capability_profile:
+  capability_profile_id: postgres_wal_retention_pressure_v1:technology-object
+  mechanism_id: postgres_wal_retention_pressure_v1:real-object
+  resource_class: database
+  observability_channels: &id001
+  - The business operation returns HTTP 200.
+  - PostgreSQL reports no abnormal retained WAL for the active slot.
+  - The repaired database state remains correct after restart.
+  repair_surface: technology_object_configuration
+  persistence_contract: The repaired state remains effective after service restart.
+  variant: v1
+persistence_contract: &id002
+  restart_services:
+  - db
+  readiness_command: pg_isready -h db -U opsbench -d app
+  probe: pg_replication_slots and retained WAL after db restart
+state_contract:
+  causal: true
+  observable_signals: *id001
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  control_service: control
+  verifier_service: verifier
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: opsbench
+  business_check:
+    url: http://127.0.0.1:8080/business
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 120
+  agent_sec: 180
+  verify_sec: 90
+  cleanup_sec: 60
+source:
+  evidence_bundle_id: eb-2a2c0eff755649ebdf29
+  evidence_refs:
+  - ref: official-http-ad36994e4e9329738328#postgres_wal_retention_pressure_v1-v1-root_cause-1
+    claim_type: root_cause
+  - ref: official-http-ad36994e4e9329738328#postgres_wal_retention_pressure_v1-v1-repair-2
+    claim_type: repair
+  candidate_group_id: fidelity-repair-postgres_wal_retention_pressure_v1-v1
+  generation_strategy: technology_fidelity_repair
+  experience_version: ''
+  experience_digest: ''
+  scenario_seed: 20261940
+  novelty_fingerprint: 8bd34bfdfa8d2b64b892044e375b5c21afce8d0cedddbcb5cad7955c53c43049:fidelity-repair
+  replaces_case_id: dynamic-postgres_wal_retention_pressure_v1-v1-20260903-37
+  scenario_spec:
+    public_task: &id003
+      title: WAL headroom is shrinking
+      observable_symptoms:
+      - The orders operation returns HTTP 200, but retained WAL is above its normal
+        range.
+      success_criteria: *id001
+    fault:
+      primitive_id: postgres_wal_retention_pressure_v1
+      mechanism_id: postgres_wal_retention_pressure_v1:real-object
+    observable_signals: *id001
+    repair:
+      operation: service_control:restore
+    persistence: *id002
+public_task: *id003
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: technology_object_and_public_signal
+  required_tools: &id004
+  - command_run
+  - service_status
+  - business_probe
+  - database_query
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - wal_retention_signal
+  - slot_state
+  - persistence
+  semantic_state: *id001
+  public_oracle: fidelity_postgres_wal_retention_pressure_v1
+  public_success_signals: *id001
+  public_contract:
+    public_task_goal: Restore the live technology service and verify its protocol
+      or resource signal.
+    observable_signals: *id001
+    available_tools: *id004
+    public_invariants:
+    - Use only bounded runtime tools.
+    - Repair the live technology object.
+    - Verify recovery after restart.
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: technology-object-and-public-signal
+    runtime_markers:
+    - OPSBENCH_CONTROL_ROOT
+    - service.py
+    injection_markers:
+    - mode
+    verifier_markers:
+    - persistence
+    task_signal_terms:
+    - service
+    - healthy
+    - signal
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - wal_retention_signal
+    - slot_state
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The business operation returns HTTP 200.
+    - check_id: wal_retention_signal
+      public_signal: PostgreSQL reports no abnormal retained WAL for the active slot.
+    - check_id: slot_state
+      public_signal: The repaired database state remains correct after restart.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: 2e7dbd9d44c156259a9585970f0caefd8b9c8d7c67b9d7b5a08d90f5c021261b
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\repair-14-fidelity-20260904-v5

@@ -1,0 +1,23 @@
+{
+  "template_id": "fidelity_postgres_wal_retention_pressure_v1",
+  "primitive_id": "postgres_wal_retention_pressure_v1",
+  "technology_fidelity": true,
+  "public_task": {
+    "title": "WAL headroom is shrinking",
+    "observable_symptoms": [
+      "The orders operation returns HTTP 200, but retained WAL is above its normal range."
+    ],
+    "success_criteria": [
+      "The business operation returns HTTP 200.",
+      "PostgreSQL reports no abnormal retained WAL for the active slot.",
+      "The repaired database state remains correct after restart."
+    ]
+  },
+  "persistence_contract": {
+    "restart_services": [
+      "db"
+    ],
+    "readiness_command": "pg_isready -h db -U opsbench -d app",
+    "probe": "pg_replication_slots and retained WAL after db restart"
+  }
+}

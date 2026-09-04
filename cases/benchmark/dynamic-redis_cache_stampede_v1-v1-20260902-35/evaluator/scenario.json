@@ -1,0 +1,26 @@
+{
+  "template_id": "redis_cache_stampede_v1",
+  "primitive_id": "redis_cache_stampede_v1",
+  "capability_profile": {
+    "domain": "cache",
+    "fault_type": "cache_stampede",
+    "technology": [
+      "Redis",
+      "HTTP",
+      "Python"
+    ],
+    "mechanism": "synchronized_cache_miss",
+    "resource": "cache",
+    "signal": "cache_hit_ratio",
+    "observability": "cache hits, origin requests and key TTL",
+    "repair": "cache_refresh_policy"
+  },
+  "capability_variant": "v1",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

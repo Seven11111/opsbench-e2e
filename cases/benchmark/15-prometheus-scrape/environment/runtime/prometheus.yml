@@ -1,0 +1,6 @@
+global:
+  scrape_interval: 1s
+scrape_configs:
+  - job_name: opsbench-target
+    static_configs:
+      - targets: ['exporter:19100']

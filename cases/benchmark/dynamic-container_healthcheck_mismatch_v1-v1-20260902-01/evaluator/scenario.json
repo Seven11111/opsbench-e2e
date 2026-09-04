@@ -1,0 +1,26 @@
+{
+  "template_id": "container_healthcheck_mismatch_v1",
+  "primitive_id": "container_healthcheck_mismatch_v1",
+  "capability_profile": {
+    "domain": "container_runtime",
+    "fault_type": "healthcheck_mismatch",
+    "technology": [
+      "Docker",
+      "Compose",
+      "HTTP"
+    ],
+    "mechanism": "healthcheck_probe_contract",
+    "resource": "container",
+    "signal": "healthcheck_contract",
+    "observability": "container health status and application endpoint",
+    "repair": "healthcheck_policy"
+  },
+  "capability_variant": "v1",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

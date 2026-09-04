@@ -1,0 +1,5 @@
+{
+  "template_id": "linux_cpu_runaway_v2",
+  "health_port": 18081,
+  "cpu_recovery_threshold": 20.0
+}

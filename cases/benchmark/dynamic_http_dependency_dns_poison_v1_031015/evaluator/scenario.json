@@ -1,0 +1,329 @@
+{
+  "case_id": "http-dependency-dns-012",
+  "implementation": {
+    "strategy": "dependency_dns"
+  },
+  "dynamic_spec": {
+    "id": "dynamic_http_dependency_dns_poison_v1_031015",
+    "generation_mode": "dynamic",
+    "language": "en",
+    "evidence_bundle_id": "dynamic_bundle_0001",
+    "primary_task_label": "fault_fix",
+    "secondary_task_labels": [
+      "fault_detection",
+      "root_cause"
+    ],
+    "components": [
+      {
+        "instance_id": "http_dependency",
+        "component_id": "http-dependency",
+        "version": "",
+        "params": {}
+      }
+    ],
+    "fault": {
+      "primitive_id": "http_dependency_dns_poison_v1",
+      "target": "http_dependency",
+      "params": {
+        "override_host": "catalog.internal",
+        "override_address": "unreachable"
+      }
+    },
+    "public_task": {
+      "symptom": "The catalog request fails when the application tries to fetch data from its internal dependency. The dependency is known to be healthy but unreachable.",
+      "impact": "Catalog functionality is unavailable, blocking downstream operations.",
+      "objective": "Restore the ability to fetch catalog data successfully, so that the catalog request returns HTTP 200 and the dependency can be resolved correctly.",
+      "constraints": [
+        "Use only the provided runtime tools.",
+        "Do not replace the service with a new implementation."
+      ]
+    },
+    "allowed_tools": [
+      "shell",
+      "business_check",
+      "diagnose",
+      "health_check",
+      "metrics_query",
+      "service_repair"
+    ],
+    "expected_actions": [
+      {
+        "primitive_id": "http_dependency_dns_poison_v1",
+        "action": "repair"
+      }
+    ],
+    "success_checks": [
+      {
+        "check_id": "business_operation",
+        "weight": 0.25
+      },
+      {
+        "check_id": "dns_resolution",
+        "weight": 0.25
+      },
+      {
+        "check_id": "service_contract",
+        "weight": 0.25
+      },
+      {
+        "check_id": "persistence",
+        "weight": 0.25
+      }
+    ],
+    "negative_controls": [
+      {
+        "scenario": "no_op",
+        "expected": "fail"
+      },
+      {
+        "scenario": "restart_only",
+        "expected": "fail"
+      },
+      {
+        "scenario": "wrong_layer_fix",
+        "expected": "fail"
+      },
+      {
+        "scenario": "symptom_bypass",
+        "expected": "fail"
+      },
+      {
+        "scenario": "partial_fix",
+        "expected": "fail"
+      }
+    ],
+    "public_actionability": {},
+    "difficulty_profile": "hard",
+    "difficulty_assessment": {
+      "profile": "hard",
+      "score": 9,
+      "rubric_version": "e2e-difficulty-v2",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 1,
+        "verification_complexity": 2
+      },
+      "rationale": [
+        "The configured hostname is correct but effective name resolution points to a non-service address.",
+        "The agent must distinguish a live application failure from a control-plane or process failure.",
+        "Verification checks resolution, business traffic and persistence after restart."
+      ],
+      "empirical_status": "not_calibrated"
+    },
+    "difficulty_contract": {
+      "target_profile": "hard",
+      "dimensions": {
+        "diagnostic_uncertainty": 2,
+        "signal_indirection": 2,
+        "tool_breadth": 2,
+        "repair_depth": 1,
+        "verification_complexity": 2
+      },
+      "causal_depth": 3,
+      "state_layers": [
+        "base_config",
+        "environment_override",
+        "dependency_runtime",
+        "runtime_process"
+      ],
+      "required_signal_ids": [
+        "logs",
+        "dns_resolution",
+        "sockets",
+        "effective_config"
+      ],
+      "persistence_id": "environment_precedence",
+      "distractor_ids": [
+        "healthy_process",
+        "caller_config_looks_correct",
+        "listener_is_reachable_locally"
+      ],
+      "repair_invariant_ids": [
+        "business_operation",
+        "service_contract",
+        "repair_persists",
+        "root_signal_absent"
+      ],
+      "forbidden_shortcut_ids": [
+        "change_caller_contract",
+        "restart_only",
+        "ignore_schema_validation"
+      ],
+      "verification_check_ids": [
+        "business_operation",
+        "dns_resolution",
+        "service_contract",
+        "persistence"
+      ],
+      "rationale": [
+        "The configured hostname is correct but effective name resolution points to a non-service address.",
+        "The agent must distinguish a live application failure from a control-plane or process failure.",
+        "Verification checks resolution, business traffic and persistence after restart."
+      ],
+      "schema_version": "e2e-difficulty-contract-v1",
+      "score": 9,
+      "rubric_version": "e2e-difficulty-v2",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 9,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 1,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The configured hostname is correct but effective name resolution points to a non-service address.",
+          "The agent must distinguish a live application failure from a control-plane or process failure.",
+          "Verification checks resolution, business traffic and persistence after restart."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "candidate_strategy": "layered_state"
+    },
+    "evidence_links": [
+      {
+        "field_path": "public_task.symptom",
+        "claim_type": "symptom",
+        "ref": "http_dependency_dns_poison_v1#heading_005"
+      },
+      {
+        "field_path": "public_task.objective",
+        "claim_type": "verification",
+        "ref": "http_dependency_dns_poison_v1#heading_008"
+      },
+      {
+        "field_path": "success_checks[0]",
+        "claim_type": "verification",
+        "ref": "http_dependency_dns_poison_v1#heading_008"
+      },
+      {
+        "field_path": "success_checks[1]",
+        "claim_type": "verification",
+        "ref": "http_dependency_dns_poison_v1#heading_008"
+      },
+      {
+        "field_path": "negative_controls[1]",
+        "claim_type": "repair",
+        "ref": "http_dependency_dns_poison_v1#heading_007"
+      },
+      {
+        "field_path": "public_task.root_cause",
+        "claim_type": "root_cause",
+        "ref": "http_dependency_dns_poison_v1#heading_006"
+      }
+    ],
+    "scenario_seed": 31015,
+    "technology_stack": [
+      "HTTP",
+      "DNS",
+      "Linux"
+    ],
+    "domain": "network",
+    "fault_type": "name_resolution",
+    "candidate_group_id": "dynamic_bundle_0001_group_001",
+    "generation_strategy": "layered_state",
+    "experience_version": "e2e-v1",
+    "experience_digest": "30196e643181608d27b9deb8eab0707812506fd100ef435477d79faf892f4456",
+    "source": {
+      "primitive_status": "demo_validated",
+      "difficulty_assessment": {
+        "profile": "hard",
+        "score": 9,
+        "rubric_version": "e2e-difficulty-v2",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 1,
+          "verification_complexity": 2
+        },
+        "rationale": [
+          "The configured hostname is correct but effective name resolution points to a non-service address.",
+          "The agent must distinguish a live application failure from a control-plane or process failure.",
+          "Verification checks resolution, business traffic and persistence after restart."
+        ],
+        "empirical_status": "not_calibrated"
+      },
+      "difficulty_contract": {
+        "target_profile": "hard",
+        "dimensions": {
+          "diagnostic_uncertainty": 2,
+          "signal_indirection": 2,
+          "tool_breadth": 2,
+          "repair_depth": 1,
+          "verification_complexity": 2
+        },
+        "causal_depth": 3,
+        "state_layers": [
+          "base_config",
+          "environment_override",
+          "dependency_runtime",
+          "runtime_process"
+        ],
+        "required_signal_ids": [
+          "logs",
+          "dns_resolution",
+          "sockets",
+          "effective_config"
+        ],
+        "persistence_id": "environment_precedence",
+        "distractor_ids": [
+          "healthy_process",
+          "caller_config_looks_correct",
+          "listener_is_reachable_locally"
+        ],
+        "repair_invariant_ids": [
+          "business_operation",
+          "service_contract",
+          "repair_persists",
+          "root_signal_absent"
+        ],
+        "forbidden_shortcut_ids": [
+          "change_caller_contract",
+          "restart_only",
+          "ignore_schema_validation"
+        ],
+        "verification_check_ids": [
+          "business_operation",
+          "dns_resolution",
+          "service_contract",
+          "persistence"
+        ],
+        "rationale": [
+          "The configured hostname is correct but effective name resolution points to a non-service address.",
+          "The agent must distinguish a live application failure from a control-plane or process failure.",
+          "Verification checks resolution, business traffic and persistence after restart."
+        ],
+        "schema_version": "e2e-difficulty-contract-v1",
+        "score": 9,
+        "rubric_version": "e2e-difficulty-v2",
+        "difficulty_assessment": {
+          "profile": "hard",
+          "score": 9,
+          "rubric_version": "e2e-difficulty-v2",
+          "dimensions": {
+            "diagnostic_uncertainty": 2,
+            "signal_indirection": 2,
+            "tool_breadth": 2,
+            "repair_depth": 1,
+            "verification_complexity": 2
+          },
+          "rationale": [
+            "The configured hostname is correct but effective name resolution points to a non-service address.",
+            "The agent must distinguish a live application failure from a control-plane or process failure.",
+            "Verification checks resolution, business traffic and persistence after restart."
+          ],
+          "empirical_status": "not_calibrated"
+        },
+        "candidate_strategy": "layered_state"
+      }
+    },
+    "schema_version": "opsbench-e2e-scenario-v2"
+  },
+  "primitive_id": "http_dependency_dns_poison_v1"
+}

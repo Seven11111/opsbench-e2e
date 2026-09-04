@@ -1,0 +1,5 @@
+primary: fault_fix
+secondary:
+- fault_detection
+- root_cause
+primitive: app_stale_pid_v1

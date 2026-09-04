@@ -1,0 +1,5 @@
+{
+  "oracle": "python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d.update(delay_ms=20, timeout_ms=500, repair_mode='persistent'); open(p,'w').write(json.dumps(d))\"",
+  "wrong_fix": "python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d.update(timeout_ms=2000, repair_mode='wrong-contract'); open(p,'w').write(json.dumps(d))\"",
+  "partial_fix": "python -c \"import json; p='/runtime/config.json'; d=json.load(open(p)); d.update(delay_ms=400, repair_mode='temporary'); open(p,'w').write(json.dumps(d))\""
+}

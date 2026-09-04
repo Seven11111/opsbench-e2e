@@ -1,0 +1,53 @@
+services:
+  redis:
+    image: redis:7.2-alpine
+    command: ["redis-server", "/runtime/redis.conf", "--save", "", "--appendonly", "yes"]
+    volumes:
+      - ./runtime/redis.conf:/runtime/redis.conf:ro
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/service.py"]
+    working_dir: /runtime
+    volumes:
+      - ./runtime:/runtime
+      - opsbench-control:/var/lib/opsbench/internal
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_TEMPLATE_ID: fidelity_redis_eviction_policy_v1
+      OPSBENCH_FIDELITY_TEMPLATE: fidelity_redis_eviction_policy_v1
+      OPSBENCH_CONTROL_ROOT: /var/lib/opsbench/internal
+      OPSBENCH_HEALTH_MODE: service
+      PGHOST: db
+      PGUSER: opsbench
+      PGPASSWORD: opsbench-local-only
+      PGDATABASE: app
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+  control:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime
+      - opsbench-control:/var/lib/opsbench/internal
+    environment:
+      OPSBENCH_CONTROL_ROOT: /var/lib/opsbench/internal
+  verifier:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime
+      - opsbench-control:/var/lib/opsbench/internal
+    environment:
+      OPSBENCH_CONTROL_ROOT: /var/lib/opsbench/internal
+volumes:
+  opsbench-control:

@@ -1,0 +1,220 @@
+id: dynamic-linux_deleted_open_file_v1-v1-20260902-17
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: deleted_open_file
+domain: linux
+technology_stack:
+- Linux
+- procfs
+- Python
+template_id: linux_deleted_open_file_v1
+fault_primitive_id: linux_deleted_open_file_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: experimental
+difficulty_profile: medium
+difficulty_assessment:
+  profile: medium
+  score: 5
+  rubric_version: e2e-diverse-v1
+  dimensions:
+    diagnostic_uncertainty: 2
+    signal_indirection: 1
+    tool_breadth: 1
+    repair_depth: 2
+    verification_complexity: 1
+capability_profile:
+  capability_profile_id: unlinked_inode_held_by_process
+  mechanism_id: unlinked_inode_held_by_process
+  resource_class: filesystem
+  observability_channels:
+  - procfs deleted file descriptors and disk headroom
+  repair_surface: process_file_handles
+  persistence_contract: The repaired state remains effective after service restart.
+  variant: v1
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/business
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools:
+  - command_run
+  - service_status
+  - business_probe
+  - signal_view
+  - metrics_read
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - mechanism_signal_absent
+  - repair_invariant
+  - persistence
+  semantic_state:
+  - deleted file descriptor and disk headroom
+  public_oracle: linux_deleted_open_file_v1
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - profile.json
+    - fault.json
+    - status.json
+    - service.py
+    - /opsbench/control
+    injection_markers:
+    - mode
+    - injected
+    - check_injected
+    verifier_markers:
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_signal_terms:
+    - service
+    - health
+  public_success_signals: &id001
+  - The declared business operation returns HTTP 200.
+  - The live diagnostic signal is absent after repair.
+  - The repair remains effective after the service lifecycle is checked again.
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals: *id001
+    available_tools:
+    - command_run
+    - service_status
+    - business_probe
+    - signal_view
+    - metrics_read
+    - service_control
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The declared business operation returns HTTP 200.
+    - check_id: mechanism_signal_absent
+      public_signal: The live diagnostic signal is absent after repair.
+    - check_id: repair_invariant
+      public_signal: The repair remains effective after the service lifecycle is checked
+        again.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: eb-crawled-0d07b7f0b8bef24bbb3d
+  evidence_refs:
+  - ref: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af#linux_deleted_open_file_v1-1-fault
+    source_url: https://man7.org/linux/man-pages/man5/proc_pid_fd.5.html
+    document_id: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af
+    content_hash: f6d7af202becdcc0aed694f6cfeb3e112370648cd248afd77aca99fc960b6bc8
+    section_path: crawler-text-offset:168-528
+    claim_type: fault
+    retrieved_at: '2026-09-02T09:18:34.789447+00:00'
+  - ref: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af#linux_deleted_open_file_v1-2-observable
+    source_url: https://man7.org/linux/man-pages/man5/proc_pid_fd.5.html
+    document_id: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af
+    content_hash: f6d7af202becdcc0aed694f6cfeb3e112370648cd248afd77aca99fc960b6bc8
+    section_path: crawler-text-offset:311-671
+    claim_type: observable
+    retrieved_at: '2026-09-02T09:18:34.789447+00:00'
+  - ref: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af#linux_deleted_open_file_v1-3-root_cause
+    source_url: https://man7.org/linux/man-pages/man5/proc_pid_fd.5.html
+    document_id: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af
+    content_hash: f6d7af202becdcc0aed694f6cfeb3e112370648cd248afd77aca99fc960b6bc8
+    section_path: crawler-text-offset:152-512
+    claim_type: root_cause
+    retrieved_at: '2026-09-02T09:18:34.789447+00:00'
+  - ref: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af#linux_deleted_open_file_v1-4-repair
+    source_url: https://man7.org/linux/man-pages/man5/proc_pid_fd.5.html
+    document_id: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af
+    content_hash: f6d7af202becdcc0aed694f6cfeb3e112370648cd248afd77aca99fc960b6bc8
+    section_path: crawler-text-offset:168-528
+    claim_type: repair
+    retrieved_at: '2026-09-02T09:18:34.789447+00:00'
+  - ref: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af#linux_deleted_open_file_v1-5-persistence
+    source_url: https://man7.org/linux/man-pages/man5/proc_pid_fd.5.html
+    document_id: doc-man7-org-linux-man-pages-man5-proc_pid_fd.5.html-f6d7af
+    content_hash: f6d7af202becdcc0aed694f6cfeb3e112370648cd248afd77aca99fc960b6bc8
+    section_path: crawler-text-offset:311-671
+    claim_type: persistence
+    retrieved_at: '2026-09-02T09:18:34.789447+00:00'
+  candidate_group_id: diverse-20260902-linux_deleted_open_file_v1-v1
+  generation_strategy: dynamic_official_evidence
+  experience_version: e2e-diverse-v1
+  experience_digest: 9b2593aa75c7594281f38ddd2c5a1fddfc71dc2936836d4d281c95c73e4ed531
+  scenario_seed: 20260919
+  novelty_fingerprint: 432e9770ba621ae5068b95910782db037666afa51d35c622a81c19e8b75ccc85
+  capability_variant: v1
+  scenario_spec:
+    primitive_id: linux_deleted_open_file_v1
+    variant: v1
+    mechanism_id: unlinked_inode_held_by_process
+  evidence_status: crawled_official_snapshot
+  crawler_mode: http_only
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: d8bc2ebddaae5a3277e4eec0c7b0fa78852e1a07c6ed21e2e4e29d9ddef420c4
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\new-70-diverse-20260902\retry-8

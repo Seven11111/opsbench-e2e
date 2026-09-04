@@ -1,0 +1,26 @@
+{
+  "template_id": "http_proxy_misroute_v1",
+  "primitive_id": "http_proxy_misroute_v1",
+  "capability_profile": {
+    "domain": "network",
+    "fault_type": "proxy_misroute",
+    "technology": [
+      "HTTP",
+      "Proxy",
+      "Python"
+    ],
+    "mechanism": "effective_proxy_route",
+    "resource": "network",
+    "signal": "proxy_route",
+    "observability": "effective proxy environment and request route",
+    "repair": "client_proxy_configuration"
+  },
+  "capability_variant": "v1",
+  "expected_config": {
+    "mode": "baseline"
+  },
+  "injected_config": {
+    "mode": "injected"
+  },
+  "control_expectations": {}
+}

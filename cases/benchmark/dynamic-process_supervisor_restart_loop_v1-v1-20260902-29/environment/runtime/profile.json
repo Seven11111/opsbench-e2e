@@ -1,0 +1,13 @@
+{
+  "domain": "process_lifecycle",
+  "fault_type": "restart_loop",
+  "technology": [
+    "Linux",
+    "Python"
+  ],
+  "mechanism": "supervisor_restart_policy",
+  "resource": "process",
+  "signal": "restart_rate",
+  "observability": "child state and restart counter",
+  "repair": "supervisor_policy"
+}

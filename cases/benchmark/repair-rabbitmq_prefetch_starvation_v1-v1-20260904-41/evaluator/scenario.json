@@ -1,0 +1,23 @@
+{
+  "template_id": "fidelity_rabbitmq_prefetch_starvation_v1",
+  "primitive_id": "rabbitmq_prefetch_starvation_v1",
+  "technology_fidelity": true,
+  "public_task": {
+    "title": "Messages are waiting",
+    "observable_symptoms": [
+      "RabbitMQ is healthy, but ready messages keep accumulating behind a live consumer."
+    ],
+    "success_criteria": [
+      "The business operation returns HTTP 200.",
+      "The declared queue backlog returns to its healthy range.",
+      "Message delivery continues after restart."
+    ]
+  },
+  "persistence_contract": {
+    "restart_services": [
+      "rabbitmq"
+    ],
+    "readiness_command": "curl --noproxy '*' -fsS -u opsbench:opsbench-local-only http://rabbitmq:15672/api/queues/%2F/opsbench-prefetch | grep -q '\"consumers\":[1-9]'",
+    "probe": "queue backlog and consumer progress after RabbitMQ restart"
+  }
+}

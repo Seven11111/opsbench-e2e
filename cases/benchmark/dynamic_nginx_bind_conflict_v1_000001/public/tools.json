@@ -1,0 +1,34 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tools": [
+    {
+      "name": "shell",
+      "description": "Run a diagnostic or repair shell command inside the declared runtime.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "command"
+        ]
+      }
+    },
+    {
+      "name": "health_check",
+      "description": "Read the live service or database health signal.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ],
+  "constraints": [
+    "Do not read case root, evaluator files, hidden labels, scenario files, host credentials, or Docker sockets.",
+    "Tool calls and outputs are recorded in the writable trace directory."
+  ]
+}

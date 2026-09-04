@@ -1,0 +1,14 @@
+{
+  "domain": "linux",
+  "fault_type": "oom_pressure",
+  "technology": [
+    "Linux",
+    "cgroup",
+    "Python"
+  ],
+  "mechanism": "cgroup_oom_event",
+  "resource": "memory",
+  "signal": "oom_events",
+  "observability": "cgroup.events and bounded memory headroom",
+  "repair": "worker_lifecycle"
+}

@@ -1,0 +1,9 @@
+{
+  "template_id": "linux_disk_full_v1",
+  "health_port": 18090,
+  "expected_config": {
+    "mode": "disk_full",
+    "minimum_free_bytes": 2097152,
+    "repair_mode": "baseline"
+  }
+}

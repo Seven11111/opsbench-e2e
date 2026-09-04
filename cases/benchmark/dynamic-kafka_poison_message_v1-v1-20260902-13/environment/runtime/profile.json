@@ -1,0 +1,13 @@
+{
+  "domain": "messaging",
+  "fault_type": "poison_message",
+  "technology": [
+    "Kafka",
+    "Python"
+  ],
+  "mechanism": "non_retryable_record_blocking_offset",
+  "resource": "messaging",
+  "signal": "consumer_progress",
+  "observability": "consumer offset, lag and dead-letter state",
+  "repair": "consumer_offset_policy"
+}
