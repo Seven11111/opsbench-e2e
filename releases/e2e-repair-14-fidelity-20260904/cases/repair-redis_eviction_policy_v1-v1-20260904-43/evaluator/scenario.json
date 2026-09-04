@@ -1,0 +1,5 @@
+{
+  "template_id": "fidelity_redis_eviction_policy_v1",
+  "primitive_id": "redis_eviction_policy_v1",
+  "technology_fidelity": true
+}

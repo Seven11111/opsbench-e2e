@@ -1,0 +1,79 @@
+{
+  "protocol_id": "opsbench-agent-v1",
+  "execution": "in_target_container",
+  "tool_standard": {
+    "id": "technology-diagnostic-v1",
+    "version": "1"
+  },
+  "tools": [
+    {
+      "name": "command_run",
+      "description": "Run a bounded diagnostic command inside the declared target runtime.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "service_status",
+      "description": "Read the live readiness and health state of the declared service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "business_probe",
+      "description": "Check the declared public business operation and response status.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "metrics_read",
+      "description": "Read bounded Prometheus metrics or query results for the declared target.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "metric": {
+            "type": "string",
+            "description": "A metric expression selected from live metrics evidence.",
+            "value_origin": {
+              "type": "derived_from_public_evidence"
+            }
+          }
+        },
+        "required": [
+          "metric"
+        ]
+      }
+    },
+    {
+      "name": "service_control",
+      "description": "Apply one bounded restore operation to the declared live service.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "A bounded lifecycle or restore operation.",
+            "enum": [
+              "restore"
+            ]
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ],
+  "constraints": [
+    "Do not read case root, evaluator files, hidden labels, scenario files, host credentials, or Docker sockets.",
+    "Tool calls and outputs are recorded in the writable trace directory."
+  ]
+}

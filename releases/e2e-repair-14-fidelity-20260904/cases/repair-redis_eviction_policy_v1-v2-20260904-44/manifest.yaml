@@ -1,0 +1,199 @@
+id: repair-redis_eviction_policy_v1-v2-20260904-44
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: eviction_policy
+domain: cache
+technology_stack:
+- Redis
+template_id: fidelity_redis_eviction_policy_v1
+fault_primitive_id: redis_eviction_policy_v1
+mechanism_id: redis_eviction_policy_v1:real-object
+tool_standard:
+  id: technology-diagnostic-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: fidelity_repaired
+runtime_controls:
+- no_op
+- oracle
+- wrong_fix
+- partial_fix
+- restart_only
+- repeat
+difficulty_profile: medium
+difficulty_assessment: {}
+technology_fidelity:
+  profile_id: redis_eviction_policy_v1:technology-fidelity-v1
+  objects:
+  - redis:7.2-alpine
+  - CONFIG maxmemory-policy
+  - INFO evicted_keys
+  technology: redis
+  protocol: real-upstream-service-or-stdlib-protocol
+  repair_surface: technology_object_configuration
+capability_profile:
+  capability_profile_id: redis_eviction_policy_v1:technology-object
+  mechanism_id: redis_eviction_policy_v1:real-object
+  resource_class: cache
+  observability_channels: &id001
+  - The catalog operation returns HTTP 200.
+  - Redis reports the healthy memory policy and stable eviction behavior.
+  - The catalog operation remains healthy after restart.
+  repair_surface: technology_object_configuration
+  persistence_contract: The repaired state remains effective after service restart.
+  variant: v2
+state_contract:
+  causal: true
+  observable_signals: *id001
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  control_service: control
+  verifier_service: verifier
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: 0:0
+  business_check:
+    url: http://127.0.0.1:8080/business
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 120
+  agent_sec: 180
+  verify_sec: 90
+  cleanup_sec: 60
+source:
+  evidence_bundle_id: eb-6e70a7453d8ebc0f6344
+  evidence_refs:
+  - ref: official-http-b0467722672320dd00c3#redis_eviction_policy_v1-v2-root_cause-1
+    claim_type: root_cause
+  - ref: official-http-b0467722672320dd00c3#redis_eviction_policy_v1-v2-repair-2
+    claim_type: repair
+  candidate_group_id: fidelity-repair-redis_eviction_policy_v1-v2
+  generation_strategy: technology_fidelity_repair
+  experience_version: ''
+  experience_digest: ''
+  scenario_seed: 20261947
+  novelty_fingerprint: 1a655b56c218f37142e822e764d2ecf2ceda51b05e3c62a00462cad235de8eed:fidelity-repair
+  replaces_case_id: dynamic-redis_eviction_policy_v1-v2-20260903-44
+  scenario_spec:
+    primitive_id: redis_eviction_policy_v1
+    variant: v2
+    public_task:
+      title: High eviction count and low cache hit ratio
+      observable_symptoms:
+      - Eviction counters elevated above threshold
+      - Cache hit ratio dropped below 80%
+      objective: Restore cache hit ratio and eviction count to normal levels
+      success_criteria:
+      - business operation returns HTTP 200
+      - evicted keys returns to a healthy baseline
+      - repaired behavior survives restart
+      task_quality_profile: opsbench_compact_v1
+      symptom: Eviction counters elevated above threshold Cache hit ratio dropped
+        below 80%
+      impact: The declared business operation is degraded and requires evidence-guided
+        recovery.
+      constraints:
+      - Use only the public runtime tools.
+      - Do not replace the service implementation.
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: technology_object_and_public_signal
+  required_tools: &id002
+  - command_run
+  - service_status
+  - business_probe
+  - cache_query
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - eviction_policy
+  - eviction_counter
+  - persistence
+  semantic_state: *id001
+  public_oracle: fidelity_redis_eviction_policy_v1
+  public_success_signals: *id001
+  public_contract:
+    public_task_goal: Restore the live technology service and verify its protocol
+      or resource signal.
+    observable_signals: *id001
+    available_tools: *id002
+    public_invariants:
+    - Use only bounded runtime tools.
+    - Repair the live technology object.
+    - Verify recovery after restart.
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: technology-object-and-public-signal
+    runtime_markers:
+    - fault.json
+    - status.json
+    - service.py
+    injection_markers:
+    - mode
+    verifier_markers:
+    - persistence
+    task_signal_terms:
+    - service
+    - healthy
+    - signal
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - eviction_policy
+    - eviction_counter
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The catalog operation returns HTTP 200.
+    - check_id: eviction_policy
+      public_signal: Redis reports the healthy memory policy and stable eviction behavior.
+    - check_id: eviction_counter
+      public_signal: The catalog operation remains healthy after restart.
+    known_valid_solutions: []
+    known_invalid_solutions: []

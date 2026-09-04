@@ -1,0 +1,46 @@
+services:
+  db:
+    image: postgres:16-alpine
+    command: ["postgres", "-c", "wal_level=logical", "-c", "max_replication_slots=4"]
+    environment:
+      POSTGRES_USER: opsbench
+      POSTGRES_PASSWORD: opsbench-local-only
+      POSTGRES_DB: app
+    volumes:
+      - ./runtime/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opsbench -d app"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/service.py"]
+    working_dir: /runtime
+    volumes:
+      - ./runtime:/runtime
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_TEMPLATE_ID: fidelity_postgres_wal_retention_pressure_v1
+      OPSBENCH_FIDELITY_TEMPLATE: fidelity_postgres_wal_retention_pressure_v1
+      PGHOST: db
+      PGUSER: opsbench
+      PGPASSWORD: opsbench-local-only
+      PGDATABASE: app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+  control:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime
+  verifier:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime

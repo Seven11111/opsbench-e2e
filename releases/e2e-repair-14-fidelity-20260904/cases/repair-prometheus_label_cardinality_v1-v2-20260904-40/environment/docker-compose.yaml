@@ -1,0 +1,42 @@
+services:
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--web.enable-lifecycle"]
+    volumes:
+      - ./runtime/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:9090/-/ready"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/service.py"]
+    working_dir: /runtime
+    volumes:
+      - ./runtime:/runtime
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_TEMPLATE_ID: fidelity_prometheus_label_cardinality_v1
+      OPSBENCH_FIDELITY_TEMPLATE: fidelity_prometheus_label_cardinality_v1
+      PGHOST: db
+      PGUSER: opsbench
+      PGPASSWORD: opsbench-local-only
+      PGDATABASE: app
+    restart: unless-stopped
+    depends_on:
+      prometheus:
+        condition: service_healthy
+  control:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime
+  verifier:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime

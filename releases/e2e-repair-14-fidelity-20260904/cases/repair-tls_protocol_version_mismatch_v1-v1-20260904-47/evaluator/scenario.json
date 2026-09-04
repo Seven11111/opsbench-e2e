@@ -1,0 +1,5 @@
+{
+  "template_id": "fidelity_tls_protocol_version_mismatch_v1",
+  "primitive_id": "tls_protocol_version_mismatch_v1",
+  "technology_fidelity": true
+}

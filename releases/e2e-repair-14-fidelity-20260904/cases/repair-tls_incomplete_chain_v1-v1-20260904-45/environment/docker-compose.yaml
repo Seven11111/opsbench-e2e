@@ -1,0 +1,29 @@
+services:
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/service.py"]
+    working_dir: /runtime
+    volumes:
+      - ./runtime:/runtime
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_TEMPLATE_ID: fidelity_tls_incomplete_chain_v1
+      OPSBENCH_FIDELITY_TEMPLATE: fidelity_tls_incomplete_chain_v1
+      PGHOST: db
+      PGUSER: opsbench
+      PGPASSWORD: opsbench-local-only
+      PGDATABASE: app
+    restart: unless-stopped
+  control:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime
+  verifier:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime

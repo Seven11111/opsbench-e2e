@@ -1,0 +1,5 @@
+{
+  "template_id": "fidelity_tls_incomplete_chain_v1",
+  "primitive_id": "tls_incomplete_chain_v1",
+  "technology_fidelity": true
+}
