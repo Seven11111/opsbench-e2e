@@ -1,0 +1,23 @@
+{
+  "template_id": "fidelity_prometheus_label_cardinality_v1",
+  "primitive_id": "prometheus_label_cardinality_v1",
+  "technology_fidelity": true,
+  "public_task": {
+    "title": "Metrics queries are slowing",
+    "observable_symptoms": [
+      "The target is scrapeable, but Prometheus reports excessive active series."
+    ],
+    "success_criteria": [
+      "The business operation returns HTTP 200.",
+      "Prometheus reports the target series count within the healthy range.",
+      "The scrape remains healthy after restart."
+    ]
+  },
+  "persistence_contract": {
+    "restart_services": [
+      "prometheus"
+    ],
+    "readiness_command": "curl --noproxy '*' -fsS http://prometheus:9090/-/ready",
+    "probe": "PromQL series count and scrape health after Prometheus restart"
+  }
+}

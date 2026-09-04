@@ -1,0 +1,23 @@
+{
+  "template_id": "fidelity_postgres_wal_retention_pressure_v1",
+  "primitive_id": "postgres_wal_retention_pressure_v1",
+  "technology_fidelity": true,
+  "public_task": {
+    "title": "Old WAL is not being released",
+    "observable_symptoms": [
+      "PostgreSQL is ready, but a replication slot holds WAL above its normal range."
+    ],
+    "success_criteria": [
+      "The business operation returns HTTP 200.",
+      "PostgreSQL reports no abnormal retained WAL for the active slot.",
+      "The repaired database state remains correct after restart."
+    ]
+  },
+  "persistence_contract": {
+    "restart_services": [
+      "db"
+    ],
+    "readiness_command": "pg_isready -h db -U opsbench -d app",
+    "probe": "pg_replication_slots and retained WAL after db restart"
+  }
+}

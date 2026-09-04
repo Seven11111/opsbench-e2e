@@ -1,0 +1,202 @@
+id: repair-tls_incomplete_chain_v1-v1-20260904-45
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: incomplete_certificate_chain
+domain: tls
+technology_stack:
+- TLS
+- OpenSSL
+template_id: fidelity_tls_incomplete_chain_v1
+fault_primitive_id: tls_incomplete_chain_v1
+mechanism_id: tls_incomplete_chain_v1:real-object
+tool_standard:
+  id: technology-diagnostic-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: fidelity_repaired
+runtime_controls:
+- no_op
+- oracle
+- wrong_fix
+- partial_fix
+- restart_only
+- repeat
+difficulty_profile: medium
+difficulty_assessment: {}
+technology_fidelity:
+  profile_id: tls_incomplete_chain_v1:technology-fidelity-v1
+  objects:
+  - Python ssl.SSLContext
+  - X.509 root/intermediate/leaf
+  - full-chain handshake
+  technology: tls
+  protocol: real-upstream-service-or-stdlib-protocol
+  repair_surface: technology_object_configuration
+capability_profile:
+  capability_profile_id: tls_incomplete_chain_v1:technology-object
+  mechanism_id: tls_incomplete_chain_v1:real-object
+  resource_class: tls
+  observability_channels: &id001
+  - The HTTPS business operation returns HTTP 200.
+  - A trust-checked TLS handshake succeeds.
+  - The verified HTTPS operation remains healthy after restart.
+  repair_surface: technology_object_configuration
+  persistence_contract: The repaired state remains effective after service restart.
+  variant: v1
+persistence_contract: &id002
+  restart_services:
+  - target
+  readiness_command: curl --noproxy '*' -fsS http://127.0.0.1:8080/health
+  probe: trust-checked TLS handshake after target restart
+state_contract:
+  causal: true
+  observable_signals: *id001
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  control_service: control
+  verifier_service: verifier
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: opsbench
+  business_check:
+    url: http://127.0.0.1:8080/business
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 120
+  agent_sec: 180
+  verify_sec: 90
+  cleanup_sec: 60
+source:
+  evidence_bundle_id: eb-d663804c324b14690b86
+  evidence_refs:
+  - ref: official-http-8a7380c7371d362ddff1#tls_incomplete_chain_v1-v1-root_cause-1
+    claim_type: root_cause
+  - ref: official-http-8a7380c7371d362ddff1#tls_incomplete_chain_v1-v1-repair-2
+    claim_type: repair
+  candidate_group_id: fidelity-repair-tls_incomplete_chain_v1-v1
+  generation_strategy: technology_fidelity_repair
+  experience_version: ''
+  experience_digest: ''
+  scenario_seed: 20261948
+  novelty_fingerprint: dc51ef31f216a5b5778237e21a606947641031ecd910977396805eb2ad6379e3:fidelity-repair
+  replaces_case_id: dynamic-tls_incomplete_chain_v1-v1-20260903-45
+  scenario_spec:
+    public_task: &id003
+      title: Some HTTPS clients cannot connect
+      observable_symptoms:
+      - The TLS port accepts connections, but a normal trust check fails.
+      success_criteria: *id001
+    fault:
+      primitive_id: tls_incomplete_chain_v1
+      mechanism_id: tls_incomplete_chain_v1:real-object
+    observable_signals: *id001
+    repair:
+      operation: service_control:restore
+    persistence: *id002
+public_task: *id003
+public_actionability:
+  version: e2e-public-actionability-v1
+  required: true
+  verifier_policy: technology_object_and_public_signal
+  required_tools: &id004
+  - command_run
+  - service_status
+  - business_probe
+  - transport_probe
+  - service_control
+  repair_operations:
+  - service_control:restore
+  verifier_checks:
+  - business_operation
+  - certificate_chain
+  - tls_handshake
+  - persistence
+  semantic_state: *id001
+  public_oracle: fidelity_tls_incomplete_chain_v1
+  public_success_signals: *id001
+  public_contract:
+    public_task_goal: Restore the live technology service and verify its protocol
+      or resource signal.
+    observable_signals: *id001
+    available_tools: *id004
+    public_invariants:
+    - Use only bounded runtime tools.
+    - Repair the live technology object.
+    - Verify recovery after restart.
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: technology-object-and-public-signal
+    runtime_markers:
+    - OPSBENCH_CONTROL_ROOT
+    - service.py
+    injection_markers:
+    - mode
+    verifier_markers:
+    - persistence
+    task_signal_terms:
+    - service
+    - healthy
+    - signal
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - service_control:restore
+    verifier_checks:
+    - business_operation
+    - certificate_chain
+    - tls_handshake
+    - persistence
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The HTTPS business operation returns HTTP 200.
+    - check_id: certificate_chain
+      public_signal: A trust-checked TLS handshake succeeds.
+    - check_id: tls_handshake
+      public_signal: The verified HTTPS operation remains healthy after restart.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+case_status: evaluable
+runtime_gate_passed: true
+candidate_status: candidate
+candidate_source_digest: 90c9fdcd43504d24ad243c1271c8dc47084cc53dc4465ca8e890a493be76c93a
+candidate_source_run: E:\codes\opsbench-factory\runs\e2e\repair-14-fidelity-20260904-v5

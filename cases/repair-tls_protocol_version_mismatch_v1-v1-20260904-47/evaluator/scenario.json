@@ -1,0 +1,23 @@
+{
+  "template_id": "fidelity_tls_protocol_version_mismatch_v1",
+  "primitive_id": "tls_protocol_version_mismatch_v1",
+  "technology_fidelity": true,
+  "public_task": {
+    "title": "Legacy HTTPS clients fail",
+    "observable_symptoms": [
+      "The TLS port accepts connections, but a TLS 1.2 client cannot negotiate."
+    ],
+    "success_criteria": [
+      "The HTTPS business operation returns HTTP 200.",
+      "The documented TLS 1.2 handshake succeeds.",
+      "The verified HTTPS operation remains healthy after restart."
+    ]
+  },
+  "persistence_contract": {
+    "restart_services": [
+      "target"
+    ],
+    "readiness_command": "curl --noproxy '*' -fsS http://127.0.0.1:8080/health",
+    "probe": "TLS 1.2 negotiation after target restart"
+  }
+}

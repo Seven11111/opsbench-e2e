@@ -1,0 +1,23 @@
+{
+  "template_id": "fidelity_tls_incomplete_chain_v1",
+  "primitive_id": "tls_incomplete_chain_v1",
+  "technology_fidelity": true,
+  "public_task": {
+    "title": "Certificate validation fails",
+    "observable_symptoms": [
+      "HTTPS is reachable, but clients cannot build a trusted certificate path."
+    ],
+    "success_criteria": [
+      "The HTTPS business operation returns HTTP 200.",
+      "A trust-checked TLS handshake succeeds.",
+      "The verified HTTPS operation remains healthy after restart."
+    ]
+  },
+  "persistence_contract": {
+    "restart_services": [
+      "target"
+    ],
+    "readiness_command": "curl --noproxy '*' -fsS http://127.0.0.1:8080/health",
+    "probe": "trust-checked TLS handshake after target restart"
+  }
+}
