@@ -1,0 +1,25 @@
+{
+  "template_id": "fidelity_tls_sni_route_mismatch_v1",
+  "causal_technology": "TLS Server Name Indication certificate routing",
+  "causal_path": "ClientHello server_name -> TLS route map -> certificate identity -> HTTPS business endpoint",
+  "native_probes": {
+    "injection": [
+      "servername_callback",
+      "SNI_ROUTES",
+      "openssl s_client -servername",
+      "certificate"
+    ],
+    "diagnosis": [
+      "openssl s_client -servername",
+      "subjectAltName",
+      "servername_callback",
+      "certificate"
+    ],
+    "recovery": [
+      "SNI_ROUTES",
+      "servername_callback",
+      "subjectAltName",
+      "business"
+    ]
+  }
+}

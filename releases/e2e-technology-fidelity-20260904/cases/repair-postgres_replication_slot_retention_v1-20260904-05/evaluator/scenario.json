@@ -1,0 +1,24 @@
+{
+  "template_id": "fidelity_postgres_replication_slot_retention_v1",
+  "causal_technology": "PostgreSQL physical replication slot and WAL subsystem",
+  "causal_path": "replication slot restart_lsn -> retained WAL -> PostgreSQL storage headroom",
+  "native_probes": {
+    "injection": [
+      "pg_create_physical_replication_slot",
+      "pg_replication_slots",
+      "pg_wal_lsn_diff"
+    ],
+    "diagnosis": [
+      "pg_replication_slots",
+      "restart_lsn",
+      "pg_wal_lsn_diff",
+      "pg_current_wal_lsn"
+    ],
+    "recovery": [
+      "pg_drop_replication_slot",
+      "pg_replication_slots",
+      "pg_wal_lsn_diff",
+      "business"
+    ]
+  }
+}

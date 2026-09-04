@@ -1,0 +1,25 @@
+{
+  "template_id": "fidelity_linux_file_descriptor_pressure_v1",
+  "causal_technology": "Linux procfs file-descriptor subsystem",
+  "causal_path": "target process open-file table -> /proc/<pid>/fd -> business request",
+  "native_probes": {
+    "injection": [
+      "os.open",
+      "/proc",
+      "fd_count",
+      "EMFILE"
+    ],
+    "diagnosis": [
+      "/proc/self/fd",
+      "RLIMIT_NOFILE",
+      "fd_count",
+      "readlink"
+    ],
+    "recovery": [
+      "close",
+      "fd_count",
+      "/proc/self/fd",
+      "business"
+    ]
+  }
+}

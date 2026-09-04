@@ -1,0 +1,25 @@
+{
+  "template_id": "fidelity_linux_process_limit_exhaustion_v1",
+  "causal_technology": "Linux PID namespace and cgroup process budget",
+  "causal_path": "target process children -> PID budget -> process creation and business request",
+  "native_probes": {
+    "injection": [
+      "os.fork",
+      "pids.current",
+      "process_budget",
+      "EAGAIN"
+    ],
+    "diagnosis": [
+      "pids.current",
+      "pids.max",
+      "child_processes",
+      "process creation"
+    ],
+    "recovery": [
+      "waitpid",
+      "terminate",
+      "pids.current",
+      "business"
+    ]
+  }
+}

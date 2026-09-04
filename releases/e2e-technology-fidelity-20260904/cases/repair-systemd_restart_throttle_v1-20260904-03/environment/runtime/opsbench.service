@@ -1,0 +1,10 @@
+[Unit]
+Description=OpsBench native systemd service
+StartLimitIntervalSec=10
+StartLimitBurst=3
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/python /opt/opsbench/service.py
+Environment=OPSBENCH_SYSTEMD_CHILD=1
+Restart=on-failure
+RestartSec=0.2

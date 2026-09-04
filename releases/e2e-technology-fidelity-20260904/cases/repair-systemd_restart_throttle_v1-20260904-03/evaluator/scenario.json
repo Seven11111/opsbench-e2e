@@ -1,0 +1,25 @@
+{
+  "template_id": "fidelity_systemd_restart_throttle_v1",
+  "causal_technology": "systemd user service manager",
+  "causal_path": "systemd unit StartLimit* policy -> unit restart result -> business endpoint",
+  "native_probes": {
+    "injection": [
+      "systemctl --user",
+      "StartLimitBurst",
+      "StartLimitIntervalSec",
+      "start-limit-hit"
+    ],
+    "diagnosis": [
+      "systemctl --user show",
+      "NRestarts",
+      "Result",
+      "StartLimit"
+    ],
+    "recovery": [
+      "systemctl --user daemon-reload",
+      "StartLimitBurst",
+      "active",
+      "business"
+    ]
+  }
+}

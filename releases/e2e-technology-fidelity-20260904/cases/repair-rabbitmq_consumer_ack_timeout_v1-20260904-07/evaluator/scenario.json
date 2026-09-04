@@ -1,0 +1,25 @@
+{
+  "template_id": "fidelity_rabbitmq_consumer_ack_timeout_v1",
+  "causal_technology": "RabbitMQ AMQP acknowledgement and consumer channel",
+  "causal_path": "AMQP delivery -> consumer acknowledgement -> unacked queue/channel state",
+  "native_probes": {
+    "injection": [
+      "basic_consume",
+      "basic_ack",
+      "messages_unacknowledged",
+      "consumer_timeout"
+    ],
+    "diagnosis": [
+      "/api/queues",
+      "messages_unacknowledged",
+      "consumers",
+      "channel"
+    ],
+    "recovery": [
+      "basic_ack",
+      "consumer_timeout",
+      "messages_ready",
+      "business"
+    ]
+  }
+}

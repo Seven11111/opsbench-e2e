@@ -1,0 +1,26 @@
+{
+  "template_id": "fidelity_tls_certificate_chain_order_v1",
+  "causal_technology": "TLS X.509 certificate-chain validation",
+  "causal_path": "server certificate PEM order -> OpenSSL chain validation -> HTTPS business endpoint",
+  "native_probes": {
+    "injection": [
+      "server.fullchain.crt",
+      "openssl verify",
+      "issuer",
+      "subject"
+    ],
+    "diagnosis": [
+      "openssl s_client",
+      "openssl verify",
+      "certificate_chain",
+      "issuer",
+      "subject"
+    ],
+    "recovery": [
+      "server.fullchain.crt",
+      "openssl verify",
+      "SSLContext",
+      "business"
+    ]
+  }
+}

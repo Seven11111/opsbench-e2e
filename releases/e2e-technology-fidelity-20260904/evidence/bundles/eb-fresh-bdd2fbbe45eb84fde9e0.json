@@ -1,0 +1,77 @@
+{
+  "bundle_id": "eb-fresh-bdd2fbbe45eb84fde9e0",
+  "documents": [
+    {
+      "document_id": "official-http-22a750d46c84c09d03ce",
+      "source_url": "https://prometheus.io/docs/prometheus/latest/configuration/configuration/",
+      "canonical_url": "https://prometheus.io/docs/prometheus/latest/configuration/configuration/",
+      "content_hash": "47e48acfbeac0512e82a7e26b19942d6d21dade56a28e8a647271363e55695cc",
+      "evidence": [
+        {
+          "evidence_id": "prometheus_scrape_timeout_mismatch_v1-root_cause-1",
+          "claim_type": "root_cause",
+          "section_path": "official-fresh/prometheus_scrape_timeout_mismatch_v1/root_cause",
+          "start_pos": 135509,
+          "end_pos": 135612,
+          "excerpt": "# When not specified, system hostname/fqdn will be used if available, if not `prometheus` will be used.",
+          "excerpt_hash": "28c5c151ebad9560576a0aeade3a48b1343394a67ae7dccfd8d2a351eb7cd6a3"
+        },
+        {
+          "evidence_id": "prometheus_scrape_timeout_mismatch_v1-repair-2",
+          "claim_type": "repair",
+          "section_path": "official-fresh/prometheus_scrape_timeout_mismatch_v1/repair",
+          "start_pos": 194626,
+          "end_pos": 194703,
+          "excerpt": "# Prometheus will refuse to reload if 'xor2' is set without the feature flag.",
+          "excerpt_hash": "a331b2843fdeacdd3cc0858963f2790426932454b3c980bd943fa48ae3131b2b"
+        }
+      ],
+      "source_type": "official_crawl",
+      "source_license": "upstream-documentation",
+      "retrieved_at": "2026-09-04T03:34:46.321985+00:00",
+      "snapshot_path": "repair-priority-10-20260904\\crawl\\official-http\\official-http-22a750d46c84c09d03ce.md",
+      "metadata": {
+        "scenario_family_id": "prometheus_scrape_timeout_mismatch_v1",
+        "official_source": true,
+        "provenance_reused": false
+      }
+    }
+  ],
+  "claims": {
+    "root_cause": [
+      "official-http-22a750d46c84c09d03ce#prometheus_scrape_timeout_mismatch_v1-root_cause-1"
+    ],
+    "repair": [
+      "official-http-22a750d46c84c09d03ce#prometheus_scrape_timeout_mismatch_v1-repair-2"
+    ]
+  },
+  "evidence_conflict": false,
+  "conflicts": [],
+  "metadata": {
+    "official_source_url": "https://prometheus.io/docs/prometheus/latest/configuration/configuration/",
+    "retrieved_at": "2026-09-04T03:34:46.321985+00:00",
+    "content_hash": "47e48acfbeac0512e82a7e26b19942d6d21dade56a28e8a647271363e55695cc",
+    "section_paths": [
+      "official-fresh/prometheus_scrape_timeout_mismatch_v1/root_cause",
+      "official-fresh/prometheus_scrape_timeout_mismatch_v1/repair"
+    ],
+    "scenario_family_id": "prometheus_scrape_timeout_mismatch_v1",
+    "evidence_status": "fresh_crawled_exact_spans",
+    "provenance_reused": false
+  },
+  "links": [],
+  "schema_version": "opsbench-evidence-v1",
+  "provenance_mode": "generation_time",
+  "coverage": "complete",
+  "created_at": "2026-09-04T03:34:53.210777+00:00",
+  "active_document_ids": [
+    "official-http-22a750d46c84c09d03ce"
+  ],
+  "excluded_document_ids": [],
+  "active_evidence_refs": [
+    "official-http-22a750d46c84c09d03ce#prometheus_scrape_timeout_mismatch_v1-root_cause-1",
+    "official-http-22a750d46c84c09d03ce#prometheus_scrape_timeout_mismatch_v1-repair-2"
+  ],
+  "selection_reason": "fresh official source with role-separated exact spans",
+  "evidence_selection_score": 1.0
+}

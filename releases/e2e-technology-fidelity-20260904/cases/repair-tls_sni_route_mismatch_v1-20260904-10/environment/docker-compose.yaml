@@ -1,0 +1,34 @@
+services:
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["python", "/opt/opsbench/service.py"]
+    working_dir: /runtime
+    user: "10001:10001"
+    volumes:
+      - ./runtime:/runtime
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_TEMPLATE_ID: fidelity_tls_sni_route_mismatch_v1
+      OPSBENCH_NATIVE_FEATURES: "systemd --user systemd-analyze StartLimitBurst"
+      XDG_RUNTIME_DIR: /run/user/10001
+      DBUS_SESSION_BUS_ADDRESS: unix:path=/tmp/opsbench-bus
+    ulimits:
+      nofile: 128
+    pids_limit: 128
+    ports: ["8080:8080", "8443:8443"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+  verifier:
+    build: {context: ., dockerfile: Dockerfile}
+    command: ["sleep", "infinity"]
+    user: "10001:10001"
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime:/runtime:ro
+    environment:
+      OPSBENCH_TARGET_URL: http://target:8080
+      XDG_RUNTIME_DIR: /run/user/10001
+      DBUS_SESSION_BUS_ADDRESS: unix:path=/tmp/opsbench-bus
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]

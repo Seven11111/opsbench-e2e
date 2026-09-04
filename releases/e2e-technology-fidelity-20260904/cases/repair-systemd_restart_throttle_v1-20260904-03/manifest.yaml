@@ -1,0 +1,291 @@
+id: repair-systemd_restart_throttle_v1-20260904-03
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: systemd_restart_throttle
+domain: linux
+technology_stack:
+- systemd
+- Linux
+- service manager
+template_id: fidelity_systemd_restart_throttle_v1
+fault_primitive_id: fidelity_systemd_restart_throttle_v1
+original_scenario_family_id: systemd_restart_throttle_v1
+mechanism_id: systemd unit StartLimit* policy -> unit restart result -> business endpoint
+tool_standard:
+  id: technology-diagnostic-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: fidelity_repaired
+eligibility_state: static_passed
+benchmark_eligible: false
+technology_fidelity:
+  version: e2e-technology-fidelity-v2
+  scenario_family_id: systemd_restart_throttle_v1
+  claimed_technology: systemd user service manager
+  causal_technology: systemd user service manager
+  causal_path: systemd unit StartLimit* policy -> unit restart result -> business
+    endpoint
+  compose_markers:
+  - systemd --user
+  - systemd-analyze
+  - StartLimitBurst
+  runtime_markers:
+  - systemd --user
+  - systemctl --user
+  - systemd-analyze
+  - StartLimit
+  evidence:
+    injection:
+    - systemctl --user
+    - StartLimitBurst
+    - StartLimitIntervalSec
+    - start-limit-hit
+    diagnosis:
+    - systemctl --user show
+    - NRestarts
+    - Result
+    - StartLimit
+    recovery:
+    - systemctl --user daemon-reload
+    - StartLimitBurst
+    - active
+    - business
+  native_probes:
+    injection:
+    - systemctl --user
+    - StartLimitBurst
+    - StartLimitIntervalSec
+    - start-limit-hit
+    diagnosis:
+    - systemctl --user show
+    - NRestarts
+    - Result
+    - StartLimit
+    recovery:
+    - systemctl --user daemon-reload
+    - StartLimitBurst
+    - active
+    - business
+  verifier_markers:
+  - systemctl --user show
+  - NRestarts
+  - ActiveState
+  - business_operation
+  - persistence
+  verifier_checks:
+  - business_operation
+  - injection_evidence
+  - diagnostic_evidence
+  - recovery_evidence
+  - persistence
+  public_tools:
+  - command_run
+  - service_status
+  - business_probe
+  public_signals:
+  - The managed business service is available.
+  - The service manager reports a healthy unit state.
+  - The result remains healthy after restart.
+  diagnosability: &id003
+    required_tools:
+    - command_run
+    - service_status
+    - business_probe
+    evidence_path:
+    - service_status
+    - 'command_run: systemctl --user show'
+    - business_probe
+  repair_surface: systemd user unit restart-rate policy
+  persistence_probe: re-probe systemd unit state and business endpoint after lifecycle
+    restart
+  forbidden_oracle_sources:
+  - fault.json
+  - status.json
+  - expected_state.json
+  - oracle_state.json
+  - repair_state.json
+  - mode == 'baseline'
+  - mode == "baseline"
+  - '"action":"restore"'
+  - action='restore'
+  - action == 'restore'
+  - action == "restore"
+  - service_control:restore
+  - docker restart
+  - docker compose restart
+  - docker-compose restart
+  - kubectl delete
+  - kubectl rollout restart
+  shortcut_controls: &id004
+  - restart_target
+  - recreate_container
+  - delete_recreate_resource
+  - kill_process
+  - generic_restore
+  eligibility: generated
+  objects:
+  - systemd --user
+  - systemd-analyze
+  - StartLimitBurst
+persistence_contract:
+  restart_services:
+  - target
+  probe: re-probe systemd unit state and business endpoint after lifecycle restart
+state_contract:
+  causal: true
+  observable_signals: &id001
+  - The managed business service is available.
+  - The service manager reports a healthy unit state.
+  - The result remains healthy after restart.
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  verifier_service: verifier
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: '10001'
+  business_check:
+    url: http://127.0.0.1:8080/business
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 240
+  setup_sec: 150
+  agent_sec: 300
+  verify_sec: 120
+  cleanup_sec: 120
+source:
+  dynamic: true
+  generation_mode: strict_fidelity_repair
+  artifact_mode: trusted
+  evidence_gate: strict
+  provenance_mode: fresh_official_retrieval
+  provenance_reused: false
+  source_run_id: repair-priority-10-20260904
+  previous_provenance: null
+  replaces_case_id: dynamic-systemd_restart_throttle_v1-20260903
+  scenario_spec:
+    scenario_family_id: systemd_restart_throttle_v1
+    replacement_template_id: fidelity_systemd_restart_throttle_v1
+    claimed_technology: systemd user service manager
+    causal_path: systemd unit StartLimit* policy -> unit restart result -> business
+      endpoint
+  evidence_provenance:
+    bundle_id: eb-fresh-94fd397c6df5f1cc5966
+    document_id: official-http-50e628809d673f25b58e
+    content_hash: f49c0ac59e5f42fd8063e4241a1c5a0d1eb3c25c65b7b4c9e82a16be42974da6
+    evidence_refs:
+    - official-http-50e628809d673f25b58e#systemd_restart_throttle_v1-root_cause-1
+    - official-http-50e628809d673f25b58e#systemd_restart_throttle_v1-repair-2
+    retrieved_at: '2026-09-04T03:34:38.019826+00:00'
+  novelty_fingerprint: 1f8286143c49a560e03e7f81b7ca57128bc5992491c156399a2410649484d1c5
+  repair_review: technology_causal_chain_v2
+public_task:
+  title: The managed service is intermittently unavailable after repeated starts
+  observable_symptoms:
+  - The managed service is intermittently unavailable after repeated starts.
+  success_criteria:
+  - The managed business service is available.
+  - The service manager reports a healthy unit state.
+  - The result remains healthy after restart.
+public_actionability:
+  version: e2e-public-actionability-v2
+  required: true
+  verifier_policy: native_technology_object_and_public_signal
+  required_tools: &id002
+  - command_run
+  - service_status
+  - business_probe
+  repair_operations:
+  - command_run:bounded_native_repair
+  verifier_checks:
+  - business_operation
+  - injection_evidence
+  - diagnostic_evidence
+  - recovery_evidence
+  - persistence
+  semantic_state:
+  - systemd unit StartLimit* policy -> unit restart result -> business endpoint
+  public_success_signals: *id001
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its live
+      service contract.
+    observable_signals: *id001
+    available_tools: *id002
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Repair the live technology object.
+    - Verify the native signal after the lifecycle boundary.
+  diagnosability: *id003
+  shortcut_controls: *id004
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v2
+    policy: claimed-technology-equals-causal-technology
+    runtime_markers:
+    - systemd --user
+    - systemctl --user
+    - systemd-analyze
+    - StartLimit
+    injection_markers:
+    - systemctl --user
+    - StartLimitBurst
+    - StartLimitIntervalSec
+    - start-limit-hit
+    verifier_markers:
+    - systemctl --user show
+    - NRestarts
+    - ActiveState
+    - business_operation
+    - persistence
+    task_signal_terms:
+    - business
+    - healthy
+    - restart
+  control_expectations:
+    no_op:
+      expected: fail
+    oracle:
+      expected: pass
+    wrong_fix:
+      expected: fail
+    partial_fix:
+      expected: fail
+    restart_only:
+      expected: fail
+  internal_contract:
+    allowed_repair_classes:
+    - systemd user unit restart-rate policy
+    verifier_checks:
+    - business_operation
+    - injection_evidence
+    - diagnostic_evidence
+    - recovery_evidence
+    - persistence
+    known_valid_solutions: []
+    known_invalid_solutions:
+    - generic_restore
+    - restart_only
+    - delete_recreate_resource
+  public_oracle: null
+release_status: static_passed_not_runtime_validated

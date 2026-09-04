@@ -1,0 +1,77 @@
+{
+  "bundle_id": "eb-fresh-8c96d50becdcc0d6bb12",
+  "documents": [
+    {
+      "document_id": "official-http-ef501de35ec4030d08cb",
+      "source_url": "https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS",
+      "canonical_url": "https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS",
+      "content_hash": "bd1f112677f15a6e58fb4fa5d9d40f40c2bab8a7fa820197473904fdaf2454f4",
+      "evidence": [
+        {
+          "evidence_id": "postgres_replication_slot_retention_v1-root_cause-1",
+          "claim_type": "root_cause",
+          "section_path": "official-fresh/postgres_replication_slot_retention_v1/root_cause",
+          "start_pos": 8728,
+          "end_pos": 8950,
+          "excerpt": "If you're setting up the standby server for high availability purposes, set up WAL archiving, connections and authentication like the primary server, because the standby server will work as a primary server after failover.",
+          "excerpt_hash": "6a2e9e16f4b700691cd0655d08c0430cbc031fb42a9ae1dabe442fb8bb99eb60"
+        },
+        {
+          "evidence_id": "postgres_replication_slot_retention_v1-repair-2",
+          "claim_type": "repair",
+          "section_path": "official-fresh/postgres_replication_slot_retention_v1/repair",
+          "start_pos": 22372,
+          "end_pos": 22594,
+          "excerpt": "can be set by individual users, so it can be configured in the configuration file, for particular users or databases, or dynamically by applications, in order to control the durability guarantee on a per-transaction basis.",
+          "excerpt_hash": "4863e3b532783072e41157a159db45cc1ca83c9cecb3269d37dc91fed54e2f52"
+        }
+      ],
+      "source_type": "official_crawl",
+      "source_license": "upstream-documentation",
+      "retrieved_at": "2026-09-04T03:34:41.497910+00:00",
+      "snapshot_path": "repair-priority-10-20260904\\crawl\\official-http\\official-http-ef501de35ec4030d08cb.md",
+      "metadata": {
+        "scenario_family_id": "postgres_replication_slot_retention_v1",
+        "official_source": true,
+        "provenance_reused": false
+      }
+    }
+  ],
+  "claims": {
+    "root_cause": [
+      "official-http-ef501de35ec4030d08cb#postgres_replication_slot_retention_v1-root_cause-1"
+    ],
+    "repair": [
+      "official-http-ef501de35ec4030d08cb#postgres_replication_slot_retention_v1-repair-2"
+    ]
+  },
+  "evidence_conflict": false,
+  "conflicts": [],
+  "metadata": {
+    "official_source_url": "https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS",
+    "retrieved_at": "2026-09-04T03:34:41.497910+00:00",
+    "content_hash": "bd1f112677f15a6e58fb4fa5d9d40f40c2bab8a7fa820197473904fdaf2454f4",
+    "section_paths": [
+      "official-fresh/postgres_replication_slot_retention_v1/root_cause",
+      "official-fresh/postgres_replication_slot_retention_v1/repair"
+    ],
+    "scenario_family_id": "postgres_replication_slot_retention_v1",
+    "evidence_status": "fresh_crawled_exact_spans",
+    "provenance_reused": false
+  },
+  "links": [],
+  "schema_version": "opsbench-evidence-v1",
+  "provenance_mode": "generation_time",
+  "coverage": "complete",
+  "created_at": "2026-09-04T03:34:51.707579+00:00",
+  "active_document_ids": [
+    "official-http-ef501de35ec4030d08cb"
+  ],
+  "excluded_document_ids": [],
+  "active_evidence_refs": [
+    "official-http-ef501de35ec4030d08cb#postgres_replication_slot_retention_v1-root_cause-1",
+    "official-http-ef501de35ec4030d08cb#postgres_replication_slot_retention_v1-repair-2"
+  ],
+  "selection_reason": "fresh official source with role-separated exact spans",
+  "evidence_selection_score": 1.0
+}

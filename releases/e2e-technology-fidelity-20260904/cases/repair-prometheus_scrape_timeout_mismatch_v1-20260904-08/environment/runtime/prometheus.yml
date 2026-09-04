@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+  scrape_timeout: 4s
+scrape_configs:
+  - job_name: opsbench-target
+    static_configs:
+      - targets: ['target:8080']

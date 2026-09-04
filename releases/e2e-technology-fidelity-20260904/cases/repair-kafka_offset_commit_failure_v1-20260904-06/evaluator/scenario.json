@@ -1,0 +1,25 @@
+{
+  "template_id": "fidelity_kafka_offset_commit_failure_v1",
+  "causal_technology": "Apache Kafka consumer group offset protocol",
+  "causal_path": "Kafka consumer group commit -> committed offset -> consumer lag",
+  "native_probes": {
+    "injection": [
+      "enable.auto.commit=false",
+      "kafka-consumer-groups.sh",
+      "CURRENT-OFFSET",
+      "LOG-END-OFFSET"
+    ],
+    "diagnosis": [
+      "kafka-consumer-groups.sh --describe",
+      "CURRENT-OFFSET",
+      "LOG-END-OFFSET",
+      "LAG"
+    ],
+    "recovery": [
+      "commitSync",
+      "kafka-consumer-groups.sh --reset-offsets",
+      "LAG",
+      "business"
+    ]
+  }
+}

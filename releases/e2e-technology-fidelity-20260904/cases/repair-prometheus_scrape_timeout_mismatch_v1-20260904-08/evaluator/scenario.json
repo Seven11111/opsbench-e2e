@@ -1,0 +1,25 @@
+{
+  "template_id": "fidelity_prometheus_scrape_timeout_mismatch_v1",
+  "causal_technology": "Prometheus scrape scheduler and target protocol",
+  "causal_path": "Prometheus scrape_interval/scrape_timeout config -> target scrape -> target health",
+  "native_probes": {
+    "injection": [
+      "scrape_interval",
+      "scrape_timeout",
+      "/-/reload",
+      "scrape_timeout_errors"
+    ],
+    "diagnosis": [
+      "/api/v1/targets",
+      "lastError",
+      "scrapeDuration",
+      "scrape_interval"
+    ],
+    "recovery": [
+      "prometheus.yml",
+      "/-/reload",
+      "health=up",
+      "business"
+    ]
+  }
+}

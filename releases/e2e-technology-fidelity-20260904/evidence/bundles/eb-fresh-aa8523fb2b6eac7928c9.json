@@ -1,0 +1,77 @@
+{
+  "bundle_id": "eb-fresh-aa8523fb2b6eac7928c9",
+  "documents": [
+    {
+      "document_id": "official-http-b9736fe75d64f6987ba5",
+      "source_url": "https://docs.kernel.org/filesystems/proc.html",
+      "canonical_url": "https://docs.kernel.org/filesystems/proc.html",
+      "content_hash": "81474ce103bb57ffd184f4dd47fd68fa77f20ef7da2c266b82bffed174f898f6",
+      "evidence": [
+        {
+          "evidence_id": "linux_file_descriptor_pressure_v1-root_cause-1",
+          "claim_type": "root_cause",
+          "section_path": "official-fresh/linux_file_descriptor_pressure_v1/root_cause",
+          "start_pos": 64563,
+          "end_pos": 64718,
+          "excerpt": "If it is due to the memory assigned to the allocating task’s cpuset being exhausted, the allowed memory represents the set of mems assigned to that cpuset.",
+          "excerpt_hash": "ba047c58b8287f88e4e56befb60996eea7f726fa65334121c4fb8b43bbfae3da"
+        },
+        {
+          "evidence_id": "linux_file_descriptor_pressure_v1-repair-2",
+          "claim_type": "repair",
+          "section_path": "official-fresh/linux_file_descriptor_pressure_v1/repair",
+          "start_pos": 53850,
+          "end_pos": 54136,
+          "excerpt": "4 Compile Options: TCQ Enabled By Default : Disabled AIC7XXX_PROC_STATS : Disabled AIC7XXX_RESET_DELAY : 5 Adapter Configuration: SCSI Adapter: Adaptec AHA-294X Ultra SCSI host adapter Ultra Wide Controller PCI MMAPed I/O Base: 0xeb001000 Adapter SEEPROM Config: SEEPROM found and used.",
+          "excerpt_hash": "c3ba2510c6643e1731cefa2af394e08fd66c399ab13dec78e5da507d4b41e353"
+        }
+      ],
+      "source_type": "official_crawl",
+      "source_license": "upstream-documentation",
+      "retrieved_at": "2026-09-04T03:34:34.747529+00:00",
+      "snapshot_path": "repair-priority-10-20260904\\crawl\\official-http\\official-http-b9736fe75d64f6987ba5.md",
+      "metadata": {
+        "scenario_family_id": "linux_file_descriptor_pressure_v1",
+        "official_source": true,
+        "provenance_reused": false
+      }
+    }
+  ],
+  "claims": {
+    "root_cause": [
+      "official-http-b9736fe75d64f6987ba5#linux_file_descriptor_pressure_v1-root_cause-1"
+    ],
+    "repair": [
+      "official-http-b9736fe75d64f6987ba5#linux_file_descriptor_pressure_v1-repair-2"
+    ]
+  },
+  "evidence_conflict": false,
+  "conflicts": [],
+  "metadata": {
+    "official_source_url": "https://docs.kernel.org/filesystems/proc.html",
+    "retrieved_at": "2026-09-04T03:34:34.747529+00:00",
+    "content_hash": "81474ce103bb57ffd184f4dd47fd68fa77f20ef7da2c266b82bffed174f898f6",
+    "section_paths": [
+      "official-fresh/linux_file_descriptor_pressure_v1/root_cause",
+      "official-fresh/linux_file_descriptor_pressure_v1/repair"
+    ],
+    "scenario_family_id": "linux_file_descriptor_pressure_v1",
+    "evidence_status": "fresh_crawled_exact_spans",
+    "provenance_reused": false
+  },
+  "links": [],
+  "schema_version": "opsbench-evidence-v1",
+  "provenance_mode": "generation_time",
+  "coverage": "complete",
+  "created_at": "2026-09-04T03:34:49.561286+00:00",
+  "active_document_ids": [
+    "official-http-b9736fe75d64f6987ba5"
+  ],
+  "excluded_document_ids": [],
+  "active_evidence_refs": [
+    "official-http-b9736fe75d64f6987ba5#linux_file_descriptor_pressure_v1-root_cause-1",
+    "official-http-b9736fe75d64f6987ba5#linux_file_descriptor_pressure_v1-repair-2"
+  ],
+  "selection_reason": "fresh official source with role-separated exact spans",
+  "evidence_selection_score": 1.0
+}

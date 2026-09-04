@@ -1,0 +1,298 @@
+id: repair-tls_sni_route_mismatch_v1-20260904-10
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: sni_route_mismatch
+domain: tls
+technology_stack:
+- TLS
+- SNI
+- OpenSSL
+template_id: fidelity_tls_sni_route_mismatch_v1
+fault_primitive_id: fidelity_tls_sni_route_mismatch_v1
+original_scenario_family_id: tls_sni_route_mismatch_v1
+mechanism_id: ClientHello server_name -> TLS route map -> certificate identity ->
+  HTTPS business endpoint
+tool_standard:
+  id: technology-diagnostic-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: fidelity_repaired
+eligibility_state: static_passed
+benchmark_eligible: false
+technology_fidelity:
+  version: e2e-technology-fidelity-v2
+  scenario_family_id: tls_sni_route_mismatch_v1
+  claimed_technology: TLS Server Name Indication certificate routing
+  causal_technology: TLS Server Name Indication certificate routing
+  causal_path: ClientHello server_name -> TLS route map -> certificate identity ->
+    HTTPS business endpoint
+  compose_markers:
+  - '8443'
+  - build
+  runtime_markers:
+  - ssl.SSLContext
+  - set_servername_callback
+  - SNI_ROUTES
+  - servername
+  evidence:
+    injection:
+    - servername_callback
+    - SNI_ROUTES
+    - openssl s_client -servername
+    - certificate
+    diagnosis:
+    - openssl s_client -servername
+    - subjectAltName
+    - servername_callback
+    - certificate
+    recovery:
+    - SNI_ROUTES
+    - servername_callback
+    - subjectAltName
+    - business
+  native_probes:
+    injection:
+    - servername_callback
+    - SNI_ROUTES
+    - openssl s_client -servername
+    - certificate
+    diagnosis:
+    - openssl s_client -servername
+    - subjectAltName
+    - servername_callback
+    - certificate
+    recovery:
+    - SNI_ROUTES
+    - servername_callback
+    - subjectAltName
+    - business
+  verifier_markers:
+  - openssl s_client -servername
+  - subjectAltName
+  - SNI
+  - certificate_identity
+  - business_operation
+  - persistence
+  verifier_checks:
+  - business_operation
+  - injection_evidence
+  - diagnostic_evidence
+  - recovery_evidence
+  - persistence
+  public_tools:
+  - command_run
+  - service_status
+  - business_probe
+  - transport_probe
+  public_signals:
+  - The secure business operation returns HTTP 200.
+  - Each documented hostname presents its correct certificate identity.
+  - The result remains healthy after restart.
+  diagnosability: &id003
+    required_tools:
+    - command_run
+    - service_status
+    - business_probe
+    - transport_probe
+    evidence_path:
+    - 'transport_probe: SNI certificate identity'
+    - 'command_run: server-name route evidence'
+    - business_probe
+  repair_surface: TLS SNI route map and certificate selection
+  persistence_probe: re-probe SNI certificate identity and HTTPS endpoint after target
+    restart
+  forbidden_oracle_sources:
+  - fault.json
+  - status.json
+  - expected_state.json
+  - oracle_state.json
+  - repair_state.json
+  - mode == 'baseline'
+  - mode == "baseline"
+  - '"action":"restore"'
+  - action='restore'
+  - action == 'restore'
+  - action == "restore"
+  - service_control:restore
+  - docker restart
+  - docker compose restart
+  - docker-compose restart
+  - kubectl delete
+  - kubectl rollout restart
+  shortcut_controls: &id004
+  - restart_target
+  - recreate_container
+  - delete_recreate_resource
+  - kill_process
+  - generic_restore
+  eligibility: generated
+  objects:
+  - '8443'
+  - build
+persistence_contract:
+  restart_services:
+  - target
+  probe: re-probe SNI certificate identity and HTTPS endpoint after target restart
+state_contract:
+  causal: true
+  observable_signals: &id001
+  - The secure business operation returns HTTP 200.
+  - Each documented hostname presents its correct certificate identity.
+  - The result remains healthy after restart.
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  verifier_service: verifier
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: '10001'
+  business_check:
+    url: http://127.0.0.1:8080/business
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 240
+  setup_sec: 150
+  agent_sec: 300
+  verify_sec: 120
+  cleanup_sec: 120
+source:
+  dynamic: true
+  generation_mode: strict_fidelity_repair
+  artifact_mode: trusted
+  evidence_gate: strict
+  provenance_mode: fresh_official_retrieval
+  provenance_reused: false
+  source_run_id: repair-priority-10-20260904
+  previous_provenance: null
+  replaces_case_id: dynamic-tls_sni_route_mismatch_v1-20260903
+  scenario_spec:
+    scenario_family_id: tls_sni_route_mismatch_v1
+    replacement_template_id: fidelity_tls_sni_route_mismatch_v1
+    claimed_technology: TLS Server Name Indication certificate routing
+    causal_path: ClientHello server_name -> TLS route map -> certificate identity
+      -> HTTPS business endpoint
+  evidence_provenance:
+    bundle_id: eb-fresh-e138bd391bd856c5612f
+    document_id: official-http-0bb1d8ecb43132c36592
+    content_hash: f8df256a81f8196253cfbc1e1638c1dc88fa0bf1d7449f252a35d077bf05d728
+    evidence_refs:
+    - official-http-0bb1d8ecb43132c36592#tls_sni_route_mismatch_v1-root_cause-1
+    - official-http-0bb1d8ecb43132c36592#tls_sni_route_mismatch_v1-repair-2
+    retrieved_at: '2026-09-04T03:34:49.321675+00:00'
+  novelty_fingerprint: eacc6695461e8bb603e92d590fe98ee4ef667f2b9e0d64cba4fe41c5e8482c75
+  repair_review: technology_causal_chain_v2
+public_task:
+  title: The secure endpoint is reachable, but one documented hostname presents the
+    wrong
+  observable_symptoms:
+  - The secure endpoint is reachable, but one documented hostname presents the wrong
+    identity.
+  success_criteria:
+  - The secure business operation returns HTTP 200.
+  - Each documented hostname presents its correct certificate identity.
+  - The result remains healthy after restart.
+public_actionability:
+  version: e2e-public-actionability-v2
+  required: true
+  verifier_policy: native_technology_object_and_public_signal
+  required_tools: &id002
+  - command_run
+  - service_status
+  - business_probe
+  - transport_probe
+  repair_operations:
+  - command_run:bounded_native_repair
+  verifier_checks:
+  - business_operation
+  - injection_evidence
+  - diagnostic_evidence
+  - recovery_evidence
+  - persistence
+  semantic_state:
+  - ClientHello server_name -> TLS route map -> certificate identity -> HTTPS business
+    endpoint
+  public_success_signals: *id001
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its live
+      service contract.
+    observable_signals: *id001
+    available_tools: *id002
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Repair the live technology object.
+    - Verify the native signal after the lifecycle boundary.
+  diagnosability: *id003
+  shortcut_controls: *id004
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v2
+    policy: claimed-technology-equals-causal-technology
+    runtime_markers:
+    - ssl.SSLContext
+    - set_servername_callback
+    - SNI_ROUTES
+    - servername
+    injection_markers:
+    - servername_callback
+    - SNI_ROUTES
+    - openssl s_client -servername
+    - certificate
+    verifier_markers:
+    - openssl s_client -servername
+    - subjectAltName
+    - SNI
+    - certificate_identity
+    - business_operation
+    - persistence
+    task_signal_terms:
+    - business
+    - healthy
+    - restart
+  control_expectations:
+    no_op:
+      expected: fail
+    oracle:
+      expected: pass
+    wrong_fix:
+      expected: fail
+    partial_fix:
+      expected: fail
+    restart_only:
+      expected: fail
+  internal_contract:
+    allowed_repair_classes:
+    - TLS SNI route map and certificate selection
+    verifier_checks:
+    - business_operation
+    - injection_evidence
+    - diagnostic_evidence
+    - recovery_evidence
+    - persistence
+    known_valid_solutions: []
+    known_invalid_solutions:
+    - generic_restore
+    - restart_only
+    - delete_recreate_resource
+  public_oracle: null
+release_status: static_passed_not_runtime_validated

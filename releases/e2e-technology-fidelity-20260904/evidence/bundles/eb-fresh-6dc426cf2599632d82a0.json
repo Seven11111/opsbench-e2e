@@ -1,0 +1,77 @@
+{
+  "bundle_id": "eb-fresh-6dc426cf2599632d82a0",
+  "documents": [
+    {
+      "document_id": "official-http-4b719885d4a9e8e48a96",
+      "source_url": "https://www.postgresql.org/docs/current/explicit-locking.html",
+      "canonical_url": "https://www.postgresql.org/docs/current/explicit-locking.html",
+      "content_hash": "3977987014692f78a90a0f53cd8b5a7172ac6b8b94afe82b61f7d6e091a025f9",
+      "evidence": [
+        {
+          "evidence_id": "postgres_deadlock_cycle_v1-root_cause-1",
+          "claim_type": "root_cause",
+          "section_path": "official-fresh/postgres_deadlock_cycle_v1/root_cause",
+          "start_pos": 12970,
+          "end_pos": 13113,
+          "excerpt": "If it is not feasible to verify this in advance, then deadlocks can be handled on-the-fly by retrying transactions that abort due to deadlocks.",
+          "excerpt_hash": "4881e47b6a4af499c7f1811f0db2f1a6af79827d2854ef9df1a4be45186075a9"
+        },
+        {
+          "evidence_id": "postgres_deadlock_cycle_v1-repair-2",
+          "claim_type": "repair",
+          "section_path": "official-fresh/postgres_deadlock_cycle_v1/repair",
+          "start_pos": 10083,
+          "end_pos": 10231,
+          "excerpt": "In addition to table and row locks, page-level share/exclusive locks are used to control read/write access to table pages in the shared buffer pool.",
+          "excerpt_hash": "e33fd04d06482ee5b368da3c1b544a29ab1e53e95d0b5fed491826a903d26a04"
+        }
+      ],
+      "source_type": "official_crawl",
+      "source_license": "upstream-documentation",
+      "retrieved_at": "2026-09-04T03:34:39.648122+00:00",
+      "snapshot_path": "repair-priority-10-20260904\\crawl\\official-http\\official-http-4b719885d4a9e8e48a96.md",
+      "metadata": {
+        "scenario_family_id": "postgres_deadlock_cycle_v1",
+        "official_source": true,
+        "provenance_reused": false
+      }
+    }
+  ],
+  "claims": {
+    "root_cause": [
+      "official-http-4b719885d4a9e8e48a96#postgres_deadlock_cycle_v1-root_cause-1"
+    ],
+    "repair": [
+      "official-http-4b719885d4a9e8e48a96#postgres_deadlock_cycle_v1-repair-2"
+    ]
+  },
+  "evidence_conflict": false,
+  "conflicts": [],
+  "metadata": {
+    "official_source_url": "https://www.postgresql.org/docs/current/explicit-locking.html",
+    "retrieved_at": "2026-09-04T03:34:39.648122+00:00",
+    "content_hash": "3977987014692f78a90a0f53cd8b5a7172ac6b8b94afe82b61f7d6e091a025f9",
+    "section_paths": [
+      "official-fresh/postgres_deadlock_cycle_v1/root_cause",
+      "official-fresh/postgres_deadlock_cycle_v1/repair"
+    ],
+    "scenario_family_id": "postgres_deadlock_cycle_v1",
+    "evidence_status": "fresh_crawled_exact_spans",
+    "provenance_reused": false
+  },
+  "links": [],
+  "schema_version": "opsbench-evidence-v1",
+  "provenance_mode": "generation_time",
+  "coverage": "complete",
+  "created_at": "2026-09-04T03:34:51.207922+00:00",
+  "active_document_ids": [
+    "official-http-4b719885d4a9e8e48a96"
+  ],
+  "excluded_document_ids": [],
+  "active_evidence_refs": [
+    "official-http-4b719885d4a9e8e48a96#postgres_deadlock_cycle_v1-root_cause-1",
+    "official-http-4b719885d4a9e8e48a96#postgres_deadlock_cycle_v1-repair-2"
+  ],
+  "selection_reason": "fresh official source with role-separated exact spans",
+  "evidence_selection_score": 1.0
+}

@@ -1,0 +1,293 @@
+id: repair-prometheus_scrape_timeout_mismatch_v1-20260904-08
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: scrape_timeout_mismatch
+domain: observability
+technology_stack:
+- Prometheus
+- scrape
+- metrics
+template_id: fidelity_prometheus_scrape_timeout_mismatch_v1
+fault_primitive_id: fidelity_prometheus_scrape_timeout_mismatch_v1
+original_scenario_family_id: prometheus_scrape_timeout_mismatch_v1
+mechanism_id: Prometheus scrape_interval/scrape_timeout config -> target scrape ->
+  target health
+tool_standard:
+  id: technology-diagnostic-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: fidelity_repaired
+eligibility_state: static_passed
+benchmark_eligible: false
+technology_fidelity:
+  version: e2e-technology-fidelity-v2
+  scenario_family_id: prometheus_scrape_timeout_mismatch_v1
+  claimed_technology: Prometheus scrape scheduler and target protocol
+  causal_technology: Prometheus scrape scheduler and target protocol
+  causal_path: Prometheus scrape_interval/scrape_timeout config -> target scrape ->
+    target health
+  compose_markers:
+  - prom/prometheus:v2.53.0
+  runtime_markers:
+  - prometheus.yml
+  - /metrics
+  - /-/reload
+  - scrape_timeout
+  evidence:
+    injection:
+    - scrape_interval
+    - scrape_timeout
+    - /-/reload
+    - scrape_timeout_errors
+    diagnosis:
+    - /api/v1/targets
+    - lastError
+    - scrapeDuration
+    - scrape_interval
+    recovery:
+    - prometheus.yml
+    - /-/reload
+    - health=up
+    - business
+  native_probes:
+    injection:
+    - scrape_interval
+    - scrape_timeout
+    - /-/reload
+    - scrape_timeout_errors
+    diagnosis:
+    - /api/v1/targets
+    - lastError
+    - scrapeDuration
+    - scrape_interval
+    recovery:
+    - prometheus.yml
+    - /-/reload
+    - health=up
+    - business
+  verifier_markers:
+  - /api/v1/targets
+  - lastError
+  - scrapeDuration
+  - scrape_interval
+  - business_operation
+  - persistence
+  verifier_checks:
+  - business_operation
+  - injection_evidence
+  - diagnostic_evidence
+  - recovery_evidence
+  - persistence
+  public_tools:
+  - command_run
+  - service_status
+  - business_probe
+  - metrics_read
+  public_signals:
+  - The metrics business operation returns HTTP 200.
+  - The target is scraped successfully within its configured timing policy.
+  - The result remains healthy after restart.
+  diagnosability: &id003
+    required_tools:
+    - command_run
+    - service_status
+    - business_probe
+    - metrics_read
+    evidence_path:
+    - 'metrics_read: target health and lastError'
+    - 'command_run: effective scrape config'
+    - business_probe
+  repair_surface: Prometheus scrape timing configuration
+  persistence_probe: re-probe effective scrape config and target health after Prometheus
+    restart
+  forbidden_oracle_sources:
+  - fault.json
+  - status.json
+  - expected_state.json
+  - oracle_state.json
+  - repair_state.json
+  - mode == 'baseline'
+  - mode == "baseline"
+  - '"action":"restore"'
+  - action='restore'
+  - action == 'restore'
+  - action == "restore"
+  - service_control:restore
+  - docker restart
+  - docker compose restart
+  - docker-compose restart
+  - kubectl delete
+  - kubectl rollout restart
+  shortcut_controls: &id004
+  - restart_target
+  - recreate_container
+  - delete_recreate_resource
+  - kill_process
+  - generic_restore
+  eligibility: generated
+  objects:
+  - prom/prometheus:v2.53.0
+persistence_contract:
+  restart_services:
+  - target
+  probe: re-probe effective scrape config and target health after Prometheus restart
+state_contract:
+  causal: true
+  observable_signals: &id001
+  - The metrics business operation returns HTTP 200.
+  - The target is scraped successfully within its configured timing policy.
+  - The result remains healthy after restart.
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  verifier_service: verifier
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: '10001'
+  business_check:
+    url: http://127.0.0.1:8080/business
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 240
+  setup_sec: 150
+  agent_sec: 300
+  verify_sec: 120
+  cleanup_sec: 120
+source:
+  dynamic: true
+  generation_mode: strict_fidelity_repair
+  artifact_mode: trusted
+  evidence_gate: strict
+  provenance_mode: fresh_official_retrieval
+  provenance_reused: false
+  source_run_id: repair-priority-10-20260904
+  previous_provenance: null
+  replaces_case_id: dynamic-prometheus_scrape_timeout_mismatch_v1-20260903
+  scenario_spec:
+    scenario_family_id: prometheus_scrape_timeout_mismatch_v1
+    replacement_template_id: fidelity_prometheus_scrape_timeout_mismatch_v1
+    claimed_technology: Prometheus scrape scheduler and target protocol
+    causal_path: Prometheus scrape_interval/scrape_timeout config -> target scrape
+      -> target health
+  evidence_provenance:
+    bundle_id: eb-fresh-bdd2fbbe45eb84fde9e0
+    document_id: official-http-22a750d46c84c09d03ce
+    content_hash: 47e48acfbeac0512e82a7e26b19942d6d21dade56a28e8a647271363e55695cc
+    evidence_refs:
+    - official-http-22a750d46c84c09d03ce#prometheus_scrape_timeout_mismatch_v1-root_cause-1
+    - official-http-22a750d46c84c09d03ce#prometheus_scrape_timeout_mismatch_v1-repair-2
+    retrieved_at: '2026-09-04T03:34:46.321985+00:00'
+  novelty_fingerprint: bdc95bad5e81d4abe67ccdf5902baebf2c7746c103f956dcc59d988400f20de1
+  repair_review: technology_causal_chain_v2
+public_task:
+  title: The metrics service is ready, but the target reports scrape failures
+  observable_symptoms:
+  - The metrics service is ready, but the target reports scrape failures.
+  success_criteria:
+  - The metrics business operation returns HTTP 200.
+  - The target is scraped successfully within its configured timing policy.
+  - The result remains healthy after restart.
+public_actionability:
+  version: e2e-public-actionability-v2
+  required: true
+  verifier_policy: native_technology_object_and_public_signal
+  required_tools: &id002
+  - command_run
+  - service_status
+  - business_probe
+  - metrics_read
+  repair_operations:
+  - command_run:bounded_native_repair
+  verifier_checks:
+  - business_operation
+  - injection_evidence
+  - diagnostic_evidence
+  - recovery_evidence
+  - persistence
+  semantic_state:
+  - Prometheus scrape_interval/scrape_timeout config -> target scrape -> target health
+  public_success_signals: *id001
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its live
+      service contract.
+    observable_signals: *id001
+    available_tools: *id002
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Repair the live technology object.
+    - Verify the native signal after the lifecycle boundary.
+  diagnosability: *id003
+  shortcut_controls: *id004
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v2
+    policy: claimed-technology-equals-causal-technology
+    runtime_markers:
+    - prometheus.yml
+    - /metrics
+    - /-/reload
+    - scrape_timeout
+    injection_markers:
+    - scrape_interval
+    - scrape_timeout
+    - /-/reload
+    - scrape_timeout_errors
+    verifier_markers:
+    - /api/v1/targets
+    - lastError
+    - scrapeDuration
+    - scrape_interval
+    - business_operation
+    - persistence
+    task_signal_terms:
+    - business
+    - healthy
+    - restart
+  control_expectations:
+    no_op:
+      expected: fail
+    oracle:
+      expected: pass
+    wrong_fix:
+      expected: fail
+    partial_fix:
+      expected: fail
+    restart_only:
+      expected: fail
+  internal_contract:
+    allowed_repair_classes:
+    - Prometheus scrape timing configuration
+    verifier_checks:
+    - business_operation
+    - injection_evidence
+    - diagnostic_evidence
+    - recovery_evidence
+    - persistence
+    known_valid_solutions: []
+    known_invalid_solutions:
+    - generic_restore
+    - restart_only
+    - delete_recreate_resource
+  public_oracle: null
+release_status: static_passed_not_runtime_validated

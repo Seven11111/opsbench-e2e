@@ -1,0 +1,285 @@
+id: repair-kafka_offset_commit_failure_v1-20260904-06
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: offset_commit_failure
+domain: messaging
+technology_stack:
+- Kafka
+- Consumer
+template_id: fidelity_kafka_offset_commit_failure_v1
+fault_primitive_id: fidelity_kafka_offset_commit_failure_v1
+original_scenario_family_id: kafka_offset_commit_failure_v1
+mechanism_id: Kafka consumer group commit -> committed offset -> consumer lag
+tool_standard:
+  id: technology-diagnostic-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: fidelity_repaired
+eligibility_state: static_passed
+benchmark_eligible: false
+technology_fidelity:
+  version: e2e-technology-fidelity-v2
+  scenario_family_id: kafka_offset_commit_failure_v1
+  claimed_technology: Apache Kafka consumer group offset protocol
+  causal_technology: Apache Kafka consumer group offset protocol
+  causal_path: Kafka consumer group commit -> committed offset -> consumer lag
+  compose_markers:
+  - apache/kafka:3.8.0
+  runtime_markers:
+  - kcat
+  - kafka-consumer-groups.sh
+  - commit
+  - committed offset
+  evidence:
+    injection:
+    - enable.auto.commit=false
+    - kafka-consumer-groups.sh
+    - CURRENT-OFFSET
+    - LOG-END-OFFSET
+    diagnosis:
+    - kafka-consumer-groups.sh --describe
+    - CURRENT-OFFSET
+    - LOG-END-OFFSET
+    - LAG
+    recovery:
+    - commitSync
+    - kafka-consumer-groups.sh --reset-offsets
+    - LAG
+    - business
+  native_probes:
+    injection:
+    - enable.auto.commit=false
+    - kafka-consumer-groups.sh
+    - CURRENT-OFFSET
+    - LOG-END-OFFSET
+    diagnosis:
+    - kafka-consumer-groups.sh --describe
+    - CURRENT-OFFSET
+    - LOG-END-OFFSET
+    - LAG
+    recovery:
+    - commitSync
+    - kafka-consumer-groups.sh --reset-offsets
+    - LAG
+    - business
+  verifier_markers:
+  - kafka-consumer-groups.sh
+  - CURRENT-OFFSET
+  - LOG-END-OFFSET
+  - LAG
+  - business_operation
+  - persistence
+  verifier_checks:
+  - business_operation
+  - injection_evidence
+  - diagnostic_evidence
+  - recovery_evidence
+  - persistence
+  public_tools:
+  - command_run
+  - service_status
+  - business_probe
+  public_signals:
+  - The event operation returns HTTP 200.
+  - The consumer group offset is progressing with bounded lag.
+  - The result remains healthy after restart.
+  diagnosability: &id003
+    required_tools:
+    - command_run
+    - service_status
+    - business_probe
+    evidence_path:
+    - 'command_run: consumer-group describe'
+    - 'command_run: committed offset and lag'
+    - business_probe
+  repair_surface: Kafka consumer group commit path
+  persistence_probe: re-probe committed offset and lag after broker/consumer restart
+  forbidden_oracle_sources:
+  - fault.json
+  - status.json
+  - expected_state.json
+  - oracle_state.json
+  - repair_state.json
+  - mode == 'baseline'
+  - mode == "baseline"
+  - '"action":"restore"'
+  - action='restore'
+  - action == 'restore'
+  - action == "restore"
+  - service_control:restore
+  - docker restart
+  - docker compose restart
+  - docker-compose restart
+  - kubectl delete
+  - kubectl rollout restart
+  shortcut_controls: &id004
+  - restart_target
+  - recreate_container
+  - delete_recreate_resource
+  - kill_process
+  - generic_restore
+  eligibility: generated
+  objects:
+  - apache/kafka:3.8.0
+persistence_contract:
+  restart_services:
+  - target
+  probe: re-probe committed offset and lag after broker/consumer restart
+state_contract:
+  causal: true
+  observable_signals: &id001
+  - The event operation returns HTTP 200.
+  - The consumer group offset is progressing with bounded lag.
+  - The result remains healthy after restart.
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  verifier_service: verifier
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: '10001'
+  business_check:
+    url: http://127.0.0.1:8080/business
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 240
+  setup_sec: 150
+  agent_sec: 300
+  verify_sec: 120
+  cleanup_sec: 120
+source:
+  dynamic: true
+  generation_mode: strict_fidelity_repair
+  artifact_mode: trusted
+  evidence_gate: strict
+  provenance_mode: fresh_official_retrieval
+  provenance_reused: false
+  source_run_id: repair-priority-10-20260904
+  previous_provenance: null
+  replaces_case_id: dynamic-kafka_offset_commit_failure_v1-20260903
+  scenario_spec:
+    scenario_family_id: kafka_offset_commit_failure_v1
+    replacement_template_id: fidelity_kafka_offset_commit_failure_v1
+    claimed_technology: Apache Kafka consumer group offset protocol
+    causal_path: Kafka consumer group commit -> committed offset -> consumer lag
+  evidence_provenance:
+    bundle_id: eb-fresh-5fd885c1dcd85c2479af
+    document_id: official-http-d97862a51919350dfe82
+    content_hash: d8aa4a172abb802bcbb52b80c6aa9b22dc8eba2d191e7a9400a0e6d5404a2610
+    evidence_refs:
+    - official-http-d97862a51919350dfe82#kafka_offset_commit_failure_v1-root_cause-1
+    - official-http-d97862a51919350dfe82#kafka_offset_commit_failure_v1-repair-2
+    retrieved_at: '2026-09-04T03:34:42.920345+00:00'
+  novelty_fingerprint: 7001bcd9dbede102bf5dce96a4eaedddaa330a6bd720df5212b6fad1205df2fa
+  repair_review: technology_causal_chain_v2
+public_task:
+  title: Event processing is reachable, but the consumer group's progress is not advancin
+  observable_symptoms:
+  - Event processing is reachable, but the consumer group's progress is not advancing.
+  success_criteria:
+  - The event operation returns HTTP 200.
+  - The consumer group offset is progressing with bounded lag.
+  - The result remains healthy after restart.
+public_actionability:
+  version: e2e-public-actionability-v2
+  required: true
+  verifier_policy: native_technology_object_and_public_signal
+  required_tools: &id002
+  - command_run
+  - service_status
+  - business_probe
+  repair_operations:
+  - command_run:bounded_native_repair
+  verifier_checks:
+  - business_operation
+  - injection_evidence
+  - diagnostic_evidence
+  - recovery_evidence
+  - persistence
+  semantic_state:
+  - Kafka consumer group commit -> committed offset -> consumer lag
+  public_success_signals: *id001
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its live
+      service contract.
+    observable_signals: *id001
+    available_tools: *id002
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Repair the live technology object.
+    - Verify the native signal after the lifecycle boundary.
+  diagnosability: *id003
+  shortcut_controls: *id004
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v2
+    policy: claimed-technology-equals-causal-technology
+    runtime_markers:
+    - kcat
+    - kafka-consumer-groups.sh
+    - commit
+    - committed offset
+    injection_markers:
+    - enable.auto.commit=false
+    - kafka-consumer-groups.sh
+    - CURRENT-OFFSET
+    - LOG-END-OFFSET
+    verifier_markers:
+    - kafka-consumer-groups.sh
+    - CURRENT-OFFSET
+    - LOG-END-OFFSET
+    - LAG
+    - business_operation
+    - persistence
+    task_signal_terms:
+    - business
+    - healthy
+    - restart
+  control_expectations:
+    no_op:
+      expected: fail
+    oracle:
+      expected: pass
+    wrong_fix:
+      expected: fail
+    partial_fix:
+      expected: fail
+    restart_only:
+      expected: fail
+  internal_contract:
+    allowed_repair_classes:
+    - Kafka consumer group commit path
+    verifier_checks:
+    - business_operation
+    - injection_evidence
+    - diagnostic_evidence
+    - recovery_evidence
+    - persistence
+    known_valid_solutions: []
+    known_invalid_solutions:
+    - generic_restore
+    - restart_only
+    - delete_recreate_resource
+  public_oracle: null
+release_status: static_passed_not_runtime_validated

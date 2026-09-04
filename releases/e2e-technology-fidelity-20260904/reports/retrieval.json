@@ -1,0 +1,5 @@
+{
+  "method": "official_http_fallback",
+  "provenance_reused": false,
+  "error": "BrowserType.launch: Executable doesn't exist at C:\\Users\\ADMIN\\AppData\\Local\\ms-playwright\\chromium-1223\\chrome-win64\\chrome.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+}

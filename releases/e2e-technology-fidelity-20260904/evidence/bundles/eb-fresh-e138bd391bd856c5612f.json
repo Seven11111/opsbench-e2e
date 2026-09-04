@@ -1,0 +1,77 @@
+{
+  "bundle_id": "eb-fresh-e138bd391bd856c5612f",
+  "documents": [
+    {
+      "document_id": "official-http-0bb1d8ecb43132c36592",
+      "source_url": "https://www.rfc-editor.org/rfc/rfc6066",
+      "canonical_url": "https://www.rfc-editor.org/rfc/rfc6066",
+      "content_hash": "f8df256a81f8196253cfbc1e1638c1dc88fa0bf1d7449f252a35d077bf05d728",
+      "evidence": [
+        {
+          "evidence_id": "tls_sni_route_mismatch_v1-root_cause-1",
+          "claim_type": "root_cause",
+          "section_path": "official-fresh/tls_sni_route_mismatch_v1/root_cause",
+          "start_pos": 11753,
+          "end_pos": 12099,
+          "excerpt": "If there is a mismatch between the server name used by the client application and the server name of the credential chosen by the server, this mismatch will become apparent when the client application performs the server endpoint identification, at which point the client application will have to decide whether to proceed with the communication.",
+          "excerpt_hash": "41a879a7f5cb5af020efe5a19415af3d574f15864b3641b25264535847e4102f"
+        },
+        {
+          "evidence_id": "tls_sni_route_mismatch_v1-repair-2",
+          "claim_type": "repair",
+          "section_path": "official-fresh/tls_sni_route_mismatch_v1/repair",
+          "start_pos": 35797,
+          "end_pos": 35887,
+          "excerpt": "] (or any updates to them) apply, as well as those of any protocol that uses this type (e.",
+          "excerpt_hash": "0cf4e46215dd777018e3e6803e5889392c8ccce14d5c3b503791286303586438"
+        }
+      ],
+      "source_type": "official_crawl",
+      "source_license": "upstream-documentation",
+      "retrieved_at": "2026-09-04T03:34:49.321675+00:00",
+      "snapshot_path": "repair-priority-10-20260904\\crawl\\official-http\\official-http-0bb1d8ecb43132c36592.md",
+      "metadata": {
+        "scenario_family_id": "tls_sni_route_mismatch_v1",
+        "official_source": true,
+        "provenance_reused": false
+      }
+    }
+  ],
+  "claims": {
+    "root_cause": [
+      "official-http-0bb1d8ecb43132c36592#tls_sni_route_mismatch_v1-root_cause-1"
+    ],
+    "repair": [
+      "official-http-0bb1d8ecb43132c36592#tls_sni_route_mismatch_v1-repair-2"
+    ]
+  },
+  "evidence_conflict": false,
+  "conflicts": [],
+  "metadata": {
+    "official_source_url": "https://www.rfc-editor.org/rfc/rfc6066",
+    "retrieved_at": "2026-09-04T03:34:49.321675+00:00",
+    "content_hash": "f8df256a81f8196253cfbc1e1638c1dc88fa0bf1d7449f252a35d077bf05d728",
+    "section_paths": [
+      "official-fresh/tls_sni_route_mismatch_v1/root_cause",
+      "official-fresh/tls_sni_route_mismatch_v1/repair"
+    ],
+    "scenario_family_id": "tls_sni_route_mismatch_v1",
+    "evidence_status": "fresh_crawled_exact_spans",
+    "provenance_reused": false
+  },
+  "links": [],
+  "schema_version": "opsbench-evidence-v1",
+  "provenance_mode": "generation_time",
+  "coverage": "complete",
+  "created_at": "2026-09-04T03:34:54.208366+00:00",
+  "active_document_ids": [
+    "official-http-0bb1d8ecb43132c36592"
+  ],
+  "excluded_document_ids": [],
+  "active_evidence_refs": [
+    "official-http-0bb1d8ecb43132c36592#tls_sni_route_mismatch_v1-root_cause-1",
+    "official-http-0bb1d8ecb43132c36592#tls_sni_route_mismatch_v1-repair-2"
+  ],
+  "selection_reason": "fresh official source with role-separated exact spans",
+  "evidence_selection_score": 1.0
+}
