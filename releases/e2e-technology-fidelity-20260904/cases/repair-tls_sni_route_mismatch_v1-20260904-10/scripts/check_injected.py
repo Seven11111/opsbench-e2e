@@ -14,5 +14,7 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-r=subprocess.run(['openssl','s_client','-connect','127.0.0.1:8443','-servername','api.opsbench.test','-showcerts'],capture_output=True,text=True,check=False); text=r.stdout+r.stderr
-if 'subjectAltName' not in text and 'admin.opsbench.test' not in text: raise SystemExit('native TLS SNI route mismatch was not observed')
+def sans(name):
+ r=subprocess.run(['sh','-lc',f"printf '' | openssl s_client -connect 127.0.0.1:8443 -servername {name} -showcerts 2>/dev/null | openssl x509 -noout -ext subjectAltName"],capture_output=True,text=True,check=False); return r, r.stdout+r.stderr
+api_result,api=sans('api.opsbench.test'); admin_result,admin=sans('admin.opsbench.test')
+if api_result.returncode != 0 or admin_result.returncode != 0 or 'DNS:admin.opsbench.test' not in api or 'DNS:api.opsbench.test' not in admin: raise SystemExit('native TLS SNI certificate identities did not demonstrate the swapped route')

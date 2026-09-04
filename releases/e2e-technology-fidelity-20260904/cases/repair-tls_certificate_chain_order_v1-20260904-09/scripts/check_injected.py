@@ -14,5 +14,5 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-r=subprocess.run(['openssl','verify','-CAfile',str(runtime/'tls/root.crt'),str(runtime/'tls/server.fullchain.crt')],capture_output=True,text=True,check=False); text=r.stdout+r.stderr
-if 'issuer' not in text.lower() and r.returncode==0: raise SystemExit('native X.509 chain-order fault was not observed')
+p=runtime/'tls/server.fullchain.crt'; r=subprocess.run(['openssl','verify','-show_chain','-CAfile',str(runtime/'tls/root.crt'),str(p)],capture_output=True,text=True,check=False)
+if r.returncode == 0: raise SystemExit('reversed X.509 chain unexpectedly verified')

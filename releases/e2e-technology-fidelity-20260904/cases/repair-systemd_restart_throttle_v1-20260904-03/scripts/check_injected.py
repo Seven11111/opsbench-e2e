@@ -14,5 +14,5 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-native=compose_exec('target','systemctl --user show opsbench.service --property=ActiveState,Result,NRestarts,StartLimitBurst,StartLimitIntervalUSec')
-if 'StartLimit' not in native.stdout or ('start-limit' not in native.stdout.lower() and 'failed' not in native.stdout.lower()): raise SystemExit('native systemd restart throttle was not observed')
+native=target_native()
+if native.get('Result') != 'start-limit-hit' or int(native.get('NRestarts',0) or 0) < 3 or native.get('ActiveState') not in {'failed','activating'}: raise SystemExit('native systemd Result=start-limit-hit was not observed')

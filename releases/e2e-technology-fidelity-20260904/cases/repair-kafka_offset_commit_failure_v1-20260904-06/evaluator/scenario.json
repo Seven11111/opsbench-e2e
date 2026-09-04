@@ -4,7 +4,7 @@
   "causal_path": "Kafka consumer group commit -> committed offset -> consumer lag",
   "native_probes": {
     "injection": [
-      "enable.auto.commit=false",
+      "commit_enabled",
       "kafka-consumer-groups.sh",
       "CURRENT-OFFSET",
       "LOG-END-OFFSET"

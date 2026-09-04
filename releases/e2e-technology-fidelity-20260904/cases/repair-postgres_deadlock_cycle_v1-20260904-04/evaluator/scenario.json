@@ -4,10 +4,10 @@
   "causal_path": "PostgreSQL transactions -> pg_locks/pg_stat_activity wait graph -> orders query",
   "native_probes": {
     "injection": [
-      "pg_advisory_lock",
+      "FOR UPDATE",
       "pg_locks",
       "pg_blocking_pids",
-      "deadlock"
+      "deadlock_timeout"
     ],
     "diagnosis": [
       "pg_locks",

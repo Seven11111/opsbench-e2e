@@ -38,7 +38,7 @@ technology_fidelity:
   - committed offset
   evidence:
     injection:
-    - enable.auto.commit=false
+    - commit_enabled
     - kafka-consumer-groups.sh
     - CURRENT-OFFSET
     - LOG-END-OFFSET
@@ -54,7 +54,7 @@ technology_fidelity:
     - business
   native_probes:
     injection:
-    - enable.auto.commit=false
+    - commit_enabled
     - kafka-consumer-groups.sh
     - CURRENT-OFFSET
     - LOG-END-OFFSET
@@ -241,7 +241,7 @@ public_actionability:
     - commit
     - committed offset
     injection_markers:
-    - enable.auto.commit=false
+    - commit_enabled
     - kafka-consumer-groups.sh
     - CURRENT-OFFSET
     - LOG-END-OFFSET

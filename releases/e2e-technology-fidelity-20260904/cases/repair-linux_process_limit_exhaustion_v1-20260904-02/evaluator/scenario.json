@@ -16,8 +16,8 @@
       "process creation"
     ],
     "recovery": [
-      "waitpid",
-      "terminate",
+      "child_processes",
+      "process_creation",
       "pids.current",
       "business"
     ]

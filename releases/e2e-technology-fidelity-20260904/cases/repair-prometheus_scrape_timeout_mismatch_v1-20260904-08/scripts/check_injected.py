@@ -14,6 +14,5 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-payload=json.load(urllib.request.urlopen('http://127.0.0.1:9090/api/v1/targets?state=active',timeout=10))
-text=json.dumps(payload)
-if 'lastError' not in text or 'scrape' not in text.lower(): raise SystemExit('native Prometheus scrape timeout evidence was not observed')
+payload=json.load(urllib.request.urlopen('http://127.0.0.1:9090/api/v1/targets?state=active',timeout=10)); target=next((item for item in payload.get('data',{}).get('activeTargets',[]) if item.get('labels',{}).get('job')=='opsbench-target'),{}); error=str(target.get('lastError') or ''); scrape_timeout_errors=error
+if target.get('health') != 'down' or not error or ('timeout' not in error.lower() and 'context deadline' not in error.lower()): raise SystemExit('native Prometheus scrape timeout was not observed')

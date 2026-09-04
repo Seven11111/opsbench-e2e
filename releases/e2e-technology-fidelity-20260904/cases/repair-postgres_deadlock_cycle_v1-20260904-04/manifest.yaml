@@ -41,10 +41,10 @@ technology_fidelity:
   - pg_blocking_pids
   evidence:
     injection:
-    - pg_advisory_lock
+    - FOR UPDATE
     - pg_locks
     - pg_blocking_pids
-    - deadlock
+    - deadlock_timeout
     diagnosis:
     - pg_locks
     - pg_stat_activity
@@ -57,10 +57,10 @@ technology_fidelity:
     - business
   native_probes:
     injection:
-    - pg_advisory_lock
+    - FOR UPDATE
     - pg_locks
     - pg_blocking_pids
-    - deadlock
+    - deadlock_timeout
     diagnosis:
     - pg_locks
     - pg_stat_activity
@@ -88,6 +88,7 @@ technology_fidelity:
   - service_status
   - business_probe
   - database_query
+  - database_admin
   public_signals:
   - The orders operation returns HTTP 200.
   - The database reports no blocking transaction cycle.
@@ -98,6 +99,7 @@ technology_fidelity:
     - service_status
     - business_probe
     - database_query
+    - database_admin
     evidence_path:
     - 'database_query: pg_locks/pg_stat_activity'
     - 'command_run: blocking PID'
@@ -216,6 +218,7 @@ public_actionability:
   - service_status
   - business_probe
   - database_query
+  - database_admin
   repair_operations:
   - command_run:bounded_native_repair
   verifier_checks:
@@ -247,10 +250,10 @@ public_actionability:
     - pg_stat_activity
     - pg_blocking_pids
     injection_markers:
-    - pg_advisory_lock
+    - FOR UPDATE
     - pg_locks
     - pg_blocking_pids
-    - deadlock
+    - deadlock_timeout
     verifier_markers:
     - pg_locks
     - pg_stat_activity

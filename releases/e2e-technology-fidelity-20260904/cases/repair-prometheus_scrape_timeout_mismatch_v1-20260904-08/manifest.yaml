@@ -37,7 +37,7 @@ technology_fidelity:
   runtime_markers:
   - prometheus.yml
   - /metrics
-  - /-/reload
+  - api/v1/status/config
   - scrape_timeout
   evidence:
     injection:
@@ -246,7 +246,7 @@ public_actionability:
     runtime_markers:
     - prometheus.yml
     - /metrics
-    - /-/reload
+    - api/v1/status/config
     - scrape_timeout
     injection_markers:
     - scrape_interval

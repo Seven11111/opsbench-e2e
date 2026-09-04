@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'strict-config.json').write_text('{"pressure": true}\n'); reload_target(); procfs='/proc/self/fd'; native_open=compose_exec('target',"python -c 'import os; h=os.open(\"/tmp/opsbench-fd-native\",os.O_CREAT|os.O_RDWR); print(h); os.close(h); print(\"EMFILE\" if False else \"fd probe\")")
+(runtime/'strict-config.json').write_text('{"pressure": true}\n'); reload_target(); native_open=compose_exec('target',"python -c 'import os; os.open(\"/tmp/opsbench-fd-native\",os.O_CREAT|os.O_RDWR)'"); time.sleep(1)

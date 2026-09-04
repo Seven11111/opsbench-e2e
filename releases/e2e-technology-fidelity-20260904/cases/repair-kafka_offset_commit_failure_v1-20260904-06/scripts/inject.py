@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-compose_exec('target',"printf 'event-1\nevent-2\nevent-3\n' | kcat -b kafka:9092 -t opsbench-events -P"); (runtime/'strict-config.json').write_text('{"commit_failure": true, "enable.auto.commit=false": true}\n'); offsets='CURRENT-OFFSET LOG-END-OFFSET'; compose_exec('kafka','/opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group opsbench-group || true'); reload_target()
+(runtime/'strict-config.json').write_text('{"commit_enabled": false}\n'); reload_target(); compose_exec('target',"printf 'event-1\nevent-2\nevent-3\nevent-4\nevent-5\nevent-6\n' | kcat -b kafka:9092 -t opsbench-events -P"); time.sleep(3); describe=compose_exec('kafka','/opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group opsbench-group')

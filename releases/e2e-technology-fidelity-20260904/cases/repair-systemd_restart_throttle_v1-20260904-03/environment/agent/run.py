@@ -82,6 +82,7 @@ _PUBLIC_TO_INTERNAL_TOOL_NAMES = {
     "signal_view": "diagnose",
     "metrics_read": "metrics_query",
     "database_query": "database_query",
+    "database_admin": "database_admin",
     "queue_inspect": "message_probe",
     "service_control": "service_repair",
     "queue_control": "message_repair",
@@ -1181,6 +1182,30 @@ def build_tools(trace_dir: Path, allowed_tool_names: set[str] | list[str] | None
         return _record_generic("database_query", {"query": query, "_started": started}, result)
 
     @tool
+    def database_admin(action: str = "") -> str:
+        """Apply only the case-declared bounded PostgreSQL repair."""
+        started = time.monotonic()
+        commands = {
+            "terminate_blocking_transactions": "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE cardinality(pg_blocking_pids(pid)) > 0 AND pid <> pg_backend_pid();",
+            "drop_opsbench_replication_slot": "SELECT pg_drop_replication_slot(slot_name) FROM pg_replication_slots WHERE slot_name LIKE 'opsbench_%' AND active = false;",
+        }
+        sql = commands.get(str(action or "").strip())
+        if not sql:
+            result = {"ok": False, "error": "action is not an allowed bounded database repair"}
+        else:
+            try:
+                env = {key: value for key, value in os.environ.items() if key not in {"OPSBENCH_API_KEY", "OPENAI_API_KEY", "ANTHROPIC_API_KEY"}}
+                env.setdefault("PGPASSWORD", "opsbench-local-only")
+                completed = subprocess.run(
+                    ["psql", "-v", "ON_ERROR_STOP=1", "-h", env.get("PGHOST", "db"), "-U", env.get("PGUSER", "opsbench"), "-d", env.get("PGDATABASE", "app"), "-At", "-c", sql],
+                    capture_output=True, text=True, timeout=15, check=False, env=env,
+                )
+                result = {"ok": completed.returncode == 0, "stdout": (completed.stdout or "")[-6000:], "stderr": (completed.stderr or "")[-2000:]}
+            except (OSError, subprocess.SubprocessError) as exc:
+                result = {"ok": False, "error": str(exc)}
+        return _record_generic("database_admin", {"action": action, "_started": started}, result)
+
+    @tool
     def cache_query() -> str:
         """Read the live Redis memory policy and eviction counter."""
         started = time.monotonic()
@@ -1214,7 +1239,7 @@ def build_tools(trace_dir: Path, allowed_tool_names: set[str] | list[str] | None
         shell, business_check, diagnose, health_check, metrics_query, message_probe,
         service_repair, message_repair, service_list, service_status, config_sources,
         config_read, config_update, service_manage, dependency_list, dependency_probe,
-        slo_read, database_query, cache_query, tls_probe,
+        slo_read, database_query, database_admin, cache_query, tls_probe,
     ]
     if allowed_tool_names is None:
         return implementation_tools

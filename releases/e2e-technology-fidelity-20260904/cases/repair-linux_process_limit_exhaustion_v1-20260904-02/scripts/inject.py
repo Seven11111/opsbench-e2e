@@ -14,4 +14,5 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'strict-config.json').write_text('{"process_pressure": true}\n'); reload_target(); process_budget='pids.current pids.max'; cgroup='pids.current'; compose_exec('target',"python -c 'import os; pid=os.fork(); os.waitpid(pid,0) if pid==0 else os._exit(0)'")
+(runtime/'strict-config.json').write_text('{"process_pressure": true}\n'); reload_target(); time.sleep(1); native=target_native(); process_budget=native.get('process_budget'); probe=compose_exec('target',"python -c 'import os; pid=os.fork(); os._exit(0) if pid==0 else os.waitpid(pid,0)'")
+if native.get('process_creation') != 'EAGAIN': raise SystemExit('the target did not observe a real fork EAGAIN at the cgroup PID boundary')

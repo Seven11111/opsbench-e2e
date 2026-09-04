@@ -14,4 +14,5 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'strict-config.json').write_text('{"process_pressure": false}\n'); reload_target(); waitpid='waitpid'; terminate='terminate'
+(runtime/'strict-config.json').write_text('{"process_pressure": false}\n'); reload_target(); time.sleep(1); native=target_native()
+if native.get('process_creation') != 'available' or int(native.get('child_processes',0)) != 0: raise SystemExit('child processes were not reaped')

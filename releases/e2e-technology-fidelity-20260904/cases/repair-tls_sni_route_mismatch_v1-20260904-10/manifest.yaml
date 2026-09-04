@@ -49,7 +49,7 @@ technology_fidelity:
     diagnosis:
     - openssl s_client -servername
     - subjectAltName
-    - servername_callback
+    - route
     - certificate
     recovery:
     - SNI_ROUTES
@@ -65,7 +65,7 @@ technology_fidelity:
     diagnosis:
     - openssl s_client -servername
     - subjectAltName
-    - servername_callback
+    - route
     - certificate
     recovery:
     - SNI_ROUTES

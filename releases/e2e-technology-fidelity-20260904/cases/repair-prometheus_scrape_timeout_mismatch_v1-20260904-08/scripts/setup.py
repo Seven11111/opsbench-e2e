@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'prometheus.yml').write_text("global:\\n  scrape_interval: 5s\\n  scrape_timeout: 4s\\nscrape_configs:\\n  - job_name: opsbench-target\\n    static_configs:\\n      - targets: ['target:8080']\\n"); subprocess.run(['curl','--noproxy','*','-fsS','-X','POST','http://127.0.0.1:9090/-/reload'],check=False)
+(runtime/'prometheus.yml').write_text("global:\\n  scrape_interval: 5s\\n  scrape_timeout: 4s\\nscrape_configs:\\n  - job_name: opsbench-target\\n    static_configs:\\n      - targets: ['target:8080']\\n"); (runtime/'strict-config.json').write_text('{"metrics_delay": 0}\n'); subprocess.run(['curl','--noproxy','*','-fsS','-X','POST','http://127.0.0.1:9090/-/reload'],check=False); time.sleep(2)

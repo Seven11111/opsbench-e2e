@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'sni-routes.json').write_text('{"api.opsbench.test":"api", "admin.opsbench.test":"admin"}\n'); reload_target()
+(runtime/'sni-routes.json').write_text('{"api.opsbench.test":"api", "admin.opsbench.test":"admin"}'+'\n'); reload_target(); time.sleep(1)

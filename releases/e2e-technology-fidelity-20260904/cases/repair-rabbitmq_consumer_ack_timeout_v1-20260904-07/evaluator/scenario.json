@@ -4,10 +4,10 @@
   "causal_path": "AMQP delivery -> consumer acknowledgement -> unacked queue/channel state",
   "native_probes": {
     "injection": [
-      "basic_consume",
-      "basic_ack",
+      "pika",
       "messages_unacknowledged",
-      "consumer_timeout"
+      "consumer_timeout",
+      "deliveries"
     ],
     "diagnosis": [
       "/api/queues",

@@ -15,5 +15,5 @@ def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
 native=target_native()
-if int(native.get('messages_unacknowledged',-1)) < 1 and int(native.get('consumers',0)) < 1: raise SystemExit('native RabbitMQ ack-timeout evidence was not observed')
-channel=native.get('consumers',0)
+if int(native.get('deliveries',0)) < 1 or int(native.get('messages_unacknowledged',-1)) < 1: raise SystemExit('native RabbitMQ delivery remained unacknowledged on the live channel')
+if int(native.get('consumer_timeout',0) or 0) <= 0: raise SystemExit('RabbitMQ consumer_timeout was not read from broker configuration')

@@ -15,5 +15,6 @@ def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
 native=target_native()
-if int(native.get('fd_count',0)) < 70 or int(native.get('fd_headroom',0)) > 60: raise SystemExit('native /proc FD pressure was not observed')
-readlink=native.get('readlink','')
+if native.get('procfs') != str(Path('/proc/self/fd').resolve()) or native.get('RLIMIT_NOFILE') != native.get('fd_soft_limit'): raise SystemExit('native FD table probe is unavailable')
+if int(native.get('fd_count',0)) < 100 or int(native.get('fd_headroom',0)) > 20 or native.get('open_probe_errno') != 'EMFILE': raise SystemExit('native FD pressure did not reach the real RLIMIT_NOFILE boundary')
+if not str(native.get('readlink','')): raise SystemExit('native FD table probe returned no live descriptor')

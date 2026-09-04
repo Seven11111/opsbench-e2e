@@ -12,7 +12,7 @@
     "diagnosis": [
       "openssl s_client -servername",
       "subjectAltName",
-      "servername_callback",
+      "route",
       "certificate"
     ],
     "recovery": [

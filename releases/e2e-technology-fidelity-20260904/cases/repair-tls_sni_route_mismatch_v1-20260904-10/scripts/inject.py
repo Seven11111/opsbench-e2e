@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'sni-routes.json').write_text('{"api.opsbench.test":"admin", "admin.opsbench.test":"api"}\n'); SNI_ROUTES='sni-routes.json'; servername_callback='set_servername_callback'; certificate=subprocess.run(['sh','-lc','printf '' | openssl s_client -servername api.opsbench.test -connect 127.0.0.1:8443 -showcerts'],capture_output=True,text=True,check=False); reload_target()
+SNI_ROUTES=runtime/'sni-routes.json'; (SNI_ROUTES).write_text('{"api.opsbench.test":"admin", "admin.opsbench.test":"api"}'+'\n'); servername_callback='set_servername_callback'; reload_target(); certificate=subprocess.run(['sh','-lc',"printf '' | openssl s_client -servername api.opsbench.test -connect 127.0.0.1:8443 -showcerts"],capture_output=True,text=True,check=False); time.sleep(1)

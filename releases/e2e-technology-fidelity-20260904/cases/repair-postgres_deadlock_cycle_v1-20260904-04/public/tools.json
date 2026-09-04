@@ -51,6 +51,26 @@
           "query"
         ]
       }
+    },
+    {
+      "name": "database_admin",
+      "description": "Apply one bounded PostgreSQL administrative repair selected from live database evidence.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "A fixed native repair operation for the observed database condition.",
+            "enum": [
+              "terminate_blocking_transactions",
+              "drop_opsbench_replication_slot"
+            ]
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
     }
   ],
   "constraints": [

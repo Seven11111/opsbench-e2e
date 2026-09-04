@@ -39,10 +39,10 @@ technology_fidelity:
   - consumer_timeout
   evidence:
     injection:
-    - basic_consume
-    - basic_ack
+    - pika
     - messages_unacknowledged
     - consumer_timeout
+    - deliveries
     diagnosis:
     - /api/queues
     - messages_unacknowledged
@@ -55,10 +55,10 @@ technology_fidelity:
     - business
   native_probes:
     injection:
-    - basic_consume
-    - basic_ack
+    - pika
     - messages_unacknowledged
     - consumer_timeout
+    - deliveries
     diagnosis:
     - /api/queues
     - messages_unacknowledged
@@ -245,10 +245,10 @@ public_actionability:
     - messages_unacknowledged
     - consumer_timeout
     injection_markers:
-    - basic_consume
-    - basic_ack
+    - pika
     - messages_unacknowledged
     - consumer_timeout
+    - deliveries
     verifier_markers:
     - /api/queues
     - messages_unacknowledged

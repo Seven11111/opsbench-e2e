@@ -96,8 +96,8 @@ technology_fidelity:
     - service_status
     - business_probe
     evidence_path:
-    - service_status
-    - 'command_run: /proc/self/fd and ulimit'
+    - 'service_status: native fd_count and fd_headroom'
+    - 'command_run: bounded resource status'
     - business_probe
   repair_surface: target process descriptor lifecycle
   persistence_probe: re-probe /proc/self/fd and business endpoint after target restart

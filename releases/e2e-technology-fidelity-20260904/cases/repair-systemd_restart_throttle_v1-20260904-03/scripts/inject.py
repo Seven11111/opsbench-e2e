@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'opsbench.service').write_text('[Unit]\\nDescription=OpsBench native systemd service\\nStartLimitIntervalSec=10\\nStartLimitBurst=3\\n[Service]\\nType=simple\\nExecStart=/bin/false\\nEnvironment=OPSBENCH_SYSTEMD_CHILD=1\\nRestart=on-failure\\nRestartSec=0.2\\n'); start_limit='start-limit-hit'; compose_exec('target','systemctl --user daemon-reload; systemd-analyze verify /runtime/opsbench.service; for n in 1 2 3 4 5; do systemctl --user restart opsbench.service || true; done')
+(runtime/'opsbench.service').write_text('[Unit]\\nDescription=OpsBench native systemd service\\nStartLimitIntervalSec=10\\nStartLimitBurst=3\\n[Service]\\nType=simple\\nExecStart=/bin/false\\nEnvironment=OPSBENCH_SYSTEMD_CHILD=1\\nRestart=on-failure\\nRestartSec=0.2\\n'); compose_exec('target','systemctl --user daemon-reload; systemd-analyze verify /runtime/opsbench.service; for n in 1 2 3 4 5; do systemctl --user restart opsbench.service || true; done'); time.sleep(1)

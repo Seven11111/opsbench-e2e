@@ -15,5 +15,6 @@ def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
 native=target_native()
-if int(native.get('child_processes',0)) < 40 or native.get('process_creation') != 'EAGAIN': raise SystemExit('native PID budget pressure was not observed')
-process_creation=native.get('process creation')
+try: current=int(native.get('pids.current')); maximum=int(native.get('pids.max'))
+except (TypeError,ValueError): raise SystemExit('native cgroup PID counters are unavailable')
+if current < maximum - 4 or native.get('process_creation') != 'EAGAIN' or int(native.get('child_processes',0)) < 80: raise SystemExit('native PID budget pressure was not observed')

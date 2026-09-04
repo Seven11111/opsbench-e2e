@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'strict-config.json').write_text('{"commit_failure": false}\n'); reload_target(); compose_exec('kafka','/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic opsbench-events || true')
+(runtime/'strict-config.json').write_text('{"commit_enabled": true}\n'); reload_target(); time.sleep(3); compose_exec('kafka','/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic opsbench-events || true')

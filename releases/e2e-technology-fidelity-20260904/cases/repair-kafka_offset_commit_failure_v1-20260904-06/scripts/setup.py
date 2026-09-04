@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-compose_exec('kafka','/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --if-not-exists --topic opsbench-events --partitions 1 --replication-factor 1'); compose_exec('target',"printf 'baseline\n' | kcat -b kafka:9092 -t opsbench-events -P")
+compose_exec('kafka','/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --if-not-exists --topic opsbench-events --partitions 1 --replication-factor 1'); (runtime/'strict-config.json').write_text('{"commit_enabled": true}\n'); reload_target(); compose_exec('target',"printf 'baseline-1\nbaseline-2\nbaseline-3\nbaseline-4\nbaseline-5\n' | kcat -b kafka:9092 -t opsbench-events -P"); time.sleep(3)

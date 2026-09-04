@@ -14,5 +14,7 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-native=target_native()
-if 'LAG' not in json.dumps(native) or 'committed_offset' not in json.dumps(native): raise SystemExit('native Kafka offset/lag evidence was not observed')
+native=target_native(); offsets=(native.get('CURRENT-OFFSET'),native.get('LOG-END-OFFSET'))
+try: committed=int(native.get('committed_offset')); end=int(native.get('LOG-END-OFFSET')); lag=int(native.get('LAG'))
+except (TypeError,ValueError): raise SystemExit('native Kafka consumer-group offsets are unavailable')
+if end <= committed or lag < 3 or native.get('protocol_returncode') != 0 or offsets[0] is None: raise SystemExit('real Kafka consumer-group commit progress failure was not observed')

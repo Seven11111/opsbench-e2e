@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'strict-config.json').write_text('{"ack_delay": 45, "consumer_timeout": 5000}\n'); reload_target(); consumer_probe='import pika; ch.basic_consume; ch.basic_ack'; compose_exec('target','python -c \'import pika; c=pika.BlockingConnection(pika.ConnectionParameters("rabbitmq",credentials=pika.PlainCredentials("opsbench","opsbench-local-only"))); ch=c.channel(); ch.queue_declare(queue="opsbench-ack",durable=True); ch.basic_publish(exchange="",routing_key="opsbench-ack",body="event"); c.close()\'')
+(runtime/'strict-config.json').write_text('{"ack_delay": 45}\n'); reload_target(); compose_exec('target','python -c \'import pika; c=pika.BlockingConnection(pika.ConnectionParameters(\\"rabbitmq\\",credentials=pika.PlainCredentials(\\"opsbench\\",\\"opsbench-local-only\\"))); ch=c.channel(); ch.queue_declare(queue=\\"opsbench-ack\\",durable=True); ch.basic_publish(exchange=\\"\\",routing_key=\\"opsbench-ack\\",body=\\"event\\"); c.close()\''); time.sleep(2)

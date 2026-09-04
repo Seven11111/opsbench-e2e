@@ -14,5 +14,5 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-native=target_native()
-if int(native.get('pg_blocking_pids','0') or 0) < 1 or int(native.get('pg_locks','0') or 0) < 1: raise SystemExit('native PostgreSQL lock cycle was not observed')
+native=target_native(); blocked=compose_exec('target','PGPASSWORD=opsbench-local-only psql -v ON_ERROR_STOP=1 -h db -U opsbench -d app -At -c \\"SET lock_timeout=\'800ms\'; UPDATE orders SET value=value WHERE id=1;\\"')
+if int(native.get('pg_blocking_pids','0') or 0) < 1 or int(native.get('pg_locks','0') or 0) < 1 or blocked.returncode == 0: raise SystemExit('native PostgreSQL lock cycle was not observed on the business row')

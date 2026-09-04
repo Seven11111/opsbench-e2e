@@ -15,4 +15,6 @@ def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
 native=target_native()
-if float(native.get('pg_wal_lsn_diff','0') or 0) <= 100000: raise SystemExit('native PostgreSQL retained WAL was not observed')
+try: retained=float(native.get('pg_wal_lsn_diff','0') or 0)
+except (TypeError,ValueError): raise SystemExit('native WAL distance is not numeric')
+if retained <= 100000 or not native.get('pg_create_physical_replication_slot'): raise SystemExit('native PostgreSQL retained WAL was not observed')

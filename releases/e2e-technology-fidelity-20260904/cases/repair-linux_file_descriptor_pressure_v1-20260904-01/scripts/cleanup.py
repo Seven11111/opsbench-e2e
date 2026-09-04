@@ -14,4 +14,5 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-(runtime/'strict-config.json').write_text('{"pressure": false}\n'); reload_target(); close='close'; native=target_native()
+(runtime/'strict-config.json').write_text('{"pressure": false}\n'); reload_target(); time.sleep(1); native=target_native()
+if int(native.get('fd_headroom',0)) <= 0: raise SystemExit('FD handles were not released')

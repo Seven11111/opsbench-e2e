@@ -51,8 +51,8 @@ technology_fidelity:
     - child_processes
     - process creation
     recovery:
-    - waitpid
-    - terminate
+    - child_processes
+    - process_creation
     - pids.current
     - business
   native_probes:
@@ -67,8 +67,8 @@ technology_fidelity:
     - child_processes
     - process creation
     recovery:
-    - waitpid
-    - terminate
+    - child_processes
+    - process_creation
     - pids.current
     - business
   verifier_markers:

@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-reload_target(); time.sleep(1); p=runtime/'tls/server.fullchain.crt'; p.write_text(''.join(reversed(p.read_text().split('-----END CERTIFICATE-----')[:-1]))+'-----END CERTIFICATE-----\n') if p.exists() else None; openssl_verify=subprocess.run(['sh','-lc',f'openssl verify -CAfile {runtime}/tls/root.crt {p}'],capture_output=True,text=True,check=False); subject='subject'
+p=runtime/'tls/server.fullchain.crt'; certificates=p.read_text().split('-----END CERTIFICATE-----'); certificates=[item+'-----END CERTIFICATE-----\n' for item in certificates if 'BEGIN CERTIFICATE' in item]; p.write_text(''.join(reversed(certificates))); openssl_verify=subprocess.run(['sh','-lc',f'openssl verify -CAfile {runtime}/tls/root.crt {p}'],capture_output=True,text=True,check=False); identity=subprocess.run(['openssl','x509','-in',str(runtime/'tls/api.crt'),'-noout','-issuer','-subject'],capture_output=True,text=True,check=False); issuer=identity.stdout; subject=identity.stdout; reload_target(); time.sleep(1)

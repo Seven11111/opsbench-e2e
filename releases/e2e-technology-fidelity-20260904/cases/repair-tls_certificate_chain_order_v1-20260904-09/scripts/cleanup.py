@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-reload_target()
+good=runtime/'tls/api.fullchain.crt'; (runtime/'tls/server.fullchain.crt').write_text(good.read_text()); reload_target(); time.sleep(1)

@@ -14,5 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-compose_exec('target','psql -h db -U opsbench -d app -c \\"SELECT pg_create_physical_replication_slot(\'opsbench_hold\', true); SELECT slot_name,restart_lsn FROM pg_replication_slots WHERE slot_name LIKE \'opsbench_%\'; INSERT INTO wal_probe(payload) SELECT repeat(\'x\',8192) FROM generate_series(1,5000); SELECT pg_switch_wal(); CHECKPOINT;\\"')
-pg_replication_slots='pg_replication_slots'
+compose_exec('target','psql -h db -U opsbench -d app -c \\"SELECT pg_create_physical_replication_slot(\'opsbench_hold\', true); SELECT slot_name,restart_lsn,pg_current_wal_lsn(),pg_wal_lsn_diff(pg_current_wal_lsn(),restart_lsn) FROM pg_replication_slots WHERE slot_name LIKE \'opsbench_%\'; INSERT INTO wal_probe(payload) SELECT repeat(\'x\',8192) FROM generate_series(1,5000); SELECT pg_switch_wal(); CHECKPOINT;\\"'); time.sleep(2)

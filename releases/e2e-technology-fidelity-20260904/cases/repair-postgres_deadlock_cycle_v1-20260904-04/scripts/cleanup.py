@@ -14,4 +14,4 @@ def compose_exec(service, command):
 def public_probe():
     with urllib.request.urlopen('http://127.0.0.1:8080/business',timeout=10) as response:
         return response.status
-compose_exec('target','psql -h db -U opsbench -d app -c \"SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename=\'opsbench\' AND pid <> pg_backend_pid();\"')
+compose_exec('target','psql -h db -U opsbench -d app -c \\"SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename=\\\'opsbench\\\' AND pid <> pg_backend_pid();\\"'); time.sleep(1)
