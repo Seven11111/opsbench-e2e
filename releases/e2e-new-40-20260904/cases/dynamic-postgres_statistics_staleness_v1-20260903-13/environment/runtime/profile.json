@@ -1,0 +1,16 @@
+{
+  "domain": "database",
+  "fault_type": "statistics_staleness",
+  "technology": [
+    "PostgreSQL",
+    "planner",
+    "ANALYZE"
+  ],
+  "mechanism": "stale_relation_statistics",
+  "resource": "database",
+  "signal": "statistics_freshness",
+  "observability": "statistics freshness and query plan quality",
+  "repair": "statistics_refresh_policy",
+  "healthy_value": 1,
+  "fault_value": 0
+}

@@ -1,0 +1,20 @@
+{
+  "template_id": "kafka_offset_commit_failure_v1",
+  "primitive_id": "kafka_offset_commit_failure_v1",
+  "capability_profile": {
+    "domain": "messaging",
+    "fault_type": "offset_commit_failure",
+    "technology": [
+      "Kafka",
+      "Consumer"
+    ],
+    "mechanism": "consumer_offset_commit_contract",
+    "resource": "messaging",
+    "signal": "commit_success_rate",
+    "observability": "consumer offsets, commit responses and lag",
+    "repair": "offset_commit_policy",
+    "healthy_value": 100,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

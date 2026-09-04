@@ -1,0 +1,16 @@
+{
+  "domain": "database",
+  "fault_type": "checkpoint_write_pressure",
+  "technology": [
+    "PostgreSQL",
+    "WAL",
+    "checkpoints"
+  ],
+  "mechanism": "checkpoint_write_amplification",
+  "resource": "database",
+  "signal": "checkpoint_write_pressure",
+  "observability": "checkpoint timing and WAL write pressure",
+  "repair": "checkpoint_policy",
+  "healthy_value": 0,
+  "fault_value": 14
+}

@@ -1,0 +1,21 @@
+{
+  "template_id": "rabbitmq_queue_ttl_mismatch_v1",
+  "primitive_id": "rabbitmq_queue_ttl_mismatch_v1",
+  "capability_profile": {
+    "domain": "messaging",
+    "fault_type": "queue_ttl_mismatch",
+    "technology": [
+      "RabbitMQ",
+      "AMQP",
+      "TTL"
+    ],
+    "mechanism": "queue_message_ttl_contract",
+    "resource": "messaging",
+    "signal": "expired_message_rate",
+    "observability": "queue TTL and message expiry behavior",
+    "repair": "queue_ttl_policy",
+    "healthy_value": 0,
+    "fault_value": 13
+  },
+  "control_expectations": {}
+}

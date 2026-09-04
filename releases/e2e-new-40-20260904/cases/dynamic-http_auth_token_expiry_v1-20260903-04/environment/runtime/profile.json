@@ -1,0 +1,16 @@
+{
+  "domain": "http",
+  "fault_type": "auth_token_expiry",
+  "technology": [
+    "HTTP",
+    "OAuth",
+    "Bearer"
+  ],
+  "mechanism": "bearer_token_expiration_window",
+  "resource": "security",
+  "signal": "token_validity",
+  "observability": "authorization response and token validity window",
+  "repair": "token_rotation_policy",
+  "healthy_value": 1,
+  "fault_value": 0
+}

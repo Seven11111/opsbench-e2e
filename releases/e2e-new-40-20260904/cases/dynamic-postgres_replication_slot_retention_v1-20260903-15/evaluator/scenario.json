@@ -1,0 +1,21 @@
+{
+  "template_id": "postgres_replication_slot_retention_v1",
+  "primitive_id": "postgres_replication_slot_retention_v1",
+  "capability_profile": {
+    "domain": "database",
+    "fault_type": "replication_slot_retention",
+    "technology": [
+      "PostgreSQL",
+      "WAL",
+      "Replication"
+    ],
+    "mechanism": "inactive_replication_slot_wal_retention",
+    "resource": "database",
+    "signal": "slot_wal_retention",
+    "observability": "replication slot activity and retained WAL",
+    "repair": "replication_slot_policy",
+    "healthy_value": 0,
+    "fault_value": 1048576
+  },
+  "control_expectations": {}
+}

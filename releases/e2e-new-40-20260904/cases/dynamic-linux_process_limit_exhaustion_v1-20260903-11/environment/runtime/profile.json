@@ -1,0 +1,16 @@
+{
+  "domain": "linux",
+  "fault_type": "process_limit_exhaustion",
+  "technology": [
+    "Linux",
+    "procfs",
+    "process limits"
+  ],
+  "mechanism": "pid_namespace_process_budget",
+  "resource": "process",
+  "signal": "process_limit_headroom",
+  "observability": "process budget and process creation result",
+  "repair": "process_limit_policy",
+  "healthy_value": 100,
+  "fault_value": 2
+}

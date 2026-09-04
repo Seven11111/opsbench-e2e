@@ -1,0 +1,20 @@
+{
+  "template_id": "http_cache_stale_response_v1",
+  "primitive_id": "http_cache_stale_response_v1",
+  "capability_profile": {
+    "domain": "http",
+    "fault_type": "cache_stale_response",
+    "technology": [
+      "HTTP",
+      "Caching"
+    ],
+    "mechanism": "cache_freshness_revalidation_contract",
+    "resource": "network",
+    "signal": "cache_freshness",
+    "observability": "Age/cache status and representation freshness",
+    "repair": "cache_revalidation_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

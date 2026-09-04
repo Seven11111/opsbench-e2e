@@ -1,0 +1,21 @@
+{
+  "template_id": "tls_alpn_negotiation_gap_v1",
+  "primitive_id": "tls_alpn_negotiation_gap_v1",
+  "capability_profile": {
+    "domain": "tls",
+    "fault_type": "alpn_negotiation_gap",
+    "technology": [
+      "TLS",
+      "ALPN",
+      "HTTP/2"
+    ],
+    "mechanism": "application_protocol_overlap",
+    "resource": "security",
+    "signal": "alpn_overlap",
+    "observability": "negotiated application protocol and handshake result",
+    "repair": "alpn_protocol_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

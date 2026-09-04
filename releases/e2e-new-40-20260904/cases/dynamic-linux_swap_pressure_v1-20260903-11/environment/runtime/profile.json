@@ -1,0 +1,16 @@
+{
+  "domain": "linux",
+  "fault_type": "swap_pressure",
+  "technology": [
+    "Linux",
+    "procfs",
+    "swap"
+  ],
+  "mechanism": "swap_reclaim_pressure",
+  "resource": "memory",
+  "signal": "swap_headroom",
+  "observability": "MemAvailable, swap activity and reclaim pressure",
+  "repair": "memory_pressure_policy",
+  "healthy_value": 100,
+  "fault_value": 4
+}

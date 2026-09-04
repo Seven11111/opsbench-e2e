@@ -1,0 +1,21 @@
+{
+  "template_id": "linux_load_average_runqueue_v1",
+  "primitive_id": "linux_load_average_runqueue_v1",
+  "capability_profile": {
+    "domain": "linux",
+    "fault_type": "load_average_runqueue",
+    "technology": [
+      "Linux",
+      "procfs",
+      "scheduler"
+    ],
+    "mechanism": "runqueue_load_average_pressure",
+    "resource": "cpu",
+    "signal": "runqueue_load",
+    "observability": "load average and runnable-task pressure",
+    "repair": "scheduler_load_policy",
+    "healthy_value": 1,
+    "fault_value": 19
+  },
+  "control_expectations": {}
+}

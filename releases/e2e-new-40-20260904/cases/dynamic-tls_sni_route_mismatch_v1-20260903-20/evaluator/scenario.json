@@ -1,0 +1,21 @@
+{
+  "template_id": "tls_sni_route_mismatch_v1",
+  "primitive_id": "tls_sni_route_mismatch_v1",
+  "capability_profile": {
+    "domain": "tls",
+    "fault_type": "sni_route_mismatch",
+    "technology": [
+      "TLS",
+      "SNI",
+      "OpenSSL"
+    ],
+    "mechanism": "server_name_route_selection",
+    "resource": "security",
+    "signal": "sni_route_match",
+    "observability": "TLS server-name selection and certificate identity",
+    "repair": "sni_routing_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

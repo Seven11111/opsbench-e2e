@@ -1,0 +1,15 @@
+{
+  "domain": "network",
+  "fault_type": "routing_blackhole",
+  "technology": [
+    "Linux",
+    "iproute2"
+  ],
+  "mechanism": "blackhole_route_selection",
+  "resource": "network",
+  "signal": "route_reachability",
+  "observability": "route table selection and destination reachability",
+  "repair": "route_table_policy",
+  "healthy_value": 1,
+  "fault_value": 0
+}

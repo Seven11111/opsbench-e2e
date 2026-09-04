@@ -1,0 +1,16 @@
+{
+  "domain": "http",
+  "fault_type": "compression_cpu_contention",
+  "technology": [
+    "HTTP",
+    "Nginx",
+    "gzip"
+  ],
+  "mechanism": "response_compression_cpu_budget",
+  "resource": "cpu",
+  "signal": "compression_cpu_pressure",
+  "observability": "compression setting and request CPU pressure",
+  "repair": "compression_policy",
+  "healthy_value": 0,
+  "fault_value": 16
+}

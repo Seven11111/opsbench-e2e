@@ -1,0 +1,21 @@
+{
+  "template_id": "postgres_query_cancel_storm_v1",
+  "primitive_id": "postgres_query_cancel_storm_v1",
+  "capability_profile": {
+    "domain": "database",
+    "fault_type": "query_cancel_storm",
+    "technology": [
+      "PostgreSQL",
+      "SQL",
+      "Protocol"
+    ],
+    "mechanism": "repeated_statement_cancel_requests",
+    "resource": "database",
+    "signal": "cancel_rate",
+    "observability": "statement cancellation rate and transaction completion",
+    "repair": "query_timeout_policy",
+    "healthy_value": 0,
+    "fault_value": 12
+  },
+  "control_expectations": {}
+}

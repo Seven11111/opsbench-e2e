@@ -1,0 +1,1251 @@
+{
+  "checkpoint_version": "opsbench-e2e-generation-checkpoint-v2",
+  "run_id": "new-20-scenario-families-20260903",
+  "worker_config": {
+    "generation_workers": 4,
+    "llm_inflight": 4
+  },
+  "jobs": {
+    "container_user_identity_mismatch_v1": {
+      "job_id": "container_user_identity_mismatch_v1",
+      "primitive_id": "container_user_identity_mismatch_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-container_user_identity_mismatch_v1-20260903-03",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-container_user_identity_mismatch_v1-20260903-03",
+      "case_digest": "3d772d5e982527122aeea7db0a4b4fc78feff47ac2fdc7f1b88a7d633ffcddf9",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Application access errors on mounted volumes",
+        "observable_symptoms": [
+          "Application returns 'Permission denied' when accessing mounted directories",
+          "Container process runs as root instead of expected non-root user"
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "effective uid returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 18,
+        "sentence_count": 1,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 4
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "container_user_identity_mismatch_v1",
+        "mechanism": "container_effective_uid_mismatch",
+        "signal": "effective_uid",
+        "public_task": {
+          "title": "Application access errors on mounted volumes",
+          "observable_symptoms": [
+            "Application returns 'Permission denied' when accessing mounted directories",
+            "Container process runs as root instead of expected non-root user"
+          ],
+          "objective": "Ensure application runs with its designated user ID",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The effective uid reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Application returns 'Permission denied' when accessing mounted directories Container process runs as root instead of expected non-root user",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-0b6a231310fc00f1700f",
+      "model": "deepseek-v4-flash"
+    },
+    "container_dns_alias_drift_v1": {
+      "job_id": "container_dns_alias_drift_v1",
+      "primitive_id": "container_dns_alias_drift_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-container_dns_alias_drift_v1-20260903-01",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-container_dns_alias_drift_v1-20260903-01",
+      "case_digest": "76c67e3cffb58d87ec055271b2953ce9bc225e5a41fdca2cfd40ebecb5ca56cb",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Service alias resolution returning outdated IP addresses",
+        "observable_symptoms": [
+          "Service A cannot reach Service B by its docker-compose alias, receiving 'connection refused' errors.",
+          "DNS resolution within the compose network returns an IP address that no longer corresponds to a running container."
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200 when calling Service B alias.",
+          "Service alias resolution returns to a healthy baseline (resolves to a reachable IP).",
+          "Repaired behavior survives a container restart without recurrence."
+        ],
+        "english_word_count": 32,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "container_dns_alias_drift_v1",
+        "mechanism": "compose_service_alias_resolution",
+        "signal": "service_alias_resolution",
+        "public_task": {
+          "title": "Service alias resolution returning outdated IP addresses",
+          "observable_symptoms": [
+            "Service A cannot reach Service B by its docker-compose alias, receiving 'connection refused' errors.",
+            "DNS resolution within the compose network returns an IP address that no longer corresponds to a running container."
+          ],
+          "objective": "Restore alias resolution to reflect current container IPs so that cross-service communication works reliably.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The service alias resolution reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Service A cannot reach Service B by its docker-compose alias, receiving 'connection refused' errors. DNS resolution within the compose network returns an IP address that no longer corresponds to a running container.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-883e37fb73ad57b1c3de",
+      "model": "deepseek-v4-flash"
+    },
+    "container_log_driver_backpressure_v1": {
+      "job_id": "container_log_driver_backpressure_v1",
+      "primitive_id": "container_log_driver_backpressure_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-container_log_driver_backpressure_v1-20260903-02",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-container_log_driver_backpressure_v1-20260903-02",
+      "case_digest": "562adbe48cf3a63962ba21da5fa6a89b7da4cb07f1a928c33b701f33a564b705",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Elevated log delivery lag",
+        "observable_symptoms": [
+          "Log delivery lag is consistently above 10 seconds.",
+          "Container logs are delayed or missing."
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200.",
+          "Log delivery lag returns to a healthy baseline.",
+          "Repaired behavior survives restart."
+        ],
+        "english_word_count": 14,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 4,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "container_log_driver_backpressure_v1",
+        "mechanism": "container_log_delivery_backpressure",
+        "signal": "log_delivery_lag",
+        "public_task": {
+          "title": "Elevated log delivery lag",
+          "observable_symptoms": [
+            "Log delivery lag is consistently above 10 seconds.",
+            "Container logs are delayed or missing."
+          ],
+          "objective": "Reduce log delivery lag to a healthy baseline under 2 seconds.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The log delivery lag reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Log delivery lag is consistently above 10 seconds. Container logs are delayed or missing.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-e0952a378085f9478697",
+      "model": "deepseek-v4-flash"
+    },
+    "http_auth_token_expiry_v1": {
+      "job_id": "http_auth_token_expiry_v1",
+      "primitive_id": "http_auth_token_expiry_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-http_auth_token_expiry_v1-20260903-04",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-http_auth_token_expiry_v1-20260903-04",
+      "case_digest": "73b232894a5cc173197377e0fab67beaabe2074bec112e665425400beb8640fc",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Protected API 401 errors",
+        "observable_symptoms": [
+          "Protected API endpoints return HTTP 401 Unauthorized",
+          "Token validity checks fail"
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200",
+          "Token validity returns to a healthy baseline",
+          "Repaired behavior survives restart"
+        ],
+        "english_word_count": 11,
+        "sentence_count": 1,
+        "issues": []
+      },
+      "judge": {
+        "instruction": "Act as the independent E2E Scenario Judge. Return JSON only.",
+        "task": {
+          "title": "Protected API 401 errors",
+          "observable_symptoms": [
+            "Protected API endpoints return HTTP 401 Unauthorized",
+            "Token validity checks fail"
+          ],
+          "objective": "Recover token validity to a healthy baseline",
+          "success_criteria": [
+            "Business operation returns HTTP 200",
+            "Token validity returns to a healthy baseline",
+            "Repaired behavior survives restart"
+          ]
+        },
+        "rubric": [
+          "task_compactness",
+          "observable_symptom_specificity",
+          "root_cause_hidden"
+        ],
+        "decision": "pass",
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        }
+      },
+      "scenario_spec": {
+        "scenario_family_id": "http_auth_token_expiry_v1",
+        "mechanism": "bearer_token_expiration_window",
+        "signal": "token_validity",
+        "public_task": {
+          "title": "Protected API 401 errors",
+          "observable_symptoms": [
+            "Protected API endpoints return HTTP 401 Unauthorized",
+            "Token validity checks fail"
+          ],
+          "objective": "Recover token validity to a healthy baseline",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The token validity reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Protected API endpoints return HTTP 401 Unauthorized Token validity checks fail",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-2dde442ce78fa42edca4",
+      "model": "deepseek-v4-flash"
+    },
+    "http_keepalive_exhaustion_v1": {
+      "job_id": "http_keepalive_exhaustion_v1",
+      "primitive_id": "http_keepalive_exhaustion_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-http_keepalive_exhaustion_v1-20260903-06",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-http_keepalive_exhaustion_v1-20260903-06",
+      "case_digest": "c95e7c4680e2c51579f379572ac9cc1360b3522fe183ae01709b85fa1146cc2e",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Keepalive connections returning HTTP 503 errors",
+        "observable_symptoms": [
+          "Nginx logs show keepalive connections returning HTTP 503 errors.",
+          "Server memory usage is elevated above the normal baseline."
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200",
+          "Keepalive requests return to a healthy baseline",
+          "Repaired behavior survives restart"
+        ],
+        "english_word_count": 18,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 4,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "http_keepalive_exhaustion_v1",
+        "mechanism": "keepalive_request_limit",
+        "signal": "keepalive_requests",
+        "public_task": {
+          "title": "Keepalive connections returning HTTP 503 errors",
+          "observable_symptoms": [
+            "Nginx logs show keepalive connections returning HTTP 503 errors.",
+            "Server memory usage is elevated above the normal baseline."
+          ],
+          "objective": "Restore keepalive request reliability to normal levels.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The keepalive requests reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Nginx logs show keepalive connections returning HTTP 503 errors. Server memory usage is elevated above the normal baseline.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-e88d3d8bf705161b1254",
+      "model": "deepseek-v4-flash"
+    },
+    "http_cache_stale_response_v1": {
+      "job_id": "http_cache_stale_response_v1",
+      "primitive_id": "http_cache_stale_response_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-http_cache_stale_response_v1-20260903-05",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-http_cache_stale_response_v1-20260903-05",
+      "case_digest": "de50a6af567db2b84d9f0baebfdf6a05f2955c98c3a2c2ddf6a224312aeb9957",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Stale content returned in HTTP responses",
+        "observable_symptoms": [
+          "HTTP 200 responses return stale data that does not match latest server state",
+          "Cache freshness score falls below 90%"
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200",
+          "Cache freshness returns to a healthy baseline",
+          "Repaired behavior survives restart"
+        ],
+        "english_word_count": 19,
+        "sentence_count": 1,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "http_cache_stale_response_v1",
+        "mechanism": "cache_freshness_revalidation_contract",
+        "signal": "cache_freshness",
+        "public_task": {
+          "title": "Stale content returned in HTTP responses",
+          "observable_symptoms": [
+            "HTTP 200 responses return stale data that does not match latest server state",
+            "Cache freshness score falls below 90%"
+          ],
+          "objective": "Restore cache freshness to a healthy baseline",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The cache freshness reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "HTTP 200 responses return stale data that does not match latest server state Cache freshness score falls below 90%",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-dd5085735cfe9261819a",
+      "model": "deepseek-v4-flash"
+    },
+    "kafka_offset_commit_failure_v1": {
+      "job_id": "kafka_offset_commit_failure_v1",
+      "primitive_id": "kafka_offset_commit_failure_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-kafka_offset_commit_failure_v1-20260903-08",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-kafka_offset_commit_failure_v1-20260903-08",
+      "case_digest": "194543c167c8fa4b122010a0227fb95bef78e831f0ba14d8ac2119d3c17fff49",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Consumer commit success rate degraded",
+        "observable_symptoms": [
+          "Commit success rate dropped below 50% over the last 5 minutes.",
+          "Offset commit requests are failing with ExceededThreshold error."
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200",
+          "Commit success rate returns to a healthy baseline",
+          "Repaired behavior survives restart"
+        ],
+        "english_word_count": 19,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "kafka_offset_commit_failure_v1",
+        "mechanism": "consumer_offset_commit_contract",
+        "signal": "commit_success_rate",
+        "public_task": {
+          "title": "Consumer commit success rate degraded",
+          "observable_symptoms": [
+            "Commit success rate dropped below 50% over the last 5 minutes.",
+            "Offset commit requests are failing with ExceededThreshold error."
+          ],
+          "objective": "Restore consumer commit success rate to healthy baseline.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The commit success rate reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Commit success rate dropped below 50% over the last 5 minutes. Offset commit requests are failing with ExceededThreshold error.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-7c48a053714c5aaa022d",
+      "model": "deepseek-v4-flash"
+    },
+    "http_request_body_limit_v1": {
+      "job_id": "http_request_body_limit_v1",
+      "primitive_id": "http_request_body_limit_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-http_request_body_limit_v1-20260903-07",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-http_request_body_limit_v1-20260903-07",
+      "case_digest": "aa80fe730903c0c4a0c22b916aba552b8908c3402618865eeaa435c29a5aac9f",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Elevated HTTP 413 response rate",
+        "observable_symptoms": [
+          "Nginx returns 413 errors for POST requests with payloads under the expected limit.",
+          "Body limit rejection count is above the normal baseline."
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200.",
+          "Body limit rejections returns to a healthy baseline.",
+          "Repaired behavior survives restart."
+        ],
+        "english_word_count": 22,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "http_request_body_limit_v1",
+        "mechanism": "request_body_size_limit_contract",
+        "signal": "body_limit_rejections",
+        "public_task": {
+          "title": "Elevated HTTP 413 response rate",
+          "observable_symptoms": [
+            "Nginx returns 413 errors for POST requests with payloads under the expected limit.",
+            "Body limit rejection count is above the normal baseline."
+          ],
+          "objective": "Restore baseline acceptance of client requests without body size rejections.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The body limit rejections reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Nginx returns 413 errors for POST requests with payloads under the expected limit. Body limit rejection count is above the normal baseline.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-9680a802c48406c745e0",
+      "model": "deepseek-v4-flash"
+    },
+    "linux_swap_pressure_v1": {
+      "job_id": "linux_swap_pressure_v1",
+      "primitive_id": "linux_swap_pressure_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-linux_swap_pressure_v1-20260903-11",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-linux_swap_pressure_v1-20260903-11",
+      "case_digest": "bcffa9033e297b848653aae96ef084d267055832dad49ec31688cc02b4bca671",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Swap headroom critically low",
+        "observable_symptoms": [
+          "Swap free space is less than 10% of total swap.",
+          "System response time degrades."
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "swap headroom returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 14,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "linux_swap_pressure_v1",
+        "mechanism": "swap_reclaim_pressure",
+        "signal": "swap_headroom",
+        "public_task": {
+          "title": "Swap headroom critically low",
+          "observable_symptoms": [
+            "Swap free space is less than 10% of total swap.",
+            "System response time degrades."
+          ],
+          "objective": "Restore swap headroom to a healthy level",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The swap headroom reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Swap free space is less than 10% of total swap. System response time degrades.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-5edab1b4bbe524204d04",
+      "model": "deepseek-v4-flash"
+    },
+    "linux_mtu_mismatch_v1": {
+      "job_id": "linux_mtu_mismatch_v1",
+      "primitive_id": "linux_mtu_mismatch_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-linux_mtu_mismatch_v1-20260903-09",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-linux_mtu_mismatch_v1-20260903-09",
+      "case_digest": "ea686d780c562e45f10b2f05e3a3745fca26e73ed2d65a98c6610967c6fda136",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Path MTU probe failures",
+        "observable_symptoms": [
+          "Path MTU probe packets are not receiving responses, causing fragmentation avoidance to fail.",
+          "Connections to certain remote hosts experience intermittent timeouts."
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "path mtu probe returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 21,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "linux_mtu_mismatch_v1",
+        "mechanism": "path_mtu_contract_mismatch",
+        "signal": "path_mtu_probe",
+        "public_task": {
+          "title": "Path MTU probe failures",
+          "observable_symptoms": [
+            "Path MTU probe packets are not receiving responses, causing fragmentation avoidance to fail.",
+            "Connections to certain remote hosts experience intermittent timeouts."
+          ],
+          "objective": "Restore consistent path MTU discovery.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The path mtu probe reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Path MTU probe packets are not receiving responses, causing fragmentation avoidance to fail. Connections to certain remote hosts experience intermittent timeouts.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-79cf7955973e1f0b88ac",
+      "model": "deepseek-v4-flash"
+    },
+    "linux_tcp_retransmission_pressure_v1": {
+      "job_id": "linux_tcp_retransmission_pressure_v1",
+      "primitive_id": "linux_tcp_retransmission_pressure_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-linux_tcp_retransmission_pressure_v1-20260903-12",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-linux_tcp_retransmission_pressure_v1-20260903-12",
+      "case_digest": "046621002a6ff48eaf75e7276c1585ceca2067d2b8767f0a902b7f132b1e6df5",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Elevated TCP retransmission rate",
+        "observable_symptoms": [
+          "Retransmission rate on TCP connections is above 5%",
+          "Connection latency increases due to packet loss"
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "retransmission rate returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 15,
+        "sentence_count": 1,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 4,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "linux_tcp_retransmission_pressure_v1",
+        "mechanism": "tcp_retransmission_queue_pressure",
+        "signal": "retransmission_rate",
+        "public_task": {
+          "title": "Elevated TCP retransmission rate",
+          "observable_symptoms": [
+            "Retransmission rate on TCP connections is above 5%",
+            "Connection latency increases due to packet loss"
+          ],
+          "objective": "Restore retransmission rate to below 1%",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The retransmission rate reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Retransmission rate on TCP connections is above 5% Connection latency increases due to packet loss",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-0b12d7270e534e2da1f1",
+      "model": "deepseek-v4-flash"
+    },
+    "postgres_deadlock_cycle_v1": {
+      "job_id": "postgres_deadlock_cycle_v1",
+      "primitive_id": "postgres_deadlock_cycle_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-postgres_deadlock_cycle_v1-20260903-13",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-postgres_deadlock_cycle_v1-20260903-13",
+      "case_digest": "8547efbe893455f8126c90bcfd3b2f0384d54c1b0f97304d56cf7c6ab0d30a02",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Elevated deadlock waiters",
+        "observable_symptoms": [
+          "Deadlock waiters count consistently exceeds threshold.",
+          "Business operations return HTTP 503 errors."
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200",
+          "Deadlock waiters count returns to healthy baseline",
+          "Repaired behavior survives restart"
+        ],
+        "english_word_count": 12,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "postgres_deadlock_cycle_v1",
+        "mechanism": "cyclic_transaction_lock_wait",
+        "signal": "deadlock_waiters",
+        "public_task": {
+          "title": "Elevated deadlock waiters",
+          "observable_symptoms": [
+            "Deadlock waiters count consistently exceeds threshold.",
+            "Business operations return HTTP 503 errors."
+          ],
+          "objective": "Reduce deadlock waiters to healthy baseline.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The deadlock waiters reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Deadlock waiters count consistently exceeds threshold. Business operations return HTTP 503 errors.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-295ed272c04749d4bac8",
+      "model": "deepseek-v4-flash"
+    },
+    "postgres_query_cancel_storm_v1": {
+      "job_id": "postgres_query_cancel_storm_v1",
+      "primitive_id": "postgres_query_cancel_storm_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-postgres_query_cancel_storm_v1-20260903-14",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-postgres_query_cancel_storm_v1-20260903-14",
+      "case_digest": "b06b59a737ad630018b5041700ae1c55d2cbda93328d70302579ffceed9b4fd6",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Elevated Cancel Rate and Frequent PortalSuspended Messages",
+        "observable_symptoms": [
+          "Cancel rate is significantly above baseline",
+          "PortalSuspended messages are observed at an elevated frequency"
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200",
+          "Cancel rate returns to a healthy baseline",
+          "Repaired behavior survives restart"
+        ],
+        "english_word_count": 14,
+        "sentence_count": 1,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 4,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "postgres_query_cancel_storm_v1",
+        "mechanism": "repeated_statement_cancel_requests",
+        "signal": "cancel_rate",
+        "public_task": {
+          "title": "Elevated Cancel Rate and Frequent PortalSuspended Messages",
+          "observable_symptoms": [
+            "Cancel rate is significantly above baseline",
+            "PortalSuspended messages are observed at an elevated frequency"
+          ],
+          "objective": "Restore cancel rate to healthy baseline and normalize portal message flow",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The cancel rate reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Cancel rate is significantly above baseline PortalSuspended messages are observed at an elevated frequency",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-82b4cf19d65c841d42ff",
+      "model": "deepseek-v4-flash"
+    },
+    "linux_routing_blackhole_v1": {
+      "job_id": "linux_routing_blackhole_v1",
+      "primitive_id": "linux_routing_blackhole_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-linux_routing_blackhole_v1-20260903-10",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-linux_routing_blackhole_v1-20260903-10",
+      "case_digest": "a9b5e62c58fcb8e0d4671a9a5667e3fb035e3b40f0e0673f9ceef6ba78420f6f",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Route to 2001:db8:1::/64 unreachable",
+        "observable_symptoms": [
+          "Traffic to 2001:db8:1::/64 is not reaching the destination.",
+          "Ping to that subnet fails."
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "route reachability returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 16,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 4,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "linux_routing_blackhole_v1",
+        "mechanism": "blackhole_route_selection",
+        "signal": "route_reachability",
+        "public_task": {
+          "title": "Route to 2001:db8:1::/64 unreachable",
+          "observable_symptoms": [
+            "Traffic to 2001:db8:1::/64 is not reaching the destination.",
+            "Ping to that subnet fails."
+          ],
+          "objective": "Restore IPv6 route reachability to 2001:db8:1::/64.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The route reachability reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Traffic to 2001:db8:1::/64 is not reaching the destination. Ping to that subnet fails.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-71068ddb7abac791a718",
+      "model": "deepseek-v4-flash"
+    },
+    "rabbitmq_consumer_ack_timeout_v1": {
+      "job_id": "rabbitmq_consumer_ack_timeout_v1",
+      "primitive_id": "rabbitmq_consumer_ack_timeout_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-rabbitmq_consumer_ack_timeout_v1-20260903-17",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-rabbitmq_consumer_ack_timeout_v1-20260903-17",
+      "case_digest": "274b80c1068503b46fd51ae726db54135675d41544b35f9c81c3a75d90f44efe",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Ack timeout count spike",
+        "observable_symptoms": [
+          "Ack timeout count is above threshold.",
+          "Consumer logs show repeated delivery failures."
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "ack timeout count returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 12,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 4,
+          "observable_symptom_specificity": 4,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "rabbitmq_consumer_ack_timeout_v1",
+        "mechanism": "consumer_acknowledgement_timeout",
+        "signal": "ack_timeout_count",
+        "public_task": {
+          "title": "Ack timeout count spike",
+          "observable_symptoms": [
+            "Ack timeout count is above threshold.",
+            "Consumer logs show repeated delivery failures."
+          ],
+          "objective": "Restore normal ack timeout count and ensure business operation responds successfully.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The ack timeout count reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Ack timeout count is above threshold. Consumer logs show repeated delivery failures.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-f77f9511d24d5f0a51e3",
+      "model": "deepseek-v4-flash"
+    },
+    "prometheus_remote_write_backpressure_v1": {
+      "job_id": "prometheus_remote_write_backpressure_v1",
+      "primitive_id": "prometheus_remote_write_backpressure_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-prometheus_remote_write_backpressure_v1-20260903-16",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-prometheus_remote_write_backpressure_v1-20260903-16",
+      "case_digest": "14cf801de286db88f387074396b00024f47a04cbe990032f2a1a755af75040fa",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Remote write pending queue growing",
+        "observable_symptoms": [
+          "Remote write pending queue length is increasing and not decreasing.",
+          "WAL read progress is stalled."
+        ],
+        "success_criteria": [
+          "Prometheus remote write endpoint returns HTTP 200",
+          "Remote write pending queue returns to a healthy baseline",
+          "Behavior persists after Prometheus restart"
+        ],
+        "english_word_count": 15,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "prometheus_remote_write_backpressure_v1",
+        "mechanism": "remote_write_queue_backpressure",
+        "signal": "remote_write_pending",
+        "public_task": {
+          "title": "Remote write pending queue growing",
+          "observable_symptoms": [
+            "Remote write pending queue length is increasing and not decreasing.",
+            "WAL read progress is stalled."
+          ],
+          "objective": "Restore normal remote write throughput and clear pending queue.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The remote write pending reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Remote write pending queue length is increasing and not decreasing. WAL read progress is stalled.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-480737bd3f62871f5cb2",
+      "model": "deepseek-v4-flash"
+    },
+    "redis_hot_key_contention_v1": {
+      "job_id": "redis_hot_key_contention_v1",
+      "primitive_id": "redis_hot_key_contention_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-redis_hot_key_contention_v1-20260903-18",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-redis_hot_key_contention_v1-20260903-18",
+      "case_digest": "6b5e92bcc03d9f6015e21c8e73ef1077512345dec04ea30bc9852c681cccd118",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Cache hot key wait spike",
+        "observable_symptoms": [
+          "Hot key wait metric is 3x above baseline.",
+          "Cache get latency increase observed."
+        ],
+        "success_criteria": [
+          "Business operation returns HTTP 200.",
+          "Hot key wait returns to healthy baseline.",
+          "Repaired behavior survives restart."
+        ],
+        "english_word_count": 13,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 4,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "redis_hot_key_contention_v1",
+        "mechanism": "single_key_command_contention",
+        "signal": "hot_key_wait",
+        "public_task": {
+          "title": "Cache hot key wait spike",
+          "observable_symptoms": [
+            "Hot key wait metric is 3x above baseline.",
+            "Cache get latency increase observed."
+          ],
+          "objective": "Restore hot key wait to healthy baseline.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The hot key wait reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Hot key wait metric is 3x above baseline. Cache get latency increase observed.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-0d7e02c1db2748aecd1c",
+      "model": "deepseek-v4-flash"
+    },
+    "postgres_replication_slot_retention_v1": {
+      "job_id": "postgres_replication_slot_retention_v1",
+      "primitive_id": "postgres_replication_slot_retention_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-postgres_replication_slot_retention_v1-20260903-15",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-postgres_replication_slot_retention_v1-20260903-15",
+      "case_digest": "ffed8d11e646b8ddc27df6956afa90d291f7cd84dccc5fed18a62d1aa0340494",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "WAL accumulation on primary",
+        "observable_symptoms": [
+          "WAL segment count on the primary is continuously increasing, and the replication slot's confirmed_flush_lsn is not advancing."
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "slot wal retention returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 19,
+        "sentence_count": 1,
+        "issues": []
+      },
+      "judge": {
+        "decision": "pass",
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        }
+      },
+      "scenario_spec": {
+        "scenario_family_id": "postgres_replication_slot_retention_v1",
+        "mechanism": "inactive_replication_slot_wal_retention",
+        "signal": "slot_wal_retention",
+        "public_task": {
+          "title": "WAL accumulation on primary",
+          "observable_symptoms": [
+            "WAL segment count on the primary is continuously increasing, and the replication slot's confirmed_flush_lsn is not advancing."
+          ],
+          "objective": "Restore WAL retention to a healthy baseline and ensure replication resumes normally.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The slot wal retention reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "WAL segment count on the primary is continuously increasing, and the replication slot's confirmed_flush_lsn is not advancing.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-2fc0eca988f3f3ed7d9f",
+      "model": "deepseek-v4-flash"
+    },
+    "tls_sni_route_mismatch_v1": {
+      "job_id": "tls_sni_route_mismatch_v1",
+      "primitive_id": "tls_sni_route_mismatch_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-tls_sni_route_mismatch_v1-20260903-20",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-tls_sni_route_mismatch_v1-20260903-20",
+      "case_digest": "79fdf3757ea65a79004f813fe1e28d0fda57168f06defe45a1048c73b8fa0ec5",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "TLS handshake fails with hostname verification error",
+        "observable_symptoms": [
+          "Client application reports 'Hostname mismatch' error during TLS handshake.",
+          "SNI route match query returns empty result."
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "sni route match returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 16,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "tls_sni_route_mismatch_v1",
+        "mechanism": "server_name_route_selection",
+        "signal": "sni_route_match",
+        "public_task": {
+          "title": "TLS handshake fails with hostname verification error",
+          "observable_symptoms": [
+            "Client application reports 'Hostname mismatch' error during TLS handshake.",
+            "SNI route match query returns empty result."
+          ],
+          "objective": "Re-establish correct TLS certificate selection based on client SNI.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The sni route match reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "Client application reports 'Hostname mismatch' error during TLS handshake. SNI route match query returns empty result.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-99dee2bfaa71bd4b1c98",
+      "model": "deepseek-v4-flash"
+    },
+    "tls_alpn_negotiation_gap_v1": {
+      "job_id": "tls_alpn_negotiation_gap_v1",
+      "primitive_id": "tls_alpn_negotiation_gap_v1",
+      "status": "static_passed",
+      "candidate_id": "dynamic-tls_alpn_negotiation_gap_v1-20260903-19",
+      "case_path": ".tmp\\new-20-scenario-families-20260903\\cases\\dynamic-tls_alpn_negotiation_gap_v1-20260903-19",
+      "case_digest": "3b4823cce6b59fde6e18319a53018c0674a0daa062d82cc290f08973694664d8",
+      "task_quality": {
+        "profile": "opsbench_compact_v1",
+        "passed": true,
+        "title": "Decreased ALPN overlap rate",
+        "observable_symptoms": [
+          "ALPN overlap metric dropped below 90% in the last hour.",
+          "HTTP/2 connections are failing to negotiate protocol."
+        ],
+        "success_criteria": [
+          "business operation returns HTTP 200",
+          "alpn overlap returns to a healthy baseline",
+          "repaired behavior survives restart"
+        ],
+        "english_word_count": 18,
+        "sentence_count": 2,
+        "issues": []
+      },
+      "judge": {
+        "scores": {
+          "task_compactness": 5,
+          "observable_symptom_specificity": 5,
+          "root_cause_hidden": 5
+        },
+        "decision": "pass"
+      },
+      "scenario_spec": {
+        "scenario_family_id": "tls_alpn_negotiation_gap_v1",
+        "mechanism": "application_protocol_overlap",
+        "signal": "alpn_overlap",
+        "public_task": {
+          "title": "Decreased ALPN overlap rate",
+          "observable_symptoms": [
+            "ALPN overlap metric dropped below 90% in the last hour.",
+            "HTTP/2 connections are failing to negotiate protocol."
+          ],
+          "objective": "Restore ALPN overlap to healthy baseline.",
+          "success_criteria": [
+            "The declared business operation returns HTTP 200.",
+            "The alpn overlap reading returns to its healthy baseline.",
+            "The repaired behavior remains after a service restart."
+          ],
+          "task_quality_profile": "opsbench_compact_v1",
+          "symptom": "ALPN overlap metric dropped below 90% in the last hour. HTTP/2 connections are failing to negotiate protocol.",
+          "impact": "The declared business operation is degraded and requires evidence-guided recovery.",
+          "constraints": [
+            "Use only the public runtime tools.",
+            "Do not replace the service implementation."
+          ]
+        }
+      },
+      "renderer": "trusted",
+      "evidence_bundle_id": "eb-d6ae142ad88a1eda4e07",
+      "model": "deepseek-v4-flash"
+    }
+  },
+  "job_count": 20,
+  "completed_count": 20,
+  "static_passed_count": 20,
+  "complete": true
+}

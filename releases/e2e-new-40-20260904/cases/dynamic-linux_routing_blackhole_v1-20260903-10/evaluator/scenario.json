@@ -1,0 +1,20 @@
+{
+  "template_id": "linux_routing_blackhole_v1",
+  "primitive_id": "linux_routing_blackhole_v1",
+  "capability_profile": {
+    "domain": "network",
+    "fault_type": "routing_blackhole",
+    "technology": [
+      "Linux",
+      "iproute2"
+    ],
+    "mechanism": "blackhole_route_selection",
+    "resource": "network",
+    "signal": "route_reachability",
+    "observability": "route table selection and destination reachability",
+    "repair": "route_table_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

@@ -1,0 +1,21 @@
+{
+  "template_id": "tls_session_ticket_rotation_v1",
+  "primitive_id": "tls_session_ticket_rotation_v1",
+  "capability_profile": {
+    "domain": "tls",
+    "fault_type": "session_ticket_rotation",
+    "technology": [
+      "TLS",
+      "OpenSSL",
+      "session tickets"
+    ],
+    "mechanism": "tls_session_ticket_key_rotation",
+    "resource": "security",
+    "signal": "ticket_key_age",
+    "observability": "session-ticket key age and handshake behavior",
+    "repair": "session_ticket_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

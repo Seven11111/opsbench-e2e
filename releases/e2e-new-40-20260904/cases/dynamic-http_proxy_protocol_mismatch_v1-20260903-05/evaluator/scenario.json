@@ -1,0 +1,21 @@
+{
+  "template_id": "http_proxy_protocol_mismatch_v1",
+  "primitive_id": "http_proxy_protocol_mismatch_v1",
+  "capability_profile": {
+    "domain": "http",
+    "fault_type": "proxy_protocol_mismatch",
+    "technology": [
+      "HTTP",
+      "Nginx",
+      "PROXY protocol"
+    ],
+    "mechanism": "proxy_protocol_listener_contract",
+    "resource": "network",
+    "signal": "proxy_protocol_match",
+    "observability": "listener protocol negotiation and request completion",
+    "repair": "proxy_protocol_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

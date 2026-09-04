@@ -1,0 +1,16 @@
+{
+  "domain": "linux",
+  "fault_type": "systemd_restart_throttle",
+  "technology": [
+    "systemd",
+    "Linux",
+    "service manager"
+  ],
+  "mechanism": "unit_restart_rate_limit",
+  "resource": "service",
+  "signal": "restart_throttle_state",
+  "observability": "unit restart result and service availability",
+  "repair": "unit_restart_policy",
+  "healthy_value": 1,
+  "fault_value": 0
+}

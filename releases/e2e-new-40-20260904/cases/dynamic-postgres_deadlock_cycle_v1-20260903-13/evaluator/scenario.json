@@ -1,0 +1,21 @@
+{
+  "template_id": "postgres_deadlock_cycle_v1",
+  "primitive_id": "postgres_deadlock_cycle_v1",
+  "capability_profile": {
+    "domain": "database",
+    "fault_type": "deadlock_cycle",
+    "technology": [
+      "PostgreSQL",
+      "SQL",
+      "Locks"
+    ],
+    "mechanism": "cyclic_transaction_lock_wait",
+    "resource": "database",
+    "signal": "deadlock_waiters",
+    "observability": "lock waits, transaction graph and query completion",
+    "repair": "transaction_lock_policy",
+    "healthy_value": 0,
+    "fault_value": 3
+  },
+  "control_expectations": {}
+}

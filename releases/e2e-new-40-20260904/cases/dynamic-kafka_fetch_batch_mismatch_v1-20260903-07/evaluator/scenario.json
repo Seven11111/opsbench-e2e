@@ -1,0 +1,21 @@
+{
+  "template_id": "kafka_fetch_batch_mismatch_v1",
+  "primitive_id": "kafka_fetch_batch_mismatch_v1",
+  "capability_profile": {
+    "domain": "messaging",
+    "fault_type": "fetch_batch_mismatch",
+    "technology": [
+      "Kafka",
+      "Consumer",
+      "fetch"
+    ],
+    "mechanism": "consumer_fetch_batch_contract",
+    "resource": "messaging",
+    "signal": "fetch_batch_errors",
+    "observability": "consumer fetch responses and lag",
+    "repair": "fetch_batch_policy",
+    "healthy_value": 0,
+    "fault_value": 8
+  },
+  "control_expectations": {}
+}

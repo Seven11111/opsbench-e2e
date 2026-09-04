@@ -1,0 +1,15 @@
+{
+  "domain": "container_runtime",
+  "fault_type": "log_driver_backpressure",
+  "technology": [
+    "Docker",
+    "Logging"
+  ],
+  "mechanism": "container_log_delivery_backpressure",
+  "resource": "logging",
+  "signal": "log_delivery_lag",
+  "observability": "log delivery lag and application write latency",
+  "repair": "log_driver_policy",
+  "healthy_value": 0,
+  "fault_value": 22
+}

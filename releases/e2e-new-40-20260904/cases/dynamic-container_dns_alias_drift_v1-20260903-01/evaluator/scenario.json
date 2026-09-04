@@ -1,0 +1,21 @@
+{
+  "template_id": "container_dns_alias_drift_v1",
+  "primitive_id": "container_dns_alias_drift_v1",
+  "capability_profile": {
+    "domain": "container_runtime",
+    "fault_type": "dns_alias_drift",
+    "technology": [
+      "Docker",
+      "Compose",
+      "DNS"
+    ],
+    "mechanism": "compose_service_alias_resolution",
+    "resource": "network",
+    "signal": "service_alias_resolution",
+    "observability": "container DNS alias and provider reachability",
+    "repair": "compose_network_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

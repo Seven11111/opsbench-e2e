@@ -1,0 +1,15 @@
+{
+  "domain": "observability",
+  "fault_type": "remote_write_backpressure",
+  "technology": [
+    "Prometheus",
+    "Remote Write"
+  ],
+  "mechanism": "remote_write_queue_backpressure",
+  "resource": "observability",
+  "signal": "remote_write_pending",
+  "observability": "remote-write queue saturation and sample delivery",
+  "repair": "remote_write_queue_policy",
+  "healthy_value": 0,
+  "fault_value": 27
+}

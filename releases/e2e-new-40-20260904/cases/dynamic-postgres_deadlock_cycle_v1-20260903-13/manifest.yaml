@@ -1,0 +1,192 @@
+id: dynamic-postgres_deadlock_cycle_v1-20260903-13
+version: '1.0'
+family: e2e
+generation_mode: dynamic
+primary_task_label: fault_fix
+secondary_task_labels:
+- fault_detection
+- root_cause
+fault_type: deadlock_cycle
+domain: database
+technology_stack:
+- PostgreSQL
+- SQL
+- Locks
+template_id: postgres_deadlock_cycle_v1
+fault_primitive_id: postgres_deadlock_cycle_v1
+mechanism_id: cyclic_transaction_lock_wait
+tool_standard:
+  id: service-lifecycle-v1
+  version: '1'
+task_quality_profile: opsbench_compact_v1
+public_tool_policy: e2e-capability-name-v1
+runtime_status: experimental
+difficulty_profile: medium
+difficulty_assessment:
+  profile: medium
+  contract_id: postgres_deadlock_cycle_v1
+  source: v4_uncalibrated_default
+capability_profile:
+  capability_profile_id: cyclic_transaction_lock_wait
+  mechanism_id: cyclic_transaction_lock_wait
+  resource_class: database
+  observability_channels:
+  - lock waits, transaction graph and query completion
+  - deadlock_waiters
+  repair_surface: transaction_lock_policy
+  persistence_contract: The repaired state remains effective after service restart.
+environment:
+  compose_file: environment/docker-compose.yaml
+  target_service: target
+  agent_service: target
+  public_mounts:
+  - public/task.md
+  - public/tools.json
+agent:
+  protocol: opsbench-agent-v1
+  task: public/task.md
+  tools: public/tools.json
+  trace: trace
+  runtime_user: root
+  business_check:
+    url: http://127.0.0.1:8080/business
+public_actionability:
+  public_success_signals:
+  - The declared business operation returns HTTP 200.
+  - The deadlock waiters reading returns to its healthy baseline.
+  - The repaired behavior remains after a service restart.
+  version: e2e-task-tools-verifier-alignment-v1
+  required: true
+  verifier_policy: semantic_state_not_representation_artifact
+  required_tools: &id001
+  - service_list
+  - service_status
+  - signal_view
+  - business_probe
+  - service_manage
+  repair_operations:
+  - bounded_state_change
+  verifier_checks: &id002
+  - business_operation
+  - mechanism_signal_absent
+  - repair_invariant
+  - persistence
+  semantic_state:
+  - observable business operation
+  - observable mechanism signal absent
+  - observable repair invariant
+  - observable persistence
+  public_oracle: postgres_deadlock_cycle_v1
+  public_contract:
+    public_task_goal: Restore the declared business operation and preserve its service
+      contract.
+    observable_signals:
+    - The declared business operation returns HTTP 200.
+    - The deadlock waiters reading returns to its healthy baseline.
+    - The repaired behavior remains after a service restart.
+    available_tools: *id001
+    public_invariants:
+    - Use only the declared bounded tools.
+    - Preserve unrelated workload and service contract.
+    - Verify recovery after the declared lifecycle boundary.
+  control_expectations:
+    no_op:
+      expected: fail
+      reason: The injected fault remains active.
+    oracle:
+      expected: pass
+      reason: The registered safe repair restores the public contract.
+    wrong_fix:
+      expected: fail
+      reason: The symptom is not repaired while preserving the contract.
+    partial_fix:
+      expected: fail
+      reason: A critical recovery or persistence condition remains unsatisfied.
+    restart_only:
+      expected: fail
+      reason: Restart alone is not a durable repair unless the case explicitly declares
+        otherwise.
+  internal_contract:
+    allowed_repair_classes:
+    - bounded_state_change
+    verifier_checks: *id002
+    task_verifier_mapping:
+    - check_id: business_operation
+      public_signal: The declared business operation returns HTTP 200.
+    - check_id: mechanism_signal_absent
+      public_signal: The deadlock waiters reading returns to its healthy baseline.
+    - check_id: repair_invariant
+      public_signal: The repaired behavior remains after a service restart.
+    known_valid_solutions: []
+    known_invalid_solutions: []
+  semantic_alignment:
+    version: e2e-scenario-runtime-verifier-alignment-v1
+    policy: task_claims_must_be_rendered_and_semantically_verified
+    runtime_markers:
+    - profile.json
+    - fault.json
+    - status.json
+    - service.py
+    - /opsbench/control
+    injection_markers:
+    - mode
+    - injected
+    - check_injected
+    verifier_markers:
+    - mechanism_signal_absent
+    - repair_invariant
+    - persistence
+    task_signal_terms:
+    - service
+    - health
+lifecycle:
+- validate
+- provision
+- setup
+- baseline_check
+- inject
+- check_injected
+- run_agent
+- verify
+- cleanup
+timeouts:
+  provision_sec: 180
+  setup_sec: 90
+  agent_sec: 300
+  verify_sec: 90
+  cleanup_sec: 90
+source:
+  evidence_bundle_id: eb-295ed272c04749d4bac8
+  evidence_refs:
+  - ref: official-http-4b719885d4a9e8e48a96#postgres_deadlock_cycle_v1-root_cause-1
+    claim_type: root_cause
+  - ref: official-http-4b719885d4a9e8e48a96#postgres_deadlock_cycle_v1-repair-2
+    claim_type: repair
+  candidate_group_id: scenario-family-20260903-postgres_deadlock_cycle_v1
+  generation_strategy: dynamic_official_evidence
+  scenario_seed: 20260916
+  novelty_fingerprint: 94f6e1ee81cfcccfd093b29f90b1907600ae9153446818f0d19cd2b17c32ac35
+  scenario_spec:
+    scenario_family_id: postgres_deadlock_cycle_v1
+    mechanism: cyclic_transaction_lock_wait
+    signal: deadlock_waiters
+    public_task:
+      title: Elevated deadlock waiters
+      observable_symptoms:
+      - Deadlock waiters count consistently exceeds threshold.
+      - Business operations return HTTP 503 errors.
+      objective: Reduce deadlock waiters to healthy baseline.
+      success_criteria:
+      - The declared business operation returns HTTP 200.
+      - The deadlock waiters reading returns to its healthy baseline.
+      - The repaired behavior remains after a service restart.
+      task_quality_profile: opsbench_compact_v1
+      symptom: Deadlock waiters count consistently exceeds threshold. Business operations
+        return HTTP 503 errors.
+      impact: The declared business operation is degraded and requires evidence-guided
+        recovery.
+      constraints:
+      - Use only the public runtime tools.
+      - Do not replace the service implementation.
+  provenance_mode: fresh_official_retrieval
+  provenance_reused: false

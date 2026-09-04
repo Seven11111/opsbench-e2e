@@ -1,0 +1,15 @@
+{
+  "domain": "http",
+  "fault_type": "request_body_limit",
+  "technology": [
+    "HTTP",
+    "Nginx"
+  ],
+  "mechanism": "request_body_size_limit_contract",
+  "resource": "network",
+  "signal": "body_limit_rejections",
+  "observability": "HTTP status and request-body rejection count",
+  "repair": "request_size_policy",
+  "healthy_value": 0,
+  "fault_value": 9
+}

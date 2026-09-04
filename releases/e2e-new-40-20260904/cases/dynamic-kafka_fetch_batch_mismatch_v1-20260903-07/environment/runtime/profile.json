@@ -1,0 +1,16 @@
+{
+  "domain": "messaging",
+  "fault_type": "fetch_batch_mismatch",
+  "technology": [
+    "Kafka",
+    "Consumer",
+    "fetch"
+  ],
+  "mechanism": "consumer_fetch_batch_contract",
+  "resource": "messaging",
+  "signal": "fetch_batch_errors",
+  "observability": "consumer fetch responses and lag",
+  "repair": "fetch_batch_policy",
+  "healthy_value": 0,
+  "fault_value": 8
+}

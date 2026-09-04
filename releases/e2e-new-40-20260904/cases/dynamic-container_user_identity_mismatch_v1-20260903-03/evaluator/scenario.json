@@ -1,0 +1,21 @@
+{
+  "template_id": "container_user_identity_mismatch_v1",
+  "primitive_id": "container_user_identity_mismatch_v1",
+  "capability_profile": {
+    "domain": "container_runtime",
+    "fault_type": "user_identity_mismatch",
+    "technology": [
+      "Docker",
+      "Linux",
+      "USER"
+    ],
+    "mechanism": "container_effective_uid_mismatch",
+    "resource": "container",
+    "signal": "effective_uid",
+    "observability": "effective UID and file-operation result",
+    "repair": "container_user_policy",
+    "healthy_value": 10001,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

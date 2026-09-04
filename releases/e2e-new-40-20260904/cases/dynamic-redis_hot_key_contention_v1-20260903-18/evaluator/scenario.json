@@ -1,0 +1,20 @@
+{
+  "template_id": "redis_hot_key_contention_v1",
+  "primitive_id": "redis_hot_key_contention_v1",
+  "capability_profile": {
+    "domain": "cache",
+    "fault_type": "hot_key_contention",
+    "technology": [
+      "Redis",
+      "Cache"
+    ],
+    "mechanism": "single_key_command_contention",
+    "resource": "cache",
+    "signal": "hot_key_wait",
+    "observability": "key command latency and contention wait",
+    "repair": "key_distribution_policy",
+    "healthy_value": 0,
+    "fault_value": 31
+  },
+  "control_expectations": {}
+}

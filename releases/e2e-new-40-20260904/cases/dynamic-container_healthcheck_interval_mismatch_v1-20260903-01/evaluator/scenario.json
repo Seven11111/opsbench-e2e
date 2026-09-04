@@ -1,0 +1,21 @@
+{
+  "template_id": "container_healthcheck_interval_mismatch_v1",
+  "primitive_id": "container_healthcheck_interval_mismatch_v1",
+  "capability_profile": {
+    "domain": "container_runtime",
+    "fault_type": "healthcheck_interval_mismatch",
+    "technology": [
+      "Docker",
+      "Compose",
+      "healthcheck"
+    ],
+    "mechanism": "container_healthcheck_interval_contract",
+    "resource": "container",
+    "signal": "healthcheck_interval",
+    "observability": "healthcheck cadence and endpoint readiness",
+    "repair": "healthcheck_policy",
+    "healthy_value": 10,
+    "fault_value": 120
+  },
+  "control_expectations": {}
+}

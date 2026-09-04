@@ -1,0 +1,21 @@
+{
+  "template_id": "redis_expired_keys_lag_v1",
+  "primitive_id": "redis_expired_keys_lag_v1",
+  "capability_profile": {
+    "domain": "cache",
+    "fault_type": "expired_keys_lag",
+    "technology": [
+      "Redis",
+      "expiration",
+      "Cache"
+    ],
+    "mechanism": "expired_key_eviction_lag",
+    "resource": "cache",
+    "signal": "expired_keys_lag",
+    "observability": "expired-key counters and cache response freshness",
+    "repair": "expiration_policy",
+    "healthy_value": 0,
+    "fault_value": 17
+  },
+  "control_expectations": {}
+}

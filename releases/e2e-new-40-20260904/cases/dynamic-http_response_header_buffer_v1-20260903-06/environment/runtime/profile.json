@@ -1,0 +1,16 @@
+{
+  "domain": "http",
+  "fault_type": "response_header_buffer",
+  "technology": [
+    "HTTP",
+    "Nginx",
+    "headers"
+  ],
+  "mechanism": "large_response_header_buffer_contract",
+  "resource": "network",
+  "signal": "header_buffer_rejections",
+  "observability": "HTTP response status and header-buffer rejection count",
+  "repair": "header_buffer_policy",
+  "healthy_value": 0,
+  "fault_value": 7
+}

@@ -1,0 +1,15 @@
+{
+  "domain": "messaging",
+  "fault_type": "consumer_ack_timeout",
+  "technology": [
+    "RabbitMQ",
+    "AMQP"
+  ],
+  "mechanism": "consumer_acknowledgement_timeout",
+  "resource": "messaging",
+  "signal": "ack_timeout_count",
+  "observability": "consumer acknowledgements and channel closure",
+  "repair": "ack_timeout_policy",
+  "healthy_value": 0,
+  "fault_value": 4
+}

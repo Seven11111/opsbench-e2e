@@ -1,0 +1,49 @@
+services:
+  target:
+    build: {context: ., dockerfile: Dockerfile}
+    image: opsbench-e2e-linux_mtu_mismatch_v1
+    working_dir: /runtime
+    command: ["python", "/opt/opsbench/service.py"]
+    user: "0:0"
+    read_only: true
+    tmpfs: ["/tmp", "/data"]
+    volumes:
+      - ./runtime/profile.json:/etc/opsbench/profile.json:ro
+      - ./runtime/fault.json:/runtime/fault.json
+      - ./runtime/status.json:/runtime/status.json
+      - ${OPSBENCH_PUBLIC_DIR:-../public}:/opsbench/public:ro
+      - ${OPSBENCH_TRACE_DIR:-../trace}:/opsbench/trace
+    environment:
+      OPSBENCH_BUSINESS_CHECK_URL: http://127.0.0.1:8080/business
+      OPSBENCH_TOOL_STANDARD_ID: service-lifecycle-v1
+    cpus: "1.0"
+    mem_limit: 256m
+    pids_limit: 128
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+  control:
+    image: opsbench-e2e-linux_mtu_mismatch_v1
+    working_dir: /runtime
+    command: ["sleep", "infinity"]
+    user: "0:0"
+    read_only: true
+    tmpfs: ["/tmp"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime/fault.json:/runtime/fault.json
+      - ./runtime/status.json:/runtime/status.json
+  verifier:
+    image: opsbench-e2e-linux_mtu_mismatch_v1
+    working_dir: /runtime
+    command: ["sleep", "infinity"]
+    user: "0:0"
+    read_only: true
+    tmpfs: ["/tmp"]
+    volumes:
+      - ../:/opsbench/case:ro
+      - ./runtime/profile.json:/etc/opsbench/profile.json:ro
+      - ./runtime/fault.json:/runtime/fault.json
+      - ./runtime/status.json:/runtime/status.json
+    environment:
+      OPSBENCH_TARGET_URL: http://target:8080

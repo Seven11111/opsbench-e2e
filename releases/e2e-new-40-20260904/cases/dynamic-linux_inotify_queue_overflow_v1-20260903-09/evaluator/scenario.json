@@ -1,0 +1,21 @@
+{
+  "template_id": "linux_inotify_queue_overflow_v1",
+  "primitive_id": "linux_inotify_queue_overflow_v1",
+  "capability_profile": {
+    "domain": "linux",
+    "fault_type": "inotify_queue_overflow",
+    "technology": [
+      "Linux",
+      "inotify",
+      "procfs"
+    ],
+    "mechanism": "inotify_event_queue_overflow",
+    "resource": "kernel",
+    "signal": "inotify_queue_headroom",
+    "observability": "inotify queue capacity and file-event delivery",
+    "repair": "inotify_queue_policy",
+    "healthy_value": 100,
+    "fault_value": 1
+  },
+  "control_expectations": {}
+}

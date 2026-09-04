@@ -1,0 +1,21 @@
+{
+  "template_id": "linux_mtu_mismatch_v1",
+  "primitive_id": "linux_mtu_mismatch_v1",
+  "capability_profile": {
+    "domain": "network",
+    "fault_type": "mtu_mismatch",
+    "technology": [
+      "Linux",
+      "IP",
+      "MTU"
+    ],
+    "mechanism": "path_mtu_contract_mismatch",
+    "resource": "network",
+    "signal": "path_mtu_probe",
+    "observability": "interface MTU and packet-size probe",
+    "repair": "interface_mtu_policy",
+    "healthy_value": 1500,
+    "fault_value": 576
+  },
+  "control_expectations": {}
+}

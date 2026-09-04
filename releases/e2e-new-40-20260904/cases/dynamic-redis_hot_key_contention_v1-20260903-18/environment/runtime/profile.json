@@ -1,0 +1,15 @@
+{
+  "domain": "cache",
+  "fault_type": "hot_key_contention",
+  "technology": [
+    "Redis",
+    "Cache"
+  ],
+  "mechanism": "single_key_command_contention",
+  "resource": "cache",
+  "signal": "hot_key_wait",
+  "observability": "key command latency and contention wait",
+  "repair": "key_distribution_policy",
+  "healthy_value": 0,
+  "fault_value": 31
+}

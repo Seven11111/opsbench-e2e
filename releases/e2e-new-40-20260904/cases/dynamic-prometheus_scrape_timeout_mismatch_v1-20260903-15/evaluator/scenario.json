@@ -1,0 +1,21 @@
+{
+  "template_id": "prometheus_scrape_timeout_mismatch_v1",
+  "primitive_id": "prometheus_scrape_timeout_mismatch_v1",
+  "capability_profile": {
+    "domain": "observability",
+    "fault_type": "scrape_timeout_mismatch",
+    "technology": [
+      "Prometheus",
+      "scrape",
+      "metrics"
+    ],
+    "mechanism": "scrape_timeout_interval_contract",
+    "resource": "observability",
+    "signal": "scrape_timeout_errors",
+    "observability": "scrape duration, timeout errors and target health",
+    "repair": "scrape_timeout_policy",
+    "healthy_value": 0,
+    "fault_value": 6
+  },
+  "control_expectations": {}
+}

@@ -1,0 +1,16 @@
+{
+  "domain": "linux",
+  "fault_type": "file_descriptor_pressure",
+  "technology": [
+    "Linux",
+    "procfs",
+    "file descriptors"
+  ],
+  "mechanism": "system_file_descriptor_exhaustion",
+  "resource": "kernel",
+  "signal": "file_descriptor_headroom",
+  "observability": "allocated file handles and descriptor headroom",
+  "repair": "file_descriptor_policy",
+  "healthy_value": 100,
+  "fault_value": 3
+}

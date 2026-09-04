@@ -1,0 +1,16 @@
+{
+  "domain": "network",
+  "fault_type": "tcp_retransmission_pressure",
+  "technology": [
+    "Linux",
+    "TCP",
+    "ss"
+  ],
+  "mechanism": "tcp_retransmission_queue_pressure",
+  "resource": "network",
+  "signal": "retransmission_rate",
+  "observability": "TCP retransmission counters and socket queue state",
+  "repair": "tcp_queue_policy",
+  "healthy_value": 0,
+  "fault_value": 18
+}

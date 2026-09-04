@@ -1,0 +1,15 @@
+{
+  "domain": "http",
+  "fault_type": "keepalive_exhaustion",
+  "technology": [
+    "HTTP",
+    "Nginx"
+  ],
+  "mechanism": "keepalive_request_limit",
+  "resource": "network",
+  "signal": "keepalive_requests",
+  "observability": "connection reuse and keepalive request budget",
+  "repair": "keepalive_policy",
+  "healthy_value": 100,
+  "fault_value": 1
+}

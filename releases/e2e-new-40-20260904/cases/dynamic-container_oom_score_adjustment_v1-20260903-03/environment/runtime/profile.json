@@ -1,0 +1,16 @@
+{
+  "domain": "container_runtime",
+  "fault_type": "oom_score_adjustment",
+  "technology": [
+    "Docker",
+    "Linux",
+    "OOM"
+  ],
+  "mechanism": "container_oom_score_selection",
+  "resource": "memory",
+  "signal": "oom_score",
+  "observability": "OOM score and application availability",
+  "repair": "oom_score_policy",
+  "healthy_value": 0,
+  "fault_value": 900
+}

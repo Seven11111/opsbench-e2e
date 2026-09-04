@@ -1,0 +1,21 @@
+{
+  "template_id": "postgres_work_mem_spill_v1",
+  "primitive_id": "postgres_work_mem_spill_v1",
+  "capability_profile": {
+    "domain": "database",
+    "fault_type": "work_mem_spill",
+    "technology": [
+      "PostgreSQL",
+      "SQL",
+      "work_mem"
+    ],
+    "mechanism": "sort_hash_work_mem_spill",
+    "resource": "database",
+    "signal": "temp_spill_pressure",
+    "observability": "temporary-file spill and query completion",
+    "repair": "work_mem_policy",
+    "healthy_value": 0,
+    "fault_value": 11
+  },
+  "control_expectations": {}
+}

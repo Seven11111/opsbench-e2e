@@ -1,0 +1,21 @@
+{
+  "template_id": "container_image_pull_policy_drift_v1",
+  "primitive_id": "container_image_pull_policy_drift_v1",
+  "capability_profile": {
+    "domain": "container_runtime",
+    "fault_type": "image_pull_policy_drift",
+    "technology": [
+      "Docker",
+      "Compose",
+      "image policy"
+    ],
+    "mechanism": "compose_image_pull_policy_selection",
+    "resource": "container",
+    "signal": "image_policy",
+    "observability": "image selection policy and deployed image identity",
+    "repair": "image_pull_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}

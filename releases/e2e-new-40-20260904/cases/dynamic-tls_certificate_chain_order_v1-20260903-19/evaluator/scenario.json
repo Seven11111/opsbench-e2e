@@ -1,0 +1,21 @@
+{
+  "template_id": "tls_certificate_chain_order_v1",
+  "primitive_id": "tls_certificate_chain_order_v1",
+  "capability_profile": {
+    "domain": "tls",
+    "fault_type": "certificate_chain_order",
+    "technology": [
+      "TLS",
+      "OpenSSL",
+      "X.509"
+    ],
+    "mechanism": "certificate_chain_order_validation",
+    "resource": "security",
+    "signal": "chain_order_valid",
+    "observability": "certificate chain verification and issuer order",
+    "repair": "certificate_chain_policy",
+    "healthy_value": 1,
+    "fault_value": 0
+  },
+  "control_expectations": {}
+}
